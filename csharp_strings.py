@@ -716,7 +716,7 @@ int CS_LDK_register_{fn_suffix}_invoker(invoker_{fn_suffix} invoker) {{
             else:
                 bindings_instantiator += ", " + first_to_lower(var[1]) + ".instance_idx"
                 pointer_to_adder += "\t\timpl_holder.held.ptrs_to.AddLast(" + first_to_lower(var[1]) + ");\n"
-                impl_constructor_arguments += f", {var[0].replace('LDK', '')}Interface {first_to_lower(var[1])}_impl"
+                impl_constructor_arguments += f", I{var[0].replace('LDK', '')} {first_to_lower(var[1])}_impl"
 
         super_constructor_statements = ""
         trait_constructor_arguments = ""
@@ -745,8 +745,8 @@ int CS_LDK_register_{fn_suffix}_invoker(invoker_{fn_suffix} invoker) {{
 
         java_trait_wrapper = "\tprivate class " + struct_name + "Holder { internal " + struct_name.replace("LDK", "") + " held; }\n"
         java_trait_wrapper += "\tprivate class " + struct_name + "Impl : bindings." + struct_name + " {\n"
-        java_trait_wrapper += "\t\tinternal " + struct_name + "Impl(" + struct_name.replace("LDK", "") + "Interface arg, " + struct_name + "Holder impl_holder) { this.arg = arg; this.impl_holder = impl_holder; }\n"
-        java_trait_wrapper += "\t\tprivate " + struct_name.replace("LDK", "") + "Interface arg;\n"
+        java_trait_wrapper += "\t\tinternal I" + struct_name + "Impl(" + struct_name.replace("LDK", "") + " arg, " + struct_name + "Holder impl_holder) { this.arg = arg; this.impl_holder = impl_holder; }\n"
+        java_trait_wrapper += "\t\tprivate I" + struct_name.replace("LDK", "") + " arg;\n"
         java_trait_wrapper += "\t\tprivate " + struct_name + "Holder impl_holder;\n"
 
         for fn_line in field_function_lines:
@@ -833,7 +833,7 @@ public class {struct_name.replace("LDK","")} : CommonBase {{
 {java_trait_wrapper}
 
 	/** Creates a new instance of {struct_name.replace("LDK","")} from a given implementation */
-	public static {struct_name.replace("LDK", "")} new_impl({struct_name.replace("LDK", "")}Interface arg{impl_constructor_arguments}) {{
+	public static {struct_name.replace("LDK", "")} new_impl(I{struct_name.replace("LDK", "")} arg{impl_constructor_arguments}) {{
 		{struct_name}Holder impl_holder = new {struct_name}Holder();
 		{struct_name}Impl impl = new {struct_name}Impl(arg, impl_holder);
 {super_constructor_statements}		long[] ptr_idx = bindings.{struct_name}_new(impl{bindings_instantiator});
