@@ -20,7 +20,7 @@ namespace tests {
 			Assert(ping.get_ponglen() == 42, 0);
 		}
 
-		class TestBroadcaster : BroadcasterInterfaceInterface {
+		class TestBroadcaster : IBroadcasterInterface {
 			public bool broadcasted = false;
 			public void broadcast_transactions(byte[][] txn) {
 				Assert(txn.Length == 1, 1);
@@ -38,7 +38,7 @@ namespace tests {
 			Assert(impl.broadcasted == true, 3);
 		}
 
-		class TestEstimator : FeeEstimatorInterface {
+		class TestEstimator : IFeeEstimator {
 			public int get_est_sat_per_1000_weight(ConfirmationTarget confirmation_target) {
 				if (confirmation_target == ConfirmationTarget.LDKConfirmationTarget_MinAllowedNonAnchorChannelRemoteFee) {
 					return 253;
@@ -48,13 +48,13 @@ namespace tests {
 			}
 		}
 
-		class TestLogger : LoggerInterface {
+		class TestLogger : ILogger {
 			public void log(Record record) {
 				Console.WriteLine(record.get_module_path() + ":" + record.get_line() + " " + record.get_args());
 			}
 		}
 
-		class TestPersister : PersistInterface {
+		class TestPersister : IPersist {
 			public ChannelMonitorUpdateStatus persist_new_channel(OutPoint channel_id, ChannelMonitor data, MonitorUpdateId update_id) {
 				return ChannelMonitorUpdateStatus.LDKChannelMonitorUpdateStatus_Completed;
 			}
@@ -63,7 +63,7 @@ namespace tests {
 			}
 		}
 
-		class TestEventHandler : EventHandlerInterface {
+		class TestEventHandler : IEventHandler {
 			public List<Event> events = new List<Event>();
 			public void handle_event(Event ev) {
 				events.Add(ev);
