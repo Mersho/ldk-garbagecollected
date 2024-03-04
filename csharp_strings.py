@@ -745,7 +745,7 @@ int CS_LDK_register_{fn_suffix}_invoker(invoker_{fn_suffix} invoker) {{
 
         java_trait_wrapper = "\tprivate class " + struct_name + "Holder { internal " + struct_name.replace("LDK", "") + " held; }\n"
         java_trait_wrapper += "\tprivate class " + struct_name + "Impl : bindings." + struct_name + " {\n"
-        java_trait_wrapper += "\t\tinternal I" + struct_name + "Impl(" + struct_name.replace("LDK", "") + " arg, " + struct_name + "Holder impl_holder) { this.arg = arg; this.impl_holder = impl_holder; }\n"
+        java_trait_wrapper += "\t\tinternal " + struct_name + "Impl(I" + struct_name.replace("LDK", "") + " arg, " + struct_name + "Holder impl_holder) { this.arg = arg; this.impl_holder = impl_holder; }\n"
         java_trait_wrapper += "\t\tprivate I" + struct_name.replace("LDK", "") + " arg;\n"
         java_trait_wrapper += "\t\tprivate " + struct_name + "Holder impl_holder;\n"
 
