@@ -815,7 +815,7 @@ int CS_LDK_register_{fn_suffix}_invoker(invoker_{fn_suffix} invoker) {{
 {self.hu_struct_file_prefix}
 
 /** An implementation of {struct_name.replace("LDK","")} */
-public interface {struct_name.replace("LDK", "")}Interface {{
+public interface I{struct_name.replace("LDK", "")} {{
 {out_java_interface}}}
 
 /**
