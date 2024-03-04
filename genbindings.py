@@ -79,6 +79,9 @@ def camel_to_snake(s):
             lastund = True
     return (ret + lastchar.lower()).strip("_")
 
+def snake_to_pascal(text: str):
+    return ''.join(x.title() for x in text.split('_'))
+
 def doc_to_field_nullable(doc):
     if doc is None:
         return False
