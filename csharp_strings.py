@@ -15,6 +15,9 @@ def safe_arg_name(arg_name):
 def arg_name_repl(s, arg_name):
     return s.replace(arg_name, "_" + arg_name) if arg_name == "lock" or arg_name == "event" or arg_name == "params" else s
 
+def snake_to_pascal(text: str):
+    return ''.join(x.title() for x in text.split('_'))
+
 class Consts:
     def __init__(self, DEBUG: bool, target: Target, outdir: str, **kwargs):
         self.outdir = outdir
@@ -1230,6 +1233,8 @@ public class {struct_name.replace("LDK","")} : CommonBase {{
         out_java = ""
         out_c = ""
         out_java_struct = None
+
+        method_name = snake_to_pascal(method_name)
 
         out_java += self.native_meth_decl(method_name, return_type_info.java_ty) + "("
         out_c += (return_type_info.c_ty)
