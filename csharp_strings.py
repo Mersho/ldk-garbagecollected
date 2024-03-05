@@ -747,7 +747,7 @@ int CS_LDK_register_{fn_suffix}_invoker(invoker_{fn_suffix} invoker) {{
         # BUILD INTERFACE METHODS
 
         java_trait_wrapper = "\tprivate class " + struct_name + "Holder { internal " + struct_name.replace("LDK", "") + " held; }\n"
-        java_trait_wrapper += "\tprivate class " + struct_name + "Impl : bindings." + struct_name + " {\n"
+        java_trait_wrapper += "\tprivate class " + struct_name + "Impl : bindings." + snake_to_pascal(struct_name) + " {\n"
         java_trait_wrapper += "\t\tinternal " + struct_name + "Impl(I" + struct_name.replace("LDK", "") + " arg, " + struct_name + "Holder impl_holder) { this.arg = arg; this.impl_holder = impl_holder; }\n"
         java_trait_wrapper += "\t\tprivate I" + struct_name.replace("LDK", "") + " arg;\n"
         java_trait_wrapper += "\t\tprivate " + struct_name + "Holder impl_holder;\n"
@@ -1355,7 +1355,7 @@ public class {struct_name.replace("LDK","")} : CommonBase {{
                 if idx == 0 and takes_self:
                     out_java_struct += ("this.ptr")
                 elif info.arg_name in default_constructor_args:
-                    out_java_struct += ("bindings." + info.java_hu_ty + "_new(")
+                    out_java_struct += ("bindings." + snake_to_pascal(info.java_hu_ty + "_new("))
                     for explode_idx, explode_arg in enumerate(default_constructor_args[info.arg_name]):
                         if explode_idx != 0:
                             out_java_struct += (", ")
