@@ -16,7 +16,9 @@ def arg_name_repl(s, arg_name):
     return s.replace(arg_name, "_" + arg_name) if arg_name == "lock" or arg_name == "event" or arg_name == "params" else s
 
 def snake_to_pascal(text: str):
-    return ''.join(x.title() for x in text.split('_'))
+    if '_' not in text and text != text.lower():
+        return text
+    return ''.join(x.title() if x and not x[0].isupper() else x for x in text.split('_'))
 
 class Consts:
     def __init__(self, DEBUG: bool, target: Target, outdir: str, **kwargs):
@@ -1096,10 +1098,10 @@ public class {struct_name.replace("LDK","")} : CommonBase {{
         java_hu_class += "public class " + java_hu_type + " : CommonBase {\n"
         java_hu_class += f"\tprotected {java_hu_type}(object _dummy, long ptr) : base(ptr)" + " { }\n"
         java_hu_class += "\t~" + java_hu_type + "() {\n"
-        java_hu_class += "\t\tif (ptr != 0) { bindings." + bindings_type + "_free(ptr); }\n"
+        java_hu_class += "\t\tif (ptr != 0) { bindings." + snake_to_pascal(bindings_type + "_free(ptr); }\n")
         java_hu_class += "\t}\n\n"
         java_hu_class += f"\tinternal static {java_hu_type} constr_from_ptr(long ptr) {{\n"
-        java_hu_class += f"\t\tlong raw_ty = bindings." + struct_name + "_ty_from_ptr(ptr);\n"
+        java_hu_class += f"\t\tlong raw_ty = bindings." + snake_to_pascal(struct_name + "_ty_from_ptr(ptr);\n")
         out_c += self.c_fn_ty_pfx + "uint32_t" + self.c_fn_name_define_pfx(struct_name + "_ty_from_ptr", True) + self.ptr_c_ty + " ptr) {\n"
         out_c += "\t" + struct_name + " *obj = (" + struct_name + "*)untag_ptr(ptr);\n"
         out_c += "\tswitch(obj->tag) {\n"
@@ -1119,11 +1121,13 @@ public class {struct_name.replace("LDK","")} : CommonBase {{
                     java_hu_subclasses += "\t\t/**\n\t\t * " + field_docs.replace("\n", "\n\t\t * ") + "\n\t\t */\n"
                 java_hu_subclasses += f"\t\tpublic {field_ty.java_hu_ty} {field_ty.arg_name};\n"
                 if field_ty.to_hu_conv is not None:
-                    hu_conv_body += f"\t\t\t{field_ty.java_ty} {field_ty.arg_name} = bindings.{struct_name}_{var.var_name}_get_{field_ty.arg_name}(ptr);\n"
+                    conv_pascal = snake_to_pascal(f"{struct_name}_{var.var_name}_get_{field_ty.arg_name}")
+                    hu_conv_body += f"\t\t\t{field_ty.java_ty} {field_ty.arg_name} = bindings.{conv_pascal}(ptr);\n"
                     hu_conv_body += f"\t\t\t" + field_ty.to_hu_conv.replace("\n", "\n\t\t\t") + "\n"
                     hu_conv_body += f"\t\t\tthis." + field_ty.arg_name + " = " + field_ty.to_hu_conv_name + ";\n"
                 else:
-                    hu_conv_body += f"\t\t\tthis.{field_ty.arg_name} = bindings.{struct_name}_{var.var_name}_get_{field_ty.arg_name}(ptr);\n"
+                    conv_pascal = snake_to_pascal(f"{struct_name}_{var.var_name}_get_{field_ty.arg_name}")
+                    hu_conv_body += f"\t\t\tthis.{field_ty.arg_name} = bindings.{conv_pascal}(ptr);\n"
             java_hu_subclasses += "\t\tinternal " + java_hu_type + "_" + var.var_name + "(long ptr) : base(null, ptr) {\n"
             java_hu_subclasses += hu_conv_body
             java_hu_subclasses += "\t\t}\n\t}\n"
@@ -1172,7 +1176,7 @@ public class {struct_name.replace("LDK","")} : CommonBase {{
             out_opaque_struct_human += ("\tpublic void Dispose() {\n")
         else:
             out_opaque_struct_human += ("\t~" + hu_name + "() {\n")
-        out_opaque_struct_human += ("\t\tif (ptr != 0) { bindings." + struct_name.replace("LDK","") + "_free(ptr); }\n")
+        out_opaque_struct_human += ("\t\tif (ptr != 0) { bindings." + snake_to_pascal(struct_name.replace("LDK","") + "_free") + "(ptr); }\n")
         out_opaque_struct_human += ("\t}\n\n")
         return out_opaque_struct_human
 
@@ -1186,10 +1190,10 @@ public class {struct_name.replace("LDK","")} : CommonBase {{
         java_hu_struct += "public class " + human_ty + " : CommonBase {\n"
         java_hu_struct += "\t" + human_ty + "(object _dummy, long ptr) : base(ptr) { }\n"
         java_hu_struct += "\t~" + human_ty + "() {\n"
-        java_hu_struct += "\t\tif (ptr != 0) { bindings." + struct_name.replace("LDK","") + "_free(ptr); }\n"
+        java_hu_struct += "\t\tif (ptr != 0) { bindings." + snake_to_pascal(struct_name.replace("LDK","") + "_free") + "(ptr); }\n"
         java_hu_struct += "\t}\n\n"
         java_hu_struct += "\tinternal static " + human_ty + " constr_from_ptr(long ptr) {\n"
-        java_hu_struct += "\t\tif (bindings." + struct_name.replace("LDK", "") + "_is_ok(ptr)) {\n"
+        java_hu_struct += "\t\tif (bindings." + snake_to_pascal(struct_name.replace("LDK", "") + "_is_ok(ptr)) {\n")
         java_hu_struct += "\t\t\treturn new " + human_ty + "_OK(null, ptr);\n"
         java_hu_struct += "\t\t} else {\n"
         java_hu_struct += "\t\t\treturn new " + human_ty + "_Err(null, ptr);\n"
@@ -1204,11 +1208,11 @@ public class {struct_name.replace("LDK","")} : CommonBase {{
         if res_map.java_hu_ty == "void":
             pass
         elif res_map.to_hu_conv is not None:
-            java_hu_struct += "\t\t\t" + res_map.java_ty + " res = bindings." + struct_name.replace("LDK", "") + "_get_ok(ptr);\n"
+            java_hu_struct += "\t\t\t" + res_map.java_ty + " res = bindings." + snake_to_pascal(struct_name.replace("LDK", "") + "_get_ok(ptr);\n")
             java_hu_struct += "\t\t\t" + res_map.to_hu_conv.replace("\n", "\n\t\t\t")
             java_hu_struct += "\n\t\t\tthis.res = " + res_map.to_hu_conv_name + ";\n"
         else:
-            java_hu_struct += "\t\t\tthis.res = bindings." + struct_name.replace("LDK", "") + "_get_ok(ptr);\n"
+            java_hu_struct += "\t\t\tthis.res = bindings." + snake_to_pascal(struct_name.replace("LDK", "") + "_get_ok(ptr);\n")
         java_hu_struct += "\t\t}\n"
         java_hu_struct += "\t}\n\n"
 
@@ -1219,11 +1223,11 @@ public class {struct_name.replace("LDK","")} : CommonBase {{
         if err_map.java_hu_ty == "void":
             pass
         elif err_map.to_hu_conv is not None:
-            java_hu_struct += "\t\t\t" + err_map.java_ty + " err = bindings." + struct_name.replace("LDK", "") + "_get_err(ptr);\n"
+            java_hu_struct += "\t\t\t" + err_map.java_ty + " err = bindings." + snake_to_pascal(struct_name.replace("LDK", "") + "_get_err(ptr);\n")
             java_hu_struct += "\t\t\t" + err_map.to_hu_conv.replace("\n", "\n\t\t\t")
             java_hu_struct += "\n\t\t\tthis.err = " + err_map.to_hu_conv_name + ";\n"
         else:
-            java_hu_struct += "\t\t\tthis.err = bindings." + struct_name.replace("LDK", "") + "_get_err(ptr);\n"
+            java_hu_struct += "\t\t\tthis.err = bindings." + snake_to_pascal(struct_name.replace("LDK", "") + "_get_err(ptr);\n")
         java_hu_struct += "\t\t}\n"
 
         java_hu_struct += "\t}\n\n"
