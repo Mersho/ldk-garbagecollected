@@ -763,7 +763,7 @@ int CS_LDK_register_{fn_suffix}_invoker(invoker_{fn_suffix} invoker) {{
                 fn_name = fn_line.fn_name
                 if fn_name == "lock": # reserved symbol
                     fn_name = "do_lock"
-                java_trait_wrapper += "\t\tpublic " + fn_line.ret_ty_info.java_ty + " " + fn_name + "("
+                java_trait_wrapper += "\t\tpublic " + fn_line.ret_ty_info.java_ty + " " + snake_to_pascal(fn_name) + "("
 
                 for idx, arg_conv_info in enumerate(fn_line.args_ty):
                     if idx >= 1:
@@ -1460,7 +1460,7 @@ public class {struct_name_pascal.replace("LDK","")} : CommonBase {{
 					Console.Error.Flush();
 					Environment.Exit(44);
 				}}\n""")
-                        call = f"(({self.function_ptrs[fn_suffix][f][0]})obj).{self.function_ptrs[fn_suffix][f][1]}({self.function_ptrs[fn_suffix][f][2]});"
+                        call = f"(({self.function_ptrs[fn_suffix][f][0]})obj).{snake_to_pascal(self.function_ptrs[fn_suffix][f][1])}({self.function_ptrs[fn_suffix][f][2]});"
                         if jret != "void":
                             bindings.write("\t\t\t\treturn " + call)
                         else:
