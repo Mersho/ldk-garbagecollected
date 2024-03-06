@@ -212,7 +212,7 @@ public class CommonBase {
 #define CHECK(a) DO_ASSERT(a)
 
 void __attribute__((constructor)) debug_log_version() {
-	if (check_GetLdkVersion() == NULL)
+	if (check_get_ldk_version() == NULL)
 		DEBUG_PRINT("LDK version did not match the header we built against\\n");
 	if (check_get_ldk_bindings_version() == NULL)
 		DEBUG_PRINT("LDK C Bindings version did not match the header we built against\\n");
@@ -429,7 +429,7 @@ static inline LDKStr str_ref_to_owned_c(const jstring str) {
 
 typedef bool jboolean;
 
-int64_t CS_LDK_AllocateBuffer(int64_t len) {
+int64_t CS_LDK_allocate_buffer(int64_t len) {
 	return (int64_t)MALLOC(len, "C#-requested buffer");
 }
 
@@ -440,12 +440,12 @@ void CS_LDK_free_buffer(int64_t buf) {
 jstring CS_LDK_GetLdkCBindingsVersion() {
 	return str_ref_to_cs(check_get_ldk_bindings_version(), strlen(check_get_ldk_bindings_version()));
 }
-jstring CS_LDK_GetLdkVersion() {
-	return str_ref_to_cs(check_GetLdkVersion(), strlen(check_GetLdkVersion()));
+jstring CS_LDK_get_ldk_version() {
+	return str_ref_to_cs(check_get_ldk_version(), strlen(check_get_ldk_version()));
 }
 #include "version.c"
 """
-        self.c_version_file = """const char* CS_LDK_GetLibVersionString() {
+        self.c_version_file = """const char* CS_LDK_get_lib_version_string() {
 	return "<git_version_ldk_garbagecollected>";
 }"""
 
