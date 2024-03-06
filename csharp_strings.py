@@ -65,7 +65,7 @@ internal class bindings {
         self.bindings_header += self.native_meth_decl("get_ldk_c_bindings_version", "string") + "();\n"
         self.bindings_header += self.native_meth_decl("get_ldk_version", "string") + "();\n\n"
         self.bindings_header += self.native_meth_decl("allocate_buffer", "long") + "(long buflen);\n\n"
-        self.bindings_header += self.native_meth_decl("free_buffer", "void") + "(long buf);\n\n"
+        self.bindings_header += self.native_meth_decl("FreeBuffer", "void") + "(long buf);\n\n"
 
         self.bindings_version_file = """
 
@@ -108,17 +108,17 @@ public class CommonBase {
 	public readonly int previous_vout;
 
 	internal TxIn(object _dummy, long ptr) : base(ptr) {
-		this.witness = InternalUtils.decodeUint8Array(bindings.TxIn_get_witness(ptr));
-		this.script_sig = InternalUtils.decodeUint8Array(bindings.TxIn_get_script_sig(ptr));
-		this.sequence = bindings.TxIn_get_sequence(ptr);
-		this.previous_txid = InternalUtils.decodeUint8Array(bindings.TxIn_get_previous_txid(ptr));
-		this.previous_vout = bindings.TxIn_get_previous_vout(ptr);
+		this.witness = InternalUtils.decodeUint8Array(bindings.TxInGetWitness(ptr));
+		this.script_sig = InternalUtils.decodeUint8Array(bindings.TxInGetScriptSig(ptr));
+		this.sequence = bindings.TxInGetSequence(ptr);
+		this.previous_txid = InternalUtils.decodeUint8Array(bindings.TxInGetPreviousTxid(ptr));
+		this.previous_vout = bindings.TxInGetPreviousVout(ptr);
 	}
 	public TxIn(byte[] witness, byte[] script_sig, int sequence, byte[] previous_txid, int previous_vout)
-	: this(null, bindings.TxIn_new(InternalUtils.encodeUint8Array(witness), InternalUtils.encodeUint8Array(script_sig), sequence, InternalUtils.encodeUint8Array(previous_txid), previous_vout)) {}
+	: this(null, bindings.TxInNew(InternalUtils.encodeUint8Array(witness), InternalUtils.encodeUint8Array(script_sig), sequence, InternalUtils.encodeUint8Array(previous_txid), previous_vout)) {}
 
 	~TxIn() {
-		if (ptr != 0) { bindings.TxIn_free(ptr); }
+		if (ptr != 0) { bindings.TxInFree(ptr); }
 	}
 }"""
 
@@ -129,13 +129,13 @@ public class CommonBase {
 	public readonly long value;
 
     internal TxOut(object _dummy, long ptr) : base(ptr) {
-		this.script_pubkey = InternalUtils.decodeUint8Array(bindings.TxOut_get_script_pubkey(ptr));
-		this.value = bindings.TxOut_get_value(ptr);
+		this.script_pubkey = InternalUtils.decodeUint8Array(bindings.TxOutGetScriptPubkey(ptr));
+		this.value = bindings.TxOutGetValue(ptr);
 	}
-    public TxOut(long value, byte[] script_pubkey) : this(null, bindings.TxOut_new(InternalUtils.encodeUint8Array(script_pubkey), value)) {}
+    public TxOut(long value, byte[] script_pubkey) : this(null, bindings.TxOutNew(InternalUtils.encodeUint8Array(script_pubkey), value)) {}
 
 	~TxOut() {
-		if (ptr != 0) { bindings.TxOut_free(ptr); }
+		if (ptr != 0) { bindings.TxOutFree(ptr); }
 	}
 }"""
 
@@ -144,14 +144,14 @@ public class CommonBase {
 	public readonly byte[] scalar_bytes;
 
     internal BigEndianScalar(object _dummy, long ptr) : base(ptr) {
-		this.scalar_bytes = InternalUtils.decodeUint8Array(bindings.BigEndianScalar_get_bytes(ptr));
+		this.scalar_bytes = InternalUtils.decodeUint8Array(bindings.BigEndianScalarGetBytes(ptr));
 	}
-    public BigEndianScalar(byte[] scalar_bytes) : base(bindings.BigEndianScalar_new(InternalUtils.encodeUint8Array(scalar_bytes))) {
-		this.scalar_bytes = InternalUtils.decodeUint8Array(bindings.BigEndianScalar_get_bytes(ptr));
+    public BigEndianScalar(byte[] scalar_bytes) : base(bindings.BigEndianScalarNew(InternalUtils.encodeUint8Array(scalar_bytes))) {
+		this.scalar_bytes = InternalUtils.decodeUint8Array(bindings.BigEndianScalarGetBytes(ptr));
 	}
 
 	~BigEndianScalar() {
-		if (ptr != 0) { bindings.BigEndianScalar_free(ptr); }
+		if (ptr != 0) { bindings.BigEndianScalarFree(ptr); }
 	}
 }"""
 
@@ -162,8 +162,8 @@ public class CommonBase {
 	public readonly WitnessVersion version;
 
 	internal WitnessProgram(object _dummy, long ptr) : base(ptr) {
-		this.program = InternalUtils.decodeUint8Array(bindings.WitnessProgram_get_program(ptr));
-		this.version = new WitnessVersion(bindings.WitnessProgram_get_version(ptr));
+		this.program = InternalUtils.decodeUint8Array(bindings.WitnessProgramGetProgram(ptr));
+		this.version = new WitnessVersion(bindings.WitnessProgramGetVersion(ptr));
 	}
 	static private long check_args(byte[] program, WitnessVersion version) {
 		if (program.Length < 2 || program.Length > 40) throw new ArgumentException();
@@ -171,10 +171,10 @@ public class CommonBase {
 		return InternalUtils.encodeUint8Array(program);
 	}
 	public WitnessProgram(byte[] program, WitnessVersion version) :
-		this(null, bindings.WitnessProgram_new(version.getVal(), check_args(program, version))) {}
+		this(null, bindings.WitnessProgramNew(version.getVal(), check_args(program, version))) {}
 
 	~WitnessProgram() {
-		if (ptr != 0) { bindings.WitnessProgram_free(ptr); }
+		if (ptr != 0) { bindings.WitnessProgramFree(ptr); }
 	}
 }"""
 
@@ -578,7 +578,7 @@ int CS_LDK_register_{fn_suffix}_invoker(invoker_{fn_suffix} invoker) {{
             conv += "[" + ty_info.subty.java_hu_ty.split("<")[0].split("[")[1]
         return conv
     def cleanup_converted_native_array(self, ty_info, arr_name):
-        return "bindings.free_buffer(" + arr_name + ");"
+        return "bindings.FreeBuffer(" + arr_name + ");"
 
     def primitive_arr_from_hu(self, arr_ty, fixed_len, arr_name):
         mapped_ty = arr_ty.subty
@@ -748,8 +748,10 @@ int CS_LDK_register_{fn_suffix}_invoker(invoker_{fn_suffix} invoker) {{
 
         # BUILD INTERFACE METHODS
 
+        struct_name = snake_to_pascal(struct_name)
+
         java_trait_wrapper = "\tprivate class " + struct_name + "Holder { internal " + struct_name.replace("LDK", "") + " held; }\n"
-        java_trait_wrapper += "\tprivate class " + struct_name + "Impl : bindings." + snake_to_pascal(struct_name) + " {\n"
+        java_trait_wrapper += "\tprivate class " + struct_name + "Impl : bindings." + struct_name + " {\n"
         java_trait_wrapper += "\t\tinternal " + struct_name + "Impl(I" + struct_name.replace("LDK", "") + " arg, " + struct_name + "Holder impl_holder) { this.arg = arg; this.impl_holder = impl_holder; }\n"
         java_trait_wrapper += "\t\tprivate I" + struct_name.replace("LDK", "") + " arg;\n"
         java_trait_wrapper += "\t\tprivate " + struct_name + "Holder impl_holder;\n"
@@ -832,7 +834,7 @@ public class {struct_name.replace("LDK","")} : CommonBase {{
 
 	internal {struct_name.replace("LDK","")}(object _dummy, long ptr) : base(ptr) {{ bindings_instance = null; }}
 	~{struct_name.replace("LDK","")}() {{
-		if (ptr != 0) {{ bindings.{struct_name.replace("LDK","")}_free(ptr); }}
+		if (ptr != 0) {{ bindings.{snake_to_pascal(f'{struct_name.replace("LDK","")}_free')}(ptr); }}
 	}}
 
 {java_trait_wrapper}
@@ -841,7 +843,7 @@ public class {struct_name.replace("LDK","")} : CommonBase {{
 	public static {struct_name.replace("LDK", "")} new_impl(I{struct_name.replace("LDK", "")} arg{impl_constructor_arguments}) {{
 		{struct_name}Holder impl_holder = new {struct_name}Holder();
 		{struct_name}Impl impl = new {struct_name}Impl(arg, impl_holder);
-{super_constructor_statements}		long[] ptr_idx = bindings.{struct_name}_new(impl{bindings_instantiator});
+{super_constructor_statements}		long[] ptr_idx = bindings.{snake_to_pascal(f'{struct_name}_new')}(impl{bindings_instantiator});
 
 		impl_holder.held = new {struct_name.replace("LDK", "")}(null, ptr_idx[0]);
 		impl_holder.held.instance_idx = ptr_idx[1];
@@ -873,8 +875,8 @@ public class {struct_name.replace("LDK","")} : CommonBase {{
                 native_fn_args += ", " + var.java_ty + " " + var.arg_name
             else:
                 native_fn_args += ", long " + var[1]
-        out_typescript_bindings += self.native_meth_decl(struct_name + "_new", "long") + "_native(" + native_fn_args + ");\n"
-        out_typescript_bindings += f"\tpublic static long[] {struct_name}_new({struct_name} impl"
+        out_typescript_bindings += self.native_meth_decl(snake_to_pascal(struct_name + "_new"), "long") + "Native(" + native_fn_args + ");\n"
+        out_typescript_bindings += f"\tpublic static long[] {snake_to_pascal(f'{struct_name}_new')}({struct_name} impl"
         for var in flattened_field_var_conversions:
             if isinstance(var, ConvInfo):
                 out_typescript_bindings += f", {var.java_ty} {var.arg_name}"
@@ -896,7 +898,7 @@ public class {struct_name.replace("LDK","")} : CommonBase {{
 			js_objs[i] = new WeakReference(impl);
 		}}
 		long[] ret = new long[2];
-		ret[0] = {struct_name}_new_native(i{c_call_extra_args});
+		ret[0] = {snake_to_pascal(f'{struct_name}_new_native')}(i{c_call_extra_args});
 		ret[1] = i;
 		return ret;
 	}}
@@ -1058,7 +1060,7 @@ public class {struct_name.replace("LDK","")} : CommonBase {{
         out_c = out_c + "\treturn ret;\n"
         out_c = out_c + "}\n"
 
-        out_c = out_c + self.c_fn_ty_pfx + "uint64_t " + self.c_fn_name_define_pfx(struct_name + "_new", True) + "int32_t o"
+        out_c = out_c + self.c_fn_ty_pfx + "uint64_t " + self.c_fn_name_define_pfx(snake_to_pascal(struct_name + "_new"), True) + "int32_t o"
         for var in flattened_field_var_conversions:
             if isinstance(var, ConvInfo):
                 out_c = out_c + ", " + var.c_ty + " " + var.arg_name
@@ -1098,11 +1100,11 @@ public class {struct_name.replace("LDK","")} : CommonBase {{
         java_hu_class += "public class " + java_hu_type + " : CommonBase {\n"
         java_hu_class += f"\tprotected {java_hu_type}(object _dummy, long ptr) : base(ptr)" + " { }\n"
         java_hu_class += "\t~" + java_hu_type + "() {\n"
-        java_hu_class += "\t\tif (ptr != 0) { bindings." + snake_to_pascal(bindings_type + "_free(ptr); }\n")
+        java_hu_class += "\t\tif (ptr != 0) { bindings." + snake_to_pascal(bindings_type + "_free") + "(ptr); }\n"
         java_hu_class += "\t}\n\n"
         java_hu_class += f"\tinternal static {java_hu_type} constr_from_ptr(long ptr) {{\n"
-        java_hu_class += f"\t\tlong raw_ty = bindings." + snake_to_pascal(struct_name + "_ty_from_ptr(ptr);\n")
-        out_c += self.c_fn_ty_pfx + "uint32_t" + self.c_fn_name_define_pfx(struct_name + "_ty_from_ptr", True) + self.ptr_c_ty + " ptr) {\n"
+        java_hu_class += f"\t\tlong raw_ty = bindings." + snake_to_pascal(struct_name + "_ty_from_ptr") + "(ptr);\n"
+        out_c += self.c_fn_ty_pfx + "uint32_t" + self.c_fn_name_define_pfx(snake_to_pascal(struct_name + "_ty_from_ptr"), True) + self.ptr_c_ty + " ptr) {\n"
         out_c += "\t" + struct_name + " *obj = (" + struct_name + "*)untag_ptr(ptr);\n"
         out_c += "\tswitch(obj->tag) {\n"
         java_hu_class += "\t\tswitch (raw_ty) {\n"
@@ -1122,18 +1124,18 @@ public class {struct_name.replace("LDK","")} : CommonBase {{
                 java_hu_subclasses += f"\t\tpublic {field_ty.java_hu_ty} {field_ty.arg_name};\n"
                 if field_ty.to_hu_conv is not None:
                     conv_pascal = snake_to_pascal(f"{struct_name}_{var.var_name}_get_{field_ty.arg_name}")
-                    hu_conv_body += f"\t\t\t{field_ty.java_ty} {field_ty.arg_name} = bindings.{conv_pascal}(ptr);\n"
+                    hu_conv_body += f"\t\t\t{field_ty.java_ty} {field_ty.arg_name} = bindings.{struct_name}_{var.var_name}_get_{field_ty.arg_name}(ptr);\n"
                     hu_conv_body += f"\t\t\t" + field_ty.to_hu_conv.replace("\n", "\n\t\t\t") + "\n"
                     hu_conv_body += f"\t\t\tthis." + field_ty.arg_name + " = " + field_ty.to_hu_conv_name + ";\n"
                 else:
                     conv_pascal = snake_to_pascal(f"{struct_name}_{var.var_name}_get_{field_ty.arg_name}")
-                    hu_conv_body += f"\t\t\tthis.{field_ty.arg_name} = bindings.{conv_pascal}(ptr);\n"
+                    hu_conv_body += f"\t\t\tthis.{field_ty.arg_name} = bindings.{struct_name}_{var.var_name}_get_{field_ty.arg_name}(ptr);\n"
             java_hu_subclasses += "\t\tinternal " + java_hu_type + "_" + var.var_name + "(long ptr) : base(null, ptr) {\n"
             java_hu_subclasses += hu_conv_body
             java_hu_subclasses += "\t\t}\n\t}\n"
             var_idx += 1
         java_hu_class += "\t\t\tdefault:\n\t\t\t\tthrow new ArgumentException(\"Impossible enum variant\");\n\t\t}\n\t}\n\n"
-        out_java += self.native_meth_decl(struct_name + "_ty_from_ptr", "long") + "(long ptr);\n"
+        out_java += self.native_meth_decl(snake_to_pascal(struct_name + "_ty_from_ptr"), "long") + "(long ptr);\n"
         out_c += ("\t\tdefault: abort();\n")
         out_c += ("\t}\n}\n")
 
@@ -1193,7 +1195,7 @@ public class {struct_name.replace("LDK","")} : CommonBase {{
         java_hu_struct += "\t\tif (ptr != 0) { bindings." + snake_to_pascal(struct_name.replace("LDK","") + "_free") + "(ptr); }\n"
         java_hu_struct += "\t}\n\n"
         java_hu_struct += "\tinternal static " + human_ty + " constr_from_ptr(long ptr) {\n"
-        java_hu_struct += "\t\tif (bindings." + snake_to_pascal(struct_name.replace("LDK", "") + "_is_ok(ptr)) {\n")
+        java_hu_struct += "\t\tif (bindings." + snake_to_pascal(struct_name.replace("LDK", "") + "_is_ok") + "(ptr)) {\n"
         java_hu_struct += "\t\t\treturn new " + human_ty + "_OK(null, ptr);\n"
         java_hu_struct += "\t\t} else {\n"
         java_hu_struct += "\t\t\treturn new " + human_ty + "_Err(null, ptr);\n"
@@ -1208,11 +1210,11 @@ public class {struct_name.replace("LDK","")} : CommonBase {{
         if res_map.java_hu_ty == "void":
             pass
         elif res_map.to_hu_conv is not None:
-            java_hu_struct += "\t\t\t" + res_map.java_ty + " res = bindings." + snake_to_pascal(struct_name.replace("LDK", "") + "_get_ok(ptr);\n")
+            java_hu_struct += "\t\t\t" + res_map.java_ty + " res = bindings." + snake_to_pascal(struct_name.replace("LDK", "") + "_get_ok") + "(ptr);\n"
             java_hu_struct += "\t\t\t" + res_map.to_hu_conv.replace("\n", "\n\t\t\t")
             java_hu_struct += "\n\t\t\tthis.res = " + res_map.to_hu_conv_name + ";\n"
         else:
-            java_hu_struct += "\t\t\tthis.res = bindings." + snake_to_pascal(struct_name.replace("LDK", "") + "_get_ok(ptr);\n")
+            java_hu_struct += "\t\t\tthis.res = bindings." + snake_to_pascal(struct_name.replace("LDK", "") + "_get_ok") + "(ptr);\n"
         java_hu_struct += "\t\t}\n"
         java_hu_struct += "\t}\n\n"
 
@@ -1223,11 +1225,11 @@ public class {struct_name.replace("LDK","")} : CommonBase {{
         if err_map.java_hu_ty == "void":
             pass
         elif err_map.to_hu_conv is not None:
-            java_hu_struct += "\t\t\t" + err_map.java_ty + " err = bindings." + snake_to_pascal(struct_name.replace("LDK", "") + "_get_err(ptr);\n")
+            java_hu_struct += "\t\t\t" + err_map.java_ty + " err = bindings." + snake_to_pascal(struct_name.replace("LDK", "") + "_get_err") + "(ptr);\n"
             java_hu_struct += "\t\t\t" + err_map.to_hu_conv.replace("\n", "\n\t\t\t")
             java_hu_struct += "\n\t\t\tthis.err = " + err_map.to_hu_conv_name + ";\n"
         else:
-            java_hu_struct += "\t\t\tthis.err = bindings." + snake_to_pascal(struct_name.replace("LDK", "") + "_get_err(ptr);\n")
+            java_hu_struct += "\t\t\tthis.err = bindings." + snake_to_pascal(struct_name.replace("LDK", "") + "_get_err") + "(ptr);\n"
         java_hu_struct += "\t\t}\n"
 
         java_hu_struct += "\t}\n\n"
