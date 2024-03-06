@@ -78,7 +78,7 @@ internal class InternalUtils {
 
 
 	public static long encodeUint8Array(byte[] arr) {
-		long buf = bindings.allocate_buffer(arr.Length + 8);
+		long buf = bindings.AllocateBuffer(arr.Length + 8);
 		unsafe { *((long*)buf) = (long)arr.Length; }
 		for (int i = 0; i < arr.Length; i++) {
 			unsafe {
@@ -88,7 +88,7 @@ internal class InternalUtils {
 		return buf;
 	}
 	public static long encodeUint16Array(short[] arr) {
-		long buf = bindings.allocate_buffer(arr.Length * 2 + 8);
+		long buf = bindings.AllocateBuffer(arr.Length * 2 + 8);
 		unsafe { *((long*)buf) = (long)arr.Length; }
 		for (int i = 0; i < arr.Length; i++) {
 			unsafe {
@@ -98,7 +98,7 @@ internal class InternalUtils {
 		return buf;
 	}
 	public static long encodeUint32Array(int[] arr) {
-		long buf = bindings.allocate_buffer(arr.Length * 4 + 8);
+		long buf = bindings.AllocateBuffer(arr.Length * 4 + 8);
 		unsafe { *((long*)buf) = (long)arr.Length; }
 		for (int i = 0; i < arr.Length; i++) {
 			unsafe {
@@ -108,7 +108,7 @@ internal class InternalUtils {
 		return buf;
 	}
 	public static long encodeUint64Array(long[] arr) {
-		long buf = bindings.allocate_buffer(arr.Length * 8 + 8);
+		long buf = bindings.AllocateBuffer(arr.Length * 8 + 8);
 		unsafe { *((long*)buf) = (long)arr.Length; }
 		for (int i = 0; i < arr.Length; i++) {
 			unsafe {

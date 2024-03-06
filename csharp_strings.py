@@ -61,10 +61,10 @@ internal class bindings {
 	static List<WeakReference> js_objs = new List<WeakReference>();
 
 """
-        self.bindings_header += self.native_meth_decl("get_lib_version_string", "string") + "();\n"
-        self.bindings_header += self.native_meth_decl("get_ldk_c_bindings_version", "string") + "();\n"
-        self.bindings_header += self.native_meth_decl("get_ldk_version", "string") + "();\n\n"
-        self.bindings_header += self.native_meth_decl("allocate_buffer", "long") + "(long buflen);\n\n"
+        self.bindings_header += self.native_meth_decl("GetLibVersionString", "string") + "();\n"
+        self.bindings_header += self.native_meth_decl("GetLdkCBindingsVersion", "string") + "();\n"
+        self.bindings_header += self.native_meth_decl("GetLdkVersion", "string") + "();\n\n"
+        self.bindings_header += self.native_meth_decl("AllocateBuffer", "long") + "(long buflen);\n\n"
         self.bindings_header += self.native_meth_decl("FreeBuffer", "void") + "(long buf);\n\n"
 
         self.bindings_version_file = """
@@ -212,7 +212,7 @@ public class CommonBase {
 #define CHECK(a) DO_ASSERT(a)
 
 void __attribute__((constructor)) debug_log_version() {
-	if (check_get_ldk_version() == NULL)
+	if (check_GetLdkVersion() == NULL)
 		DEBUG_PRINT("LDK version did not match the header we built against\\n");
 	if (check_get_ldk_bindings_version() == NULL)
 		DEBUG_PRINT("LDK C Bindings version did not match the header we built against\\n");
@@ -429,7 +429,7 @@ static inline LDKStr str_ref_to_owned_c(const jstring str) {
 
 typedef bool jboolean;
 
-int64_t CS_LDK_allocate_buffer(int64_t len) {
+int64_t CS_LDK_AllocateBuffer(int64_t len) {
 	return (int64_t)MALLOC(len, "C#-requested buffer");
 }
 
@@ -437,15 +437,15 @@ void CS_LDK_free_buffer(int64_t buf) {
 	FREE((void*)buf);
 }
 
-jstring CS_LDK_get_ldk_c_bindings_version() {
+jstring CS_LDK_GetLdkCBindingsVersion() {
 	return str_ref_to_cs(check_get_ldk_bindings_version(), strlen(check_get_ldk_bindings_version()));
 }
-jstring CS_LDK_get_ldk_version() {
-	return str_ref_to_cs(check_get_ldk_version(), strlen(check_get_ldk_version()));
+jstring CS_LDK_GetLdkVersion() {
+	return str_ref_to_cs(check_GetLdkVersion(), strlen(check_GetLdkVersion()));
 }
 #include "version.c"
 """
-        self.c_version_file = """const char* CS_LDK_get_lib_version_string() {
+        self.c_version_file = """const char* CS_LDK_GetLibVersionString() {
 	return "<git_version_ldk_garbagecollected>";
 }"""
 
@@ -1124,12 +1124,12 @@ public class {struct_name.replace("LDK","")} : CommonBase {{
                 java_hu_subclasses += f"\t\tpublic {field_ty.java_hu_ty} {field_ty.arg_name};\n"
                 if field_ty.to_hu_conv is not None:
                     conv_pascal = snake_to_pascal(f"{struct_name}_{var.var_name}_get_{field_ty.arg_name}")
-                    hu_conv_body += f"\t\t\t{field_ty.java_ty} {field_ty.arg_name} = bindings.{struct_name}_{var.var_name}_get_{field_ty.arg_name}(ptr);\n"
+                    hu_conv_body += f"\t\t\t{field_ty.java_ty} {field_ty.arg_name} = bindings.{conv_pascal}(ptr);\n"
                     hu_conv_body += f"\t\t\t" + field_ty.to_hu_conv.replace("\n", "\n\t\t\t") + "\n"
                     hu_conv_body += f"\t\t\tthis." + field_ty.arg_name + " = " + field_ty.to_hu_conv_name + ";\n"
                 else:
                     conv_pascal = snake_to_pascal(f"{struct_name}_{var.var_name}_get_{field_ty.arg_name}")
-                    hu_conv_body += f"\t\t\tthis.{field_ty.arg_name} = bindings.{struct_name}_{var.var_name}_get_{field_ty.arg_name}(ptr);\n"
+                    hu_conv_body += f"\t\t\tthis.{field_ty.arg_name} = bindings.{conv_pascal}(ptr);\n"
             java_hu_subclasses += "\t\tinternal " + java_hu_type + "_" + var.var_name + "(long ptr) : base(null, ptr) {\n"
             java_hu_subclasses += hu_conv_body
             java_hu_subclasses += "\t\t}\n\t}\n"
@@ -1141,7 +1141,7 @@ public class {struct_name.replace("LDK","")} : CommonBase {{
 
         for var in variant_list:
             for idx, (field_map, _) in enumerate(var.fields):
-                fn_name = f"{struct_name}_{var.var_name}_get_{field_map.arg_name}"
+                fn_name = snake_to_pascal(f"{struct_name}_{var.var_name}_get_{field_map.arg_name}")
                 out_c += self.c_fn_ty_pfx + field_map.c_ty + self.c_fn_name_define_pfx(fn_name, True) + self.ptr_c_ty + " ptr) {\n"
                 out_c += "\t" + struct_name + " *obj = (" + struct_name + "*)untag_ptr(ptr);\n"
                 out_c += f"\tCHECK(obj->tag == {struct_name}_{var.var_name});\n"
