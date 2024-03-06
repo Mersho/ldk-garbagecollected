@@ -1438,7 +1438,7 @@ public class {struct_name.replace("LDK","")} : CommonBase {{
                 jargs = self.function_ptrs[fn_suffix]["args"][0]
 
                 bindings.write(f"""
-	static {jret} c_callback_{fn_suffix}(int obj_ptr, int fn_id{jargs}) {{
+	static {jret} C_Callback_{fn_suffix}(int obj_ptr, int fn_id{jargs}) {{
 		if (obj_ptr >= js_objs.Count) {{
 			Console.Error.WriteLine("Got function call on unknown/free'd JS object in {fn_suffix}");
 			Console.Error.Flush();
@@ -1474,12 +1474,12 @@ public class {struct_name.replace("LDK","")} : CommonBase {{
 				return{" false" if jret == "bool" else " 0" if jret != "void" else ""};
 		}}
 	}}
-	public delegate {jret} {fn_suffix}_callback(int obj_ptr, int fn_id{jargs});
-	static {fn_suffix}_callback {fn_suffix}_callback_inst = c_callback_{fn_suffix};
+	public delegate {jret} {fn_suffix}_Callback(int obj_ptr, int fn_id{jargs});
+	static {fn_suffix}_Callback {fn_suffix}_Callback_Inst = C_Callback_{fn_suffix};
 """)
-                bindings.write(self.native_meth_decl(f"register_{fn_suffix}_invoker", "int") + f"({fn_suffix}_callback callee);\n")
+                bindings.write(self.native_meth_decl(f"Register_{fn_suffix}_Invoker", "int") + f"({fn_suffix}_Callback callee);\n")
                 # Easiest way to get a static run is just define a variable, even if we dont care
-                bindings.write(f"\tstatic int _run_{fn_suffix}_registration = register_{fn_suffix}_invoker({fn_suffix}_callback_inst);")
+                bindings.write(f"\tstatic int _run_{fn_suffix}_registration = Register_{fn_suffix}_Invoker({fn_suffix}_Callback_Inst);")
 
             bindings.write("""
 }
