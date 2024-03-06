@@ -750,11 +750,13 @@ int CS_LDK_register_{fn_suffix}_invoker(invoker_{fn_suffix} invoker) {{
 
         # struct_name = snake_to_pascal(struct_name)
 
-        java_trait_wrapper = "\tprivate class " + struct_name + "Holder { internal " + struct_name.replace("LDK", "") + " held; }\n"
-        java_trait_wrapper += "\tprivate class " + struct_name + "Impl : bindings." + snake_to_pascal(struct_name) + " {\n"
-        java_trait_wrapper += "\t\tinternal " + struct_name + "Impl(I" + struct_name.replace("LDK", "") + " arg, " + struct_name + "Holder impl_holder) { this.arg = arg; this.impl_holder = impl_holder; }\n"
-        java_trait_wrapper += "\t\tprivate I" + struct_name.replace("LDK", "") + " arg;\n"
-        java_trait_wrapper += "\t\tprivate " + struct_name + "Holder impl_holder;\n"
+        struct_name_pascal = snake_to_pascal(struct_name)        
+
+        java_trait_wrapper = "\tprivate class " + struct_name_pascal + "Holder { internal " + struct_name_pascal.replace("LDK", "") + " held; }\n"
+        java_trait_wrapper += "\tprivate class " + struct_name_pascal + "Impl : bindings." + struct_name_pascal + " {\n"
+        java_trait_wrapper += "\t\tinternal " + struct_name_pascal + "Impl(I" + struct_name_pascal.replace("LDK", "") + " arg, " + struct_name_pascal + "Holder impl_holder) { this.arg = arg; this.impl_holder = impl_holder; }\n"
+        java_trait_wrapper += "\t\tprivate I" + struct_name_pascal.replace("LDK", "") + " arg;\n"
+        java_trait_wrapper += "\t\tprivate " + struct_name_pascal + "Holder impl_holder;\n"
 
         for fn_line in field_function_lines:
             if fn_line.fn_name != "free" and fn_line.fn_name != "cloned":
@@ -821,31 +823,31 @@ int CS_LDK_register_{fn_suffix}_invoker(invoker_{fn_suffix} invoker) {{
         out_typescript_human = f"""
 {self.hu_struct_file_prefix}
 
-/** An implementation of {struct_name.replace("LDK","")} */
-public interface I{struct_name.replace("LDK", "")} {{
+/** An implementation of {struct_name_pascal.replace("LDK","")} */
+public interface I{struct_name_pascal.replace("LDK", "")} {{
 {out_java_interface}}}
 
 /**
  * {formatted_trait_docs}
  */
-public class {struct_name.replace("LDK","")} : CommonBase {{
-	internal bindings.{snake_to_pascal(struct_name)} bindings_instance;
+public class {struct_name_pascal.replace("LDK","")} : CommonBase {{
+	internal bindings.{snake_to_pascal(struct_name_pascal)} bindings_instance;
 	internal long instance_idx;
 
-	internal {struct_name.replace("LDK","")}(object _dummy, long ptr) : base(ptr) {{ bindings_instance = null; }}
-	~{struct_name.replace("LDK","")}() {{
-		if (ptr != 0) {{ bindings.{snake_to_pascal(f'{struct_name.replace("LDK","")}_free')}(ptr); }}
+	internal {struct_name_pascal.replace("LDK","")}(object _dummy, long ptr) : base(ptr) {{ bindings_instance = null; }}
+	~{struct_name_pascal.replace("LDK","")}() {{
+		if (ptr != 0) {{ bindings.{snake_to_pascal(f'{struct_name_pascal.replace("LDK","")}_free')}(ptr); }}
 	}}
 
 {java_trait_wrapper}
 
-	/** Creates a new instance of {struct_name.replace("LDK","")} from a given implementation */
-	public static {struct_name.replace("LDK", "")} new_impl(I{struct_name.replace("LDK", "")} arg{impl_constructor_arguments}) {{
-		{struct_name}Holder impl_holder = new {struct_name}Holder();
-		{struct_name}Impl impl = new {struct_name}Impl(arg, impl_holder);
-{super_constructor_statements}		long[] ptr_idx = bindings.{snake_to_pascal(f'{struct_name}_new')}(impl{bindings_instantiator});
+	/** Creates a new instance of {struct_name_pascal.replace("LDK","")} from a given implementation */
+	public static {struct_name_pascal.replace("LDK", "")} new_impl(I{struct_name_pascal.replace("LDK", "")} arg{impl_constructor_arguments}) {{
+		{struct_name_pascal}Holder impl_holder = new {struct_name_pascal}Holder();
+		{struct_name_pascal}Impl impl = new {struct_name_pascal}Impl(arg, impl_holder);
+{super_constructor_statements}		long[] ptr_idx = bindings.{snake_to_pascal(f'{struct_name_pascal}_new')}(impl{bindings_instantiator});
 
-		impl_holder.held = new {struct_name.replace("LDK", "")}(null, ptr_idx[0]);
+		impl_holder.held = new {struct_name_pascal.replace("LDK", "")}(null, ptr_idx[0]);
 		impl_holder.held.instance_idx = ptr_idx[1];
 		impl_holder.held.bindings_instance = impl;
 {pointer_to_adder}		return impl_holder.held;
@@ -853,11 +855,11 @@ public class {struct_name.replace("LDK","")} : CommonBase {{
 
 """
 
-        out_typescript_bindings += "\tpublic interface " + struct_name + " {\n"
+        out_typescript_bindings += "\tpublic interface " + struct_name_pascal + " {\n"
         java_meths = []
         for fn_line in field_function_lines:
             if fn_line.fn_name != "free" and fn_line.fn_name != "cloned":
-                out_typescript_bindings += f"\t\t{fn_line.ret_ty_info.java_ty} {fn_line.fn_name}("
+                out_typescript_bindings += f"\t\t{fn_line.ret_ty_info.java_ty} {snake_to_pascal(fn_line.fn_name)}("
 
                 for idx, arg_conv_info in enumerate(fn_line.args_ty):
                     if idx >= 1:
@@ -876,7 +878,7 @@ public class {struct_name.replace("LDK","")} : CommonBase {{
             else:
                 native_fn_args += ", long " + var[1]
         out_typescript_bindings += self.native_meth_decl(snake_to_pascal(struct_name + "_new"), "long") + "Native(" + native_fn_args + ");\n"
-        out_typescript_bindings += f"\tpublic static long[] {snake_to_pascal(f'{struct_name}_new')}({struct_name} impl"
+        out_typescript_bindings += f"\tpublic static long[] {snake_to_pascal(f'{struct_name}_new')}({struct_name_pascal} impl"
         for var in flattened_field_var_conversions:
             if isinstance(var, ConvInfo):
                 out_typescript_bindings += f", {var.java_ty} {var.arg_name}"
@@ -898,7 +900,7 @@ public class {struct_name.replace("LDK","")} : CommonBase {{
 			js_objs[i] = new WeakReference(impl);
 		}}
 		long[] ret = new long[2];
-		ret[0] = {snake_to_pascal(f'{struct_name}_new_native')}(i{c_call_extra_args});
+		ret[0] = {snake_to_pascal(f'{struct_name_pascal}_new_native')}(i{c_call_extra_args});
 		ret[1] = i;
 		return ret;
 	}}
