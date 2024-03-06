@@ -748,10 +748,10 @@ int CS_LDK_register_{fn_suffix}_invoker(invoker_{fn_suffix} invoker) {{
 
         # BUILD INTERFACE METHODS
 
-        struct_name = snake_to_pascal(struct_name)
+        # struct_name = snake_to_pascal(struct_name)
 
         java_trait_wrapper = "\tprivate class " + struct_name + "Holder { internal " + struct_name.replace("LDK", "") + " held; }\n"
-        java_trait_wrapper += "\tprivate class " + struct_name + "Impl : bindings." + struct_name + " {\n"
+        java_trait_wrapper += "\tprivate class " + struct_name + "Impl : bindings." + snake_to_pascal(struct_name) + " {\n"
         java_trait_wrapper += "\t\tinternal " + struct_name + "Impl(I" + struct_name.replace("LDK", "") + " arg, " + struct_name + "Holder impl_holder) { this.arg = arg; this.impl_holder = impl_holder; }\n"
         java_trait_wrapper += "\t\tprivate I" + struct_name.replace("LDK", "") + " arg;\n"
         java_trait_wrapper += "\t\tprivate " + struct_name + "Holder impl_holder;\n"
@@ -829,7 +829,7 @@ public interface I{struct_name.replace("LDK", "")} {{
  * {formatted_trait_docs}
  */
 public class {struct_name.replace("LDK","")} : CommonBase {{
-	internal bindings.{struct_name} bindings_instance;
+	internal bindings.{snake_to_pascal(struct_name)} bindings_instance;
 	internal long instance_idx;
 
 	internal {struct_name.replace("LDK","")}(object _dummy, long ptr) : base(ptr) {{ bindings_instance = null; }}
@@ -1060,7 +1060,7 @@ public class {struct_name.replace("LDK","")} : CommonBase {{
         out_c = out_c + "\treturn ret;\n"
         out_c = out_c + "}\n"
 
-        out_c = out_c + self.c_fn_ty_pfx + "uint64_t " + self.c_fn_name_define_pfx(snake_to_pascal(struct_name + "_new"), True) + "int32_t o"
+        out_c = out_c + self.c_fn_ty_pfx + "uint64_t " + self.c_fn_name_define_pfx(struct_name + "_new", True) + "int32_t o"
         for var in flattened_field_var_conversions:
             if isinstance(var, ConvInfo):
                 out_c = out_c + ", " + var.c_ty + " " + var.arg_name
@@ -1104,7 +1104,7 @@ public class {struct_name.replace("LDK","")} : CommonBase {{
         java_hu_class += "\t}\n\n"
         java_hu_class += f"\tinternal static {java_hu_type} constr_from_ptr(long ptr) {{\n"
         java_hu_class += f"\t\tlong raw_ty = bindings." + snake_to_pascal(struct_name + "_ty_from_ptr") + "(ptr);\n"
-        out_c += self.c_fn_ty_pfx + "uint32_t" + self.c_fn_name_define_pfx(snake_to_pascal(struct_name + "_ty_from_ptr"), True) + self.ptr_c_ty + " ptr) {\n"
+        out_c += self.c_fn_ty_pfx + "uint32_t" + self.c_fn_name_define_pfx(struct_name + "_ty_from_ptr", True) + self.ptr_c_ty + " ptr) {\n"
         out_c += "\t" + struct_name + " *obj = (" + struct_name + "*)untag_ptr(ptr);\n"
         out_c += "\tswitch(obj->tag) {\n"
         java_hu_class += "\t\tswitch (raw_ty) {\n"
@@ -1141,7 +1141,7 @@ public class {struct_name.replace("LDK","")} : CommonBase {{
 
         for var in variant_list:
             for idx, (field_map, _) in enumerate(var.fields):
-                fn_name = snake_to_pascal(f"{struct_name}_{var.var_name}_get_{field_map.arg_name}")
+                fn_name = f"{struct_name}_{var.var_name}_get_{field_map.arg_name}"
                 out_c += self.c_fn_ty_pfx + field_map.c_ty + self.c_fn_name_define_pfx(fn_name, True) + self.ptr_c_ty + " ptr) {\n"
                 out_c += "\t" + struct_name + " *obj = (" + struct_name + "*)untag_ptr(ptr);\n"
                 out_c += f"\tCHECK(obj->tag == {struct_name}_{var.var_name});\n"
@@ -1159,7 +1159,7 @@ public class {struct_name.replace("LDK","")} : CommonBase {{
                     else:
                         out_c += "\treturn " + "obj->" + camel_to_snake(var.var_name) + "." + field_map.arg_name + ";\n"
                 out_c += "}\n"
-                out_java += self.native_meth_decl(fn_name, field_map.java_ty) + "(long ptr);\n"
+                out_java += self.native_meth_decl(snake_to_pascal(fn_name), field_map.java_ty) + "(long ptr);\n"
         out_java_enum += java_hu_class
         out_java_enum += java_hu_subclasses
         return (out_java, out_java_enum, out_c)
@@ -1240,9 +1240,7 @@ public class {struct_name.replace("LDK","")} : CommonBase {{
         out_c = ""
         out_java_struct = None
 
-        method_name = snake_to_pascal(method_name)
-
-        out_java += self.native_meth_decl(method_name, return_type_info.java_ty) + "("
+        out_java += self.native_meth_decl(snake_to_pascal(method_name), return_type_info.java_ty) + "("
         out_c += (return_type_info.c_ty)
         if return_type_info.ret_conv is not None:
             ret_conv_pfx, ret_conv_sfx = return_type_info.ret_conv
@@ -1354,7 +1352,7 @@ public class {struct_name.replace("LDK","")} : CommonBase {{
             out_java_struct += ("\t\t")
             if return_type_info.java_ty != "void":
                 out_java_struct += (return_type_info.java_ty + " ret = ")
-            out_java_struct += ("bindings." + method_name + "(")
+            out_java_struct += ("bindings." + snake_to_pascal(method_name) + "(")
             for idx, info in enumerate(argument_types):
                 if idx != 0:
                     out_java_struct += (", ")
