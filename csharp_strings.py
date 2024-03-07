@@ -437,7 +437,7 @@ void CS_LDK_free_buffer(int64_t buf) {
 	FREE((void*)buf);
 }
 
-jstring CS_LDK_GetLdkCBindingsVersion() {
+jstring CS_LDK_get_ldk_c_bindings_version() {
 	return str_ref_to_cs(check_get_ldk_bindings_version(), strlen(check_get_ldk_bindings_version()));
 }
 jstring CS_LDK_get_ldk_version() {
@@ -477,7 +477,7 @@ namespace org { namespace ldk { namespace structs {
         return ""
 
     def native_meth_decl(self, meth_name, ret_ty_str):
-        return "\t[DllImport (\"ldkcsharp\", EntryPoint=\"CS_LDK_" + meth_name + "\")] public static extern " + ret_ty_str + " " + meth_name
+        return "\t[DllImport (\"ldkcsharp\", EntryPoint=\"CS_LDK_" + meth_name + "\")] public static extern " + ret_ty_str + " " + snake_to_pascal(meth_name)
 
     def c_fn_name_define_pfx(self, fn_name, have_args):
         return " CS_LDK_" + fn_name + "("
@@ -877,7 +877,7 @@ public class {struct_name_pascal.replace("LDK","")} : CommonBase {{
                 native_fn_args += ", " + var.java_ty + " " + var.arg_name
             else:
                 native_fn_args += ", long " + var[1]
-        out_typescript_bindings += self.native_meth_decl(snake_to_pascal(struct_name + "_new"), "long") + "Native(" + native_fn_args + ");\n"
+        out_typescript_bindings += self.native_meth_decl(struct_name + "_new", "long") + "Native(" + native_fn_args + ");\n"
         out_typescript_bindings += f"\tpublic static long[] {snake_to_pascal(f'{struct_name}_new')}({struct_name_pascal} impl"
         for var in flattened_field_var_conversions:
             if isinstance(var, ConvInfo):
@@ -1137,7 +1137,7 @@ public class {struct_name_pascal.replace("LDK","")} : CommonBase {{
             java_hu_subclasses += "\t\t}\n\t}\n"
             var_idx += 1
         java_hu_class += "\t\t\tdefault:\n\t\t\t\tthrow new ArgumentException(\"Impossible enum variant\");\n\t\t}\n\t}\n\n"
-        out_java += self.native_meth_decl(snake_to_pascal(struct_name + "_ty_from_ptr"), "long") + "(long ptr);\n"
+        out_java += self.native_meth_decl(struct_name + "_ty_from_ptr", "long") + "(long ptr);\n"
         out_c += ("\t\tdefault: abort();\n")
         out_c += ("\t}\n}\n")
 
@@ -1161,7 +1161,7 @@ public class {struct_name_pascal.replace("LDK","")} : CommonBase {{
                     else:
                         out_c += "\treturn " + "obj->" + camel_to_snake(var.var_name) + "." + field_map.arg_name + ";\n"
                 out_c += "}\n"
-                out_java += self.native_meth_decl(snake_to_pascal(fn_name), field_map.java_ty) + "(long ptr);\n"
+                out_java += self.native_meth_decl(fn_name, field_map.java_ty) + "(long ptr);\n"
         out_java_enum += java_hu_class
         out_java_enum += java_hu_subclasses
         return (out_java, out_java_enum, out_c)
@@ -1242,7 +1242,7 @@ public class {struct_name_pascal.replace("LDK","")} : CommonBase {{
         out_c = ""
         out_java_struct = None
 
-        out_java += self.native_meth_decl(snake_to_pascal(method_name), return_type_info.java_ty) + "("
+        out_java += self.native_meth_decl(method_name, return_type_info.java_ty) + "("
         out_c += (return_type_info.c_ty)
         if return_type_info.ret_conv is not None:
             ret_conv_pfx, ret_conv_sfx = return_type_info.ret_conv
@@ -1438,7 +1438,7 @@ public class {struct_name_pascal.replace("LDK","")} : CommonBase {{
                 jargs = self.function_ptrs[fn_suffix]["args"][0]
 
                 bindings.write(f"""
-	static {jret} C_Callback_{fn_suffix}(int obj_ptr, int fn_id{jargs}) {{
+	static {jret} CCallback{fn_suffix}(int obj_ptr, int fn_id{jargs}) {{
 		if (obj_ptr >= js_objs.Count) {{
 			Console.Error.WriteLine("Got function call on unknown/free'd JS object in {fn_suffix}");
 			Console.Error.Flush();
@@ -1474,12 +1474,13 @@ public class {struct_name_pascal.replace("LDK","")} : CommonBase {{
 				return{" false" if jret == "bool" else " 0" if jret != "void" else ""};
 		}}
 	}}
-	public delegate {jret} {fn_suffix}_Callback(int obj_ptr, int fn_id{jargs});
-	static {fn_suffix}_Callback {fn_suffix}_Callback_Inst = C_Callback_{fn_suffix};
+	public delegate {jret} {fn_suffix}Callback(int obj_ptr, int fn_id{jargs});
+	static {fn_suffix}Callback {fn_suffix}CallbackInst = CCallback{fn_suffix};
 """)
-                bindings.write(self.native_meth_decl(f"Register_{fn_suffix}_Invoker", "int") + f"({fn_suffix}_Callback callee);\n")
+                bindings.write(self.native_meth_decl(f"Register{fn_suffix}Invoker", "int") + f"({fn_suffix}Callback callee);\n")
                 # Easiest way to get a static run is just define a variable, even if we dont care
-                bindings.write(f"\tstatic int _run_{fn_suffix}_registration = Register_{fn_suffix}_Invoker({fn_suffix}_Callback_Inst);")
+                print(fn_suffix)
+                bindings.write(f"\tstatic int _run_{fn_suffix}_registration = Register{snake_to_pascal(fn_suffix)}Invoker({fn_suffix}CallbackInst);")
 
             bindings.write("""
 }
