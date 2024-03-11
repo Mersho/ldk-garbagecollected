@@ -16,7 +16,7 @@ def arg_name_repl(s, arg_name):
     return s.replace(arg_name, "_" + arg_name) if arg_name == "lock" or arg_name == "event" or arg_name == "params" else s
 
 def snake_to_pascal(text: str):
-    if '_' not in text and text != text.lower():
+    if '_' not in text:
         return text
     return ''.join(x.title() if x and not x[0].isupper() else x for x in text.split('_'))
 
@@ -61,11 +61,11 @@ internal class bindings {
 	static List<WeakReference> js_objs = new List<WeakReference>();
 
 """
-        self.bindings_header += self.native_meth_decl("GetLibVersionString", "string") + "();\n"
-        self.bindings_header += self.native_meth_decl("GetLdkCBindingsVersion", "string") + "();\n"
-        self.bindings_header += self.native_meth_decl("GetLdkVersion", "string") + "();\n\n"
-        self.bindings_header += self.native_meth_decl("AllocateBuffer", "long") + "(long buflen);\n\n"
-        self.bindings_header += self.native_meth_decl("FreeBuffer", "void") + "(long buf);\n\n"
+        self.bindings_header += self.native_meth_decl("get_lib_version_string", "string") + "();\n"
+        self.bindings_header += self.native_meth_decl("get_ldk_c_bindings_version", "string") + "();\n"
+        self.bindings_header += self.native_meth_decl("get_ldk_version", "string") + "();\n\n"
+        self.bindings_header += self.native_meth_decl("allocate_buffer", "long") + "(long buflen);\n\n"
+        self.bindings_header += self.native_meth_decl("free_buffer", "void") + "(long buf);\n\n"
 
         self.bindings_version_file = """
 
@@ -979,11 +979,12 @@ public class {struct_name_pascal.replace("LDK","")} : CommonBase {{
                     out_c += "\tuint64_t ret = js_invoke_function_" + fn_suffix + "(j_calls->instance_ptr, " + str(self.function_ptr_counter)
 
                 if fn_suffix not in self.function_ptrs:
+                    fn_suffix_pascal = snake_to_pascal(fn_suffix)
                     caller_ret_c_ty = fn_line.ret_ty_info.c_ty
                     if fn_line.ret_ty_info.c_ty.endswith("Array") or fn_line.ret_ty_info.c_ty == "jstring":
                         caller_ret_c_ty = "int64_t"
-                    self.function_ptrs[fn_suffix] = {"args": [fn_java_callback_args, fn_c_callback_args], "ret": [fn_line.ret_ty_info.java_ty, caller_ret_c_ty]}
-                self.function_ptrs[fn_suffix][self.function_ptr_counter] = (struct_name, fn_line.fn_name, fn_callback_call_args)
+                    self.function_ptrs[fn_suffix_pascal] = {"args": [fn_java_callback_args, fn_c_callback_args], "ret": [fn_line.ret_ty_info.java_ty, caller_ret_c_ty]}
+                self.function_ptrs[fn_suffix_pascal][self.function_ptr_counter] = (struct_name, fn_line.fn_name, fn_callback_call_args)
                 self.function_ptr_counter += 1
 
                 for idx, arg_info in enumerate(fn_line.args_ty):
@@ -1479,8 +1480,7 @@ public class {struct_name_pascal.replace("LDK","")} : CommonBase {{
 """)
                 bindings.write(self.native_meth_decl(f"Register{fn_suffix}Invoker", "int") + f"({fn_suffix}Callback callee);\n")
                 # Easiest way to get a static run is just define a variable, even if we dont care
-                print(fn_suffix)
-                bindings.write(f"\tstatic int _run_{fn_suffix}_registration = Register{snake_to_pascal(fn_suffix)}Invoker({fn_suffix}CallbackInst);")
+                bindings.write(f"\tstatic int _run_{fn_suffix}_registration = Register{fn_suffix}Invoker({fn_suffix}CallbackInst);")
 
             bindings.write("""
 }
