@@ -9,7 +9,7 @@ namespace org { namespace ldk { namespace structs {
 
 
 /** An implementation of SocketDescriptor */
-public interface SocketDescriptorInterface {
+public interface ISocketDescriptor {
 	/**Attempts to send some data from the given slice to the peer.
 	 * 
 	 * Returns the amount of data which was sent, possibly 0 if the socket has since disconnected.
@@ -59,37 +59,37 @@ public interface SocketDescriptorInterface {
  * to simply use another value which is guaranteed to be globally unique instead.
  */
 public class SocketDescriptor : CommonBase {
-	internal bindings.LDKSocketDescriptor bindings_instance;
+	internal Bindings.LDKSocketDescriptor bindings_instance;
 	internal long instance_idx;
 
 	internal SocketDescriptor(object _dummy, long ptr) : base(ptr) { bindings_instance = null; }
 	~SocketDescriptor() {
-		if (ptr != 0) { bindings.SocketDescriptor_free(ptr); }
+		if (ptr != 0) { Bindings.SocketDescriptorFree(ptr); }
 	}
 
 	private class LDKSocketDescriptorHolder { internal SocketDescriptor held; }
-	private class LDKSocketDescriptorImpl : bindings.LDKSocketDescriptor {
-		internal LDKSocketDescriptorImpl(SocketDescriptorInterface arg, LDKSocketDescriptorHolder impl_holder) { this.arg = arg; this.impl_holder = impl_holder; }
-		private SocketDescriptorInterface arg;
+	private class LDKSocketDescriptorImpl : Bindings.LDKSocketDescriptor {
+		internal LDKSocketDescriptorImpl(ISocketDescriptor arg, LDKSocketDescriptorHolder impl_holder) { this.arg = arg; this.impl_holder = impl_holder; }
+		private ISocketDescriptor arg;
 		private LDKSocketDescriptorHolder impl_holder;
-		public long send_data(long _data, bool _resume_read) {
+		public long SendData(long _data, bool _resume_read) {
 			byte[] _data_conv = InternalUtils.decodeUint8Array(_data);
 			long ret = arg.send_data(_data_conv, _resume_read);
 				GC.KeepAlive(arg);
 			return ret;
 		}
-		public void disconnect_socket() {
+		public void DisconnectSocket() {
 			arg.disconnect_socket();
 				GC.KeepAlive(arg);
 		}
-		public bool eq(long _other_arg) {
+		public bool Eq(long _other_arg) {
 			SocketDescriptor ret_hu_conv = new SocketDescriptor(null, _other_arg);
 			if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(this); };
 			bool ret = arg.eq(ret_hu_conv);
 				GC.KeepAlive(arg);
 			return ret;
 		}
-		public long hash() {
+		public long Hash() {
 			long ret = arg.hash();
 				GC.KeepAlive(arg);
 			return ret;
@@ -97,10 +97,10 @@ public class SocketDescriptor : CommonBase {
 	}
 
 	/** Creates a new instance of SocketDescriptor from a given implementation */
-	public static SocketDescriptor new_impl(SocketDescriptorInterface arg) {
+	public static SocketDescriptor new_impl(ISocketDescriptor arg) {
 		LDKSocketDescriptorHolder impl_holder = new LDKSocketDescriptorHolder();
 		LDKSocketDescriptorImpl impl = new LDKSocketDescriptorImpl(arg, impl_holder);
-		long[] ptr_idx = bindings.LDKSocketDescriptor_new(impl);
+		long[] ptr_idx = Bindings.LDKSocketDescriptorNew(impl);
 
 		impl_holder.held = new SocketDescriptor(null, ptr_idx[0]);
 		impl_holder.held.instance_idx = ptr_idx[1];
@@ -128,7 +128,7 @@ public class SocketDescriptor : CommonBase {
 	 * `resume_read` of false carries no meaning, and should not cause any action.
 	 */
 	public long send_data(byte[] data, bool resume_read) {
-		long ret = bindings.SocketDescriptor_send_data(this.ptr, InternalUtils.encodeUint8Array(data), resume_read);
+		long ret = Bindings.SocketDescriptorSendData(this.ptr, InternalUtils.encodeUint8Array(data), resume_read);
 		GC.KeepAlive(this);
 		GC.KeepAlive(data);
 		GC.KeepAlive(resume_read);
@@ -142,7 +142,7 @@ public class SocketDescriptor : CommonBase {
 	 * call (doing so is a noop).
 	 */
 	public void disconnect_socket() {
-		bindings.SocketDescriptor_disconnect_socket(this.ptr);
+		Bindings.SocketDescriptorDisconnectSocket(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -151,7 +151,7 @@ public class SocketDescriptor : CommonBase {
 	 * This is used, for example, for inclusion of this object in a hash map.
 	 */
 	public long hash() {
-		long ret = bindings.SocketDescriptor_hash(this.ptr);
+		long ret = Bindings.SocketDescriptorHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -160,7 +160,7 @@ public class SocketDescriptor : CommonBase {
 		return (int)this.hash();
 	}
 	internal long clone_ptr() {
-		long ret = bindings.SocketDescriptor_clone_ptr(this.ptr);
+		long ret = Bindings.SocketDescriptorClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -169,7 +169,7 @@ public class SocketDescriptor : CommonBase {
 	 * Creates a copy of a SocketDescriptor
 	 */
 	public SocketDescriptor clone() {
-		long ret = bindings.SocketDescriptor_clone(this.ptr);
+		long ret = Bindings.SocketDescriptorClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		SocketDescriptor ret_hu_conv = new SocketDescriptor(null, ret);

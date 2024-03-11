@@ -12,14 +12,14 @@ namespace org { namespace ldk { namespace structs {
 public class TwoTuple_ThirtyTwoBytesChannelManagerZ : CommonBase {
 	internal TwoTuple_ThirtyTwoBytesChannelManagerZ(object _dummy, long ptr) : base(ptr) { }
 	~TwoTuple_ThirtyTwoBytesChannelManagerZ() {
-		if (ptr != 0) { bindings.C2Tuple_ThirtyTwoBytesChannelManagerZ_free(ptr); }
+		if (ptr != 0) { Bindings.C2TupleThirtyTwoBytesChannelManagerZFree(ptr); }
 	}
 
 	/**
 	 * 
 	 */
 	public byte[] get_a() {
-		long ret = bindings.C2Tuple_ThirtyTwoBytesChannelManagerZ_get_a(this.ptr);
+		long ret = Bindings.C2TupleThirtyTwoBytesChannelManagerZGetA(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -30,7 +30,7 @@ public class TwoTuple_ThirtyTwoBytesChannelManagerZ : CommonBase {
 	 * 
 	 */
 	public ChannelManager get_b() {
-		long ret = bindings.C2Tuple_ThirtyTwoBytesChannelManagerZ_get_b(this.ptr);
+		long ret = Bindings.C2TupleThirtyTwoBytesChannelManagerZGetB(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChannelManager ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChannelManager(null, ret); }
@@ -42,7 +42,7 @@ public class TwoTuple_ThirtyTwoBytesChannelManagerZ : CommonBase {
 	 * Creates a new C2Tuple_ThirtyTwoBytesChannelManagerZ from the contained elements.
 	 */
 	public static TwoTuple_ThirtyTwoBytesChannelManagerZ of(byte[] a, FeeEstimator b_fee_est, Watch b_chain_monitor, BroadcasterInterface b_tx_broadcaster, Router b_router, Logger b_logger, EntropySource b_entropy_source, NodeSigner b_node_signer, SignerProvider b_signer_provider, UserConfig b_config, ChainParameters b_params, int b_current_timestamp) {
-		long ret = bindings.C2Tuple_ThirtyTwoBytesChannelManagerZ_new(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(a, 32)), bindings.ChannelManager_new(b_fee_est.ptr, b_chain_monitor.ptr, b_tx_broadcaster.ptr, b_router.ptr, b_logger.ptr, b_entropy_source.ptr, b_node_signer.ptr, b_signer_provider.ptr, b_config == null ? 0 : b_config.ptr, b_params == null ? 0 : b_params.ptr, b_current_timestamp));
+		long ret = Bindings.C2TupleThirtyTwoBytesChannelManagerZNew(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(a, 32)), Bindings.ChannelManagerNew(b_fee_est.ptr, b_chain_monitor.ptr, b_tx_broadcaster.ptr, b_router.ptr, b_logger.ptr, b_entropy_source.ptr, b_node_signer.ptr, b_signer_provider.ptr, b_config == null ? 0 : b_config.ptr, b_params == null ? 0 : b_params.ptr, b_current_timestamp));
 		GC.KeepAlive(a);
 		GC.KeepAlive(b_fee_est);
 		GC.KeepAlive(b_chain_monitor);

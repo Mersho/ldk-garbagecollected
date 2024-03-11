@@ -14,14 +14,14 @@ namespace org { namespace ldk { namespace structs {
 public class ChannelReady : CommonBase {
 	internal ChannelReady(object _dummy, long ptr) : base(ptr) { }
 	~ChannelReady() {
-		if (ptr != 0) { bindings.ChannelReady_free(ptr); }
+		if (ptr != 0) { Bindings.ChannelReadyFree(ptr); }
 	}
 
 	/**
 	 * The channel ID
 	 */
 	public byte[] get_channel_id() {
-		long ret = bindings.ChannelReady_get_channel_id(this.ptr);
+		long ret = Bindings.ChannelReadyGetChannelId(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -32,7 +32,7 @@ public class ChannelReady : CommonBase {
 	 * The channel ID
 	 */
 	public void set_channel_id(byte[] val) {
-		bindings.ChannelReady_set_channel_id(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
+		Bindings.ChannelReadySetChannelId(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -41,7 +41,7 @@ public class ChannelReady : CommonBase {
 	 * The per-commitment point of the second commitment transaction
 	 */
 	public byte[] get_next_per_commitment_point() {
-		long ret = bindings.ChannelReady_get_next_per_commitment_point(this.ptr);
+		long ret = Bindings.ChannelReadyGetNextPerCommitmentPoint(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -52,7 +52,7 @@ public class ChannelReady : CommonBase {
 	 * The per-commitment point of the second commitment transaction
 	 */
 	public void set_next_per_commitment_point(byte[] val) {
-		bindings.ChannelReady_set_next_per_commitment_point(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 33)));
+		Bindings.ChannelReadySetNextPerCommitmentPoint(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 33)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -64,7 +64,7 @@ public class ChannelReady : CommonBase {
 	 * messages' recipient.
 	 */
 	public Option_u64Z get_short_channel_id_alias() {
-		long ret = bindings.ChannelReady_get_short_channel_id_alias(this.ptr);
+		long ret = Bindings.ChannelReadyGetShortChannelIdAlias(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_u64Z ret_hu_conv = org.ldk.structs.Option_u64Z.constr_from_ptr(ret);
@@ -79,7 +79,7 @@ public class ChannelReady : CommonBase {
 	 * messages' recipient.
 	 */
 	public void set_short_channel_id_alias(org.ldk.structs.Option_u64Z val) {
-		bindings.ChannelReady_set_short_channel_id_alias(this.ptr, val.ptr);
+		Bindings.ChannelReadySetShortChannelIdAlias(this.ptr, val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -89,7 +89,7 @@ public class ChannelReady : CommonBase {
 	 * Constructs a new ChannelReady given each field
 	 */
 	public static ChannelReady of(byte[] channel_id_arg, byte[] next_per_commitment_point_arg, org.ldk.structs.Option_u64Z short_channel_id_alias_arg) {
-		long ret = bindings.ChannelReady_new(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(channel_id_arg, 32)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(next_per_commitment_point_arg, 33)), short_channel_id_alias_arg.ptr);
+		long ret = Bindings.ChannelReadyNew(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(channel_id_arg, 32)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(next_per_commitment_point_arg, 33)), short_channel_id_alias_arg.ptr);
 		GC.KeepAlive(channel_id_arg);
 		GC.KeepAlive(next_per_commitment_point_arg);
 		GC.KeepAlive(short_channel_id_alias_arg);
@@ -101,7 +101,7 @@ public class ChannelReady : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.ChannelReady_clone_ptr(this.ptr);
+		long ret = Bindings.ChannelReadyClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -110,7 +110,7 @@ public class ChannelReady : CommonBase {
 	 * Creates a copy of the ChannelReady
 	 */
 	public ChannelReady clone() {
-		long ret = bindings.ChannelReady_clone(this.ptr);
+		long ret = Bindings.ChannelReadyClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChannelReady ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChannelReady(null, ret); }
@@ -122,7 +122,7 @@ public class ChannelReady : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the ChannelReady.
 	 */
 	public long hash() {
-		long ret = bindings.ChannelReady_hash(this.ptr);
+		long ret = Bindings.ChannelReadyHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -136,7 +136,7 @@ public class ChannelReady : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.ChannelReady b) {
-		bool ret = bindings.ChannelReady_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.ChannelReadyEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -151,7 +151,7 @@ public class ChannelReady : CommonBase {
 	 * Serialize the ChannelReady object into a byte array which can be read by ChannelReady_read
 	 */
 	public byte[] write() {
-		long ret = bindings.ChannelReady_write(this.ptr);
+		long ret = Bindings.ChannelReadyWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -162,7 +162,7 @@ public class ChannelReady : CommonBase {
 	 * Read a ChannelReady from a byte array, created by ChannelReady_write
 	 */
 	public static Result_ChannelReadyDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.ChannelReady_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.ChannelReadyRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_ChannelReadyDecodeErrorZ ret_hu_conv = Result_ChannelReadyDecodeErrorZ.constr_from_ptr(ret);

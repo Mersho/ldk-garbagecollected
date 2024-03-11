@@ -94,7 +94,7 @@ namespace org { namespace ldk { namespace structs {
 public class MonitorUpdatingPersister : CommonBase {
 	internal MonitorUpdatingPersister(object _dummy, long ptr) : base(ptr) { }
 	~MonitorUpdatingPersister() {
-		if (ptr != 0) { bindings.MonitorUpdatingPersister_free(ptr); }
+		if (ptr != 0) { Bindings.MonitorUpdatingPersisterFree(ptr); }
 	}
 
 	/**
@@ -116,7 +116,7 @@ public class MonitorUpdatingPersister : CommonBase {
 	 * [`MonitorUpdatingPersister::cleanup_stale_updates`].
 	 */
 	public static MonitorUpdatingPersister of(org.ldk.structs.KVStore kv_store, org.ldk.structs.Logger logger, long maximum_pending_updates, org.ldk.structs.EntropySource entropy_source, org.ldk.structs.SignerProvider signer_provider) {
-		long ret = bindings.MonitorUpdatingPersister_new(kv_store.ptr, logger.ptr, maximum_pending_updates, entropy_source.ptr, signer_provider.ptr);
+		long ret = Bindings.MonitorUpdatingPersisterNew(kv_store.ptr, logger.ptr, maximum_pending_updates, entropy_source.ptr, signer_provider.ptr);
 		GC.KeepAlive(kv_store);
 		GC.KeepAlive(logger);
 		GC.KeepAlive(maximum_pending_updates);
@@ -140,7 +140,7 @@ public class MonitorUpdatingPersister : CommonBase {
 	 * documentation for [`MonitorUpdatingPersister`].
 	 */
 	public Result_CVec_C2Tuple_ThirtyTwoBytesChannelMonitorZZIOErrorZ read_all_channel_monitors_with_updates(org.ldk.structs.BroadcasterInterface broadcaster, org.ldk.structs.FeeEstimator fee_estimator) {
-		long ret = bindings.MonitorUpdatingPersister_read_all_channel_monitors_with_updates(this.ptr, broadcaster.ptr, fee_estimator.ptr);
+		long ret = Bindings.MonitorUpdatingPersisterReadAllChannelMonitorsWithUpdates(this.ptr, broadcaster.ptr, fee_estimator.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(broadcaster);
 		GC.KeepAlive(fee_estimator);
@@ -171,7 +171,7 @@ public class MonitorUpdatingPersister : CommonBase {
 	 * function to accomplish this. Take care to limit the number of parallel readers.
 	 */
 	public Result_C2Tuple_ThirtyTwoBytesChannelMonitorZIOErrorZ read_channel_monitor_with_updates(org.ldk.structs.BroadcasterInterface broadcaster, org.ldk.structs.FeeEstimator fee_estimator, string monitor_key) {
-		long ret = bindings.MonitorUpdatingPersister_read_channel_monitor_with_updates(this.ptr, broadcaster.ptr, fee_estimator.ptr, InternalUtils.encodeString(monitor_key));
+		long ret = Bindings.MonitorUpdatingPersisterReadChannelMonitorWithUpdates(this.ptr, broadcaster.ptr, fee_estimator.ptr, InternalUtils.encodeString(monitor_key));
 		GC.KeepAlive(this);
 		GC.KeepAlive(broadcaster);
 		GC.KeepAlive(fee_estimator);
@@ -192,7 +192,7 @@ public class MonitorUpdatingPersister : CommonBase {
 	 * be passed to [`KVStore::remove`].
 	 */
 	public Result_NoneIOErrorZ cleanup_stale_updates(bool lazy) {
-		long ret = bindings.MonitorUpdatingPersister_cleanup_stale_updates(this.ptr, lazy);
+		long ret = Bindings.MonitorUpdatingPersisterCleanupStaleUpdates(this.ptr, lazy);
 		GC.KeepAlive(this);
 		GC.KeepAlive(lazy);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -205,7 +205,7 @@ public class MonitorUpdatingPersister : CommonBase {
 	 * This copies the `inner` pointer in this_arg and thus the returned Persist must be freed before this_arg is
 	 */
 	public Persist as_Persist() {
-		long ret = bindings.MonitorUpdatingPersister_as_Persist(this.ptr);
+		long ret = Bindings.MonitorUpdatingPersisterAsPersist(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Persist ret_hu_conv = new Persist(null, ret);

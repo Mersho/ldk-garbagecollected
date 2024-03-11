@@ -12,14 +12,14 @@ namespace org { namespace ldk { namespace structs {
 public class ForwardTlvs : CommonBase {
 	internal ForwardTlvs(object _dummy, long ptr) : base(ptr) { }
 	~ForwardTlvs() {
-		if (ptr != 0) { bindings.ForwardTlvs_free(ptr); }
+		if (ptr != 0) { Bindings.ForwardTlvsFree(ptr); }
 	}
 
 	/**
 	 * The short channel id this payment should be forwarded out over.
 	 */
 	public long get_short_channel_id() {
-		long ret = bindings.ForwardTlvs_get_short_channel_id(this.ptr);
+		long ret = Bindings.ForwardTlvsGetShortChannelId(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -28,7 +28,7 @@ public class ForwardTlvs : CommonBase {
 	 * The short channel id this payment should be forwarded out over.
 	 */
 	public void set_short_channel_id(long val) {
-		bindings.ForwardTlvs_set_short_channel_id(this.ptr, val);
+		Bindings.ForwardTlvsSetShortChannelId(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -37,7 +37,7 @@ public class ForwardTlvs : CommonBase {
 	 * Payment parameters for relaying over [`Self::short_channel_id`].
 	 */
 	public PaymentRelay get_payment_relay() {
-		long ret = bindings.ForwardTlvs_get_payment_relay(this.ptr);
+		long ret = Bindings.ForwardTlvsGetPaymentRelay(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.PaymentRelay ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.PaymentRelay(null, ret); }
@@ -49,7 +49,7 @@ public class ForwardTlvs : CommonBase {
 	 * Payment parameters for relaying over [`Self::short_channel_id`].
 	 */
 	public void set_payment_relay(org.ldk.structs.PaymentRelay val) {
-		bindings.ForwardTlvs_set_payment_relay(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.ForwardTlvsSetPaymentRelay(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -59,7 +59,7 @@ public class ForwardTlvs : CommonBase {
 	 * Payment constraints for relaying over [`Self::short_channel_id`].
 	 */
 	public PaymentConstraints get_payment_constraints() {
-		long ret = bindings.ForwardTlvs_get_payment_constraints(this.ptr);
+		long ret = Bindings.ForwardTlvsGetPaymentConstraints(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.PaymentConstraints ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.PaymentConstraints(null, ret); }
@@ -71,7 +71,7 @@ public class ForwardTlvs : CommonBase {
 	 * Payment constraints for relaying over [`Self::short_channel_id`].
 	 */
 	public void set_payment_constraints(org.ldk.structs.PaymentConstraints val) {
-		bindings.ForwardTlvs_set_payment_constraints(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.ForwardTlvsSetPaymentConstraints(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -84,7 +84,7 @@ public class ForwardTlvs : CommonBase {
 	 * [`BlindedHop::encrypted_payload`]: crate::blinded_path::BlindedHop::encrypted_payload
 	 */
 	public BlindedHopFeatures get_features() {
-		long ret = bindings.ForwardTlvs_get_features(this.ptr);
+		long ret = Bindings.ForwardTlvsGetFeatures(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.BlindedHopFeatures ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.BlindedHopFeatures(null, ret); }
@@ -99,7 +99,7 @@ public class ForwardTlvs : CommonBase {
 	 * [`BlindedHop::encrypted_payload`]: crate::blinded_path::BlindedHop::encrypted_payload
 	 */
 	public void set_features(org.ldk.structs.BlindedHopFeatures val) {
-		bindings.ForwardTlvs_set_features(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.ForwardTlvsSetFeatures(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -109,7 +109,7 @@ public class ForwardTlvs : CommonBase {
 	 * Constructs a new ForwardTlvs given each field
 	 */
 	public static ForwardTlvs of(long short_channel_id_arg, org.ldk.structs.PaymentRelay payment_relay_arg, org.ldk.structs.PaymentConstraints payment_constraints_arg, org.ldk.structs.BlindedHopFeatures features_arg) {
-		long ret = bindings.ForwardTlvs_new(short_channel_id_arg, payment_relay_arg == null ? 0 : payment_relay_arg.ptr, payment_constraints_arg == null ? 0 : payment_constraints_arg.ptr, features_arg == null ? 0 : features_arg.ptr);
+		long ret = Bindings.ForwardTlvsNew(short_channel_id_arg, payment_relay_arg == null ? 0 : payment_relay_arg.ptr, payment_constraints_arg == null ? 0 : payment_constraints_arg.ptr, features_arg == null ? 0 : features_arg.ptr);
 		GC.KeepAlive(short_channel_id_arg);
 		GC.KeepAlive(payment_relay_arg);
 		GC.KeepAlive(payment_constraints_arg);
@@ -124,7 +124,7 @@ public class ForwardTlvs : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.ForwardTlvs_clone_ptr(this.ptr);
+		long ret = Bindings.ForwardTlvsClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -133,7 +133,7 @@ public class ForwardTlvs : CommonBase {
 	 * Creates a copy of the ForwardTlvs
 	 */
 	public ForwardTlvs clone() {
-		long ret = bindings.ForwardTlvs_clone(this.ptr);
+		long ret = Bindings.ForwardTlvsClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ForwardTlvs ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ForwardTlvs(null, ret); }
@@ -145,7 +145,7 @@ public class ForwardTlvs : CommonBase {
 	 * Serialize the ForwardTlvs object into a byte array which can be read by ForwardTlvs_read
 	 */
 	public byte[] write() {
-		long ret = bindings.ForwardTlvs_write(this.ptr);
+		long ret = Bindings.ForwardTlvsWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);

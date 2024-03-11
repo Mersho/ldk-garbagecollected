@@ -38,7 +38,7 @@ namespace org { namespace ldk { namespace structs {
 public class BackgroundProcessor : CommonBase {
 	internal BackgroundProcessor(object _dummy, long ptr) : base(ptr) { }
 	~BackgroundProcessor() {
-		if (ptr != 0) { bindings.BackgroundProcessor_free(ptr); }
+		if (ptr != 0) { Bindings.BackgroundProcessorFree(ptr); }
 	}
 
 	/**
@@ -88,7 +88,7 @@ public class BackgroundProcessor : CommonBase {
 	 * [`NetworkGraph::write`]: lightning::routing::gossip::NetworkGraph#impl-Writeable
 	 */
 	public static BackgroundProcessor start(org.ldk.structs.Persister persister, org.ldk.structs.EventHandler event_handler, org.ldk.structs.ChainMonitor chain_monitor, org.ldk.structs.ChannelManager channel_manager, org.ldk.structs.GossipSync gossip_sync, org.ldk.structs.PeerManager peer_manager, org.ldk.structs.Logger logger, org.ldk.structs.Option_WriteableScoreZ scorer) {
-		long ret = bindings.BackgroundProcessor_start(persister.ptr, event_handler.ptr, chain_monitor == null ? 0 : chain_monitor.ptr, channel_manager == null ? 0 : channel_manager.ptr, gossip_sync.ptr, peer_manager == null ? 0 : peer_manager.ptr, logger.ptr, scorer.ptr);
+		long ret = Bindings.BackgroundProcessorStart(persister.ptr, event_handler.ptr, chain_monitor == null ? 0 : chain_monitor.ptr, channel_manager == null ? 0 : channel_manager.ptr, gossip_sync.ptr, peer_manager == null ? 0 : peer_manager.ptr, logger.ptr, scorer.ptr);
 		GC.KeepAlive(persister);
 		GC.KeepAlive(event_handler);
 		GC.KeepAlive(chain_monitor);
@@ -123,7 +123,7 @@ public class BackgroundProcessor : CommonBase {
 	 * [`ChannelManager`]: lightning::ln::channelmanager::ChannelManager
 	 */
 	public Result_NoneIOErrorZ join() {
-		long ret = bindings.BackgroundProcessor_join(this.ptr);
+		long ret = Bindings.BackgroundProcessorJoin(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_NoneIOErrorZ ret_hu_conv = Result_NoneIOErrorZ.constr_from_ptr(ret);
@@ -151,7 +151,7 @@ public class BackgroundProcessor : CommonBase {
 	 * [`ChannelManager`]: lightning::ln::channelmanager::ChannelManager
 	 */
 	public Result_NoneIOErrorZ stop() {
-		long ret = bindings.BackgroundProcessor_stop(this.ptr);
+		long ret = Bindings.BackgroundProcessorStop(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_NoneIOErrorZ ret_hu_conv = Result_NoneIOErrorZ.constr_from_ptr(ret);

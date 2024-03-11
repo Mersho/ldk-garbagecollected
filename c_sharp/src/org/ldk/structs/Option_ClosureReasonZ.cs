@@ -11,11 +11,11 @@ namespace org { namespace ldk { namespace structs {
 public class Option_ClosureReasonZ : CommonBase {
 	protected Option_ClosureReasonZ(object _dummy, long ptr) : base(ptr) { }
 	~Option_ClosureReasonZ() {
-		if (ptr != 0) { bindings.COption_ClosureReasonZ_free(ptr); }
+		if (ptr != 0) { Bindings.COptionClosureReasonZFree(ptr); }
 	}
 
 	internal static Option_ClosureReasonZ constr_from_ptr(long ptr) {
-		long raw_ty = bindings.LDKCOption_ClosureReasonZ_ty_from_ptr(ptr);
+		long raw_ty = Bindings.LDKCOptionClosureReasonZTyFromPtr(ptr);
 		switch (raw_ty) {
 			case 0: return new Option_ClosureReasonZ_Some(ptr);
 			case 1: return new Option_ClosureReasonZ_None(ptr);
@@ -28,7 +28,7 @@ public class Option_ClosureReasonZ : CommonBase {
 	public class Option_ClosureReasonZ_Some : Option_ClosureReasonZ {
 		public ClosureReason some;
 		internal Option_ClosureReasonZ_Some(long ptr) : base(null, ptr) {
-			long some = bindings.LDKCOption_ClosureReasonZ_Some_get_some(ptr);
+			long some = Bindings.LDKCOptionClosureReasonZSomeGetSome(ptr);
 			org.ldk.structs.ClosureReason some_hu_conv = org.ldk.structs.ClosureReason.constr_from_ptr(some);
 			if (some_hu_conv != null) { some_hu_conv.ptrs_to.AddLast(this); };
 			this.some = some_hu_conv;
@@ -43,7 +43,7 @@ public class Option_ClosureReasonZ : CommonBase {
 	 * Constructs a new COption_ClosureReasonZ containing a crate::lightning::events::ClosureReason
 	 */
 	public static Option_ClosureReasonZ some(org.ldk.structs.ClosureReason o) {
-		long ret = bindings.COption_ClosureReasonZ_some(o.ptr);
+		long ret = Bindings.COptionClosureReasonZSome(o.ptr);
 		GC.KeepAlive(o);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_ClosureReasonZ ret_hu_conv = org.ldk.structs.Option_ClosureReasonZ.constr_from_ptr(ret);
@@ -56,7 +56,7 @@ public class Option_ClosureReasonZ : CommonBase {
 	 * Constructs a new COption_ClosureReasonZ containing nothing
 	 */
 	public static Option_ClosureReasonZ none() {
-		long ret = bindings.COption_ClosureReasonZ_none();
+		long ret = Bindings.COptionClosureReasonZNone();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_ClosureReasonZ ret_hu_conv = org.ldk.structs.Option_ClosureReasonZ.constr_from_ptr(ret);
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -64,7 +64,7 @@ public class Option_ClosureReasonZ : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.COption_ClosureReasonZ_clone_ptr(this.ptr);
+		long ret = Bindings.COptionClosureReasonZClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -74,7 +74,7 @@ public class Option_ClosureReasonZ : CommonBase {
 	 * but with all dynamically-allocated buffers duplicated in new buffers.
 	 */
 	public Option_ClosureReasonZ clone() {
-		long ret = bindings.COption_ClosureReasonZ_clone(this.ptr);
+		long ret = Bindings.COptionClosureReasonZClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_ClosureReasonZ ret_hu_conv = org.ldk.structs.Option_ClosureReasonZ.constr_from_ptr(ret);

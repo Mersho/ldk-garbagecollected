@@ -13,7 +13,7 @@ namespace org { namespace ldk { namespace structs {
 public class CoinSelection : CommonBase {
 	internal CoinSelection(object _dummy, long ptr) : base(ptr) { }
 	~CoinSelection() {
-		if (ptr != 0) { bindings.CoinSelection_free(ptr); }
+		if (ptr != 0) { Bindings.CoinSelectionFree(ptr); }
 	}
 
 	/**
@@ -21,7 +21,7 @@ public class CoinSelection : CommonBase {
 	 * requiring additional fees.
 	 */
 	public Utxo[] get_confirmed_utxos() {
-		long ret = bindings.CoinSelection_get_confirmed_utxos(this.ptr);
+		long ret = Bindings.CoinSelectionGetConfirmedUtxos(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		int ret_conv_6_len = InternalUtils.getArrayLength(ret);
@@ -32,7 +32,7 @@ public class CoinSelection : CommonBase {
 			if (ret_conv_6_hu_conv != null) { ret_conv_6_hu_conv.ptrs_to.AddLast(this); };
 			ret_conv_6_arr[g] = ret_conv_6_hu_conv;
 		}
-		bindings.free_buffer(ret);
+		Bindings.FreeBuffer(ret);
 		return ret_conv_6_arr;
 	}
 
@@ -41,7 +41,7 @@ public class CoinSelection : CommonBase {
 	 * requiring additional fees.
 	 */
 	public void set_confirmed_utxos(Utxo[] val) {
-		bindings.CoinSelection_set_confirmed_utxos(this.ptr, InternalUtils.encodeUint64Array(InternalUtils.mapArray(val, val_conv_6 => val_conv_6 == null ? 0 : val_conv_6.ptr)));
+		Bindings.CoinSelectionSetConfirmedUtxos(this.ptr, InternalUtils.encodeUint64Array(InternalUtils.mapArray(val, val_conv_6 => val_conv_6 == null ? 0 : val_conv_6.ptr)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		foreach (Utxo val_conv_6 in val) { if (this != null) { this.ptrs_to.AddLast(val_conv_6); }; };
@@ -54,7 +54,7 @@ public class CoinSelection : CommonBase {
 	 * not met. This implies no other party should be able to spend it except us.
 	 */
 	public Option_TxOutZ get_change_output() {
-		long ret = bindings.CoinSelection_get_change_output(this.ptr);
+		long ret = Bindings.CoinSelectionGetChangeOutput(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_TxOutZ ret_hu_conv = org.ldk.structs.Option_TxOutZ.constr_from_ptr(ret);
@@ -69,7 +69,7 @@ public class CoinSelection : CommonBase {
 	 * not met. This implies no other party should be able to spend it except us.
 	 */
 	public void set_change_output(org.ldk.structs.Option_TxOutZ val) {
-		bindings.CoinSelection_set_change_output(this.ptr, val.ptr);
+		Bindings.CoinSelectionSetChangeOutput(this.ptr, val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -79,7 +79,7 @@ public class CoinSelection : CommonBase {
 	 * Constructs a new CoinSelection given each field
 	 */
 	public static CoinSelection of(Utxo[] confirmed_utxos_arg, org.ldk.structs.Option_TxOutZ change_output_arg) {
-		long ret = bindings.CoinSelection_new(InternalUtils.encodeUint64Array(InternalUtils.mapArray(confirmed_utxos_arg, confirmed_utxos_arg_conv_6 => confirmed_utxos_arg_conv_6 == null ? 0 : confirmed_utxos_arg_conv_6.ptr)), change_output_arg.ptr);
+		long ret = Bindings.CoinSelectionNew(InternalUtils.encodeUint64Array(InternalUtils.mapArray(confirmed_utxos_arg, confirmed_utxos_arg_conv_6 => confirmed_utxos_arg_conv_6 == null ? 0 : confirmed_utxos_arg_conv_6.ptr)), change_output_arg.ptr);
 		GC.KeepAlive(confirmed_utxos_arg);
 		GC.KeepAlive(change_output_arg);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -91,7 +91,7 @@ public class CoinSelection : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.CoinSelection_clone_ptr(this.ptr);
+		long ret = Bindings.CoinSelectionClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -100,7 +100,7 @@ public class CoinSelection : CommonBase {
 	 * Creates a copy of the CoinSelection
 	 */
 	public CoinSelection clone() {
-		long ret = bindings.CoinSelection_clone(this.ptr);
+		long ret = Bindings.CoinSelectionClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.CoinSelection ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.CoinSelection(null, ret); }

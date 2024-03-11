@@ -14,11 +14,11 @@ namespace org { namespace ldk { namespace structs {
 public class UtxoFuture : CommonBase {
 	internal UtxoFuture(object _dummy, long ptr) : base(ptr) { }
 	~UtxoFuture() {
-		if (ptr != 0) { bindings.UtxoFuture_free(ptr); }
+		if (ptr != 0) { Bindings.UtxoFutureFree(ptr); }
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.UtxoFuture_clone_ptr(this.ptr);
+		long ret = Bindings.UtxoFutureClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -27,7 +27,7 @@ public class UtxoFuture : CommonBase {
 	 * Creates a copy of the UtxoFuture
 	 */
 	public UtxoFuture clone() {
-		long ret = bindings.UtxoFuture_clone(this.ptr);
+		long ret = Bindings.UtxoFutureClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.UtxoFuture ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.UtxoFuture(null, ret); }
@@ -39,7 +39,7 @@ public class UtxoFuture : CommonBase {
 	 * Builds a new future for later resolution.
 	 */
 	public static UtxoFuture of() {
-		long ret = bindings.UtxoFuture_new();
+		long ret = Bindings.UtxoFutureNew();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.UtxoFuture ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.UtxoFuture(null, ret); }
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -60,7 +60,7 @@ public class UtxoFuture : CommonBase {
 	 * [`PeerManager::process_events`]: crate::ln::peer_handler::PeerManager::process_events
 	 */
 	public void resolve_without_forwarding(org.ldk.structs.NetworkGraph graph, org.ldk.structs.Result_TxOutUtxoLookupErrorZ result) {
-		bindings.UtxoFuture_resolve_without_forwarding(this.ptr, graph == null ? 0 : graph.ptr, result != null ? result.ptr : 0);
+		Bindings.UtxoFutureResolveWithoutForwarding(this.ptr, graph == null ? 0 : graph.ptr, result != null ? result.ptr : 0);
 		GC.KeepAlive(this);
 		GC.KeepAlive(graph);
 		GC.KeepAlive(result);
@@ -81,7 +81,7 @@ public class UtxoFuture : CommonBase {
 	 * [`PeerManager::process_events`]: crate::ln::peer_handler::PeerManager::process_events
 	 */
 	public void resolve(org.ldk.structs.NetworkGraph graph, org.ldk.structs.P2PGossipSync gossip, org.ldk.structs.Result_TxOutUtxoLookupErrorZ result) {
-		bindings.UtxoFuture_resolve(this.ptr, graph == null ? 0 : graph.ptr, gossip == null ? 0 : gossip.ptr, result != null ? result.ptr : 0);
+		Bindings.UtxoFutureResolve(this.ptr, graph == null ? 0 : graph.ptr, gossip == null ? 0 : gossip.ptr, result != null ? result.ptr : 0);
 		GC.KeepAlive(this);
 		GC.KeepAlive(graph);
 		GC.KeepAlive(gossip);

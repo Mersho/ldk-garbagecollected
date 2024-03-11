@@ -9,7 +9,7 @@ namespace org { namespace ldk { namespace structs {
 
 
 /** An implementation of KVStore */
-public interface KVStoreInterface {
+public interface IKVStore {
 	/**Returns the data stored for the given `primary_namespace`, `secondary_namespace`, and
 	 * `key`.
 	 * 
@@ -75,20 +75,20 @@ public interface KVStoreInterface {
  * recover a `key` compatible with the data model previously assumed by `KVStorePersister::persist`.
  */
 public class KVStore : CommonBase {
-	internal bindings.LDKKVStore bindings_instance;
+	internal Bindings.LDKKVStore bindings_instance;
 	internal long instance_idx;
 
 	internal KVStore(object _dummy, long ptr) : base(ptr) { bindings_instance = null; }
 	~KVStore() {
-		if (ptr != 0) { bindings.KVStore_free(ptr); }
+		if (ptr != 0) { Bindings.KVStoreFree(ptr); }
 	}
 
 	private class LDKKVStoreHolder { internal KVStore held; }
-	private class LDKKVStoreImpl : bindings.LDKKVStore {
-		internal LDKKVStoreImpl(KVStoreInterface arg, LDKKVStoreHolder impl_holder) { this.arg = arg; this.impl_holder = impl_holder; }
-		private KVStoreInterface arg;
+	private class LDKKVStoreImpl : Bindings.LDKKVStore {
+		internal LDKKVStoreImpl(IKVStore arg, LDKKVStoreHolder impl_holder) { this.arg = arg; this.impl_holder = impl_holder; }
+		private IKVStore arg;
 		private LDKKVStoreHolder impl_holder;
-		public long read(long _primary_namespace, long _secondary_namespace, long _key) {
+		public long Read(long _primary_namespace, long _secondary_namespace, long _key) {
 			string _primary_namespace_conv = InternalUtils.decodeString(_primary_namespace);
 			string _secondary_namespace_conv = InternalUtils.decodeString(_secondary_namespace);
 			string _key_conv = InternalUtils.decodeString(_key);
@@ -97,7 +97,7 @@ public class KVStore : CommonBase {
 			long result = ret == null ? 0 : ret.clone_ptr();
 			return result;
 		}
-		public long write(long _primary_namespace, long _secondary_namespace, long _key, long _buf) {
+		public long Write(long _primary_namespace, long _secondary_namespace, long _key, long _buf) {
 			string _primary_namespace_conv = InternalUtils.decodeString(_primary_namespace);
 			string _secondary_namespace_conv = InternalUtils.decodeString(_secondary_namespace);
 			string _key_conv = InternalUtils.decodeString(_key);
@@ -107,7 +107,7 @@ public class KVStore : CommonBase {
 			long result = ret == null ? 0 : ret.clone_ptr();
 			return result;
 		}
-		public long remove(long _primary_namespace, long _secondary_namespace, long _key, bool _lazy) {
+		public long Remove(long _primary_namespace, long _secondary_namespace, long _key, bool _lazy) {
 			string _primary_namespace_conv = InternalUtils.decodeString(_primary_namespace);
 			string _secondary_namespace_conv = InternalUtils.decodeString(_secondary_namespace);
 			string _key_conv = InternalUtils.decodeString(_key);
@@ -116,7 +116,7 @@ public class KVStore : CommonBase {
 			long result = ret == null ? 0 : ret.clone_ptr();
 			return result;
 		}
-		public long list(long _primary_namespace, long _secondary_namespace) {
+		public long List(long _primary_namespace, long _secondary_namespace) {
 			string _primary_namespace_conv = InternalUtils.decodeString(_primary_namespace);
 			string _secondary_namespace_conv = InternalUtils.decodeString(_secondary_namespace);
 			Result_CVec_StrZIOErrorZ ret = arg.list(_primary_namespace_conv, _secondary_namespace_conv);
@@ -127,10 +127,10 @@ public class KVStore : CommonBase {
 	}
 
 	/** Creates a new instance of KVStore from a given implementation */
-	public static KVStore new_impl(KVStoreInterface arg) {
+	public static KVStore new_impl(IKVStore arg) {
 		LDKKVStoreHolder impl_holder = new LDKKVStoreHolder();
 		LDKKVStoreImpl impl = new LDKKVStoreImpl(arg, impl_holder);
-		long[] ptr_idx = bindings.LDKKVStore_new(impl);
+		long[] ptr_idx = Bindings.LDKKVStoreNew(impl);
 
 		impl_holder.held = new KVStore(null, ptr_idx[0]);
 		impl_holder.held.instance_idx = ptr_idx[1];
@@ -148,7 +148,7 @@ public class KVStore : CommonBase {
 	 * [`ErrorKind::NotFound`]: io::ErrorKind::NotFound
 	 */
 	public Result_CVec_u8ZIOErrorZ read(string primary_namespace, string secondary_namespace, string key) {
-		long ret = bindings.KVStore_read(this.ptr, InternalUtils.encodeString(primary_namespace), InternalUtils.encodeString(secondary_namespace), InternalUtils.encodeString(key));
+		long ret = Bindings.KVStoreRead(this.ptr, InternalUtils.encodeString(primary_namespace), InternalUtils.encodeString(secondary_namespace), InternalUtils.encodeString(key));
 		GC.KeepAlive(this);
 		GC.KeepAlive(primary_namespace);
 		GC.KeepAlive(secondary_namespace);
@@ -165,7 +165,7 @@ public class KVStore : CommonBase {
 	 * in the store.
 	 */
 	public Result_NoneIOErrorZ write(string primary_namespace, string secondary_namespace, string key, byte[] buf) {
-		long ret = bindings.KVStore_write(this.ptr, InternalUtils.encodeString(primary_namespace), InternalUtils.encodeString(secondary_namespace), InternalUtils.encodeString(key), InternalUtils.encodeUint8Array(buf));
+		long ret = Bindings.KVStoreWrite(this.ptr, InternalUtils.encodeString(primary_namespace), InternalUtils.encodeString(secondary_namespace), InternalUtils.encodeString(key), InternalUtils.encodeUint8Array(buf));
 		GC.KeepAlive(this);
 		GC.KeepAlive(primary_namespace);
 		GC.KeepAlive(secondary_namespace);
@@ -194,7 +194,7 @@ public class KVStore : CommonBase {
 	 * invokation or not.
 	 */
 	public Result_NoneIOErrorZ remove(string primary_namespace, string secondary_namespace, string key, bool lazy) {
-		long ret = bindings.KVStore_remove(this.ptr, InternalUtils.encodeString(primary_namespace), InternalUtils.encodeString(secondary_namespace), InternalUtils.encodeString(key), lazy);
+		long ret = Bindings.KVStoreRemove(this.ptr, InternalUtils.encodeString(primary_namespace), InternalUtils.encodeString(secondary_namespace), InternalUtils.encodeString(key), lazy);
 		GC.KeepAlive(this);
 		GC.KeepAlive(primary_namespace);
 		GC.KeepAlive(secondary_namespace);
@@ -213,7 +213,7 @@ public class KVStore : CommonBase {
 	 * returned keys. Returns an empty list if `primary_namespace` or `secondary_namespace` is unknown.
 	 */
 	public Result_CVec_StrZIOErrorZ list(string primary_namespace, string secondary_namespace) {
-		long ret = bindings.KVStore_list(this.ptr, InternalUtils.encodeString(primary_namespace), InternalUtils.encodeString(secondary_namespace));
+		long ret = Bindings.KVStoreList(this.ptr, InternalUtils.encodeString(primary_namespace), InternalUtils.encodeString(secondary_namespace));
 		GC.KeepAlive(this);
 		GC.KeepAlive(primary_namespace);
 		GC.KeepAlive(secondary_namespace);

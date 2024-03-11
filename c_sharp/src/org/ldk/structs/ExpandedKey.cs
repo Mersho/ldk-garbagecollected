@@ -15,7 +15,7 @@ namespace org { namespace ldk { namespace structs {
 public class ExpandedKey : CommonBase {
 	internal ExpandedKey(object _dummy, long ptr) : base(ptr) { }
 	~ExpandedKey() {
-		if (ptr != 0) { bindings.ExpandedKey_free(ptr); }
+		if (ptr != 0) { Bindings.ExpandedKeyFree(ptr); }
 	}
 
 	/**
@@ -24,7 +24,7 @@ public class ExpandedKey : CommonBase {
 	 * It is recommended to cache this value and not regenerate it for each new inbound payment.
 	 */
 	public static ExpandedKey of(byte[] key_material) {
-		long ret = bindings.ExpandedKey_new(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(key_material, 32)));
+		long ret = Bindings.ExpandedKeyNew(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(key_material, 32)));
 		GC.KeepAlive(key_material);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ExpandedKey ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ExpandedKey(null, ret); }

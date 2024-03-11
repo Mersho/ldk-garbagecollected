@@ -12,14 +12,14 @@ namespace org { namespace ldk { namespace structs {
 public class SpliceAck : CommonBase {
 	internal SpliceAck(object _dummy, long ptr) : base(ptr) { }
 	~SpliceAck() {
-		if (ptr != 0) { bindings.SpliceAck_free(ptr); }
+		if (ptr != 0) { Bindings.SpliceAckFree(ptr); }
 	}
 
 	/**
 	 * The channel ID where splicing is intended
 	 */
 	public byte[] get_channel_id() {
-		long ret = bindings.SpliceAck_get_channel_id(this.ptr);
+		long ret = Bindings.SpliceAckGetChannelId(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -30,7 +30,7 @@ public class SpliceAck : CommonBase {
 	 * The channel ID where splicing is intended
 	 */
 	public void set_channel_id(byte[] val) {
-		bindings.SpliceAck_set_channel_id(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
+		Bindings.SpliceAckSetChannelId(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -39,7 +39,7 @@ public class SpliceAck : CommonBase {
 	 * The genesis hash of the blockchain where the channel is intended to be spliced
 	 */
 	public byte[] get_chain_hash() {
-		long ret = bindings.SpliceAck_get_chain_hash(this.ptr);
+		long ret = Bindings.SpliceAckGetChainHash(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -50,7 +50,7 @@ public class SpliceAck : CommonBase {
 	 * The genesis hash of the blockchain where the channel is intended to be spliced
 	 */
 	public void set_chain_hash(byte[] val) {
-		bindings.SpliceAck_set_chain_hash(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
+		Bindings.SpliceAckSetChainHash(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -60,7 +60,7 @@ public class SpliceAck : CommonBase {
 	 * or removed (negative value) by the sender (splice acceptor) by splicing into/from the channel.
 	 */
 	public long get_relative_satoshis() {
-		long ret = bindings.SpliceAck_get_relative_satoshis(this.ptr);
+		long ret = Bindings.SpliceAckGetRelativeSatoshis(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -70,7 +70,7 @@ public class SpliceAck : CommonBase {
 	 * or removed (negative value) by the sender (splice acceptor) by splicing into/from the channel.
 	 */
 	public void set_relative_satoshis(long val) {
-		bindings.SpliceAck_set_relative_satoshis(this.ptr, val);
+		Bindings.SpliceAckSetRelativeSatoshis(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -79,7 +79,7 @@ public class SpliceAck : CommonBase {
 	 * The key of the sender (splice acceptor) controlling the new funding transaction
 	 */
 	public byte[] get_funding_pubkey() {
-		long ret = bindings.SpliceAck_get_funding_pubkey(this.ptr);
+		long ret = Bindings.SpliceAckGetFundingPubkey(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -90,7 +90,7 @@ public class SpliceAck : CommonBase {
 	 * The key of the sender (splice acceptor) controlling the new funding transaction
 	 */
 	public void set_funding_pubkey(byte[] val) {
-		bindings.SpliceAck_set_funding_pubkey(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 33)));
+		Bindings.SpliceAckSetFundingPubkey(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 33)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -99,7 +99,7 @@ public class SpliceAck : CommonBase {
 	 * Constructs a new SpliceAck given each field
 	 */
 	public static SpliceAck of(byte[] channel_id_arg, byte[] chain_hash_arg, long relative_satoshis_arg, byte[] funding_pubkey_arg) {
-		long ret = bindings.SpliceAck_new(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(channel_id_arg, 32)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(chain_hash_arg, 32)), relative_satoshis_arg, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(funding_pubkey_arg, 33)));
+		long ret = Bindings.SpliceAckNew(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(channel_id_arg, 32)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(chain_hash_arg, 32)), relative_satoshis_arg, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(funding_pubkey_arg, 33)));
 		GC.KeepAlive(channel_id_arg);
 		GC.KeepAlive(chain_hash_arg);
 		GC.KeepAlive(relative_satoshis_arg);
@@ -111,7 +111,7 @@ public class SpliceAck : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.SpliceAck_clone_ptr(this.ptr);
+		long ret = Bindings.SpliceAckClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -120,7 +120,7 @@ public class SpliceAck : CommonBase {
 	 * Creates a copy of the SpliceAck
 	 */
 	public SpliceAck clone() {
-		long ret = bindings.SpliceAck_clone(this.ptr);
+		long ret = Bindings.SpliceAckClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.SpliceAck ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.SpliceAck(null, ret); }
@@ -134,7 +134,7 @@ public class SpliceAck : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.SpliceAck b) {
-		bool ret = bindings.SpliceAck_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.SpliceAckEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -149,7 +149,7 @@ public class SpliceAck : CommonBase {
 	 * Serialize the SpliceAck object into a byte array which can be read by SpliceAck_read
 	 */
 	public byte[] write() {
-		long ret = bindings.SpliceAck_write(this.ptr);
+		long ret = Bindings.SpliceAckWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -160,7 +160,7 @@ public class SpliceAck : CommonBase {
 	 * Read a SpliceAck from a byte array, created by SpliceAck_write
 	 */
 	public static Result_SpliceAckDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.SpliceAck_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.SpliceAckRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_SpliceAckDecodeErrorZ ret_hu_conv = Result_SpliceAckDecodeErrorZ.constr_from_ptr(ret);

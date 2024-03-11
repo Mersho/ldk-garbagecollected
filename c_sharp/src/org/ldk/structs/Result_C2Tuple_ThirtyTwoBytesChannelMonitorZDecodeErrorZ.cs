@@ -8,11 +8,11 @@ namespace org { namespace ldk { namespace structs {
 public class Result_C2Tuple_ThirtyTwoBytesChannelMonitorZDecodeErrorZ : CommonBase {
 	Result_C2Tuple_ThirtyTwoBytesChannelMonitorZDecodeErrorZ(object _dummy, long ptr) : base(ptr) { }
 	~Result_C2Tuple_ThirtyTwoBytesChannelMonitorZDecodeErrorZ() {
-		if (ptr != 0) { bindings.CResult_C2Tuple_ThirtyTwoBytesChannelMonitorZDecodeErrorZ_free(ptr); }
+		if (ptr != 0) { Bindings.CResultC2TupleThirtyTwoBytesChannelMonitorZDecodeErrorZFree(ptr); }
 	}
 
 	internal static Result_C2Tuple_ThirtyTwoBytesChannelMonitorZDecodeErrorZ constr_from_ptr(long ptr) {
-		if (bindings.CResult_C2Tuple_ThirtyTwoBytesChannelMonitorZDecodeErrorZ_is_ok(ptr)) {
+		if (Bindings.CResultC2TupleThirtyTwoBytesChannelMonitorZDecodeErrorZIsOk(ptr)) {
 			return new Result_C2Tuple_ThirtyTwoBytesChannelMonitorZDecodeErrorZ_OK(null, ptr);
 		} else {
 			return new Result_C2Tuple_ThirtyTwoBytesChannelMonitorZDecodeErrorZ_Err(null, ptr);
@@ -21,7 +21,7 @@ public class Result_C2Tuple_ThirtyTwoBytesChannelMonitorZDecodeErrorZ : CommonBa
 	public class Result_C2Tuple_ThirtyTwoBytesChannelMonitorZDecodeErrorZ_OK : Result_C2Tuple_ThirtyTwoBytesChannelMonitorZDecodeErrorZ {
 		public readonly TwoTuple_ThirtyTwoBytesChannelMonitorZ res;
 		internal Result_C2Tuple_ThirtyTwoBytesChannelMonitorZDecodeErrorZ_OK(object _dummy, long ptr) : base(_dummy, ptr) {
-			long res = bindings.CResult_C2Tuple_ThirtyTwoBytesChannelMonitorZDecodeErrorZ_get_ok(ptr);
+			long res = Bindings.CResultC2TupleThirtyTwoBytesChannelMonitorZDecodeErrorZGetOk(ptr);
 			TwoTuple_ThirtyTwoBytesChannelMonitorZ res_hu_conv = new TwoTuple_ThirtyTwoBytesChannelMonitorZ(null, res);
 			if (res_hu_conv != null) { res_hu_conv.ptrs_to.AddLast(this); };
 			this.res = res_hu_conv;
@@ -31,7 +31,7 @@ public class Result_C2Tuple_ThirtyTwoBytesChannelMonitorZDecodeErrorZ : CommonBa
 	public class Result_C2Tuple_ThirtyTwoBytesChannelMonitorZDecodeErrorZ_Err : Result_C2Tuple_ThirtyTwoBytesChannelMonitorZDecodeErrorZ {
 		public readonly DecodeError err;
 		internal Result_C2Tuple_ThirtyTwoBytesChannelMonitorZDecodeErrorZ_Err(object _dummy, long ptr) : base(_dummy, ptr) {
-			long err = bindings.CResult_C2Tuple_ThirtyTwoBytesChannelMonitorZDecodeErrorZ_get_err(ptr);
+			long err = Bindings.CResultC2TupleThirtyTwoBytesChannelMonitorZDecodeErrorZGetErr(ptr);
 			org.ldk.structs.DecodeError err_hu_conv = org.ldk.structs.DecodeError.constr_from_ptr(err);
 			if (err_hu_conv != null) { err_hu_conv.ptrs_to.AddLast(this); };
 			this.err = err_hu_conv;
@@ -42,7 +42,7 @@ public class Result_C2Tuple_ThirtyTwoBytesChannelMonitorZDecodeErrorZ : CommonBa
 	 * Creates a new CResult_C2Tuple_ThirtyTwoBytesChannelMonitorZDecodeErrorZ in the success state.
 	 */
 	public static Result_C2Tuple_ThirtyTwoBytesChannelMonitorZDecodeErrorZ ok(org.ldk.structs.TwoTuple_ThirtyTwoBytesChannelMonitorZ o) {
-		long ret = bindings.CResult_C2Tuple_ThirtyTwoBytesChannelMonitorZDecodeErrorZ_ok(o != null ? o.ptr : 0);
+		long ret = Bindings.CResultC2TupleThirtyTwoBytesChannelMonitorZDecodeErrorZOk(o != null ? o.ptr : 0);
 		GC.KeepAlive(o);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_C2Tuple_ThirtyTwoBytesChannelMonitorZDecodeErrorZ ret_hu_conv = Result_C2Tuple_ThirtyTwoBytesChannelMonitorZDecodeErrorZ.constr_from_ptr(ret);
@@ -53,7 +53,7 @@ public class Result_C2Tuple_ThirtyTwoBytesChannelMonitorZDecodeErrorZ : CommonBa
 	 * Creates a new CResult_C2Tuple_ThirtyTwoBytesChannelMonitorZDecodeErrorZ in the error state.
 	 */
 	public static Result_C2Tuple_ThirtyTwoBytesChannelMonitorZDecodeErrorZ err(org.ldk.structs.DecodeError e) {
-		long ret = bindings.CResult_C2Tuple_ThirtyTwoBytesChannelMonitorZDecodeErrorZ_err(e.ptr);
+		long ret = Bindings.CResultC2TupleThirtyTwoBytesChannelMonitorZDecodeErrorZErr(e.ptr);
 		GC.KeepAlive(e);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_C2Tuple_ThirtyTwoBytesChannelMonitorZDecodeErrorZ ret_hu_conv = Result_C2Tuple_ThirtyTwoBytesChannelMonitorZDecodeErrorZ.constr_from_ptr(ret);
@@ -65,13 +65,13 @@ public class Result_C2Tuple_ThirtyTwoBytesChannelMonitorZDecodeErrorZ : CommonBa
 	 * Checks if the given object is currently in the success state
 	 */
 	public bool is_ok() {
-		bool ret = bindings.CResult_C2Tuple_ThirtyTwoBytesChannelMonitorZDecodeErrorZ_is_ok(this.ptr);
+		bool ret = Bindings.CResultC2TupleThirtyTwoBytesChannelMonitorZDecodeErrorZIsOk(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.CResult_C2Tuple_ThirtyTwoBytesChannelMonitorZDecodeErrorZ_clone_ptr(this.ptr);
+		long ret = Bindings.CResultC2TupleThirtyTwoBytesChannelMonitorZDecodeErrorZClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -81,7 +81,7 @@ public class Result_C2Tuple_ThirtyTwoBytesChannelMonitorZDecodeErrorZ : CommonBa
 	 * but with all dynamically-allocated buffers duplicated in new buffers.
 	 */
 	public Result_C2Tuple_ThirtyTwoBytesChannelMonitorZDecodeErrorZ clone() {
-		long ret = bindings.CResult_C2Tuple_ThirtyTwoBytesChannelMonitorZDecodeErrorZ_clone(this.ptr);
+		long ret = Bindings.CResultC2TupleThirtyTwoBytesChannelMonitorZDecodeErrorZClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_C2Tuple_ThirtyTwoBytesChannelMonitorZDecodeErrorZ ret_hu_conv = Result_C2Tuple_ThirtyTwoBytesChannelMonitorZDecodeErrorZ.constr_from_ptr(ret);

@@ -12,14 +12,14 @@ namespace org { namespace ldk { namespace structs {
 public class TwoTuple_CVec_u8Zu64Z : CommonBase {
 	internal TwoTuple_CVec_u8Zu64Z(object _dummy, long ptr) : base(ptr) { }
 	~TwoTuple_CVec_u8Zu64Z() {
-		if (ptr != 0) { bindings.C2Tuple_CVec_u8Zu64Z_free(ptr); }
+		if (ptr != 0) { Bindings.C2TupleCVecU8Zu64ZFree(ptr); }
 	}
 
 	/**
 	 * 
 	 */
 	public byte[] get_a() {
-		long ret = bindings.C2Tuple_CVec_u8Zu64Z_get_a(this.ptr);
+		long ret = Bindings.C2TupleCVecU8Zu64ZGetA(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -30,13 +30,13 @@ public class TwoTuple_CVec_u8Zu64Z : CommonBase {
 	 * 
 	 */
 	public long get_b() {
-		long ret = bindings.C2Tuple_CVec_u8Zu64Z_get_b(this.ptr);
+		long ret = Bindings.C2TupleCVecU8Zu64ZGetB(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.C2Tuple_CVec_u8Zu64Z_clone_ptr(this.ptr);
+		long ret = Bindings.C2TupleCVecU8Zu64ZClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -46,7 +46,7 @@ public class TwoTuple_CVec_u8Zu64Z : CommonBase {
 	 * but with all dynamically-allocated buffers duplicated in new buffers.
 	 */
 	public TwoTuple_CVec_u8Zu64Z clone() {
-		long ret = bindings.C2Tuple_CVec_u8Zu64Z_clone(this.ptr);
+		long ret = Bindings.C2TupleCVecU8Zu64ZClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		TwoTuple_CVec_u8Zu64Z ret_hu_conv = new TwoTuple_CVec_u8Zu64Z(null, ret);
@@ -58,7 +58,7 @@ public class TwoTuple_CVec_u8Zu64Z : CommonBase {
 	 * Creates a new C2Tuple_CVec_u8Zu64Z from the contained elements.
 	 */
 	public static TwoTuple_CVec_u8Zu64Z of(byte[] a, long b) {
-		long ret = bindings.C2Tuple_CVec_u8Zu64Z_new(InternalUtils.encodeUint8Array(a), b);
+		long ret = Bindings.C2TupleCVecU8Zu64ZNew(InternalUtils.encodeUint8Array(a), b);
 		GC.KeepAlive(a);
 		GC.KeepAlive(b);
 		if (ret >= 0 && ret <= 4096) { return null; }

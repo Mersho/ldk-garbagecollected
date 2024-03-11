@@ -13,11 +13,11 @@ namespace org { namespace ldk { namespace structs {
 public class ParsedOnionMessageContents : CommonBase {
 	protected ParsedOnionMessageContents(object _dummy, long ptr) : base(ptr) { }
 	~ParsedOnionMessageContents() {
-		if (ptr != 0) { bindings.ParsedOnionMessageContents_free(ptr); }
+		if (ptr != 0) { Bindings.ParsedOnionMessageContentsFree(ptr); }
 	}
 
 	internal static ParsedOnionMessageContents constr_from_ptr(long ptr) {
-		long raw_ty = bindings.LDKParsedOnionMessageContents_ty_from_ptr(ptr);
+		long raw_ty = Bindings.LDKParsedOnionMessageContentsTyFromPtr(ptr);
 		switch (raw_ty) {
 			case 0: return new ParsedOnionMessageContents_Offers(ptr);
 			case 1: return new ParsedOnionMessageContents_Custom(ptr);
@@ -30,7 +30,7 @@ public class ParsedOnionMessageContents : CommonBase {
 	public class ParsedOnionMessageContents_Offers : ParsedOnionMessageContents {
 		public OffersMessage offers;
 		internal ParsedOnionMessageContents_Offers(long ptr) : base(null, ptr) {
-			long offers = bindings.LDKParsedOnionMessageContents_Offers_get_offers(ptr);
+			long offers = Bindings.LDKParsedOnionMessageContentsOffersGetOffers(ptr);
 			org.ldk.structs.OffersMessage offers_hu_conv = org.ldk.structs.OffersMessage.constr_from_ptr(offers);
 			if (offers_hu_conv != null) { offers_hu_conv.ptrs_to.AddLast(this); };
 			this.offers = offers_hu_conv;
@@ -40,14 +40,14 @@ public class ParsedOnionMessageContents : CommonBase {
 	public class ParsedOnionMessageContents_Custom : ParsedOnionMessageContents {
 		public OnionMessageContents custom;
 		internal ParsedOnionMessageContents_Custom(long ptr) : base(null, ptr) {
-			long custom = bindings.LDKParsedOnionMessageContents_Custom_get_custom(ptr);
+			long custom = Bindings.LDKParsedOnionMessageContentsCustomGetCustom(ptr);
 			OnionMessageContents ret_hu_conv = new OnionMessageContents(null, custom);
 			if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(this); };
 			this.custom = ret_hu_conv;
 		}
 	}
 	internal long clone_ptr() {
-		long ret = bindings.ParsedOnionMessageContents_clone_ptr(this.ptr);
+		long ret = Bindings.ParsedOnionMessageContentsClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -56,7 +56,7 @@ public class ParsedOnionMessageContents : CommonBase {
 	 * Creates a copy of the ParsedOnionMessageContents
 	 */
 	public ParsedOnionMessageContents clone() {
-		long ret = bindings.ParsedOnionMessageContents_clone(this.ptr);
+		long ret = Bindings.ParsedOnionMessageContentsClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ParsedOnionMessageContents ret_hu_conv = org.ldk.structs.ParsedOnionMessageContents.constr_from_ptr(ret);
@@ -68,7 +68,7 @@ public class ParsedOnionMessageContents : CommonBase {
 	 * Utility method to constructs a new Offers-variant ParsedOnionMessageContents
 	 */
 	public static ParsedOnionMessageContents offers(org.ldk.structs.OffersMessage a) {
-		long ret = bindings.ParsedOnionMessageContents_offers(a.ptr);
+		long ret = Bindings.ParsedOnionMessageContentsOffers(a.ptr);
 		GC.KeepAlive(a);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ParsedOnionMessageContents ret_hu_conv = org.ldk.structs.ParsedOnionMessageContents.constr_from_ptr(ret);
@@ -81,7 +81,7 @@ public class ParsedOnionMessageContents : CommonBase {
 	 * Utility method to constructs a new Custom-variant ParsedOnionMessageContents
 	 */
 	public static ParsedOnionMessageContents custom(org.ldk.structs.OnionMessageContents a) {
-		long ret = bindings.ParsedOnionMessageContents_custom(a.ptr);
+		long ret = Bindings.ParsedOnionMessageContentsCustom(a.ptr);
 		GC.KeepAlive(a);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ParsedOnionMessageContents ret_hu_conv = org.ldk.structs.ParsedOnionMessageContents.constr_from_ptr(ret);
@@ -95,7 +95,7 @@ public class ParsedOnionMessageContents : CommonBase {
 	 * This copies the `inner` pointer in this_arg and thus the returned OnionMessageContents must be freed before this_arg is
 	 */
 	public OnionMessageContents as_OnionMessageContents() {
-		long ret = bindings.ParsedOnionMessageContents_as_OnionMessageContents(this.ptr);
+		long ret = Bindings.ParsedOnionMessageContentsAsOnionMessageContents(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		OnionMessageContents ret_hu_conv = new OnionMessageContents(null, ret);
@@ -107,7 +107,7 @@ public class ParsedOnionMessageContents : CommonBase {
 	 * Serialize the ParsedOnionMessageContents object into a byte array which can be read by ParsedOnionMessageContents_read
 	 */
 	public byte[] write() {
-		long ret = bindings.ParsedOnionMessageContents_write(this.ptr);
+		long ret = Bindings.ParsedOnionMessageContentsWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);

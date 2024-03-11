@@ -119,7 +119,7 @@ namespace org { namespace ldk { namespace structs {
 public class OnionMessenger : CommonBase {
 	internal OnionMessenger(object _dummy, long ptr) : base(ptr) { }
 	~OnionMessenger() {
-		if (ptr != 0) { bindings.OnionMessenger_free(ptr); }
+		if (ptr != 0) { Bindings.OnionMessengerFree(ptr); }
 	}
 
 	/**
@@ -127,7 +127,7 @@ public class OnionMessenger : CommonBase {
 	 * their respective handlers.
 	 */
 	public static OnionMessenger of(org.ldk.structs.EntropySource entropy_source, org.ldk.structs.NodeSigner node_signer, org.ldk.structs.Logger logger, org.ldk.structs.MessageRouter message_router, org.ldk.structs.OffersMessageHandler offers_handler, org.ldk.structs.CustomOnionMessageHandler custom_handler) {
-		long ret = bindings.OnionMessenger_new(entropy_source.ptr, node_signer.ptr, logger.ptr, message_router.ptr, offers_handler.ptr, custom_handler.ptr);
+		long ret = Bindings.OnionMessengerNew(entropy_source.ptr, node_signer.ptr, logger.ptr, message_router.ptr, offers_handler.ptr, custom_handler.ptr);
 		GC.KeepAlive(entropy_source);
 		GC.KeepAlive(node_signer);
 		GC.KeepAlive(logger);
@@ -154,7 +154,7 @@ public class OnionMessenger : CommonBase {
 	 * Note that reply_path (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public Result_SendSuccessSendErrorZ send_onion_message(org.ldk.structs.OnionMessageContents contents, org.ldk.structs.Destination destination, org.ldk.structs.BlindedPath reply_path) {
-		long ret = bindings.OnionMessenger_send_onion_message(this.ptr, contents.ptr, destination.ptr, reply_path == null ? 0 : reply_path.ptr);
+		long ret = Bindings.OnionMessengerSendOnionMessage(this.ptr, contents.ptr, destination.ptr, reply_path == null ? 0 : reply_path.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(contents);
 		GC.KeepAlive(destination);
@@ -172,7 +172,7 @@ public class OnionMessenger : CommonBase {
 	 * This copies the `inner` pointer in this_arg and thus the returned OnionMessageHandler must be freed before this_arg is
 	 */
 	public OnionMessageHandler as_OnionMessageHandler() {
-		long ret = bindings.OnionMessenger_as_OnionMessageHandler(this.ptr);
+		long ret = Bindings.OnionMessengerAsOnionMessageHandler(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		OnionMessageHandler ret_hu_conv = new OnionMessageHandler(null, ret);

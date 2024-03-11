@@ -11,11 +11,11 @@ namespace org { namespace ldk { namespace structs {
 public class Option_CVec_SocketAddressZZ : CommonBase {
 	protected Option_CVec_SocketAddressZZ(object _dummy, long ptr) : base(ptr) { }
 	~Option_CVec_SocketAddressZZ() {
-		if (ptr != 0) { bindings.COption_CVec_SocketAddressZZ_free(ptr); }
+		if (ptr != 0) { Bindings.COptionCVecSocketAddressZZFree(ptr); }
 	}
 
 	internal static Option_CVec_SocketAddressZZ constr_from_ptr(long ptr) {
-		long raw_ty = bindings.LDKCOption_CVec_SocketAddressZZ_ty_from_ptr(ptr);
+		long raw_ty = Bindings.LDKCOptionCVecSocketAddressZZTyFromPtr(ptr);
 		switch (raw_ty) {
 			case 0: return new Option_CVec_SocketAddressZZ_Some(ptr);
 			case 1: return new Option_CVec_SocketAddressZZ_None(ptr);
@@ -28,7 +28,7 @@ public class Option_CVec_SocketAddressZZ : CommonBase {
 	public class Option_CVec_SocketAddressZZ_Some : Option_CVec_SocketAddressZZ {
 		public SocketAddress[] some;
 		internal Option_CVec_SocketAddressZZ_Some(long ptr) : base(null, ptr) {
-			long some = bindings.LDKCOption_CVec_SocketAddressZZ_Some_get_some(ptr);
+			long some = Bindings.LDKCOptionCVecSocketAddressZZSomeGetSome(ptr);
 			int some_conv_15_len = InternalUtils.getArrayLength(some);
 			SocketAddress[] some_conv_15_arr = new SocketAddress[some_conv_15_len];
 			for (int p = 0; p < some_conv_15_len; p++) {
@@ -37,7 +37,7 @@ public class Option_CVec_SocketAddressZZ : CommonBase {
 				if (some_conv_15_hu_conv != null) { some_conv_15_hu_conv.ptrs_to.AddLast(this); };
 				some_conv_15_arr[p] = some_conv_15_hu_conv;
 			}
-			bindings.free_buffer(some);
+			Bindings.FreeBuffer(some);
 			this.some = some_conv_15_arr;
 		}
 	}
@@ -50,7 +50,7 @@ public class Option_CVec_SocketAddressZZ : CommonBase {
 	 * Constructs a new COption_CVec_SocketAddressZZ containing a crate::c_types::derived::CVec_SocketAddressZ
 	 */
 	public static Option_CVec_SocketAddressZZ some(SocketAddress[] o) {
-		long ret = bindings.COption_CVec_SocketAddressZZ_some(InternalUtils.encodeUint64Array(InternalUtils.mapArray(o, o_conv_15 => o_conv_15.ptr)));
+		long ret = Bindings.COptionCVecSocketAddressZZSome(InternalUtils.encodeUint64Array(InternalUtils.mapArray(o, o_conv_15 => o_conv_15.ptr)));
 		GC.KeepAlive(o);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_CVec_SocketAddressZZ ret_hu_conv = org.ldk.structs.Option_CVec_SocketAddressZZ.constr_from_ptr(ret);
@@ -63,7 +63,7 @@ public class Option_CVec_SocketAddressZZ : CommonBase {
 	 * Constructs a new COption_CVec_SocketAddressZZ containing nothing
 	 */
 	public static Option_CVec_SocketAddressZZ none() {
-		long ret = bindings.COption_CVec_SocketAddressZZ_none();
+		long ret = Bindings.COptionCVecSocketAddressZZNone();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_CVec_SocketAddressZZ ret_hu_conv = org.ldk.structs.Option_CVec_SocketAddressZZ.constr_from_ptr(ret);
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -71,7 +71,7 @@ public class Option_CVec_SocketAddressZZ : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.COption_CVec_SocketAddressZZ_clone_ptr(this.ptr);
+		long ret = Bindings.COptionCVecSocketAddressZZClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -81,7 +81,7 @@ public class Option_CVec_SocketAddressZZ : CommonBase {
 	 * but with all dynamically-allocated buffers duplicated in new buffers.
 	 */
 	public Option_CVec_SocketAddressZZ clone() {
-		long ret = bindings.COption_CVec_SocketAddressZZ_clone(this.ptr);
+		long ret = Bindings.COptionCVecSocketAddressZZClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_CVec_SocketAddressZZ ret_hu_conv = org.ldk.structs.Option_CVec_SocketAddressZZ.constr_from_ptr(ret);

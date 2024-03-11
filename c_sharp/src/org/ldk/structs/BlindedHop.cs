@@ -14,14 +14,14 @@ namespace org { namespace ldk { namespace structs {
 public class BlindedHop : CommonBase {
 	internal BlindedHop(object _dummy, long ptr) : base(ptr) { }
 	~BlindedHop() {
-		if (ptr != 0) { bindings.BlindedHop_free(ptr); }
+		if (ptr != 0) { Bindings.BlindedHopFree(ptr); }
 	}
 
 	/**
 	 * The blinded node id of this hop in a [`BlindedPath`].
 	 */
 	public byte[] get_blinded_node_id() {
-		long ret = bindings.BlindedHop_get_blinded_node_id(this.ptr);
+		long ret = Bindings.BlindedHopGetBlindedNodeId(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -32,7 +32,7 @@ public class BlindedHop : CommonBase {
 	 * The blinded node id of this hop in a [`BlindedPath`].
 	 */
 	public void set_blinded_node_id(byte[] val) {
-		bindings.BlindedHop_set_blinded_node_id(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 33)));
+		Bindings.BlindedHopSetBlindedNodeId(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 33)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -43,7 +43,7 @@ public class BlindedHop : CommonBase {
 	 * Returns a copy of the field.
 	 */
 	public byte[] get_encrypted_payload() {
-		long ret = bindings.BlindedHop_get_encrypted_payload(this.ptr);
+		long ret = Bindings.BlindedHopGetEncryptedPayload(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -54,7 +54,7 @@ public class BlindedHop : CommonBase {
 	 * The encrypted payload intended for this hop in a [`BlindedPath`].
 	 */
 	public void set_encrypted_payload(byte[] val) {
-		bindings.BlindedHop_set_encrypted_payload(this.ptr, InternalUtils.encodeUint8Array(val));
+		Bindings.BlindedHopSetEncryptedPayload(this.ptr, InternalUtils.encodeUint8Array(val));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -63,7 +63,7 @@ public class BlindedHop : CommonBase {
 	 * Constructs a new BlindedHop given each field
 	 */
 	public static BlindedHop of(byte[] blinded_node_id_arg, byte[] encrypted_payload_arg) {
-		long ret = bindings.BlindedHop_new(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(blinded_node_id_arg, 33)), InternalUtils.encodeUint8Array(encrypted_payload_arg));
+		long ret = Bindings.BlindedHopNew(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(blinded_node_id_arg, 33)), InternalUtils.encodeUint8Array(encrypted_payload_arg));
 		GC.KeepAlive(blinded_node_id_arg);
 		GC.KeepAlive(encrypted_payload_arg);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -73,7 +73,7 @@ public class BlindedHop : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.BlindedHop_clone_ptr(this.ptr);
+		long ret = Bindings.BlindedHopClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -82,7 +82,7 @@ public class BlindedHop : CommonBase {
 	 * Creates a copy of the BlindedHop
 	 */
 	public BlindedHop clone() {
-		long ret = bindings.BlindedHop_clone(this.ptr);
+		long ret = Bindings.BlindedHopClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.BlindedHop ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.BlindedHop(null, ret); }
@@ -94,7 +94,7 @@ public class BlindedHop : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the BlindedHop.
 	 */
 	public long hash() {
-		long ret = bindings.BlindedHop_hash(this.ptr);
+		long ret = Bindings.BlindedHopHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -108,7 +108,7 @@ public class BlindedHop : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.BlindedHop b) {
-		bool ret = bindings.BlindedHop_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.BlindedHopEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -123,7 +123,7 @@ public class BlindedHop : CommonBase {
 	 * Serialize the BlindedHop object into a byte array which can be read by BlindedHop_read
 	 */
 	public byte[] write() {
-		long ret = bindings.BlindedHop_write(this.ptr);
+		long ret = Bindings.BlindedHopWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -134,7 +134,7 @@ public class BlindedHop : CommonBase {
 	 * Read a BlindedHop from a byte array, created by BlindedHop_write
 	 */
 	public static Result_BlindedHopDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.BlindedHop_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.BlindedHopRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_BlindedHopDecodeErrorZ ret_hu_conv = Result_BlindedHopDecodeErrorZ.constr_from_ptr(ret);

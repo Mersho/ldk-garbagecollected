@@ -12,14 +12,14 @@ namespace org { namespace ldk { namespace structs {
 public class BlindedPayInfo : CommonBase {
 	internal BlindedPayInfo(object _dummy, long ptr) : base(ptr) { }
 	~BlindedPayInfo() {
-		if (ptr != 0) { bindings.BlindedPayInfo_free(ptr); }
+		if (ptr != 0) { Bindings.BlindedPayInfoFree(ptr); }
 	}
 
 	/**
 	 * Base fee charged (in millisatoshi) for the entire blinded path.
 	 */
 	public int get_fee_base_msat() {
-		int ret = bindings.BlindedPayInfo_get_fee_base_msat(this.ptr);
+		int ret = Bindings.BlindedPayInfoGetFeeBaseMsat(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -28,7 +28,7 @@ public class BlindedPayInfo : CommonBase {
 	 * Base fee charged (in millisatoshi) for the entire blinded path.
 	 */
 	public void set_fee_base_msat(int val) {
-		bindings.BlindedPayInfo_set_fee_base_msat(this.ptr, val);
+		Bindings.BlindedPayInfoSetFeeBaseMsat(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -38,7 +38,7 @@ public class BlindedPayInfo : CommonBase {
 	 * (i.e., 10,000 is 1%).
 	 */
 	public int get_fee_proportional_millionths() {
-		int ret = bindings.BlindedPayInfo_get_fee_proportional_millionths(this.ptr);
+		int ret = Bindings.BlindedPayInfoGetFeeProportionalMillionths(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -48,7 +48,7 @@ public class BlindedPayInfo : CommonBase {
 	 * (i.e., 10,000 is 1%).
 	 */
 	public void set_fee_proportional_millionths(int val) {
-		bindings.BlindedPayInfo_set_fee_proportional_millionths(this.ptr, val);
+		Bindings.BlindedPayInfoSetFeeProportionalMillionths(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -58,7 +58,7 @@ public class BlindedPayInfo : CommonBase {
 	 * path.
 	 */
 	public short get_cltv_expiry_delta() {
-		short ret = bindings.BlindedPayInfo_get_cltv_expiry_delta(this.ptr);
+		short ret = Bindings.BlindedPayInfoGetCltvExpiryDelta(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -68,7 +68,7 @@ public class BlindedPayInfo : CommonBase {
 	 * path.
 	 */
 	public void set_cltv_expiry_delta(short val) {
-		bindings.BlindedPayInfo_set_cltv_expiry_delta(this.ptr, val);
+		Bindings.BlindedPayInfoSetCltvExpiryDelta(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -79,7 +79,7 @@ public class BlindedPayInfo : CommonBase {
 	 * seen by the recipient.
 	 */
 	public long get_htlc_minimum_msat() {
-		long ret = bindings.BlindedPayInfo_get_htlc_minimum_msat(this.ptr);
+		long ret = Bindings.BlindedPayInfoGetHtlcMinimumMsat(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -90,7 +90,7 @@ public class BlindedPayInfo : CommonBase {
 	 * seen by the recipient.
 	 */
 	public void set_htlc_minimum_msat(long val) {
-		bindings.BlindedPayInfo_set_htlc_minimum_msat(this.ptr, val);
+		Bindings.BlindedPayInfoSetHtlcMinimumMsat(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -101,7 +101,7 @@ public class BlindedPayInfo : CommonBase {
 	 * seen by the recipient.
 	 */
 	public long get_htlc_maximum_msat() {
-		long ret = bindings.BlindedPayInfo_get_htlc_maximum_msat(this.ptr);
+		long ret = Bindings.BlindedPayInfoGetHtlcMaximumMsat(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -112,7 +112,7 @@ public class BlindedPayInfo : CommonBase {
 	 * seen by the recipient.
 	 */
 	public void set_htlc_maximum_msat(long val) {
-		bindings.BlindedPayInfo_set_htlc_maximum_msat(this.ptr, val);
+		Bindings.BlindedPayInfoSetHtlcMaximumMsat(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -122,7 +122,7 @@ public class BlindedPayInfo : CommonBase {
 	 * onion payload.
 	 */
 	public BlindedHopFeatures get_features() {
-		long ret = bindings.BlindedPayInfo_get_features(this.ptr);
+		long ret = Bindings.BlindedPayInfoGetFeatures(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.BlindedHopFeatures ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.BlindedHopFeatures(null, ret); }
@@ -135,7 +135,7 @@ public class BlindedPayInfo : CommonBase {
 	 * onion payload.
 	 */
 	public void set_features(org.ldk.structs.BlindedHopFeatures val) {
-		bindings.BlindedPayInfo_set_features(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.BlindedPayInfoSetFeatures(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -145,7 +145,7 @@ public class BlindedPayInfo : CommonBase {
 	 * Constructs a new BlindedPayInfo given each field
 	 */
 	public static BlindedPayInfo of(int fee_base_msat_arg, int fee_proportional_millionths_arg, short cltv_expiry_delta_arg, long htlc_minimum_msat_arg, long htlc_maximum_msat_arg, org.ldk.structs.BlindedHopFeatures features_arg) {
-		long ret = bindings.BlindedPayInfo_new(fee_base_msat_arg, fee_proportional_millionths_arg, cltv_expiry_delta_arg, htlc_minimum_msat_arg, htlc_maximum_msat_arg, features_arg == null ? 0 : features_arg.ptr);
+		long ret = Bindings.BlindedPayInfoNew(fee_base_msat_arg, fee_proportional_millionths_arg, cltv_expiry_delta_arg, htlc_minimum_msat_arg, htlc_maximum_msat_arg, features_arg == null ? 0 : features_arg.ptr);
 		GC.KeepAlive(fee_base_msat_arg);
 		GC.KeepAlive(fee_proportional_millionths_arg);
 		GC.KeepAlive(cltv_expiry_delta_arg);
@@ -160,7 +160,7 @@ public class BlindedPayInfo : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.BlindedPayInfo_clone_ptr(this.ptr);
+		long ret = Bindings.BlindedPayInfoClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -169,7 +169,7 @@ public class BlindedPayInfo : CommonBase {
 	 * Creates a copy of the BlindedPayInfo
 	 */
 	public BlindedPayInfo clone() {
-		long ret = bindings.BlindedPayInfo_clone(this.ptr);
+		long ret = Bindings.BlindedPayInfoClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.BlindedPayInfo ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.BlindedPayInfo(null, ret); }
@@ -181,7 +181,7 @@ public class BlindedPayInfo : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the BlindedPayInfo.
 	 */
 	public long hash() {
-		long ret = bindings.BlindedPayInfo_hash(this.ptr);
+		long ret = Bindings.BlindedPayInfoHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -195,7 +195,7 @@ public class BlindedPayInfo : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.BlindedPayInfo b) {
-		bool ret = bindings.BlindedPayInfo_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.BlindedPayInfoEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -210,7 +210,7 @@ public class BlindedPayInfo : CommonBase {
 	 * Serialize the BlindedPayInfo object into a byte array which can be read by BlindedPayInfo_read
 	 */
 	public byte[] write() {
-		long ret = bindings.BlindedPayInfo_write(this.ptr);
+		long ret = Bindings.BlindedPayInfoWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -221,7 +221,7 @@ public class BlindedPayInfo : CommonBase {
 	 * Read a BlindedPayInfo from a byte array, created by BlindedPayInfo_write
 	 */
 	public static Result_BlindedPayInfoDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.BlindedPayInfo_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.BlindedPayInfoRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_BlindedPayInfoDecodeErrorZ ret_hu_conv = Result_BlindedPayInfoDecodeErrorZ.constr_from_ptr(ret);

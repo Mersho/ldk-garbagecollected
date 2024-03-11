@@ -14,11 +14,11 @@ namespace org { namespace ldk { namespace structs {
 public class ProbeSendFailure : CommonBase {
 	protected ProbeSendFailure(object _dummy, long ptr) : base(ptr) { }
 	~ProbeSendFailure() {
-		if (ptr != 0) { bindings.ProbeSendFailure_free(ptr); }
+		if (ptr != 0) { Bindings.ProbeSendFailureFree(ptr); }
 	}
 
 	internal static ProbeSendFailure constr_from_ptr(long ptr) {
-		long raw_ty = bindings.LDKProbeSendFailure_ty_from_ptr(ptr);
+		long raw_ty = Bindings.LDKProbeSendFailureTyFromPtr(ptr);
 		switch (raw_ty) {
 			case 0: return new ProbeSendFailure_RouteNotFound(ptr);
 			case 1: return new ProbeSendFailure_SendingFailed(ptr);
@@ -36,14 +36,14 @@ public class ProbeSendFailure : CommonBase {
 	public class ProbeSendFailure_SendingFailed : ProbeSendFailure {
 		public PaymentSendFailure sending_failed;
 		internal ProbeSendFailure_SendingFailed(long ptr) : base(null, ptr) {
-			long sending_failed = bindings.LDKProbeSendFailure_SendingFailed_get_sending_failed(ptr);
+			long sending_failed = Bindings.LDKProbeSendFailureSendingFailedGetSendingFailed(ptr);
 			org.ldk.structs.PaymentSendFailure sending_failed_hu_conv = org.ldk.structs.PaymentSendFailure.constr_from_ptr(sending_failed);
 			if (sending_failed_hu_conv != null) { sending_failed_hu_conv.ptrs_to.AddLast(this); };
 			this.sending_failed = sending_failed_hu_conv;
 		}
 	}
 	internal long clone_ptr() {
-		long ret = bindings.ProbeSendFailure_clone_ptr(this.ptr);
+		long ret = Bindings.ProbeSendFailureClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -52,7 +52,7 @@ public class ProbeSendFailure : CommonBase {
 	 * Creates a copy of the ProbeSendFailure
 	 */
 	public ProbeSendFailure clone() {
-		long ret = bindings.ProbeSendFailure_clone(this.ptr);
+		long ret = Bindings.ProbeSendFailureClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ProbeSendFailure ret_hu_conv = org.ldk.structs.ProbeSendFailure.constr_from_ptr(ret);
@@ -64,7 +64,7 @@ public class ProbeSendFailure : CommonBase {
 	 * Utility method to constructs a new RouteNotFound-variant ProbeSendFailure
 	 */
 	public static ProbeSendFailure route_not_found() {
-		long ret = bindings.ProbeSendFailure_route_not_found();
+		long ret = Bindings.ProbeSendFailureRouteNotFound();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ProbeSendFailure ret_hu_conv = org.ldk.structs.ProbeSendFailure.constr_from_ptr(ret);
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -75,7 +75,7 @@ public class ProbeSendFailure : CommonBase {
 	 * Utility method to constructs a new SendingFailed-variant ProbeSendFailure
 	 */
 	public static ProbeSendFailure sending_failed(org.ldk.structs.PaymentSendFailure a) {
-		long ret = bindings.ProbeSendFailure_sending_failed(a.ptr);
+		long ret = Bindings.ProbeSendFailureSendingFailed(a.ptr);
 		GC.KeepAlive(a);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ProbeSendFailure ret_hu_conv = org.ldk.structs.ProbeSendFailure.constr_from_ptr(ret);
@@ -89,7 +89,7 @@ public class ProbeSendFailure : CommonBase {
 	 * This ignores pointers and is_owned flags and looks at the values in fields.
 	 */
 	public bool eq(org.ldk.structs.ProbeSendFailure b) {
-		bool ret = bindings.ProbeSendFailure_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.ProbeSendFailureEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		return ret;

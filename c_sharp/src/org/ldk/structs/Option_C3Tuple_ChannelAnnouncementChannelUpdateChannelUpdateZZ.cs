@@ -11,11 +11,11 @@ namespace org { namespace ldk { namespace structs {
 public class Option_C3Tuple_ChannelAnnouncementChannelUpdateChannelUpdateZZ : CommonBase {
 	protected Option_C3Tuple_ChannelAnnouncementChannelUpdateChannelUpdateZZ(object _dummy, long ptr) : base(ptr) { }
 	~Option_C3Tuple_ChannelAnnouncementChannelUpdateChannelUpdateZZ() {
-		if (ptr != 0) { bindings.COption_C3Tuple_ChannelAnnouncementChannelUpdateChannelUpdateZZ_free(ptr); }
+		if (ptr != 0) { Bindings.COptionC3TupleChannelAnnouncementChannelUpdateChannelUpdateZZFree(ptr); }
 	}
 
 	internal static Option_C3Tuple_ChannelAnnouncementChannelUpdateChannelUpdateZZ constr_from_ptr(long ptr) {
-		long raw_ty = bindings.LDKCOption_C3Tuple_ChannelAnnouncementChannelUpdateChannelUpdateZZ_ty_from_ptr(ptr);
+		long raw_ty = Bindings.LDKCOptionC3TupleChannelAnnouncementChannelUpdateChannelUpdateZZTyFromPtr(ptr);
 		switch (raw_ty) {
 			case 0: return new Option_C3Tuple_ChannelAnnouncementChannelUpdateChannelUpdateZZ_Some(ptr);
 			case 1: return new Option_C3Tuple_ChannelAnnouncementChannelUpdateChannelUpdateZZ_None(ptr);
@@ -28,7 +28,7 @@ public class Option_C3Tuple_ChannelAnnouncementChannelUpdateChannelUpdateZZ : Co
 	public class Option_C3Tuple_ChannelAnnouncementChannelUpdateChannelUpdateZZ_Some : Option_C3Tuple_ChannelAnnouncementChannelUpdateChannelUpdateZZ {
 		public ThreeTuple_ChannelAnnouncementChannelUpdateChannelUpdateZ some;
 		internal Option_C3Tuple_ChannelAnnouncementChannelUpdateChannelUpdateZZ_Some(long ptr) : base(null, ptr) {
-			long some = bindings.LDKCOption_C3Tuple_ChannelAnnouncementChannelUpdateChannelUpdateZZ_Some_get_some(ptr);
+			long some = Bindings.LDKCOptionC3TupleChannelAnnouncementChannelUpdateChannelUpdateZZSomeGetSome(ptr);
 			ThreeTuple_ChannelAnnouncementChannelUpdateChannelUpdateZ some_hu_conv = new ThreeTuple_ChannelAnnouncementChannelUpdateChannelUpdateZ(null, some);
 			if (some_hu_conv != null) { some_hu_conv.ptrs_to.AddLast(this); };
 			this.some = some_hu_conv;
@@ -43,7 +43,7 @@ public class Option_C3Tuple_ChannelAnnouncementChannelUpdateChannelUpdateZZ : Co
 	 * Constructs a new COption_C3Tuple_ChannelAnnouncementChannelUpdateChannelUpdateZZ containing a crate::c_types::derived::C3Tuple_ChannelAnnouncementChannelUpdateChannelUpdateZ
 	 */
 	public static Option_C3Tuple_ChannelAnnouncementChannelUpdateChannelUpdateZZ some(org.ldk.structs.ThreeTuple_ChannelAnnouncementChannelUpdateChannelUpdateZ o) {
-		long ret = bindings.COption_C3Tuple_ChannelAnnouncementChannelUpdateChannelUpdateZZ_some(o != null ? o.ptr : 0);
+		long ret = Bindings.COptionC3TupleChannelAnnouncementChannelUpdateChannelUpdateZZSome(o != null ? o.ptr : 0);
 		GC.KeepAlive(o);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_C3Tuple_ChannelAnnouncementChannelUpdateChannelUpdateZZ ret_hu_conv = org.ldk.structs.Option_C3Tuple_ChannelAnnouncementChannelUpdateChannelUpdateZZ.constr_from_ptr(ret);
@@ -55,7 +55,7 @@ public class Option_C3Tuple_ChannelAnnouncementChannelUpdateChannelUpdateZZ : Co
 	 * Constructs a new COption_C3Tuple_ChannelAnnouncementChannelUpdateChannelUpdateZZ containing nothing
 	 */
 	public static Option_C3Tuple_ChannelAnnouncementChannelUpdateChannelUpdateZZ none() {
-		long ret = bindings.COption_C3Tuple_ChannelAnnouncementChannelUpdateChannelUpdateZZ_none();
+		long ret = Bindings.COptionC3TupleChannelAnnouncementChannelUpdateChannelUpdateZZNone();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_C3Tuple_ChannelAnnouncementChannelUpdateChannelUpdateZZ ret_hu_conv = org.ldk.structs.Option_C3Tuple_ChannelAnnouncementChannelUpdateChannelUpdateZZ.constr_from_ptr(ret);
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -63,7 +63,7 @@ public class Option_C3Tuple_ChannelAnnouncementChannelUpdateChannelUpdateZZ : Co
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.COption_C3Tuple_ChannelAnnouncementChannelUpdateChannelUpdateZZ_clone_ptr(this.ptr);
+		long ret = Bindings.COptionC3TupleChannelAnnouncementChannelUpdateChannelUpdateZZClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -73,7 +73,7 @@ public class Option_C3Tuple_ChannelAnnouncementChannelUpdateChannelUpdateZZ : Co
 	 * but with all dynamically-allocated buffers duplicated in new buffers.
 	 */
 	public Option_C3Tuple_ChannelAnnouncementChannelUpdateChannelUpdateZZ clone() {
-		long ret = bindings.COption_C3Tuple_ChannelAnnouncementChannelUpdateChannelUpdateZZ_clone(this.ptr);
+		long ret = Bindings.COptionC3TupleChannelAnnouncementChannelUpdateChannelUpdateZZClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_C3Tuple_ChannelAnnouncementChannelUpdateChannelUpdateZZ ret_hu_conv = org.ldk.structs.Option_C3Tuple_ChannelAnnouncementChannelUpdateChannelUpdateZZ.constr_from_ptr(ret);

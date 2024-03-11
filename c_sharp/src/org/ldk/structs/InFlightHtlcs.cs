@@ -13,11 +13,11 @@ namespace org { namespace ldk { namespace structs {
 public class InFlightHtlcs : CommonBase {
 	internal InFlightHtlcs(object _dummy, long ptr) : base(ptr) { }
 	~InFlightHtlcs() {
-		if (ptr != 0) { bindings.InFlightHtlcs_free(ptr); }
+		if (ptr != 0) { Bindings.InFlightHtlcsFree(ptr); }
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.InFlightHtlcs_clone_ptr(this.ptr);
+		long ret = Bindings.InFlightHtlcsClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -26,7 +26,7 @@ public class InFlightHtlcs : CommonBase {
 	 * Creates a copy of the InFlightHtlcs
 	 */
 	public InFlightHtlcs clone() {
-		long ret = bindings.InFlightHtlcs_clone(this.ptr);
+		long ret = Bindings.InFlightHtlcsClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.InFlightHtlcs ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.InFlightHtlcs(null, ret); }
@@ -38,7 +38,7 @@ public class InFlightHtlcs : CommonBase {
 	 * Constructs an empty `InFlightHtlcs`.
 	 */
 	public static InFlightHtlcs of() {
-		long ret = bindings.InFlightHtlcs_new();
+		long ret = Bindings.InFlightHtlcsNew();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.InFlightHtlcs ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.InFlightHtlcs(null, ret); }
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -49,7 +49,7 @@ public class InFlightHtlcs : CommonBase {
 	 * Takes in a path with payer's node id and adds the path's details to `InFlightHtlcs`.
 	 */
 	public void process_path(org.ldk.structs.Path path, byte[] payer_node_id) {
-		bindings.InFlightHtlcs_process_path(this.ptr, path == null ? 0 : path.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payer_node_id, 33)));
+		Bindings.InFlightHtlcsProcessPath(this.ptr, path == null ? 0 : path.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payer_node_id, 33)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(path);
 		GC.KeepAlive(payer_node_id);
@@ -61,7 +61,7 @@ public class InFlightHtlcs : CommonBase {
 	 * id.
 	 */
 	public void add_inflight_htlc(org.ldk.structs.NodeId source, org.ldk.structs.NodeId target, long channel_scid, long used_msat) {
-		bindings.InFlightHtlcs_add_inflight_htlc(this.ptr, source == null ? 0 : source.ptr, target == null ? 0 : target.ptr, channel_scid, used_msat);
+		Bindings.InFlightHtlcsAddInflightHtlc(this.ptr, source == null ? 0 : source.ptr, target == null ? 0 : target.ptr, channel_scid, used_msat);
 		GC.KeepAlive(this);
 		GC.KeepAlive(source);
 		GC.KeepAlive(target);
@@ -76,7 +76,7 @@ public class InFlightHtlcs : CommonBase {
 	 * id.
 	 */
 	public Option_u64Z used_liquidity_msat(org.ldk.structs.NodeId source, org.ldk.structs.NodeId target, long channel_scid) {
-		long ret = bindings.InFlightHtlcs_used_liquidity_msat(this.ptr, source == null ? 0 : source.ptr, target == null ? 0 : target.ptr, channel_scid);
+		long ret = Bindings.InFlightHtlcsUsedLiquidityMsat(this.ptr, source == null ? 0 : source.ptr, target == null ? 0 : target.ptr, channel_scid);
 		GC.KeepAlive(this);
 		GC.KeepAlive(source);
 		GC.KeepAlive(target);
@@ -93,7 +93,7 @@ public class InFlightHtlcs : CommonBase {
 	 * Serialize the InFlightHtlcs object into a byte array which can be read by InFlightHtlcs_read
 	 */
 	public byte[] write() {
-		long ret = bindings.InFlightHtlcs_write(this.ptr);
+		long ret = Bindings.InFlightHtlcsWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -104,7 +104,7 @@ public class InFlightHtlcs : CommonBase {
 	 * Read a InFlightHtlcs from a byte array, created by InFlightHtlcs_write
 	 */
 	public static Result_InFlightHtlcsDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.InFlightHtlcs_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.InFlightHtlcsRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_InFlightHtlcsDecodeErrorZ ret_hu_conv = Result_InFlightHtlcsDecodeErrorZ.constr_from_ptr(ret);

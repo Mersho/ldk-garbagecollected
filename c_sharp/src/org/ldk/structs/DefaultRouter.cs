@@ -12,14 +12,14 @@ namespace org { namespace ldk { namespace structs {
 public class DefaultRouter : CommonBase {
 	internal DefaultRouter(object _dummy, long ptr) : base(ptr) { }
 	~DefaultRouter() {
-		if (ptr != 0) { bindings.DefaultRouter_free(ptr); }
+		if (ptr != 0) { Bindings.DefaultRouterFree(ptr); }
 	}
 
 	/**
 	 * Creates a new router.
 	 */
 	public static DefaultRouter of(org.ldk.structs.NetworkGraph network_graph, org.ldk.structs.Logger logger, org.ldk.structs.EntropySource entropy_source, org.ldk.structs.LockableScore scorer, org.ldk.structs.ProbabilisticScoringFeeParameters score_params) {
-		long ret = bindings.DefaultRouter_new(network_graph == null ? 0 : network_graph.ptr, logger.ptr, entropy_source.ptr, scorer.ptr, score_params == null ? 0 : score_params.ptr);
+		long ret = Bindings.DefaultRouterNew(network_graph == null ? 0 : network_graph.ptr, logger.ptr, entropy_source.ptr, scorer.ptr, score_params == null ? 0 : score_params.ptr);
 		GC.KeepAlive(network_graph);
 		GC.KeepAlive(logger);
 		GC.KeepAlive(entropy_source);
@@ -41,7 +41,7 @@ public class DefaultRouter : CommonBase {
 	 * This copies the `inner` pointer in this_arg and thus the returned Router must be freed before this_arg is
 	 */
 	public Router as_Router() {
-		long ret = bindings.DefaultRouter_as_Router(this.ptr);
+		long ret = Bindings.DefaultRouterAsRouter(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Router ret_hu_conv = new Router(null, ret);
@@ -54,7 +54,7 @@ public class DefaultRouter : CommonBase {
 	 * This copies the `inner` pointer in this_arg and thus the returned MessageRouter must be freed before this_arg is
 	 */
 	public MessageRouter as_MessageRouter() {
-		long ret = bindings.DefaultRouter_as_MessageRouter(this.ptr);
+		long ret = Bindings.DefaultRouterAsMessageRouter(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		MessageRouter ret_hu_conv = new MessageRouter(null, ret);

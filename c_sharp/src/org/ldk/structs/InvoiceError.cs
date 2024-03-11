@@ -15,7 +15,7 @@ namespace org { namespace ldk { namespace structs {
 public class InvoiceError : CommonBase {
 	internal InvoiceError(object _dummy, long ptr) : base(ptr) { }
 	~InvoiceError() {
-		if (ptr != 0) { bindings.InvoiceError_free(ptr); }
+		if (ptr != 0) { Bindings.InvoiceErrorFree(ptr); }
 	}
 
 	/**
@@ -27,7 +27,7 @@ public class InvoiceError : CommonBase {
 	 * Note that the return value (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public ErroneousField get_erroneous_field() {
-		long ret = bindings.InvoiceError_get_erroneous_field(this.ptr);
+		long ret = Bindings.InvoiceErrorGetErroneousField(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ErroneousField ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ErroneousField(null, ret); }
@@ -44,7 +44,7 @@ public class InvoiceError : CommonBase {
 	 * Note that val (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public void set_erroneous_field(org.ldk.structs.ErroneousField val) {
-		bindings.InvoiceError_set_erroneous_field(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.InvoiceErrorSetErroneousField(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -54,7 +54,7 @@ public class InvoiceError : CommonBase {
 	 * An explanation of the error.
 	 */
 	public UntrustedString get_message() {
-		long ret = bindings.InvoiceError_get_message(this.ptr);
+		long ret = Bindings.InvoiceErrorGetMessage(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.UntrustedString ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.UntrustedString(null, ret); }
@@ -66,7 +66,7 @@ public class InvoiceError : CommonBase {
 	 * An explanation of the error.
 	 */
 	public void set_message(org.ldk.structs.UntrustedString val) {
-		bindings.InvoiceError_set_message(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.InvoiceErrorSetMessage(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -78,7 +78,7 @@ public class InvoiceError : CommonBase {
 	 * Note that erroneous_field_arg (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public static InvoiceError of(org.ldk.structs.ErroneousField erroneous_field_arg, org.ldk.structs.UntrustedString message_arg) {
-		long ret = bindings.InvoiceError_new(erroneous_field_arg == null ? 0 : erroneous_field_arg.ptr, message_arg == null ? 0 : message_arg.ptr);
+		long ret = Bindings.InvoiceErrorNew(erroneous_field_arg == null ? 0 : erroneous_field_arg.ptr, message_arg == null ? 0 : message_arg.ptr);
 		GC.KeepAlive(erroneous_field_arg);
 		GC.KeepAlive(message_arg);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -90,7 +90,7 @@ public class InvoiceError : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.InvoiceError_clone_ptr(this.ptr);
+		long ret = Bindings.InvoiceErrorClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -99,7 +99,7 @@ public class InvoiceError : CommonBase {
 	 * Creates a copy of the InvoiceError
 	 */
 	public InvoiceError clone() {
-		long ret = bindings.InvoiceError_clone(this.ptr);
+		long ret = Bindings.InvoiceErrorClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.InvoiceError ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.InvoiceError(null, ret); }
@@ -111,7 +111,7 @@ public class InvoiceError : CommonBase {
 	 * Creates an [`InvoiceError`] with the given message.
 	 */
 	public static InvoiceError from_string(string s) {
-		long ret = bindings.InvoiceError_from_string(InternalUtils.encodeString(s));
+		long ret = Bindings.InvoiceErrorFromString(InternalUtils.encodeString(s));
 		GC.KeepAlive(s);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.InvoiceError ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.InvoiceError(null, ret); }
@@ -123,7 +123,7 @@ public class InvoiceError : CommonBase {
 	 * Serialize the InvoiceError object into a byte array which can be read by InvoiceError_read
 	 */
 	public byte[] write() {
-		long ret = bindings.InvoiceError_write(this.ptr);
+		long ret = Bindings.InvoiceErrorWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -134,7 +134,7 @@ public class InvoiceError : CommonBase {
 	 * Read a InvoiceError from a byte array, created by InvoiceError_write
 	 */
 	public static Result_InvoiceErrorDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.InvoiceError_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.InvoiceErrorRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_InvoiceErrorDecodeErrorZ ret_hu_conv = Result_InvoiceErrorDecodeErrorZ.constr_from_ptr(ret);

@@ -20,11 +20,11 @@ namespace org { namespace ldk { namespace structs {
 public class DelayedPaymentKey : CommonBase {
 	internal DelayedPaymentKey(object _dummy, long ptr) : base(ptr) { }
 	~DelayedPaymentKey() {
-		if (ptr != 0) { bindings.DelayedPaymentKey_free(ptr); }
+		if (ptr != 0) { Bindings.DelayedPaymentKeyFree(ptr); }
 	}
 
 	public byte[] get_a() {
-		long ret = bindings.DelayedPaymentKey_get_a(this.ptr);
+		long ret = Bindings.DelayedPaymentKeyGetA(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -32,7 +32,7 @@ public class DelayedPaymentKey : CommonBase {
 	}
 
 	public void set_a(byte[] val) {
-		bindings.DelayedPaymentKey_set_a(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 33)));
+		Bindings.DelayedPaymentKeySetA(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 33)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -41,7 +41,7 @@ public class DelayedPaymentKey : CommonBase {
 	 * Constructs a new DelayedPaymentKey given each field
 	 */
 	public static DelayedPaymentKey of(byte[] a_arg) {
-		long ret = bindings.DelayedPaymentKey_new(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(a_arg, 33)));
+		long ret = Bindings.DelayedPaymentKeyNew(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(a_arg, 33)));
 		GC.KeepAlive(a_arg);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.DelayedPaymentKey ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.DelayedPaymentKey(null, ret); }
@@ -55,7 +55,7 @@ public class DelayedPaymentKey : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.DelayedPaymentKey b) {
-		bool ret = bindings.DelayedPaymentKey_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.DelayedPaymentKeyEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -67,7 +67,7 @@ public class DelayedPaymentKey : CommonBase {
 		return this.eq((DelayedPaymentKey)o);
 	}
 	internal long clone_ptr() {
-		long ret = bindings.DelayedPaymentKey_clone_ptr(this.ptr);
+		long ret = Bindings.DelayedPaymentKeyClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -76,7 +76,7 @@ public class DelayedPaymentKey : CommonBase {
 	 * Creates a copy of the DelayedPaymentKey
 	 */
 	public DelayedPaymentKey clone() {
-		long ret = bindings.DelayedPaymentKey_clone(this.ptr);
+		long ret = Bindings.DelayedPaymentKeyClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.DelayedPaymentKey ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.DelayedPaymentKey(null, ret); }
@@ -88,7 +88,7 @@ public class DelayedPaymentKey : CommonBase {
 	 * Derive a public delayedpubkey using one node\'s `per_commitment_point` and its countersignatory\'s `basepoint`
 	 */
 	public static DelayedPaymentKey from_basepoint(org.ldk.structs.DelayedPaymentBasepoint countersignatory_basepoint, byte[] per_commitment_point) {
-		long ret = bindings.DelayedPaymentKey_from_basepoint(countersignatory_basepoint == null ? 0 : countersignatory_basepoint.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(per_commitment_point, 33)));
+		long ret = Bindings.DelayedPaymentKeyFromBasepoint(countersignatory_basepoint == null ? 0 : countersignatory_basepoint.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(per_commitment_point, 33)));
 		GC.KeepAlive(countersignatory_basepoint);
 		GC.KeepAlive(per_commitment_point);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -102,7 +102,7 @@ public class DelayedPaymentKey : CommonBase {
 	 * Build a delayedpubkey directly from an already-derived private key
 	 */
 	public static DelayedPaymentKey from_secret_key(byte[] sk) {
-		long ret = bindings.DelayedPaymentKey_from_secret_key(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(sk, 32)));
+		long ret = Bindings.DelayedPaymentKeyFromSecretKey(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(sk, 32)));
 		GC.KeepAlive(sk);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.DelayedPaymentKey ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.DelayedPaymentKey(null, ret); }
@@ -114,7 +114,7 @@ public class DelayedPaymentKey : CommonBase {
 	 * Get inner Public Key
 	 */
 	public byte[] to_public_key() {
-		long ret = bindings.DelayedPaymentKey_to_public_key(this.ptr);
+		long ret = Bindings.DelayedPaymentKeyToPublicKey(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -125,7 +125,7 @@ public class DelayedPaymentKey : CommonBase {
 	 * Serialize the DelayedPaymentKey object into a byte array which can be read by DelayedPaymentKey_read
 	 */
 	public byte[] write() {
-		long ret = bindings.DelayedPaymentKey_write(this.ptr);
+		long ret = Bindings.DelayedPaymentKeyWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -136,7 +136,7 @@ public class DelayedPaymentKey : CommonBase {
 	 * Read a DelayedPaymentKey from a byte array, created by DelayedPaymentKey_write
 	 */
 	public static Result_DelayedPaymentKeyDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.DelayedPaymentKey_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.DelayedPaymentKeyRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_DelayedPaymentKeyDecodeErrorZ ret_hu_conv = Result_DelayedPaymentKeyDecodeErrorZ.constr_from_ptr(ret);

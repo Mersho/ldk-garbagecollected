@@ -14,14 +14,14 @@ namespace org { namespace ldk { namespace structs {
 public class RouteParameters : CommonBase {
 	internal RouteParameters(object _dummy, long ptr) : base(ptr) { }
 	~RouteParameters() {
-		if (ptr != 0) { bindings.RouteParameters_free(ptr); }
+		if (ptr != 0) { Bindings.RouteParametersFree(ptr); }
 	}
 
 	/**
 	 * The parameters of the failed payment path.
 	 */
 	public PaymentParameters get_payment_params() {
-		long ret = bindings.RouteParameters_get_payment_params(this.ptr);
+		long ret = Bindings.RouteParametersGetPaymentParams(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.PaymentParameters ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.PaymentParameters(null, ret); }
@@ -33,7 +33,7 @@ public class RouteParameters : CommonBase {
 	 * The parameters of the failed payment path.
 	 */
 	public void set_payment_params(org.ldk.structs.PaymentParameters val) {
-		bindings.RouteParameters_set_payment_params(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.RouteParametersSetPaymentParams(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -43,7 +43,7 @@ public class RouteParameters : CommonBase {
 	 * The amount in msats sent on the failed payment path.
 	 */
 	public long get_final_value_msat() {
-		long ret = bindings.RouteParameters_get_final_value_msat(this.ptr);
+		long ret = Bindings.RouteParametersGetFinalValueMsat(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -52,7 +52,7 @@ public class RouteParameters : CommonBase {
 	 * The amount in msats sent on the failed payment path.
 	 */
 	public void set_final_value_msat(long val) {
-		bindings.RouteParameters_set_final_value_msat(this.ptr, val);
+		Bindings.RouteParametersSetFinalValueMsat(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -66,7 +66,7 @@ public class RouteParameters : CommonBase {
 	 * Note that values below a few sats may result in some paths being spuriously ignored.
 	 */
 	public Option_u64Z get_max_total_routing_fee_msat() {
-		long ret = bindings.RouteParameters_get_max_total_routing_fee_msat(this.ptr);
+		long ret = Bindings.RouteParametersGetMaxTotalRoutingFeeMsat(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_u64Z ret_hu_conv = org.ldk.structs.Option_u64Z.constr_from_ptr(ret);
@@ -83,7 +83,7 @@ public class RouteParameters : CommonBase {
 	 * Note that values below a few sats may result in some paths being spuriously ignored.
 	 */
 	public void set_max_total_routing_fee_msat(org.ldk.structs.Option_u64Z val) {
-		bindings.RouteParameters_set_max_total_routing_fee_msat(this.ptr, val.ptr);
+		Bindings.RouteParametersSetMaxTotalRoutingFeeMsat(this.ptr, val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -93,7 +93,7 @@ public class RouteParameters : CommonBase {
 	 * Constructs a new RouteParameters given each field
 	 */
 	public static RouteParameters of(org.ldk.structs.PaymentParameters payment_params_arg, long final_value_msat_arg, org.ldk.structs.Option_u64Z max_total_routing_fee_msat_arg) {
-		long ret = bindings.RouteParameters_new(payment_params_arg == null ? 0 : payment_params_arg.ptr, final_value_msat_arg, max_total_routing_fee_msat_arg.ptr);
+		long ret = Bindings.RouteParametersNew(payment_params_arg == null ? 0 : payment_params_arg.ptr, final_value_msat_arg, max_total_routing_fee_msat_arg.ptr);
 		GC.KeepAlive(payment_params_arg);
 		GC.KeepAlive(final_value_msat_arg);
 		GC.KeepAlive(max_total_routing_fee_msat_arg);
@@ -106,7 +106,7 @@ public class RouteParameters : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.RouteParameters_clone_ptr(this.ptr);
+		long ret = Bindings.RouteParametersClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -115,7 +115,7 @@ public class RouteParameters : CommonBase {
 	 * Creates a copy of the RouteParameters
 	 */
 	public RouteParameters clone() {
-		long ret = bindings.RouteParameters_clone(this.ptr);
+		long ret = Bindings.RouteParametersClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.RouteParameters ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.RouteParameters(null, ret); }
@@ -127,7 +127,7 @@ public class RouteParameters : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the RouteParameters.
 	 */
 	public long hash() {
-		long ret = bindings.RouteParameters_hash(this.ptr);
+		long ret = Bindings.RouteParametersHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -141,7 +141,7 @@ public class RouteParameters : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.RouteParameters b) {
-		bool ret = bindings.RouteParameters_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.RouteParametersEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -158,7 +158,7 @@ public class RouteParameters : CommonBase {
 	 * [`Self::max_total_routing_fee_msat`] defaults to 1% of the payment amount + 50 sats
 	 */
 	public static RouteParameters from_payment_params_and_value(org.ldk.structs.PaymentParameters payment_params, long final_value_msat) {
-		long ret = bindings.RouteParameters_from_payment_params_and_value(payment_params == null ? 0 : payment_params.ptr, final_value_msat);
+		long ret = Bindings.RouteParametersFromPaymentParamsAndValue(payment_params == null ? 0 : payment_params.ptr, final_value_msat);
 		GC.KeepAlive(payment_params);
 		GC.KeepAlive(final_value_msat);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -172,7 +172,7 @@ public class RouteParameters : CommonBase {
 	 * Serialize the RouteParameters object into a byte array which can be read by RouteParameters_read
 	 */
 	public byte[] write() {
-		long ret = bindings.RouteParameters_write(this.ptr);
+		long ret = Bindings.RouteParametersWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -183,7 +183,7 @@ public class RouteParameters : CommonBase {
 	 * Read a RouteParameters from a byte array, created by RouteParameters_write
 	 */
 	public static Result_RouteParametersDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.RouteParameters_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.RouteParametersRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_RouteParametersDecodeErrorZ ret_hu_conv = Result_RouteParametersDecodeErrorZ.constr_from_ptr(ret);

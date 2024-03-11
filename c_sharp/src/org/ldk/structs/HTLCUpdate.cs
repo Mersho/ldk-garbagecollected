@@ -14,11 +14,11 @@ namespace org { namespace ldk { namespace structs {
 public class HTLCUpdate : CommonBase {
 	internal HTLCUpdate(object _dummy, long ptr) : base(ptr) { }
 	~HTLCUpdate() {
-		if (ptr != 0) { bindings.HTLCUpdate_free(ptr); }
+		if (ptr != 0) { Bindings.HTLCUpdateFree(ptr); }
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.HTLCUpdate_clone_ptr(this.ptr);
+		long ret = Bindings.HTLCUpdateClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -27,7 +27,7 @@ public class HTLCUpdate : CommonBase {
 	 * Creates a copy of the HTLCUpdate
 	 */
 	public HTLCUpdate clone() {
-		long ret = bindings.HTLCUpdate_clone(this.ptr);
+		long ret = Bindings.HTLCUpdateClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.HTLCUpdate ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.HTLCUpdate(null, ret); }
@@ -41,7 +41,7 @@ public class HTLCUpdate : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.HTLCUpdate b) {
-		bool ret = bindings.HTLCUpdate_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.HTLCUpdateEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -56,7 +56,7 @@ public class HTLCUpdate : CommonBase {
 	 * Serialize the HTLCUpdate object into a byte array which can be read by HTLCUpdate_read
 	 */
 	public byte[] write() {
-		long ret = bindings.HTLCUpdate_write(this.ptr);
+		long ret = Bindings.HTLCUpdateWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -67,7 +67,7 @@ public class HTLCUpdate : CommonBase {
 	 * Read a HTLCUpdate from a byte array, created by HTLCUpdate_write
 	 */
 	public static Result_HTLCUpdateDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.HTLCUpdate_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.HTLCUpdateRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_HTLCUpdateDecodeErrorZ ret_hu_conv = Result_HTLCUpdateDecodeErrorZ.constr_from_ptr(ret);

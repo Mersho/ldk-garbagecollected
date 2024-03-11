@@ -14,14 +14,14 @@ namespace org { namespace ldk { namespace structs {
 public class UpdateFailHTLC : CommonBase {
 	internal UpdateFailHTLC(object _dummy, long ptr) : base(ptr) { }
 	~UpdateFailHTLC() {
-		if (ptr != 0) { bindings.UpdateFailHTLC_free(ptr); }
+		if (ptr != 0) { Bindings.UpdateFailHTLCFree(ptr); }
 	}
 
 	/**
 	 * The channel ID
 	 */
 	public byte[] get_channel_id() {
-		long ret = bindings.UpdateFailHTLC_get_channel_id(this.ptr);
+		long ret = Bindings.UpdateFailHTLCGetChannelId(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -32,7 +32,7 @@ public class UpdateFailHTLC : CommonBase {
 	 * The channel ID
 	 */
 	public void set_channel_id(byte[] val) {
-		bindings.UpdateFailHTLC_set_channel_id(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
+		Bindings.UpdateFailHTLCSetChannelId(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -41,7 +41,7 @@ public class UpdateFailHTLC : CommonBase {
 	 * The HTLC ID
 	 */
 	public long get_htlc_id() {
-		long ret = bindings.UpdateFailHTLC_get_htlc_id(this.ptr);
+		long ret = Bindings.UpdateFailHTLCGetHtlcId(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -50,13 +50,13 @@ public class UpdateFailHTLC : CommonBase {
 	 * The HTLC ID
 	 */
 	public void set_htlc_id(long val) {
-		bindings.UpdateFailHTLC_set_htlc_id(this.ptr, val);
+		Bindings.UpdateFailHTLCSetHtlcId(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.UpdateFailHTLC_clone_ptr(this.ptr);
+		long ret = Bindings.UpdateFailHTLCClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -65,7 +65,7 @@ public class UpdateFailHTLC : CommonBase {
 	 * Creates a copy of the UpdateFailHTLC
 	 */
 	public UpdateFailHTLC clone() {
-		long ret = bindings.UpdateFailHTLC_clone(this.ptr);
+		long ret = Bindings.UpdateFailHTLCClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.UpdateFailHTLC ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.UpdateFailHTLC(null, ret); }
@@ -77,7 +77,7 @@ public class UpdateFailHTLC : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the UpdateFailHTLC.
 	 */
 	public long hash() {
-		long ret = bindings.UpdateFailHTLC_hash(this.ptr);
+		long ret = Bindings.UpdateFailHTLCHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -91,7 +91,7 @@ public class UpdateFailHTLC : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.UpdateFailHTLC b) {
-		bool ret = bindings.UpdateFailHTLC_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.UpdateFailHTLCEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -106,7 +106,7 @@ public class UpdateFailHTLC : CommonBase {
 	 * Serialize the UpdateFailHTLC object into a byte array which can be read by UpdateFailHTLC_read
 	 */
 	public byte[] write() {
-		long ret = bindings.UpdateFailHTLC_write(this.ptr);
+		long ret = Bindings.UpdateFailHTLCWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -117,7 +117,7 @@ public class UpdateFailHTLC : CommonBase {
 	 * Read a UpdateFailHTLC from a byte array, created by UpdateFailHTLC_write
 	 */
 	public static Result_UpdateFailHTLCDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.UpdateFailHTLC_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.UpdateFailHTLCRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_UpdateFailHTLCDecodeErrorZ ret_hu_conv = Result_UpdateFailHTLCDecodeErrorZ.constr_from_ptr(ret);

@@ -11,11 +11,11 @@ namespace org { namespace ldk { namespace structs {
 public class Option_CVec_ThirtyTwoBytesZZ : CommonBase {
 	protected Option_CVec_ThirtyTwoBytesZZ(object _dummy, long ptr) : base(ptr) { }
 	~Option_CVec_ThirtyTwoBytesZZ() {
-		if (ptr != 0) { bindings.COption_CVec_ThirtyTwoBytesZZ_free(ptr); }
+		if (ptr != 0) { Bindings.COptionCVecThirtyTwoBytesZZFree(ptr); }
 	}
 
 	internal static Option_CVec_ThirtyTwoBytesZZ constr_from_ptr(long ptr) {
-		long raw_ty = bindings.LDKCOption_CVec_ThirtyTwoBytesZZ_ty_from_ptr(ptr);
+		long raw_ty = Bindings.LDKCOptionCVecThirtyTwoBytesZZTyFromPtr(ptr);
 		switch (raw_ty) {
 			case 0: return new Option_CVec_ThirtyTwoBytesZZ_Some(ptr);
 			case 1: return new Option_CVec_ThirtyTwoBytesZZ_None(ptr);
@@ -28,7 +28,7 @@ public class Option_CVec_ThirtyTwoBytesZZ : CommonBase {
 	public class Option_CVec_ThirtyTwoBytesZZ_Some : Option_CVec_ThirtyTwoBytesZZ {
 		public byte[][] some;
 		internal Option_CVec_ThirtyTwoBytesZZ_Some(long ptr) : base(null, ptr) {
-			long some = bindings.LDKCOption_CVec_ThirtyTwoBytesZZ_Some_get_some(ptr);
+			long some = Bindings.LDKCOptionCVecThirtyTwoBytesZZSomeGetSome(ptr);
 			int some_conv_8_len = InternalUtils.getArrayLength(some);
 			byte[][] some_conv_8_arr = new byte[some_conv_8_len][];
 			for (int i = 0; i < some_conv_8_len; i++) {
@@ -36,7 +36,7 @@ public class Option_CVec_ThirtyTwoBytesZZ : CommonBase {
 				byte[] some_conv_8_conv = InternalUtils.decodeUint8Array(some_conv_8);
 				some_conv_8_arr[i] = some_conv_8_conv;
 			}
-			bindings.free_buffer(some);
+			Bindings.FreeBuffer(some);
 			this.some = some_conv_8_arr;
 		}
 	}
@@ -49,7 +49,7 @@ public class Option_CVec_ThirtyTwoBytesZZ : CommonBase {
 	 * Constructs a new COption_CVec_ThirtyTwoBytesZZ containing a crate::c_types::derived::CVec_ThirtyTwoBytesZ
 	 */
 	public static Option_CVec_ThirtyTwoBytesZZ some(byte[][] o) {
-		long ret = bindings.COption_CVec_ThirtyTwoBytesZZ_some(InternalUtils.encodeUint64Array(InternalUtils.mapArray(o, o_conv_8 => InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(o_conv_8, 32)))));
+		long ret = Bindings.COptionCVecThirtyTwoBytesZZSome(InternalUtils.encodeUint64Array(InternalUtils.mapArray(o, o_conv_8 => InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(o_conv_8, 32)))));
 		GC.KeepAlive(o);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_CVec_ThirtyTwoBytesZZ ret_hu_conv = org.ldk.structs.Option_CVec_ThirtyTwoBytesZZ.constr_from_ptr(ret);
@@ -61,7 +61,7 @@ public class Option_CVec_ThirtyTwoBytesZZ : CommonBase {
 	 * Constructs a new COption_CVec_ThirtyTwoBytesZZ containing nothing
 	 */
 	public static Option_CVec_ThirtyTwoBytesZZ none() {
-		long ret = bindings.COption_CVec_ThirtyTwoBytesZZ_none();
+		long ret = Bindings.COptionCVecThirtyTwoBytesZZNone();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_CVec_ThirtyTwoBytesZZ ret_hu_conv = org.ldk.structs.Option_CVec_ThirtyTwoBytesZZ.constr_from_ptr(ret);
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -69,7 +69,7 @@ public class Option_CVec_ThirtyTwoBytesZZ : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.COption_CVec_ThirtyTwoBytesZZ_clone_ptr(this.ptr);
+		long ret = Bindings.COptionCVecThirtyTwoBytesZZClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -79,7 +79,7 @@ public class Option_CVec_ThirtyTwoBytesZZ : CommonBase {
 	 * but with all dynamically-allocated buffers duplicated in new buffers.
 	 */
 	public Option_CVec_ThirtyTwoBytesZZ clone() {
-		long ret = bindings.COption_CVec_ThirtyTwoBytesZZ_clone(this.ptr);
+		long ret = Bindings.COptionCVecThirtyTwoBytesZZClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_CVec_ThirtyTwoBytesZZ ret_hu_conv = org.ldk.structs.Option_CVec_ThirtyTwoBytesZZ.constr_from_ptr(ret);

@@ -9,7 +9,7 @@ namespace org { namespace ldk { namespace structs {
 
 
 /** An implementation of Router */
-public interface RouterInterface {
+public interface IRouter {
 	/**Finds a [`Route`] for a payment between the given `payer` and a payee.
 	 * 
 	 * The `payee` and the payment's value are given in [`RouteParameters::payment_params`]
@@ -40,20 +40,20 @@ public interface RouterInterface {
  * A trait defining behavior for routing a payment.
  */
 public class Router : CommonBase {
-	internal bindings.LDKRouter bindings_instance;
+	internal Bindings.LDKRouter bindings_instance;
 	internal long instance_idx;
 
 	internal Router(object _dummy, long ptr) : base(ptr) { bindings_instance = null; }
 	~Router() {
-		if (ptr != 0) { bindings.Router_free(ptr); }
+		if (ptr != 0) { Bindings.RouterFree(ptr); }
 	}
 
 	private class LDKRouterHolder { internal Router held; }
-	private class LDKRouterImpl : bindings.LDKRouter {
-		internal LDKRouterImpl(RouterInterface arg, LDKRouterHolder impl_holder) { this.arg = arg; this.impl_holder = impl_holder; }
-		private RouterInterface arg;
+	private class LDKRouterImpl : Bindings.LDKRouter {
+		internal LDKRouterImpl(IRouter arg, LDKRouterHolder impl_holder) { this.arg = arg; this.impl_holder = impl_holder; }
+		private IRouter arg;
 		private LDKRouterHolder impl_holder;
-		public long find_route(long _payer, long _route_params, long _first_hops, long _inflight_htlcs) {
+		public long FindRoute(long _payer, long _route_params, long _first_hops, long _inflight_htlcs) {
 			byte[] _payer_conv = InternalUtils.decodeUint8Array(_payer);
 			org.ldk.structs.RouteParameters _route_params_hu_conv = null; if (_route_params < 0 || _route_params > 4096) { _route_params_hu_conv = new org.ldk.structs.RouteParameters(null, _route_params); }
 			int _first_hops_conv_16_len = InternalUtils.getArrayLength(_first_hops);
@@ -66,7 +66,7 @@ public class Router : CommonBase {
 					_first_hops_conv_16_arr[q] = _first_hops_conv_16_hu_conv;
 				}
 			}
-			bindings.free_buffer(_first_hops);
+			Bindings.FreeBuffer(_first_hops);
 			org.ldk.structs.InFlightHtlcs _inflight_htlcs_hu_conv = null; if (_inflight_htlcs < 0 || _inflight_htlcs > 4096) { _inflight_htlcs_hu_conv = new org.ldk.structs.InFlightHtlcs(null, _inflight_htlcs); }
 			if (_inflight_htlcs_hu_conv != null) { _inflight_htlcs_hu_conv.ptrs_to.AddLast(this); };
 			Result_RouteLightningErrorZ ret = arg.find_route(_payer_conv, _route_params_hu_conv, _first_hops_conv_16_arr, _inflight_htlcs_hu_conv);
@@ -74,7 +74,7 @@ public class Router : CommonBase {
 			long result = ret == null ? 0 : ret.clone_ptr();
 			return result;
 		}
-		public long find_route_with_id(long _payer, long _route_params, long _first_hops, long _inflight_htlcs, long __payment_hash, long __payment_id) {
+		public long FindRouteWithId(long _payer, long _route_params, long _first_hops, long _inflight_htlcs, long __payment_hash, long __payment_id) {
 			byte[] _payer_conv = InternalUtils.decodeUint8Array(_payer);
 			org.ldk.structs.RouteParameters _route_params_hu_conv = null; if (_route_params < 0 || _route_params > 4096) { _route_params_hu_conv = new org.ldk.structs.RouteParameters(null, _route_params); }
 			int _first_hops_conv_16_len = InternalUtils.getArrayLength(_first_hops);
@@ -87,7 +87,7 @@ public class Router : CommonBase {
 					_first_hops_conv_16_arr[q] = _first_hops_conv_16_hu_conv;
 				}
 			}
-			bindings.free_buffer(_first_hops);
+			Bindings.FreeBuffer(_first_hops);
 			org.ldk.structs.InFlightHtlcs _inflight_htlcs_hu_conv = null; if (_inflight_htlcs < 0 || _inflight_htlcs > 4096) { _inflight_htlcs_hu_conv = new org.ldk.structs.InFlightHtlcs(null, _inflight_htlcs); }
 			if (_inflight_htlcs_hu_conv != null) { _inflight_htlcs_hu_conv.ptrs_to.AddLast(this); };
 			byte[] __payment_hash_conv = InternalUtils.decodeUint8Array(__payment_hash);
@@ -97,7 +97,7 @@ public class Router : CommonBase {
 			long result = ret == null ? 0 : ret.clone_ptr();
 			return result;
 		}
-		public long create_blinded_payment_paths(long _recipient, long _first_hops, long _tlvs, long _amount_msats) {
+		public long CreateBlindedPaymentPaths(long _recipient, long _first_hops, long _tlvs, long _amount_msats) {
 			byte[] _recipient_conv = InternalUtils.decodeUint8Array(_recipient);
 			int _first_hops_conv_16_len = InternalUtils.getArrayLength(_first_hops);
 			ChannelDetails[] _first_hops_conv_16_arr = new ChannelDetails[_first_hops_conv_16_len];
@@ -107,7 +107,7 @@ public class Router : CommonBase {
 				if (_first_hops_conv_16_hu_conv != null) { _first_hops_conv_16_hu_conv.ptrs_to.AddLast(this); };
 				_first_hops_conv_16_arr[q] = _first_hops_conv_16_hu_conv;
 			}
-			bindings.free_buffer(_first_hops);
+			Bindings.FreeBuffer(_first_hops);
 			org.ldk.structs.ReceiveTlvs _tlvs_hu_conv = null; if (_tlvs < 0 || _tlvs > 4096) { _tlvs_hu_conv = new org.ldk.structs.ReceiveTlvs(null, _tlvs); }
 			if (_tlvs_hu_conv != null) { _tlvs_hu_conv.ptrs_to.AddLast(this); };
 			Result_CVec_C2Tuple_BlindedPayInfoBlindedPathZZNoneZ ret = arg.create_blinded_payment_paths(_recipient_conv, _first_hops_conv_16_arr, _tlvs_hu_conv, _amount_msats);
@@ -118,11 +118,11 @@ public class Router : CommonBase {
 	}
 
 	/** Creates a new instance of Router from a given implementation */
-	public static Router new_impl(RouterInterface arg, MessageRouterInterface messageRouter_impl) {
+	public static Router new_impl(IRouter arg, IMessageRouter messageRouter_impl) {
 		LDKRouterHolder impl_holder = new LDKRouterHolder();
 		LDKRouterImpl impl = new LDKRouterImpl(arg, impl_holder);
 		MessageRouter messageRouter = MessageRouter.new_impl(messageRouter_impl);
-		long[] ptr_idx = bindings.LDKRouter_new(impl, messageRouter.instance_idx);
+		long[] ptr_idx = Bindings.LDKRouterNew(impl, messageRouter.instance_idx);
 
 		impl_holder.held = new Router(null, ptr_idx[0]);
 		impl_holder.held.instance_idx = ptr_idx[1];
@@ -140,7 +140,7 @@ public class Router : CommonBase {
 	 * Note that first_hops (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public Result_RouteLightningErrorZ find_route(byte[] payer, org.ldk.structs.RouteParameters route_params, ChannelDetails[] first_hops, org.ldk.structs.InFlightHtlcs inflight_htlcs) {
-		long ret = bindings.Router_find_route(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payer, 33)), route_params == null ? 0 : route_params.ptr, InternalUtils.encodeUint64Array(InternalUtils.mapArray(first_hops, first_hops_conv_16 => first_hops_conv_16 == null ? 0 : first_hops_conv_16.ptr)), inflight_htlcs == null ? 0 : inflight_htlcs.ptr);
+		long ret = Bindings.RouterFindRoute(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payer, 33)), route_params == null ? 0 : route_params.ptr, InternalUtils.encodeUint64Array(InternalUtils.mapArray(first_hops, first_hops_conv_16 => first_hops_conv_16 == null ? 0 : first_hops_conv_16.ptr)), inflight_htlcs == null ? 0 : inflight_htlcs.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(payer);
 		GC.KeepAlive(route_params);
@@ -166,7 +166,7 @@ public class Router : CommonBase {
 	 * Note that first_hops (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public Result_RouteLightningErrorZ find_route_with_id(byte[] payer, org.ldk.structs.RouteParameters route_params, ChannelDetails[] first_hops, org.ldk.structs.InFlightHtlcs inflight_htlcs, byte[] _payment_hash, byte[] _payment_id) {
-		long ret = bindings.Router_find_route_with_id(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payer, 33)), route_params == null ? 0 : route_params.ptr, InternalUtils.encodeUint64Array(InternalUtils.mapArray(first_hops, first_hops_conv_16 => first_hops_conv_16 == null ? 0 : first_hops_conv_16.ptr)), inflight_htlcs == null ? 0 : inflight_htlcs.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(_payment_hash, 32)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(_payment_id, 32)));
+		long ret = Bindings.RouterFindRouteWithId(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payer, 33)), route_params == null ? 0 : route_params.ptr, InternalUtils.encodeUint64Array(InternalUtils.mapArray(first_hops, first_hops_conv_16 => first_hops_conv_16 == null ? 0 : first_hops_conv_16.ptr)), inflight_htlcs == null ? 0 : inflight_htlcs.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(_payment_hash, 32)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(_payment_id, 32)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(payer);
 		GC.KeepAlive(route_params);
@@ -188,7 +188,7 @@ public class Router : CommonBase {
 	 * given in `tlvs`.
 	 */
 	public Result_CVec_C2Tuple_BlindedPayInfoBlindedPathZZNoneZ create_blinded_payment_paths(byte[] recipient, ChannelDetails[] first_hops, org.ldk.structs.ReceiveTlvs tlvs, long amount_msats) {
-		long ret = bindings.Router_create_blinded_payment_paths(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(recipient, 33)), InternalUtils.encodeUint64Array(InternalUtils.mapArray(first_hops, first_hops_conv_16 => first_hops_conv_16 == null ? 0 : first_hops_conv_16.ptr)), tlvs == null ? 0 : tlvs.ptr, amount_msats);
+		long ret = Bindings.RouterCreateBlindedPaymentPaths(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(recipient, 33)), InternalUtils.encodeUint64Array(InternalUtils.mapArray(first_hops, first_hops_conv_16 => first_hops_conv_16 == null ? 0 : first_hops_conv_16.ptr)), tlvs == null ? 0 : tlvs.ptr, amount_msats);
 		GC.KeepAlive(this);
 		GC.KeepAlive(recipient);
 		GC.KeepAlive(first_hops);

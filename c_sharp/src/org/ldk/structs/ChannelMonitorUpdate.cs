@@ -18,7 +18,7 @@ namespace org { namespace ldk { namespace structs {
 public class ChannelMonitorUpdate : CommonBase {
 	internal ChannelMonitorUpdate(object _dummy, long ptr) : base(ptr) { }
 	~ChannelMonitorUpdate() {
-		if (ptr != 0) { bindings.ChannelMonitorUpdate_free(ptr); }
+		if (ptr != 0) { Bindings.ChannelMonitorUpdateFree(ptr); }
 	}
 
 	/**
@@ -39,7 +39,7 @@ public class ChannelMonitorUpdate : CommonBase {
 	 * [`ChannelMonitorUpdateStatus::InProgress`]: super::ChannelMonitorUpdateStatus::InProgress
 	 */
 	public long get_update_id() {
-		long ret = bindings.ChannelMonitorUpdate_get_update_id(this.ptr);
+		long ret = Bindings.ChannelMonitorUpdateGetUpdateId(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -62,13 +62,13 @@ public class ChannelMonitorUpdate : CommonBase {
 	 * [`ChannelMonitorUpdateStatus::InProgress`]: super::ChannelMonitorUpdateStatus::InProgress
 	 */
 	public void set_update_id(long val) {
-		bindings.ChannelMonitorUpdate_set_update_id(this.ptr, val);
+		Bindings.ChannelMonitorUpdateSetUpdateId(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.ChannelMonitorUpdate_clone_ptr(this.ptr);
+		long ret = Bindings.ChannelMonitorUpdateClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -77,7 +77,7 @@ public class ChannelMonitorUpdate : CommonBase {
 	 * Creates a copy of the ChannelMonitorUpdate
 	 */
 	public ChannelMonitorUpdate clone() {
-		long ret = bindings.ChannelMonitorUpdate_clone(this.ptr);
+		long ret = Bindings.ChannelMonitorUpdateClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChannelMonitorUpdate ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChannelMonitorUpdate(null, ret); }
@@ -91,7 +91,7 @@ public class ChannelMonitorUpdate : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.ChannelMonitorUpdate b) {
-		bool ret = bindings.ChannelMonitorUpdate_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.ChannelMonitorUpdateEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -106,7 +106,7 @@ public class ChannelMonitorUpdate : CommonBase {
 	 * Serialize the ChannelMonitorUpdate object into a byte array which can be read by ChannelMonitorUpdate_read
 	 */
 	public byte[] write() {
-		long ret = bindings.ChannelMonitorUpdate_write(this.ptr);
+		long ret = Bindings.ChannelMonitorUpdateWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -117,7 +117,7 @@ public class ChannelMonitorUpdate : CommonBase {
 	 * Read a ChannelMonitorUpdate from a byte array, created by ChannelMonitorUpdate_write
 	 */
 	public static Result_ChannelMonitorUpdateDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.ChannelMonitorUpdate_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.ChannelMonitorUpdateRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_ChannelMonitorUpdateDecodeErrorZ ret_hu_conv = Result_ChannelMonitorUpdateDecodeErrorZ.constr_from_ptr(ret);

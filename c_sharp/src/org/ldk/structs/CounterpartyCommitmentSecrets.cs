@@ -16,11 +16,11 @@ namespace org { namespace ldk { namespace structs {
 public class CounterpartyCommitmentSecrets : CommonBase {
 	internal CounterpartyCommitmentSecrets(object _dummy, long ptr) : base(ptr) { }
 	~CounterpartyCommitmentSecrets() {
-		if (ptr != 0) { bindings.CounterpartyCommitmentSecrets_free(ptr); }
+		if (ptr != 0) { Bindings.CounterpartyCommitmentSecretsFree(ptr); }
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.CounterpartyCommitmentSecrets_clone_ptr(this.ptr);
+		long ret = Bindings.CounterpartyCommitmentSecretsClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -29,7 +29,7 @@ public class CounterpartyCommitmentSecrets : CommonBase {
 	 * Creates a copy of the CounterpartyCommitmentSecrets
 	 */
 	public CounterpartyCommitmentSecrets clone() {
-		long ret = bindings.CounterpartyCommitmentSecrets_clone(this.ptr);
+		long ret = Bindings.CounterpartyCommitmentSecretsClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.CounterpartyCommitmentSecrets ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.CounterpartyCommitmentSecrets(null, ret); }
@@ -41,7 +41,7 @@ public class CounterpartyCommitmentSecrets : CommonBase {
 	 * Creates a new empty `CounterpartyCommitmentSecrets` structure.
 	 */
 	public static CounterpartyCommitmentSecrets of() {
-		long ret = bindings.CounterpartyCommitmentSecrets_new();
+		long ret = Bindings.CounterpartyCommitmentSecretsNew();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.CounterpartyCommitmentSecrets ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.CounterpartyCommitmentSecrets(null, ret); }
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -53,7 +53,7 @@ public class CounterpartyCommitmentSecrets : CommonBase {
 	 * at 1 << 48 and get decremented by one for each new secret.
 	 */
 	public long get_min_seen_secret() {
-		long ret = bindings.CounterpartyCommitmentSecrets_get_min_seen_secret(this.ptr);
+		long ret = Bindings.CounterpartyCommitmentSecretsGetMinSeenSecret(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -63,7 +63,7 @@ public class CounterpartyCommitmentSecrets : CommonBase {
 	 * was generated in accordance with BOLT 3 and is consistent with previous secrets.
 	 */
 	public Result_NoneNoneZ provide_secret(long idx, byte[] secret) {
-		long ret = bindings.CounterpartyCommitmentSecrets_provide_secret(this.ptr, idx, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(secret, 32)));
+		long ret = Bindings.CounterpartyCommitmentSecretsProvideSecret(this.ptr, idx, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(secret, 32)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(idx);
 		GC.KeepAlive(secret);
@@ -79,7 +79,7 @@ public class CounterpartyCommitmentSecrets : CommonBase {
 	 * Note that the return value (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public byte[] get_secret(long idx) {
-		long ret = bindings.CounterpartyCommitmentSecrets_get_secret(this.ptr, idx);
+		long ret = Bindings.CounterpartyCommitmentSecretsGetSecret(this.ptr, idx);
 		GC.KeepAlive(this);
 		GC.KeepAlive(idx);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -91,7 +91,7 @@ public class CounterpartyCommitmentSecrets : CommonBase {
 	 * Serialize the CounterpartyCommitmentSecrets object into a byte array which can be read by CounterpartyCommitmentSecrets_read
 	 */
 	public byte[] write() {
-		long ret = bindings.CounterpartyCommitmentSecrets_write(this.ptr);
+		long ret = Bindings.CounterpartyCommitmentSecretsWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -102,7 +102,7 @@ public class CounterpartyCommitmentSecrets : CommonBase {
 	 * Read a CounterpartyCommitmentSecrets from a byte array, created by CounterpartyCommitmentSecrets_write
 	 */
 	public static Result_CounterpartyCommitmentSecretsDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.CounterpartyCommitmentSecrets_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.CounterpartyCommitmentSecretsRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_CounterpartyCommitmentSecretsDecodeErrorZ ret_hu_conv = Result_CounterpartyCommitmentSecretsDecodeErrorZ.constr_from_ptr(ret);

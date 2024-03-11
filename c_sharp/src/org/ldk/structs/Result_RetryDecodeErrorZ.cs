@@ -8,11 +8,11 @@ namespace org { namespace ldk { namespace structs {
 public class Result_RetryDecodeErrorZ : CommonBase {
 	Result_RetryDecodeErrorZ(object _dummy, long ptr) : base(ptr) { }
 	~Result_RetryDecodeErrorZ() {
-		if (ptr != 0) { bindings.CResult_RetryDecodeErrorZ_free(ptr); }
+		if (ptr != 0) { Bindings.CResultRetryDecodeErrorZFree(ptr); }
 	}
 
 	internal static Result_RetryDecodeErrorZ constr_from_ptr(long ptr) {
-		if (bindings.CResult_RetryDecodeErrorZ_is_ok(ptr)) {
+		if (Bindings.CResultRetryDecodeErrorZIsOk(ptr)) {
 			return new Result_RetryDecodeErrorZ_OK(null, ptr);
 		} else {
 			return new Result_RetryDecodeErrorZ_Err(null, ptr);
@@ -21,7 +21,7 @@ public class Result_RetryDecodeErrorZ : CommonBase {
 	public class Result_RetryDecodeErrorZ_OK : Result_RetryDecodeErrorZ {
 		public readonly Retry res;
 		internal Result_RetryDecodeErrorZ_OK(object _dummy, long ptr) : base(_dummy, ptr) {
-			long res = bindings.CResult_RetryDecodeErrorZ_get_ok(ptr);
+			long res = Bindings.CResultRetryDecodeErrorZGetOk(ptr);
 			org.ldk.structs.Retry res_hu_conv = org.ldk.structs.Retry.constr_from_ptr(res);
 			if (res_hu_conv != null) { res_hu_conv.ptrs_to.AddLast(this); };
 			this.res = res_hu_conv;
@@ -31,7 +31,7 @@ public class Result_RetryDecodeErrorZ : CommonBase {
 	public class Result_RetryDecodeErrorZ_Err : Result_RetryDecodeErrorZ {
 		public readonly DecodeError err;
 		internal Result_RetryDecodeErrorZ_Err(object _dummy, long ptr) : base(_dummy, ptr) {
-			long err = bindings.CResult_RetryDecodeErrorZ_get_err(ptr);
+			long err = Bindings.CResultRetryDecodeErrorZGetErr(ptr);
 			org.ldk.structs.DecodeError err_hu_conv = org.ldk.structs.DecodeError.constr_from_ptr(err);
 			if (err_hu_conv != null) { err_hu_conv.ptrs_to.AddLast(this); };
 			this.err = err_hu_conv;
@@ -42,7 +42,7 @@ public class Result_RetryDecodeErrorZ : CommonBase {
 	 * Creates a new CResult_RetryDecodeErrorZ in the success state.
 	 */
 	public static Result_RetryDecodeErrorZ ok(org.ldk.structs.Retry o) {
-		long ret = bindings.CResult_RetryDecodeErrorZ_ok(o.ptr);
+		long ret = Bindings.CResultRetryDecodeErrorZOk(o.ptr);
 		GC.KeepAlive(o);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_RetryDecodeErrorZ ret_hu_conv = Result_RetryDecodeErrorZ.constr_from_ptr(ret);
@@ -54,7 +54,7 @@ public class Result_RetryDecodeErrorZ : CommonBase {
 	 * Creates a new CResult_RetryDecodeErrorZ in the error state.
 	 */
 	public static Result_RetryDecodeErrorZ err(org.ldk.structs.DecodeError e) {
-		long ret = bindings.CResult_RetryDecodeErrorZ_err(e.ptr);
+		long ret = Bindings.CResultRetryDecodeErrorZErr(e.ptr);
 		GC.KeepAlive(e);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_RetryDecodeErrorZ ret_hu_conv = Result_RetryDecodeErrorZ.constr_from_ptr(ret);
@@ -66,13 +66,13 @@ public class Result_RetryDecodeErrorZ : CommonBase {
 	 * Checks if the given object is currently in the success state
 	 */
 	public bool is_ok() {
-		bool ret = bindings.CResult_RetryDecodeErrorZ_is_ok(this.ptr);
+		bool ret = Bindings.CResultRetryDecodeErrorZIsOk(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.CResult_RetryDecodeErrorZ_clone_ptr(this.ptr);
+		long ret = Bindings.CResultRetryDecodeErrorZClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -82,7 +82,7 @@ public class Result_RetryDecodeErrorZ : CommonBase {
 	 * but with all dynamically-allocated buffers duplicated in new buffers.
 	 */
 	public Result_RetryDecodeErrorZ clone() {
-		long ret = bindings.CResult_RetryDecodeErrorZ_clone(this.ptr);
+		long ret = Bindings.CResultRetryDecodeErrorZClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_RetryDecodeErrorZ ret_hu_conv = Result_RetryDecodeErrorZ.constr_from_ptr(ret);

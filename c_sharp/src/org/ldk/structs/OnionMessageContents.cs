@@ -9,7 +9,7 @@ namespace org { namespace ldk { namespace structs {
 
 
 /** An implementation of OnionMessageContents */
-public interface OnionMessageContentsInterface {
+public interface IOnionMessageContents {
 	/**Returns the TLV type identifying the message contents. MUST be >= 64.
 	 */
 	long tlv_type();
@@ -25,31 +25,31 @@ public interface OnionMessageContentsInterface {
  * The contents of an onion message.
  */
 public class OnionMessageContents : CommonBase {
-	internal bindings.LDKOnionMessageContents bindings_instance;
+	internal Bindings.LDKOnionMessageContents bindings_instance;
 	internal long instance_idx;
 
 	internal OnionMessageContents(object _dummy, long ptr) : base(ptr) { bindings_instance = null; }
 	~OnionMessageContents() {
-		if (ptr != 0) { bindings.OnionMessageContents_free(ptr); }
+		if (ptr != 0) { Bindings.OnionMessageContentsFree(ptr); }
 	}
 
 	private class LDKOnionMessageContentsHolder { internal OnionMessageContents held; }
-	private class LDKOnionMessageContentsImpl : bindings.LDKOnionMessageContents {
-		internal LDKOnionMessageContentsImpl(OnionMessageContentsInterface arg, LDKOnionMessageContentsHolder impl_holder) { this.arg = arg; this.impl_holder = impl_holder; }
-		private OnionMessageContentsInterface arg;
+	private class LDKOnionMessageContentsImpl : Bindings.LDKOnionMessageContents {
+		internal LDKOnionMessageContentsImpl(IOnionMessageContents arg, LDKOnionMessageContentsHolder impl_holder) { this.arg = arg; this.impl_holder = impl_holder; }
+		private IOnionMessageContents arg;
 		private LDKOnionMessageContentsHolder impl_holder;
-		public long tlv_type() {
+		public long TlvType() {
 			long ret = arg.tlv_type();
 				GC.KeepAlive(arg);
 			return ret;
 		}
-		public long write() {
+		public long Write() {
 			byte[] ret = arg.write();
 				GC.KeepAlive(arg);
 			long result = InternalUtils.encodeUint8Array(ret);
 			return result;
 		}
-		public long debug_str() {
+		public long DebugStr() {
 			string ret = arg.debug_str();
 				GC.KeepAlive(arg);
 			long result = InternalUtils.encodeString(ret);
@@ -58,10 +58,10 @@ public class OnionMessageContents : CommonBase {
 	}
 
 	/** Creates a new instance of OnionMessageContents from a given implementation */
-	public static OnionMessageContents new_impl(OnionMessageContentsInterface arg) {
+	public static OnionMessageContents new_impl(IOnionMessageContents arg) {
 		LDKOnionMessageContentsHolder impl_holder = new LDKOnionMessageContentsHolder();
 		LDKOnionMessageContentsImpl impl = new LDKOnionMessageContentsImpl(arg, impl_holder);
-		long[] ptr_idx = bindings.LDKOnionMessageContents_new(impl);
+		long[] ptr_idx = Bindings.LDKOnionMessageContentsNew(impl);
 
 		impl_holder.held = new OnionMessageContents(null, ptr_idx[0]);
 		impl_holder.held.instance_idx = ptr_idx[1];
@@ -73,7 +73,7 @@ public class OnionMessageContents : CommonBase {
 	 * Returns the TLV type identifying the message contents. MUST be >= 64.
 	 */
 	public long tlv_type() {
-		long ret = bindings.OnionMessageContents_tlv_type(this.ptr);
+		long ret = Bindings.OnionMessageContentsTlvType(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -82,7 +82,7 @@ public class OnionMessageContents : CommonBase {
 	 * Serialize the object into a byte array
 	 */
 	public byte[] write() {
-		long ret = bindings.OnionMessageContents_write(this.ptr);
+		long ret = Bindings.OnionMessageContentsWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -93,7 +93,7 @@ public class OnionMessageContents : CommonBase {
 	 * Return a human-readable "debug" string describing this object
 	 */
 	public string debug_str() {
-		long ret = bindings.OnionMessageContents_debug_str(this.ptr);
+		long ret = Bindings.OnionMessageContentsDebugStr(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		string ret_conv = InternalUtils.decodeString(ret);
@@ -101,7 +101,7 @@ public class OnionMessageContents : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.OnionMessageContents_clone_ptr(this.ptr);
+		long ret = Bindings.OnionMessageContentsClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -110,7 +110,7 @@ public class OnionMessageContents : CommonBase {
 	 * Creates a copy of a OnionMessageContents
 	 */
 	public OnionMessageContents clone() {
-		long ret = bindings.OnionMessageContents_clone(this.ptr);
+		long ret = Bindings.OnionMessageContentsClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		OnionMessageContents ret_hu_conv = new OnionMessageContents(null, ret);

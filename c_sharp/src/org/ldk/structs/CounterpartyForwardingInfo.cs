@@ -12,14 +12,14 @@ namespace org { namespace ldk { namespace structs {
 public class CounterpartyForwardingInfo : CommonBase {
 	internal CounterpartyForwardingInfo(object _dummy, long ptr) : base(ptr) { }
 	~CounterpartyForwardingInfo() {
-		if (ptr != 0) { bindings.CounterpartyForwardingInfo_free(ptr); }
+		if (ptr != 0) { Bindings.CounterpartyForwardingInfoFree(ptr); }
 	}
 
 	/**
 	 * Base routing fee in millisatoshis.
 	 */
 	public int get_fee_base_msat() {
-		int ret = bindings.CounterpartyForwardingInfo_get_fee_base_msat(this.ptr);
+		int ret = Bindings.CounterpartyForwardingInfoGetFeeBaseMsat(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -28,7 +28,7 @@ public class CounterpartyForwardingInfo : CommonBase {
 	 * Base routing fee in millisatoshis.
 	 */
 	public void set_fee_base_msat(int val) {
-		bindings.CounterpartyForwardingInfo_set_fee_base_msat(this.ptr, val);
+		Bindings.CounterpartyForwardingInfoSetFeeBaseMsat(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -37,7 +37,7 @@ public class CounterpartyForwardingInfo : CommonBase {
 	 * Amount in millionths of a satoshi the channel will charge per transferred satoshi.
 	 */
 	public int get_fee_proportional_millionths() {
-		int ret = bindings.CounterpartyForwardingInfo_get_fee_proportional_millionths(this.ptr);
+		int ret = Bindings.CounterpartyForwardingInfoGetFeeProportionalMillionths(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -46,7 +46,7 @@ public class CounterpartyForwardingInfo : CommonBase {
 	 * Amount in millionths of a satoshi the channel will charge per transferred satoshi.
 	 */
 	public void set_fee_proportional_millionths(int val) {
-		bindings.CounterpartyForwardingInfo_set_fee_proportional_millionths(this.ptr, val);
+		Bindings.CounterpartyForwardingInfoSetFeeProportionalMillionths(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -57,7 +57,7 @@ public class CounterpartyForwardingInfo : CommonBase {
 	 * `cltv_expiry_delta` for more details.
 	 */
 	public short get_cltv_expiry_delta() {
-		short ret = bindings.CounterpartyForwardingInfo_get_cltv_expiry_delta(this.ptr);
+		short ret = Bindings.CounterpartyForwardingInfoGetCltvExpiryDelta(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -68,7 +68,7 @@ public class CounterpartyForwardingInfo : CommonBase {
 	 * `cltv_expiry_delta` for more details.
 	 */
 	public void set_cltv_expiry_delta(short val) {
-		bindings.CounterpartyForwardingInfo_set_cltv_expiry_delta(this.ptr, val);
+		Bindings.CounterpartyForwardingInfoSetCltvExpiryDelta(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -77,7 +77,7 @@ public class CounterpartyForwardingInfo : CommonBase {
 	 * Constructs a new CounterpartyForwardingInfo given each field
 	 */
 	public static CounterpartyForwardingInfo of(int fee_base_msat_arg, int fee_proportional_millionths_arg, short cltv_expiry_delta_arg) {
-		long ret = bindings.CounterpartyForwardingInfo_new(fee_base_msat_arg, fee_proportional_millionths_arg, cltv_expiry_delta_arg);
+		long ret = Bindings.CounterpartyForwardingInfoNew(fee_base_msat_arg, fee_proportional_millionths_arg, cltv_expiry_delta_arg);
 		GC.KeepAlive(fee_base_msat_arg);
 		GC.KeepAlive(fee_proportional_millionths_arg);
 		GC.KeepAlive(cltv_expiry_delta_arg);
@@ -88,7 +88,7 @@ public class CounterpartyForwardingInfo : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.CounterpartyForwardingInfo_clone_ptr(this.ptr);
+		long ret = Bindings.CounterpartyForwardingInfoClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -97,7 +97,7 @@ public class CounterpartyForwardingInfo : CommonBase {
 	 * Creates a copy of the CounterpartyForwardingInfo
 	 */
 	public CounterpartyForwardingInfo clone() {
-		long ret = bindings.CounterpartyForwardingInfo_clone(this.ptr);
+		long ret = Bindings.CounterpartyForwardingInfoClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.CounterpartyForwardingInfo ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.CounterpartyForwardingInfo(null, ret); }
@@ -109,7 +109,7 @@ public class CounterpartyForwardingInfo : CommonBase {
 	 * Serialize the CounterpartyForwardingInfo object into a byte array which can be read by CounterpartyForwardingInfo_read
 	 */
 	public byte[] write() {
-		long ret = bindings.CounterpartyForwardingInfo_write(this.ptr);
+		long ret = Bindings.CounterpartyForwardingInfoWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -120,7 +120,7 @@ public class CounterpartyForwardingInfo : CommonBase {
 	 * Read a CounterpartyForwardingInfo from a byte array, created by CounterpartyForwardingInfo_write
 	 */
 	public static Result_CounterpartyForwardingInfoDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.CounterpartyForwardingInfo_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.CounterpartyForwardingInfoRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_CounterpartyForwardingInfoDecodeErrorZ ret_hu_conv = Result_CounterpartyForwardingInfoDecodeErrorZ.constr_from_ptr(ret);

@@ -14,7 +14,7 @@ namespace org { namespace ldk { namespace structs {
 public class Wallet : CommonBase {
 	internal Wallet(object _dummy, long ptr) : base(ptr) { }
 	~Wallet() {
-		if (ptr != 0) { bindings.Wallet_free(ptr); }
+		if (ptr != 0) { Bindings.WalletFree(ptr); }
 	}
 
 	/**
@@ -22,7 +22,7 @@ public class Wallet : CommonBase {
 	 * of [`CoinSelectionSource`].
 	 */
 	public static Wallet of(org.ldk.structs.WalletSource source, org.ldk.structs.Logger logger) {
-		long ret = bindings.Wallet_new(source.ptr, logger.ptr);
+		long ret = Bindings.WalletNew(source.ptr, logger.ptr);
 		GC.KeepAlive(source);
 		GC.KeepAlive(logger);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -38,7 +38,7 @@ public class Wallet : CommonBase {
 	 * This copies the `inner` pointer in this_arg and thus the returned CoinSelectionSource must be freed before this_arg is
 	 */
 	public CoinSelectionSource as_CoinSelectionSource() {
-		long ret = bindings.Wallet_as_CoinSelectionSource(this.ptr);
+		long ret = Bindings.WalletAsCoinSelectionSource(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		CoinSelectionSource ret_hu_conv = new CoinSelectionSource(null, ret);

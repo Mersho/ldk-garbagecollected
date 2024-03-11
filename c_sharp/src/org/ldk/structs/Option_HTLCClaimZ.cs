@@ -11,11 +11,11 @@ namespace org { namespace ldk { namespace structs {
 public class Option_HTLCClaimZ : CommonBase {
 	protected Option_HTLCClaimZ(object _dummy, long ptr) : base(ptr) { }
 	~Option_HTLCClaimZ() {
-		if (ptr != 0) { bindings.COption_HTLCClaimZ_free(ptr); }
+		if (ptr != 0) { Bindings.COptionHTLCClaimZFree(ptr); }
 	}
 
 	internal static Option_HTLCClaimZ constr_from_ptr(long ptr) {
-		long raw_ty = bindings.LDKCOption_HTLCClaimZ_ty_from_ptr(ptr);
+		long raw_ty = Bindings.LDKCOptionHTLCClaimZTyFromPtr(ptr);
 		switch (raw_ty) {
 			case 0: return new Option_HTLCClaimZ_Some(ptr);
 			case 1: return new Option_HTLCClaimZ_None(ptr);
@@ -28,7 +28,7 @@ public class Option_HTLCClaimZ : CommonBase {
 	public class Option_HTLCClaimZ_Some : Option_HTLCClaimZ {
 		public HTLCClaim some;
 		internal Option_HTLCClaimZ_Some(long ptr) : base(null, ptr) {
-			this.some = bindings.LDKCOption_HTLCClaimZ_Some_get_some(ptr);
+			this.some = Bindings.LDKCOptionHTLCClaimZSomeGetSome(ptr);
 		}
 	}
 	/** A Option_HTLCClaimZ of type None */
@@ -40,7 +40,7 @@ public class Option_HTLCClaimZ : CommonBase {
 	 * Constructs a new COption_HTLCClaimZ containing a crate::lightning::ln::chan_utils::HTLCClaim
 	 */
 	public static Option_HTLCClaimZ some(HTLCClaim o) {
-		long ret = bindings.COption_HTLCClaimZ_some(o);
+		long ret = Bindings.COptionHTLCClaimZSome(o);
 		GC.KeepAlive(o);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_HTLCClaimZ ret_hu_conv = org.ldk.structs.Option_HTLCClaimZ.constr_from_ptr(ret);
@@ -52,7 +52,7 @@ public class Option_HTLCClaimZ : CommonBase {
 	 * Constructs a new COption_HTLCClaimZ containing nothing
 	 */
 	public static Option_HTLCClaimZ none() {
-		long ret = bindings.COption_HTLCClaimZ_none();
+		long ret = Bindings.COptionHTLCClaimZNone();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_HTLCClaimZ ret_hu_conv = org.ldk.structs.Option_HTLCClaimZ.constr_from_ptr(ret);
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };

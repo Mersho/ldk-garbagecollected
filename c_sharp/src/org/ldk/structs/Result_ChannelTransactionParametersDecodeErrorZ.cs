@@ -8,11 +8,11 @@ namespace org { namespace ldk { namespace structs {
 public class Result_ChannelTransactionParametersDecodeErrorZ : CommonBase {
 	Result_ChannelTransactionParametersDecodeErrorZ(object _dummy, long ptr) : base(ptr) { }
 	~Result_ChannelTransactionParametersDecodeErrorZ() {
-		if (ptr != 0) { bindings.CResult_ChannelTransactionParametersDecodeErrorZ_free(ptr); }
+		if (ptr != 0) { Bindings.CResultChannelTransactionParametersDecodeErrorZFree(ptr); }
 	}
 
 	internal static Result_ChannelTransactionParametersDecodeErrorZ constr_from_ptr(long ptr) {
-		if (bindings.CResult_ChannelTransactionParametersDecodeErrorZ_is_ok(ptr)) {
+		if (Bindings.CResultChannelTransactionParametersDecodeErrorZIsOk(ptr)) {
 			return new Result_ChannelTransactionParametersDecodeErrorZ_OK(null, ptr);
 		} else {
 			return new Result_ChannelTransactionParametersDecodeErrorZ_Err(null, ptr);
@@ -21,7 +21,7 @@ public class Result_ChannelTransactionParametersDecodeErrorZ : CommonBase {
 	public class Result_ChannelTransactionParametersDecodeErrorZ_OK : Result_ChannelTransactionParametersDecodeErrorZ {
 		public readonly ChannelTransactionParameters res;
 		internal Result_ChannelTransactionParametersDecodeErrorZ_OK(object _dummy, long ptr) : base(_dummy, ptr) {
-			long res = bindings.CResult_ChannelTransactionParametersDecodeErrorZ_get_ok(ptr);
+			long res = Bindings.CResultChannelTransactionParametersDecodeErrorZGetOk(ptr);
 			org.ldk.structs.ChannelTransactionParameters res_hu_conv = null; if (res < 0 || res > 4096) { res_hu_conv = new org.ldk.structs.ChannelTransactionParameters(null, res); }
 			if (res_hu_conv != null) { res_hu_conv.ptrs_to.AddLast(this); };
 			this.res = res_hu_conv;
@@ -31,7 +31,7 @@ public class Result_ChannelTransactionParametersDecodeErrorZ : CommonBase {
 	public class Result_ChannelTransactionParametersDecodeErrorZ_Err : Result_ChannelTransactionParametersDecodeErrorZ {
 		public readonly DecodeError err;
 		internal Result_ChannelTransactionParametersDecodeErrorZ_Err(object _dummy, long ptr) : base(_dummy, ptr) {
-			long err = bindings.CResult_ChannelTransactionParametersDecodeErrorZ_get_err(ptr);
+			long err = Bindings.CResultChannelTransactionParametersDecodeErrorZGetErr(ptr);
 			org.ldk.structs.DecodeError err_hu_conv = org.ldk.structs.DecodeError.constr_from_ptr(err);
 			if (err_hu_conv != null) { err_hu_conv.ptrs_to.AddLast(this); };
 			this.err = err_hu_conv;
@@ -42,7 +42,7 @@ public class Result_ChannelTransactionParametersDecodeErrorZ : CommonBase {
 	 * Creates a new CResult_ChannelTransactionParametersDecodeErrorZ in the success state.
 	 */
 	public static Result_ChannelTransactionParametersDecodeErrorZ ok(org.ldk.structs.ChannelTransactionParameters o) {
-		long ret = bindings.CResult_ChannelTransactionParametersDecodeErrorZ_ok(o == null ? 0 : o.ptr);
+		long ret = Bindings.CResultChannelTransactionParametersDecodeErrorZOk(o == null ? 0 : o.ptr);
 		GC.KeepAlive(o);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_ChannelTransactionParametersDecodeErrorZ ret_hu_conv = Result_ChannelTransactionParametersDecodeErrorZ.constr_from_ptr(ret);
@@ -54,7 +54,7 @@ public class Result_ChannelTransactionParametersDecodeErrorZ : CommonBase {
 	 * Creates a new CResult_ChannelTransactionParametersDecodeErrorZ in the error state.
 	 */
 	public static Result_ChannelTransactionParametersDecodeErrorZ err(org.ldk.structs.DecodeError e) {
-		long ret = bindings.CResult_ChannelTransactionParametersDecodeErrorZ_err(e.ptr);
+		long ret = Bindings.CResultChannelTransactionParametersDecodeErrorZErr(e.ptr);
 		GC.KeepAlive(e);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_ChannelTransactionParametersDecodeErrorZ ret_hu_conv = Result_ChannelTransactionParametersDecodeErrorZ.constr_from_ptr(ret);
@@ -66,13 +66,13 @@ public class Result_ChannelTransactionParametersDecodeErrorZ : CommonBase {
 	 * Checks if the given object is currently in the success state
 	 */
 	public bool is_ok() {
-		bool ret = bindings.CResult_ChannelTransactionParametersDecodeErrorZ_is_ok(this.ptr);
+		bool ret = Bindings.CResultChannelTransactionParametersDecodeErrorZIsOk(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.CResult_ChannelTransactionParametersDecodeErrorZ_clone_ptr(this.ptr);
+		long ret = Bindings.CResultChannelTransactionParametersDecodeErrorZClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -82,7 +82,7 @@ public class Result_ChannelTransactionParametersDecodeErrorZ : CommonBase {
 	 * but with all dynamically-allocated buffers duplicated in new buffers.
 	 */
 	public Result_ChannelTransactionParametersDecodeErrorZ clone() {
-		long ret = bindings.CResult_ChannelTransactionParametersDecodeErrorZ_clone(this.ptr);
+		long ret = Bindings.CResultChannelTransactionParametersDecodeErrorZClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_ChannelTransactionParametersDecodeErrorZ ret_hu_conv = Result_ChannelTransactionParametersDecodeErrorZ.constr_from_ptr(ret);

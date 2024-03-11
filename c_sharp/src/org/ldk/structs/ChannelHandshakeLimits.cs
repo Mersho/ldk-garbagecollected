@@ -22,7 +22,7 @@ namespace org { namespace ldk { namespace structs {
 public class ChannelHandshakeLimits : CommonBase {
 	internal ChannelHandshakeLimits(object _dummy, long ptr) : base(ptr) { }
 	~ChannelHandshakeLimits() {
-		if (ptr != 0) { bindings.ChannelHandshakeLimits_free(ptr); }
+		if (ptr != 0) { Bindings.ChannelHandshakeLimitsFree(ptr); }
 	}
 
 	/**
@@ -32,7 +32,7 @@ public class ChannelHandshakeLimits : CommonBase {
 	 * Default value: 0.
 	 */
 	public long get_min_funding_satoshis() {
-		long ret = bindings.ChannelHandshakeLimits_get_min_funding_satoshis(this.ptr);
+		long ret = Bindings.ChannelHandshakeLimitsGetMinFundingSatoshis(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -44,7 +44,7 @@ public class ChannelHandshakeLimits : CommonBase {
 	 * Default value: 0.
 	 */
 	public void set_min_funding_satoshis(long val) {
-		bindings.ChannelHandshakeLimits_set_min_funding_satoshis(this.ptr, val);
+		Bindings.ChannelHandshakeLimitsSetMinFundingSatoshis(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -56,7 +56,7 @@ public class ChannelHandshakeLimits : CommonBase {
 	 * Default value: 2^24 - 1.
 	 */
 	public long get_max_funding_satoshis() {
-		long ret = bindings.ChannelHandshakeLimits_get_max_funding_satoshis(this.ptr);
+		long ret = Bindings.ChannelHandshakeLimitsGetMaxFundingSatoshis(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -68,7 +68,7 @@ public class ChannelHandshakeLimits : CommonBase {
 	 * Default value: 2^24 - 1.
 	 */
 	public void set_max_funding_satoshis(long val) {
-		bindings.ChannelHandshakeLimits_set_max_funding_satoshis(this.ptr, val);
+		Bindings.ChannelHandshakeLimitsSetMaxFundingSatoshis(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -80,7 +80,7 @@ public class ChannelHandshakeLimits : CommonBase {
 	 * Default value: u64::max_value.
 	 */
 	public long get_max_htlc_minimum_msat() {
-		long ret = bindings.ChannelHandshakeLimits_get_max_htlc_minimum_msat(this.ptr);
+		long ret = Bindings.ChannelHandshakeLimitsGetMaxHtlcMinimumMsat(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -92,7 +92,7 @@ public class ChannelHandshakeLimits : CommonBase {
 	 * Default value: u64::max_value.
 	 */
 	public void set_max_htlc_minimum_msat(long val) {
-		bindings.ChannelHandshakeLimits_set_max_htlc_minimum_msat(this.ptr, val);
+		Bindings.ChannelHandshakeLimitsSetMaxHtlcMinimumMsat(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -104,7 +104,7 @@ public class ChannelHandshakeLimits : CommonBase {
 	 * Default value: 0.
 	 */
 	public long get_min_max_htlc_value_in_flight_msat() {
-		long ret = bindings.ChannelHandshakeLimits_get_min_max_htlc_value_in_flight_msat(this.ptr);
+		long ret = Bindings.ChannelHandshakeLimitsGetMinMaxHtlcValueInFlightMsat(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -116,7 +116,7 @@ public class ChannelHandshakeLimits : CommonBase {
 	 * Default value: 0.
 	 */
 	public void set_min_max_htlc_value_in_flight_msat(long val) {
-		bindings.ChannelHandshakeLimits_set_min_max_htlc_value_in_flight_msat(this.ptr, val);
+		Bindings.ChannelHandshakeLimitsSetMinMaxHtlcValueInFlightMsat(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -129,7 +129,7 @@ public class ChannelHandshakeLimits : CommonBase {
 	 * Default value: u64::max_value.
 	 */
 	public long get_max_channel_reserve_satoshis() {
-		long ret = bindings.ChannelHandshakeLimits_get_max_channel_reserve_satoshis(this.ptr);
+		long ret = Bindings.ChannelHandshakeLimitsGetMaxChannelReserveSatoshis(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -142,7 +142,7 @@ public class ChannelHandshakeLimits : CommonBase {
 	 * Default value: u64::max_value.
 	 */
 	public void set_max_channel_reserve_satoshis(long val) {
-		bindings.ChannelHandshakeLimits_set_max_channel_reserve_satoshis(this.ptr, val);
+		Bindings.ChannelHandshakeLimitsSetMaxChannelReserveSatoshis(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -154,7 +154,7 @@ public class ChannelHandshakeLimits : CommonBase {
 	 * Default value: 0.
 	 */
 	public short get_min_max_accepted_htlcs() {
-		short ret = bindings.ChannelHandshakeLimits_get_min_max_accepted_htlcs(this.ptr);
+		short ret = Bindings.ChannelHandshakeLimitsGetMinMaxAcceptedHtlcs(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -166,7 +166,7 @@ public class ChannelHandshakeLimits : CommonBase {
 	 * Default value: 0.
 	 */
 	public void set_min_max_accepted_htlcs(short val) {
-		bindings.ChannelHandshakeLimits_set_min_max_accepted_htlcs(this.ptr, val);
+		Bindings.ChannelHandshakeLimitsSetMinMaxAcceptedHtlcs(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -180,7 +180,7 @@ public class ChannelHandshakeLimits : CommonBase {
 	 * Default value: 144, or roughly one day and only applies to outbound channels.
 	 */
 	public int get_max_minimum_depth() {
-		int ret = bindings.ChannelHandshakeLimits_get_max_minimum_depth(this.ptr);
+		int ret = Bindings.ChannelHandshakeLimitsGetMaxMinimumDepth(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -194,7 +194,7 @@ public class ChannelHandshakeLimits : CommonBase {
 	 * Default value: 144, or roughly one day and only applies to outbound channels.
 	 */
 	public void set_max_minimum_depth(int val) {
-		bindings.ChannelHandshakeLimits_set_max_minimum_depth(this.ptr, val);
+		Bindings.ChannelHandshakeLimitsSetMaxMinimumDepth(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -219,7 +219,7 @@ public class ChannelHandshakeLimits : CommonBase {
 	 * Default value: true
 	 */
 	public bool get_trust_own_funding_0conf() {
-		bool ret = bindings.ChannelHandshakeLimits_get_trust_own_funding_0conf(this.ptr);
+		bool ret = Bindings.ChannelHandshakeLimitsGetTrustOwnFunding0Conf(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -244,7 +244,7 @@ public class ChannelHandshakeLimits : CommonBase {
 	 * Default value: true
 	 */
 	public void set_trust_own_funding_0conf(bool val) {
-		bindings.ChannelHandshakeLimits_set_trust_own_funding_0conf(this.ptr, val);
+		Bindings.ChannelHandshakeLimitsSetTrustOwnFunding0Conf(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -260,7 +260,7 @@ public class ChannelHandshakeLimits : CommonBase {
 	 * Default value: true.
 	 */
 	public bool get_force_announced_channel_preference() {
-		bool ret = bindings.ChannelHandshakeLimits_get_force_announced_channel_preference(this.ptr);
+		bool ret = Bindings.ChannelHandshakeLimitsGetForceAnnouncedChannelPreference(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -276,7 +276,7 @@ public class ChannelHandshakeLimits : CommonBase {
 	 * Default value: true.
 	 */
 	public void set_force_announced_channel_preference(bool val) {
-		bindings.ChannelHandshakeLimits_set_force_announced_channel_preference(this.ptr, val);
+		Bindings.ChannelHandshakeLimitsSetForceAnnouncedChannelPreference(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -291,7 +291,7 @@ public class ChannelHandshakeLimits : CommonBase {
 	 * reduce the loss of having useless locked funds (if your peer accepts)
 	 */
 	public short get_their_to_self_delay() {
-		short ret = bindings.ChannelHandshakeLimits_get_their_to_self_delay(this.ptr);
+		short ret = Bindings.ChannelHandshakeLimitsGetTheirToSelfDelay(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -306,7 +306,7 @@ public class ChannelHandshakeLimits : CommonBase {
 	 * reduce the loss of having useless locked funds (if your peer accepts)
 	 */
 	public void set_their_to_self_delay(short val) {
-		bindings.ChannelHandshakeLimits_set_their_to_self_delay(this.ptr, val);
+		Bindings.ChannelHandshakeLimitsSetTheirToSelfDelay(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -315,7 +315,7 @@ public class ChannelHandshakeLimits : CommonBase {
 	 * Constructs a new ChannelHandshakeLimits given each field
 	 */
 	public static ChannelHandshakeLimits of(long min_funding_satoshis_arg, long max_funding_satoshis_arg, long max_htlc_minimum_msat_arg, long min_max_htlc_value_in_flight_msat_arg, long max_channel_reserve_satoshis_arg, short min_max_accepted_htlcs_arg, int max_minimum_depth_arg, bool trust_own_funding_0conf_arg, bool force_announced_channel_preference_arg, short their_to_self_delay_arg) {
-		long ret = bindings.ChannelHandshakeLimits_new(min_funding_satoshis_arg, max_funding_satoshis_arg, max_htlc_minimum_msat_arg, min_max_htlc_value_in_flight_msat_arg, max_channel_reserve_satoshis_arg, min_max_accepted_htlcs_arg, max_minimum_depth_arg, trust_own_funding_0conf_arg, force_announced_channel_preference_arg, their_to_self_delay_arg);
+		long ret = Bindings.ChannelHandshakeLimitsNew(min_funding_satoshis_arg, max_funding_satoshis_arg, max_htlc_minimum_msat_arg, min_max_htlc_value_in_flight_msat_arg, max_channel_reserve_satoshis_arg, min_max_accepted_htlcs_arg, max_minimum_depth_arg, trust_own_funding_0conf_arg, force_announced_channel_preference_arg, their_to_self_delay_arg);
 		GC.KeepAlive(min_funding_satoshis_arg);
 		GC.KeepAlive(max_funding_satoshis_arg);
 		GC.KeepAlive(max_htlc_minimum_msat_arg);
@@ -333,7 +333,7 @@ public class ChannelHandshakeLimits : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.ChannelHandshakeLimits_clone_ptr(this.ptr);
+		long ret = Bindings.ChannelHandshakeLimitsClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -342,7 +342,7 @@ public class ChannelHandshakeLimits : CommonBase {
 	 * Creates a copy of the ChannelHandshakeLimits
 	 */
 	public ChannelHandshakeLimits clone() {
-		long ret = bindings.ChannelHandshakeLimits_clone(this.ptr);
+		long ret = Bindings.ChannelHandshakeLimitsClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChannelHandshakeLimits ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChannelHandshakeLimits(null, ret); }
@@ -354,7 +354,7 @@ public class ChannelHandshakeLimits : CommonBase {
 	 * Creates a "default" ChannelHandshakeLimits. See struct and individual field documentaiton for details on which values are used.
 	 */
 	public static ChannelHandshakeLimits with_default() {
-		long ret = bindings.ChannelHandshakeLimits_default();
+		long ret = Bindings.ChannelHandshakeLimitsDefault();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChannelHandshakeLimits ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChannelHandshakeLimits(null, ret); }
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };

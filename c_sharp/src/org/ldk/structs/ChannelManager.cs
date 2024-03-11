@@ -65,7 +65,7 @@ namespace org { namespace ldk { namespace structs {
 public class ChannelManager : CommonBase {
 	internal ChannelManager(object _dummy, long ptr) : base(ptr) { }
 	~ChannelManager() {
-		if (ptr != 0) { bindings.ChannelManager_free(ptr); }
+		if (ptr != 0) { Bindings.ChannelManagerFree(ptr); }
 	}
 
 	/**
@@ -88,7 +88,7 @@ public class ChannelManager : CommonBase {
 	 * [`params.best_block.block_hash`]: chain::BestBlock::block_hash
 	 */
 	public static ChannelManager of(org.ldk.structs.FeeEstimator fee_est, org.ldk.structs.Watch chain_monitor, org.ldk.structs.BroadcasterInterface tx_broadcaster, org.ldk.structs.Router router, org.ldk.structs.Logger logger, org.ldk.structs.EntropySource entropy_source, org.ldk.structs.NodeSigner node_signer, org.ldk.structs.SignerProvider signer_provider, org.ldk.structs.UserConfig config, org.ldk.structs.ChainParameters _params, int current_timestamp) {
-		long ret = bindings.ChannelManager_new(fee_est.ptr, chain_monitor.ptr, tx_broadcaster.ptr, router.ptr, logger.ptr, entropy_source.ptr, node_signer.ptr, signer_provider.ptr, config == null ? 0 : config.ptr, _params == null ? 0 : _params.ptr, current_timestamp);
+		long ret = Bindings.ChannelManagerNew(fee_est.ptr, chain_monitor.ptr, tx_broadcaster.ptr, router.ptr, logger.ptr, entropy_source.ptr, node_signer.ptr, signer_provider.ptr, config == null ? 0 : config.ptr, _params == null ? 0 : _params.ptr, current_timestamp);
 		GC.KeepAlive(fee_est);
 		GC.KeepAlive(chain_monitor);
 		GC.KeepAlive(tx_broadcaster);
@@ -120,7 +120,7 @@ public class ChannelManager : CommonBase {
 	 * Gets the current configuration applied to all new channels.
 	 */
 	public UserConfig get_current_default_configuration() {
-		long ret = bindings.ChannelManager_get_current_default_configuration(this.ptr);
+		long ret = Bindings.ChannelManagerGetCurrentDefaultConfiguration(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.UserConfig ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.UserConfig(null, ret); }
@@ -165,7 +165,7 @@ public class ChannelManager : CommonBase {
 	 * Note that override_config (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public Result_ThirtyTwoBytesAPIErrorZ create_channel(byte[] their_network_key, long channel_value_satoshis, long push_msat, org.ldk.util.UInt128 user_channel_id, org.ldk.structs.Option_ThirtyTwoBytesZ temporary_channel_id, org.ldk.structs.UserConfig override_config) {
-		long ret = bindings.ChannelManager_create_channel(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(their_network_key, 33)), channel_value_satoshis, push_msat, InternalUtils.encodeUint8Array(user_channel_id.getLEBytes()), temporary_channel_id.ptr, override_config == null ? 0 : override_config.ptr);
+		long ret = Bindings.ChannelManagerCreateChannel(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(their_network_key, 33)), channel_value_satoshis, push_msat, InternalUtils.encodeUint8Array(user_channel_id.getLEBytes()), temporary_channel_id.ptr, override_config == null ? 0 : override_config.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(their_network_key);
 		GC.KeepAlive(channel_value_satoshis);
@@ -185,7 +185,7 @@ public class ChannelManager : CommonBase {
 	 * more information.
 	 */
 	public ChannelDetails[] list_channels() {
-		long ret = bindings.ChannelManager_list_channels(this.ptr);
+		long ret = Bindings.ChannelManagerListChannels(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		int ret_conv_16_len = InternalUtils.getArrayLength(ret);
@@ -196,7 +196,7 @@ public class ChannelManager : CommonBase {
 			if (ret_conv_16_hu_conv != null) { ret_conv_16_hu_conv.ptrs_to.AddLast(this); };
 			ret_conv_16_arr[q] = ret_conv_16_hu_conv;
 		}
-		bindings.free_buffer(ret);
+		Bindings.FreeBuffer(ret);
 		return ret_conv_16_arr;
 	}
 
@@ -209,7 +209,7 @@ public class ChannelManager : CommonBase {
 	 * are.
 	 */
 	public ChannelDetails[] list_usable_channels() {
-		long ret = bindings.ChannelManager_list_usable_channels(this.ptr);
+		long ret = Bindings.ChannelManagerListUsableChannels(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		int ret_conv_16_len = InternalUtils.getArrayLength(ret);
@@ -220,7 +220,7 @@ public class ChannelManager : CommonBase {
 			if (ret_conv_16_hu_conv != null) { ret_conv_16_hu_conv.ptrs_to.AddLast(this); };
 			ret_conv_16_arr[q] = ret_conv_16_hu_conv;
 		}
-		bindings.free_buffer(ret);
+		Bindings.FreeBuffer(ret);
 		return ret_conv_16_arr;
 	}
 
@@ -228,7 +228,7 @@ public class ChannelManager : CommonBase {
 	 * Gets the list of channels we have with a given counterparty, in random order.
 	 */
 	public ChannelDetails[] list_channels_with_counterparty(byte[] counterparty_node_id) {
-		long ret = bindings.ChannelManager_list_channels_with_counterparty(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(counterparty_node_id, 33)));
+		long ret = Bindings.ChannelManagerListChannelsWithCounterparty(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(counterparty_node_id, 33)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(counterparty_node_id);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -240,7 +240,7 @@ public class ChannelManager : CommonBase {
 			if (ret_conv_16_hu_conv != null) { ret_conv_16_hu_conv.ptrs_to.AddLast(this); };
 			ret_conv_16_arr[q] = ret_conv_16_hu_conv;
 		}
-		bindings.free_buffer(ret);
+		Bindings.FreeBuffer(ret);
 		return ret_conv_16_arr;
 	}
 
@@ -255,7 +255,7 @@ public class ChannelManager : CommonBase {
 	 * [`Event::PaymentSent`]: events::Event::PaymentSent
 	 */
 	public RecentPaymentDetails[] list_recent_payments() {
-		long ret = bindings.ChannelManager_list_recent_payments(this.ptr);
+		long ret = Bindings.ChannelManagerListRecentPayments(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		int ret_conv_22_len = InternalUtils.getArrayLength(ret);
@@ -266,7 +266,7 @@ public class ChannelManager : CommonBase {
 			if (ret_conv_22_hu_conv != null) { ret_conv_22_hu_conv.ptrs_to.AddLast(this); };
 			ret_conv_22_arr[w] = ret_conv_22_hu_conv;
 		}
-		bindings.free_buffer(ret);
+		Bindings.FreeBuffer(ret);
 		return ret_conv_22_arr;
 	}
 
@@ -296,7 +296,7 @@ public class ChannelManager : CommonBase {
 	 * [`SendShutdown`]: crate::events::MessageSendEvent::SendShutdown
 	 */
 	public Result_NoneAPIErrorZ close_channel(byte[] channel_id, byte[] counterparty_node_id) {
-		long ret = bindings.ChannelManager_close_channel(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(channel_id, 32)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(counterparty_node_id, 33)));
+		long ret = Bindings.ChannelManagerCloseChannel(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(channel_id, 32)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(counterparty_node_id, 33)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(channel_id);
 		GC.KeepAlive(counterparty_node_id);
@@ -339,7 +339,7 @@ public class ChannelManager : CommonBase {
 	 * Note that shutdown_script (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public Result_NoneAPIErrorZ close_channel_with_feerate_and_script(byte[] channel_id, byte[] counterparty_node_id, org.ldk.structs.Option_u32Z target_feerate_sats_per_1000_weight, org.ldk.structs.ShutdownScript shutdown_script) {
-		long ret = bindings.ChannelManager_close_channel_with_feerate_and_script(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(channel_id, 32)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(counterparty_node_id, 33)), target_feerate_sats_per_1000_weight.ptr, shutdown_script == null ? 0 : shutdown_script.ptr);
+		long ret = Bindings.ChannelManagerCloseChannelWithFeerateAndScript(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(channel_id, 32)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(counterparty_node_id, 33)), target_feerate_sats_per_1000_weight.ptr, shutdown_script == null ? 0 : shutdown_script.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(channel_id);
 		GC.KeepAlive(counterparty_node_id);
@@ -359,7 +359,7 @@ public class ChannelManager : CommonBase {
 	 * channel.
 	 */
 	public Result_NoneAPIErrorZ force_close_broadcasting_latest_txn(byte[] channel_id, byte[] counterparty_node_id) {
-		long ret = bindings.ChannelManager_force_close_broadcasting_latest_txn(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(channel_id, 32)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(counterparty_node_id, 33)));
+		long ret = Bindings.ChannelManagerForceCloseBroadcastingLatestTxn(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(channel_id, 32)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(counterparty_node_id, 33)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(channel_id);
 		GC.KeepAlive(counterparty_node_id);
@@ -377,7 +377,7 @@ public class ChannelManager : CommonBase {
 	 * [`ChannelMonitor::get_latest_holder_commitment_txn`].
 	 */
 	public Result_NoneAPIErrorZ force_close_without_broadcasting_txn(byte[] channel_id, byte[] counterparty_node_id) {
-		long ret = bindings.ChannelManager_force_close_without_broadcasting_txn(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(channel_id, 32)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(counterparty_node_id, 33)));
+		long ret = Bindings.ChannelManagerForceCloseWithoutBroadcastingTxn(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(channel_id, 32)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(counterparty_node_id, 33)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(channel_id);
 		GC.KeepAlive(counterparty_node_id);
@@ -391,7 +391,7 @@ public class ChannelManager : CommonBase {
 	 * for each to the chain and rejecting new HTLCs on each.
 	 */
 	public void force_close_all_channels_broadcasting_latest_txn() {
-		bindings.ChannelManager_force_close_all_channels_broadcasting_latest_txn(this.ptr);
+		Bindings.ChannelManagerForceCloseAllChannelsBroadcastingLatestTxn(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -400,7 +400,7 @@ public class ChannelManager : CommonBase {
 	 * local transaction(s).
 	 */
 	public void force_close_all_channels_without_broadcasting_txn() {
-		bindings.ChannelManager_force_close_all_channels_without_broadcasting_txn(this.ptr);
+		Bindings.ChannelManagerForceCloseAllChannelsWithoutBroadcastingTxn(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -458,7 +458,7 @@ public class ChannelManager : CommonBase {
 	 * [`ChannelMonitorUpdateStatus::InProgress`]: crate::chain::ChannelMonitorUpdateStatus::InProgress
 	 */
 	public Result_NonePaymentSendFailureZ send_payment_with_route(org.ldk.structs.Route route, byte[] payment_hash, org.ldk.structs.RecipientOnionFields recipient_onion, byte[] payment_id) {
-		long ret = bindings.ChannelManager_send_payment_with_route(this.ptr, route == null ? 0 : route.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_hash, 32)), recipient_onion == null ? 0 : recipient_onion.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_id, 32)));
+		long ret = Bindings.ChannelManagerSendPaymentWithRoute(this.ptr, route == null ? 0 : route.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_hash, 32)), recipient_onion == null ? 0 : recipient_onion.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_id, 32)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(route);
 		GC.KeepAlive(payment_hash);
@@ -476,7 +476,7 @@ public class ChannelManager : CommonBase {
 	 * `route_params` and retry failed payment paths based on `retry_strategy`.
 	 */
 	public Result_NoneRetryableSendFailureZ send_payment(byte[] payment_hash, org.ldk.structs.RecipientOnionFields recipient_onion, byte[] payment_id, org.ldk.structs.RouteParameters route_params, org.ldk.structs.Retry retry_strategy) {
-		long ret = bindings.ChannelManager_send_payment(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_hash, 32)), recipient_onion == null ? 0 : recipient_onion.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_id, 32)), route_params == null ? 0 : route_params.ptr, retry_strategy.ptr);
+		long ret = Bindings.ChannelManagerSendPayment(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_hash, 32)), recipient_onion == null ? 0 : recipient_onion.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_id, 32)), route_params == null ? 0 : route_params.ptr, retry_strategy.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(payment_hash);
 		GC.KeepAlive(recipient_onion);
@@ -521,7 +521,7 @@ public class ChannelManager : CommonBase {
 	 * [`Bolt12Invoice`]: crate::offers::invoice::Bolt12Invoice
 	 */
 	public void abandon_payment(byte[] payment_id) {
-		bindings.ChannelManager_abandon_payment(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_id, 32)));
+		Bindings.ChannelManagerAbandonPayment(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_id, 32)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(payment_id);
 	}
@@ -542,7 +542,7 @@ public class ChannelManager : CommonBase {
 	 * [`send_payment`]: Self::send_payment
 	 */
 	public Result_ThirtyTwoBytesPaymentSendFailureZ send_spontaneous_payment(org.ldk.structs.Route route, org.ldk.structs.Option_ThirtyTwoBytesZ payment_preimage, org.ldk.structs.RecipientOnionFields recipient_onion, byte[] payment_id) {
-		long ret = bindings.ChannelManager_send_spontaneous_payment(this.ptr, route == null ? 0 : route.ptr, payment_preimage.ptr, recipient_onion == null ? 0 : recipient_onion.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_id, 32)));
+		long ret = Bindings.ChannelManagerSendSpontaneousPayment(this.ptr, route == null ? 0 : route.ptr, payment_preimage.ptr, recipient_onion == null ? 0 : recipient_onion.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_id, 32)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(route);
 		GC.KeepAlive(payment_preimage);
@@ -566,7 +566,7 @@ public class ChannelManager : CommonBase {
 	 * [`PaymentParameters::for_keysend`]: crate::routing::router::PaymentParameters::for_keysend
 	 */
 	public Result_ThirtyTwoBytesRetryableSendFailureZ send_spontaneous_payment_with_retry(org.ldk.structs.Option_ThirtyTwoBytesZ payment_preimage, org.ldk.structs.RecipientOnionFields recipient_onion, byte[] payment_id, org.ldk.structs.RouteParameters route_params, org.ldk.structs.Retry retry_strategy) {
-		long ret = bindings.ChannelManager_send_spontaneous_payment_with_retry(this.ptr, payment_preimage.ptr, recipient_onion == null ? 0 : recipient_onion.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_id, 32)), route_params == null ? 0 : route_params.ptr, retry_strategy.ptr);
+		long ret = Bindings.ChannelManagerSendSpontaneousPaymentWithRetry(this.ptr, payment_preimage.ptr, recipient_onion == null ? 0 : recipient_onion.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_id, 32)), route_params == null ? 0 : route_params.ptr, retry_strategy.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(payment_preimage);
 		GC.KeepAlive(recipient_onion);
@@ -588,7 +588,7 @@ public class ChannelManager : CommonBase {
 	 * us to easily discern them from real payments.
 	 */
 	public Result_C2Tuple_ThirtyTwoBytesThirtyTwoBytesZPaymentSendFailureZ send_probe(org.ldk.structs.Path path) {
-		long ret = bindings.ChannelManager_send_probe(this.ptr, path == null ? 0 : path.ptr);
+		long ret = Bindings.ChannelManagerSendProbe(this.ptr, path == null ? 0 : path.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(path);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -604,7 +604,7 @@ public class ChannelManager : CommonBase {
 	 * See [`ChannelManager::send_preflight_probes`] for more information.
 	 */
 	public Result_CVec_C2Tuple_ThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZ send_spontaneous_preflight_probes(byte[] node_id, long amount_msat, int final_cltv_expiry_delta, org.ldk.structs.Option_u64Z liquidity_limit_multiplier) {
-		long ret = bindings.ChannelManager_send_spontaneous_preflight_probes(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(node_id, 33)), amount_msat, final_cltv_expiry_delta, liquidity_limit_multiplier.ptr);
+		long ret = Bindings.ChannelManagerSendSpontaneousPreflightProbes(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(node_id, 33)), amount_msat, final_cltv_expiry_delta, liquidity_limit_multiplier.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(node_id);
 		GC.KeepAlive(amount_msat);
@@ -633,7 +633,7 @@ public class ChannelManager : CommonBase {
 	 * probes. If `None` is given as `liquidity_limit_multiplier`, it defaults to `3`.
 	 */
 	public Result_CVec_C2Tuple_ThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZ send_preflight_probes(org.ldk.structs.RouteParameters route_params, org.ldk.structs.Option_u64Z liquidity_limit_multiplier) {
-		long ret = bindings.ChannelManager_send_preflight_probes(this.ptr, route_params == null ? 0 : route_params.ptr, liquidity_limit_multiplier.ptr);
+		long ret = Bindings.ChannelManagerSendPreflightProbes(this.ptr, route_params == null ? 0 : route_params.ptr, liquidity_limit_multiplier.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(route_params);
 		GC.KeepAlive(liquidity_limit_multiplier);
@@ -677,7 +677,7 @@ public class ChannelManager : CommonBase {
 	 * [`Event::ChannelClosed`]: crate::events::Event::ChannelClosed
 	 */
 	public Result_NoneAPIErrorZ funding_transaction_generated(byte[] temporary_channel_id, byte[] counterparty_node_id, byte[] funding_transaction) {
-		long ret = bindings.ChannelManager_funding_transaction_generated(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(temporary_channel_id, 32)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(counterparty_node_id, 33)), InternalUtils.encodeUint8Array(funding_transaction));
+		long ret = Bindings.ChannelManagerFundingTransactionGenerated(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(temporary_channel_id, 32)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(counterparty_node_id, 33)), InternalUtils.encodeUint8Array(funding_transaction));
 		GC.KeepAlive(this);
 		GC.KeepAlive(temporary_channel_id);
 		GC.KeepAlive(counterparty_node_id);
@@ -700,7 +700,7 @@ public class ChannelManager : CommonBase {
 	 * If there is an error, all channels in the batch are to be considered closed.
 	 */
 	public Result_NoneAPIErrorZ batch_funding_transaction_generated(TwoTuple_ThirtyTwoBytesPublicKeyZ[] temporary_channels, byte[] funding_transaction) {
-		long ret = bindings.ChannelManager_batch_funding_transaction_generated(this.ptr, InternalUtils.encodeUint64Array(InternalUtils.mapArray(temporary_channels, temporary_channels_conv_35 => temporary_channels_conv_35 != null ? temporary_channels_conv_35.ptr : 0)), InternalUtils.encodeUint8Array(funding_transaction));
+		long ret = Bindings.ChannelManagerBatchFundingTransactionGenerated(this.ptr, InternalUtils.encodeUint64Array(InternalUtils.mapArray(temporary_channels, temporary_channels_conv_35 => temporary_channels_conv_35 != null ? temporary_channels_conv_35.ptr : 0)), InternalUtils.encodeUint8Array(funding_transaction));
 		GC.KeepAlive(this);
 		GC.KeepAlive(temporary_channels);
 		GC.KeepAlive(funding_transaction);
@@ -734,7 +734,7 @@ public class ChannelManager : CommonBase {
 	 * [`APIMisuseError`]: APIError::APIMisuseError
 	 */
 	public Result_NoneAPIErrorZ update_partial_channel_config(byte[] counterparty_node_id, byte[][] channel_ids, org.ldk.structs.ChannelConfigUpdate config_update) {
-		long ret = bindings.ChannelManager_update_partial_channel_config(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(counterparty_node_id, 33)), InternalUtils.encodeUint64Array(InternalUtils.mapArray(channel_ids, channel_ids_conv_8 => InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(channel_ids_conv_8, 32)))), config_update == null ? 0 : config_update.ptr);
+		long ret = Bindings.ChannelManagerUpdatePartialChannelConfig(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(counterparty_node_id, 33)), InternalUtils.encodeUint64Array(InternalUtils.mapArray(channel_ids, channel_ids_conv_8 => InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(channel_ids_conv_8, 32)))), config_update == null ? 0 : config_update.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(counterparty_node_id);
 		GC.KeepAlive(channel_ids);
@@ -770,7 +770,7 @@ public class ChannelManager : CommonBase {
 	 * [`APIMisuseError`]: APIError::APIMisuseError
 	 */
 	public Result_NoneAPIErrorZ update_channel_config(byte[] counterparty_node_id, byte[][] channel_ids, org.ldk.structs.ChannelConfig config) {
-		long ret = bindings.ChannelManager_update_channel_config(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(counterparty_node_id, 33)), InternalUtils.encodeUint64Array(InternalUtils.mapArray(channel_ids, channel_ids_conv_8 => InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(channel_ids_conv_8, 32)))), config == null ? 0 : config.ptr);
+		long ret = Bindings.ChannelManagerUpdateChannelConfig(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(counterparty_node_id, 33)), InternalUtils.encodeUint64Array(InternalUtils.mapArray(channel_ids, channel_ids_conv_8 => InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(channel_ids_conv_8, 32)))), config == null ? 0 : config.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(counterparty_node_id);
 		GC.KeepAlive(channel_ids);
@@ -807,7 +807,7 @@ public class ChannelManager : CommonBase {
 	 * [`HTLCIntercepted::expected_outbound_amount_msat`]: events::Event::HTLCIntercepted::expected_outbound_amount_msat
 	 */
 	public Result_NoneAPIErrorZ forward_intercepted_htlc(byte[] intercept_id, byte[] next_hop_channel_id, byte[] next_node_id, long amt_to_forward_msat) {
-		long ret = bindings.ChannelManager_forward_intercepted_htlc(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(intercept_id, 32)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(next_hop_channel_id, 32)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(next_node_id, 33)), amt_to_forward_msat);
+		long ret = Bindings.ChannelManagerForwardInterceptedHtlc(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(intercept_id, 32)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(next_hop_channel_id, 32)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(next_node_id, 33)), amt_to_forward_msat);
 		GC.KeepAlive(this);
 		GC.KeepAlive(intercept_id);
 		GC.KeepAlive(next_hop_channel_id);
@@ -828,7 +828,7 @@ public class ChannelManager : CommonBase {
 	 * [`HTLCIntercepted`]: events::Event::HTLCIntercepted
 	 */
 	public Result_NoneAPIErrorZ fail_intercepted_htlc(byte[] intercept_id) {
-		long ret = bindings.ChannelManager_fail_intercepted_htlc(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(intercept_id, 32)));
+		long ret = Bindings.ChannelManagerFailInterceptedHtlc(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(intercept_id, 32)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(intercept_id);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -843,7 +843,7 @@ public class ChannelManager : CommonBase {
 	 * Will likely generate further events.
 	 */
 	public void process_pending_htlc_forwards() {
-		bindings.ChannelManager_process_pending_htlc_forwards(this.ptr);
+		Bindings.ChannelManagerProcessPendingHtlcForwards(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -871,7 +871,7 @@ public class ChannelManager : CommonBase {
 	 * [`ChannelConfig`]: crate::util::config::ChannelConfig
 	 */
 	public void timer_tick_occurred() {
-		bindings.ChannelManager_timer_tick_occurred(this.ptr);
+		Bindings.ChannelManagerTimerTickOccurred(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -891,7 +891,7 @@ public class ChannelManager : CommonBase {
 	 * startup during which time claims that were in-progress at shutdown may be replayed.
 	 */
 	public void fail_htlc_backwards(byte[] payment_hash) {
-		bindings.ChannelManager_fail_htlc_backwards(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_hash, 32)));
+		Bindings.ChannelManagerFailHtlcBackwards(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_hash, 32)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(payment_hash);
 	}
@@ -903,7 +903,7 @@ public class ChannelManager : CommonBase {
 	 * See [`FailureCode`] for valid failure codes.
 	 */
 	public void fail_htlc_backwards_with_reason(byte[] payment_hash, org.ldk.structs.FailureCode failure_code) {
-		bindings.ChannelManager_fail_htlc_backwards_with_reason(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_hash, 32)), failure_code.ptr);
+		Bindings.ChannelManagerFailHtlcBackwardsWithReason(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_hash, 32)), failure_code.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(payment_hash);
 		GC.KeepAlive(failure_code);
@@ -937,7 +937,7 @@ public class ChannelManager : CommonBase {
 	 * [`claim_funds_with_known_custom_tlvs`]: Self::claim_funds_with_known_custom_tlvs
 	 */
 	public void claim_funds(byte[] payment_preimage) {
-		bindings.ChannelManager_claim_funds(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_preimage, 32)));
+		Bindings.ChannelManagerClaimFunds(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_preimage, 32)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(payment_preimage);
 	}
@@ -954,7 +954,7 @@ public class ChannelManager : CommonBase {
 	 * [`claim_funds`]: Self::claim_funds
 	 */
 	public void claim_funds_with_known_custom_tlvs(byte[] payment_preimage) {
-		bindings.ChannelManager_claim_funds_with_known_custom_tlvs(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_preimage, 32)));
+		Bindings.ChannelManagerClaimFundsWithKnownCustomTlvs(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_preimage, 32)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(payment_preimage);
 	}
@@ -963,7 +963,7 @@ public class ChannelManager : CommonBase {
 	 * Gets the node_id held by this ChannelManager
 	 */
 	public byte[] get_our_node_id() {
-		long ret = bindings.ChannelManager_get_our_node_id(this.ptr);
+		long ret = Bindings.ChannelManagerGetOurNodeId(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -989,7 +989,7 @@ public class ChannelManager : CommonBase {
 	 * [`Event::ChannelClosed::user_channel_id`]: events::Event::ChannelClosed::user_channel_id
 	 */
 	public Result_NoneAPIErrorZ accept_inbound_channel(byte[] temporary_channel_id, byte[] counterparty_node_id, org.ldk.util.UInt128 user_channel_id) {
-		long ret = bindings.ChannelManager_accept_inbound_channel(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(temporary_channel_id, 32)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(counterparty_node_id, 33)), InternalUtils.encodeUint8Array(user_channel_id.getLEBytes()));
+		long ret = Bindings.ChannelManagerAcceptInboundChannel(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(temporary_channel_id, 32)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(counterparty_node_id, 33)), InternalUtils.encodeUint8Array(user_channel_id.getLEBytes()));
 		GC.KeepAlive(this);
 		GC.KeepAlive(temporary_channel_id);
 		GC.KeepAlive(counterparty_node_id);
@@ -1020,7 +1020,7 @@ public class ChannelManager : CommonBase {
 	 * [`Event::ChannelClosed::user_channel_id`]: events::Event::ChannelClosed::user_channel_id
 	 */
 	public Result_NoneAPIErrorZ accept_inbound_channel_from_trusted_peer_0conf(byte[] temporary_channel_id, byte[] counterparty_node_id, org.ldk.util.UInt128 user_channel_id) {
-		long ret = bindings.ChannelManager_accept_inbound_channel_from_trusted_peer_0conf(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(temporary_channel_id, 32)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(counterparty_node_id, 33)), InternalUtils.encodeUint8Array(user_channel_id.getLEBytes()));
+		long ret = Bindings.ChannelManagerAcceptInboundChannelFromTrustedPeer0Conf(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(temporary_channel_id, 32)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(counterparty_node_id, 33)), InternalUtils.encodeUint8Array(user_channel_id.getLEBytes()));
 		GC.KeepAlive(this);
 		GC.KeepAlive(temporary_channel_id);
 		GC.KeepAlive(counterparty_node_id);
@@ -1086,7 +1086,7 @@ public class ChannelManager : CommonBase {
 	 * [Avoiding Duplicate Payments]: #avoiding-duplicate-payments
 	 */
 	public Result_NoneBolt12SemanticErrorZ pay_for_offer(org.ldk.structs.Offer offer, org.ldk.structs.Option_u64Z quantity, org.ldk.structs.Option_u64Z amount_msats, org.ldk.structs.Option_StrZ payer_note, byte[] payment_id, org.ldk.structs.Retry retry_strategy, org.ldk.structs.Option_u64Z max_total_routing_fee_msat) {
-		long ret = bindings.ChannelManager_pay_for_offer(this.ptr, offer == null ? 0 : offer.ptr, quantity.ptr, amount_msats.ptr, payer_note.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_id, 32)), retry_strategy.ptr, max_total_routing_fee_msat.ptr);
+		long ret = Bindings.ChannelManagerPayForOffer(this.ptr, offer == null ? 0 : offer.ptr, quantity.ptr, amount_msats.ptr, payer_note.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_id, 32)), retry_strategy.ptr, max_total_routing_fee_msat.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(offer);
 		GC.KeepAlive(quantity);
@@ -1129,7 +1129,7 @@ public class ChannelManager : CommonBase {
 	 * [`Bolt12Invoice`]: crate::offers::invoice::Bolt12Invoice
 	 */
 	public Result_NoneBolt12SemanticErrorZ request_refund_payment(org.ldk.structs.Refund refund) {
-		long ret = bindings.ChannelManager_request_refund_payment(this.ptr, refund == null ? 0 : refund.ptr);
+		long ret = Bindings.ChannelManagerRequestRefundPayment(this.ptr, refund == null ? 0 : refund.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(refund);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -1173,7 +1173,7 @@ public class ChannelManager : CommonBase {
 	 * [`create_inbound_payment_for_hash`]: Self::create_inbound_payment_for_hash
 	 */
 	public Result_C2Tuple_ThirtyTwoBytesThirtyTwoBytesZNoneZ create_inbound_payment(org.ldk.structs.Option_u64Z min_value_msat, int invoice_expiry_delta_secs, org.ldk.structs.Option_u16Z min_final_cltv_expiry_delta) {
-		long ret = bindings.ChannelManager_create_inbound_payment(this.ptr, min_value_msat.ptr, invoice_expiry_delta_secs, min_final_cltv_expiry_delta.ptr);
+		long ret = Bindings.ChannelManagerCreateInboundPayment(this.ptr, min_value_msat.ptr, invoice_expiry_delta_secs, min_final_cltv_expiry_delta.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(min_value_msat);
 		GC.KeepAlive(invoice_expiry_delta_secs);
@@ -1234,7 +1234,7 @@ public class ChannelManager : CommonBase {
 	 * [`PaymentClaimable`]: events::Event::PaymentClaimable
 	 */
 	public Result_ThirtyTwoBytesNoneZ create_inbound_payment_for_hash(byte[] payment_hash, org.ldk.structs.Option_u64Z min_value_msat, int invoice_expiry_delta_secs, org.ldk.structs.Option_u16Z min_final_cltv_expiry) {
-		long ret = bindings.ChannelManager_create_inbound_payment_for_hash(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_hash, 32)), min_value_msat.ptr, invoice_expiry_delta_secs, min_final_cltv_expiry.ptr);
+		long ret = Bindings.ChannelManagerCreateInboundPaymentForHash(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_hash, 32)), min_value_msat.ptr, invoice_expiry_delta_secs, min_final_cltv_expiry.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(payment_hash);
 		GC.KeepAlive(min_value_msat);
@@ -1254,7 +1254,7 @@ public class ChannelManager : CommonBase {
 	 * [`create_inbound_payment`]: Self::create_inbound_payment
 	 */
 	public Result_ThirtyTwoBytesAPIErrorZ get_payment_preimage(byte[] payment_hash, byte[] payment_secret) {
-		long ret = bindings.ChannelManager_get_payment_preimage(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_hash, 32)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_secret, 32)));
+		long ret = Bindings.ChannelManagerGetPaymentPreimage(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_hash, 32)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_secret, 32)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(payment_hash);
 		GC.KeepAlive(payment_secret);
@@ -1270,7 +1270,7 @@ public class ChannelManager : CommonBase {
 	 * [phantom node payments]: crate::sign::PhantomKeysManager
 	 */
 	public long get_phantom_scid() {
-		long ret = bindings.ChannelManager_get_phantom_scid(this.ptr);
+		long ret = Bindings.ChannelManagerGetPhantomScid(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -1281,7 +1281,7 @@ public class ChannelManager : CommonBase {
 	 * [phantom node payments]: crate::sign::PhantomKeysManager
 	 */
 	public PhantomRouteHints get_phantom_route_hints() {
-		long ret = bindings.ChannelManager_get_phantom_route_hints(this.ptr);
+		long ret = Bindings.ChannelManagerGetPhantomRouteHints(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.PhantomRouteHints ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.PhantomRouteHints(null, ret); }
@@ -1298,7 +1298,7 @@ public class ChannelManager : CommonBase {
 	 * times to get a unique scid.
 	 */
 	public long get_intercept_scid() {
-		long ret = bindings.ChannelManager_get_intercept_scid(this.ptr);
+		long ret = Bindings.ChannelManagerGetInterceptScid(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -1308,7 +1308,7 @@ public class ChannelManager : CommonBase {
 	 * our channels. May be used during pathfinding to account for in-use channel liquidity.
 	 */
 	public InFlightHtlcs compute_inflight_htlcs() {
-		long ret = bindings.ChannelManager_compute_inflight_htlcs(this.ptr);
+		long ret = Bindings.ChannelManagerComputeInflightHtlcs(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.InFlightHtlcs ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.InFlightHtlcs(null, ret); }
@@ -1321,7 +1321,7 @@ public class ChannelManager : CommonBase {
 	 * This copies the `inner` pointer in this_arg and thus the returned MessageSendEventsProvider must be freed before this_arg is
 	 */
 	public MessageSendEventsProvider as_MessageSendEventsProvider() {
-		long ret = bindings.ChannelManager_as_MessageSendEventsProvider(this.ptr);
+		long ret = Bindings.ChannelManagerAsMessageSendEventsProvider(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		MessageSendEventsProvider ret_hu_conv = new MessageSendEventsProvider(null, ret);
@@ -1334,7 +1334,7 @@ public class ChannelManager : CommonBase {
 	 * This copies the `inner` pointer in this_arg and thus the returned EventsProvider must be freed before this_arg is
 	 */
 	public EventsProvider as_EventsProvider() {
-		long ret = bindings.ChannelManager_as_EventsProvider(this.ptr);
+		long ret = Bindings.ChannelManagerAsEventsProvider(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		EventsProvider ret_hu_conv = new EventsProvider(null, ret);
@@ -1347,7 +1347,7 @@ public class ChannelManager : CommonBase {
 	 * This copies the `inner` pointer in this_arg and thus the returned Listen must be freed before this_arg is
 	 */
 	public Listen as_Listen() {
-		long ret = bindings.ChannelManager_as_Listen(this.ptr);
+		long ret = Bindings.ChannelManagerAsListen(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Listen ret_hu_conv = new Listen(null, ret);
@@ -1360,7 +1360,7 @@ public class ChannelManager : CommonBase {
 	 * This copies the `inner` pointer in this_arg and thus the returned Confirm must be freed before this_arg is
 	 */
 	public Confirm as_Confirm() {
-		long ret = bindings.ChannelManager_as_Confirm(this.ptr);
+		long ret = Bindings.ChannelManagerAsConfirm(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Confirm ret_hu_conv = new Confirm(null, ret);
@@ -1379,7 +1379,7 @@ public class ChannelManager : CommonBase {
 	 * [`ChannelManager`] and should instead register actions to be taken later.
 	 */
 	public Future get_event_or_persistence_needed_future() {
-		long ret = bindings.ChannelManager_get_event_or_persistence_needed_future(this.ptr);
+		long ret = Bindings.ChannelManagerGetEventOrPersistenceNeededFuture(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Future ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.Future(null, ret); }
@@ -1391,7 +1391,7 @@ public class ChannelManager : CommonBase {
 	 * Returns true if this [`ChannelManager`] needs to be persisted.
 	 */
 	public bool get_and_clear_needs_persistence() {
-		bool ret = bindings.ChannelManager_get_and_clear_needs_persistence(this.ptr);
+		bool ret = Bindings.ChannelManagerGetAndClearNeedsPersistence(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -1401,7 +1401,7 @@ public class ChannelManager : CommonBase {
 	 * [`chain::Confirm`] interfaces.
 	 */
 	public BestBlock current_best_block() {
-		long ret = bindings.ChannelManager_current_best_block(this.ptr);
+		long ret = Bindings.ChannelManagerCurrentBestBlock(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.BestBlock ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.BestBlock(null, ret); }
@@ -1414,7 +1414,7 @@ public class ChannelManager : CommonBase {
 	 * [`ChannelManager`].
 	 */
 	public NodeFeatures node_features() {
-		long ret = bindings.ChannelManager_node_features(this.ptr);
+		long ret = Bindings.ChannelManagerNodeFeatures(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.NodeFeatures ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.NodeFeatures(null, ret); }
@@ -1427,7 +1427,7 @@ public class ChannelManager : CommonBase {
 	 * [`ChannelManager`].
 	 */
 	public ChannelFeatures channel_features() {
-		long ret = bindings.ChannelManager_channel_features(this.ptr);
+		long ret = Bindings.ChannelManagerChannelFeatures(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChannelFeatures ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChannelFeatures(null, ret); }
@@ -1440,7 +1440,7 @@ public class ChannelManager : CommonBase {
 	 * [`ChannelManager`].
 	 */
 	public ChannelTypeFeatures channel_type_features() {
-		long ret = bindings.ChannelManager_channel_type_features(this.ptr);
+		long ret = Bindings.ChannelManagerChannelTypeFeatures(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChannelTypeFeatures ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChannelTypeFeatures(null, ret); }
@@ -1453,7 +1453,7 @@ public class ChannelManager : CommonBase {
 	 * [`ChannelManager`].
 	 */
 	public InitFeatures init_features() {
-		long ret = bindings.ChannelManager_init_features(this.ptr);
+		long ret = Bindings.ChannelManagerInitFeatures(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.InitFeatures ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.InitFeatures(null, ret); }
@@ -1466,7 +1466,7 @@ public class ChannelManager : CommonBase {
 	 * This copies the `inner` pointer in this_arg and thus the returned ChannelMessageHandler must be freed before this_arg is
 	 */
 	public ChannelMessageHandler as_ChannelMessageHandler() {
-		long ret = bindings.ChannelManager_as_ChannelMessageHandler(this.ptr);
+		long ret = Bindings.ChannelManagerAsChannelMessageHandler(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		ChannelMessageHandler ret_hu_conv = new ChannelMessageHandler(null, ret);
@@ -1479,7 +1479,7 @@ public class ChannelManager : CommonBase {
 	 * This copies the `inner` pointer in this_arg and thus the returned OffersMessageHandler must be freed before this_arg is
 	 */
 	public OffersMessageHandler as_OffersMessageHandler() {
-		long ret = bindings.ChannelManager_as_OffersMessageHandler(this.ptr);
+		long ret = Bindings.ChannelManagerAsOffersMessageHandler(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		OffersMessageHandler ret_hu_conv = new OffersMessageHandler(null, ret);
@@ -1491,7 +1491,7 @@ public class ChannelManager : CommonBase {
 	 * Serialize the ChannelManager object into a byte array which can be read by ChannelManager_read
 	 */
 	public byte[] write() {
-		long ret = bindings.ChannelManager_write(this.ptr);
+		long ret = Bindings.ChannelManagerWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);

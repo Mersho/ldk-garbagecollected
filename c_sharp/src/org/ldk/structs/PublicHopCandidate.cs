@@ -12,7 +12,7 @@ namespace org { namespace ldk { namespace structs {
 public class PublicHopCandidate : CommonBase {
 	internal PublicHopCandidate(object _dummy, long ptr) : base(ptr) { }
 	~PublicHopCandidate() {
-		if (ptr != 0) { bindings.PublicHopCandidate_free(ptr); }
+		if (ptr != 0) { Bindings.PublicHopCandidateFree(ptr); }
 	}
 
 	/**
@@ -20,7 +20,7 @@ public class PublicHopCandidate : CommonBase {
 	 * channel.
 	 */
 	public long get_short_channel_id() {
-		long ret = bindings.PublicHopCandidate_get_short_channel_id(this.ptr);
+		long ret = Bindings.PublicHopCandidateGetShortChannelId(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -30,13 +30,13 @@ public class PublicHopCandidate : CommonBase {
 	 * channel.
 	 */
 	public void set_short_channel_id(long val) {
-		bindings.PublicHopCandidate_set_short_channel_id(this.ptr, val);
+		Bindings.PublicHopCandidateSetShortChannelId(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.PublicHopCandidate_clone_ptr(this.ptr);
+		long ret = Bindings.PublicHopCandidateClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -45,7 +45,7 @@ public class PublicHopCandidate : CommonBase {
 	 * Creates a copy of the PublicHopCandidate
 	 */
 	public PublicHopCandidate clone() {
-		long ret = bindings.PublicHopCandidate_clone(this.ptr);
+		long ret = Bindings.PublicHopCandidateClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.PublicHopCandidate ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.PublicHopCandidate(null, ret); }

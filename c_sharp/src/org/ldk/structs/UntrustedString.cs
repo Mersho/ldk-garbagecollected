@@ -12,11 +12,11 @@ namespace org { namespace ldk { namespace structs {
 public class UntrustedString : CommonBase {
 	internal UntrustedString(object _dummy, long ptr) : base(ptr) { }
 	~UntrustedString() {
-		if (ptr != 0) { bindings.UntrustedString_free(ptr); }
+		if (ptr != 0) { Bindings.UntrustedStringFree(ptr); }
 	}
 
 	public string get_a() {
-		long ret = bindings.UntrustedString_get_a(this.ptr);
+		long ret = Bindings.UntrustedStringGetA(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		string ret_conv = InternalUtils.decodeString(ret);
@@ -24,7 +24,7 @@ public class UntrustedString : CommonBase {
 	}
 
 	public void set_a(string val) {
-		bindings.UntrustedString_set_a(this.ptr, InternalUtils.encodeString(val));
+		Bindings.UntrustedStringSetA(this.ptr, InternalUtils.encodeString(val));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -33,7 +33,7 @@ public class UntrustedString : CommonBase {
 	 * Constructs a new UntrustedString given each field
 	 */
 	public static UntrustedString of(string a_arg) {
-		long ret = bindings.UntrustedString_new(InternalUtils.encodeString(a_arg));
+		long ret = Bindings.UntrustedStringNew(InternalUtils.encodeString(a_arg));
 		GC.KeepAlive(a_arg);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.UntrustedString ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.UntrustedString(null, ret); }
@@ -42,7 +42,7 @@ public class UntrustedString : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.UntrustedString_clone_ptr(this.ptr);
+		long ret = Bindings.UntrustedStringClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -51,7 +51,7 @@ public class UntrustedString : CommonBase {
 	 * Creates a copy of the UntrustedString
 	 */
 	public UntrustedString clone() {
-		long ret = bindings.UntrustedString_clone(this.ptr);
+		long ret = Bindings.UntrustedStringClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.UntrustedString ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.UntrustedString(null, ret); }
@@ -65,7 +65,7 @@ public class UntrustedString : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.UntrustedString b) {
-		bool ret = bindings.UntrustedString_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.UntrustedStringEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -80,7 +80,7 @@ public class UntrustedString : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the UntrustedString.
 	 */
 	public long hash() {
-		long ret = bindings.UntrustedString_hash(this.ptr);
+		long ret = Bindings.UntrustedStringHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -92,7 +92,7 @@ public class UntrustedString : CommonBase {
 	 * Serialize the UntrustedString object into a byte array which can be read by UntrustedString_read
 	 */
 	public byte[] write() {
-		long ret = bindings.UntrustedString_write(this.ptr);
+		long ret = Bindings.UntrustedStringWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -103,7 +103,7 @@ public class UntrustedString : CommonBase {
 	 * Read a UntrustedString from a byte array, created by UntrustedString_write
 	 */
 	public static Result_UntrustedStringDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.UntrustedString_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.UntrustedStringRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_UntrustedStringDecodeErrorZ ret_hu_conv = Result_UntrustedStringDecodeErrorZ.constr_from_ptr(ret);

@@ -11,11 +11,11 @@ namespace org { namespace ldk { namespace structs {
 public class Option_BigEndianScalarZ : CommonBase {
 	protected Option_BigEndianScalarZ(object _dummy, long ptr) : base(ptr) { }
 	~Option_BigEndianScalarZ() {
-		if (ptr != 0) { bindings.COption_BigEndianScalarZ_free(ptr); }
+		if (ptr != 0) { Bindings.COptionBigEndianScalarZFree(ptr); }
 	}
 
 	internal static Option_BigEndianScalarZ constr_from_ptr(long ptr) {
-		long raw_ty = bindings.LDKCOption_BigEndianScalarZ_ty_from_ptr(ptr);
+		long raw_ty = Bindings.LDKCOptionBigEndianScalarZTyFromPtr(ptr);
 		switch (raw_ty) {
 			case 0: return new Option_BigEndianScalarZ_Some(ptr);
 			case 1: return new Option_BigEndianScalarZ_None(ptr);
@@ -28,7 +28,7 @@ public class Option_BigEndianScalarZ : CommonBase {
 	public class Option_BigEndianScalarZ_Some : Option_BigEndianScalarZ {
 		public BigEndianScalar some;
 		internal Option_BigEndianScalarZ_Some(long ptr) : base(null, ptr) {
-			long some = bindings.LDKCOption_BigEndianScalarZ_Some_get_some(ptr);
+			long some = Bindings.LDKCOptionBigEndianScalarZSomeGetSome(ptr);
 			BigEndianScalar some_conv = new BigEndianScalar(null, some);
 			this.some = some_conv;
 		}
@@ -42,7 +42,7 @@ public class Option_BigEndianScalarZ : CommonBase {
 	 * Constructs a new COption_BigEndianScalarZ containing a crate::c_types::BigEndianScalar
 	 */
 	public static Option_BigEndianScalarZ some(byte[] o_big_endian_bytes) {
-		long ret = bindings.COption_BigEndianScalarZ_some(bindings.BigEndianScalar_new(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(o_big_endian_bytes, 32))));
+		long ret = Bindings.COptionBigEndianScalarZSome(Bindings.BigEndianScalarNew(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(o_big_endian_bytes, 32))));
 		GC.KeepAlive(o_big_endian_bytes);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_BigEndianScalarZ ret_hu_conv = org.ldk.structs.Option_BigEndianScalarZ.constr_from_ptr(ret);
@@ -55,7 +55,7 @@ public class Option_BigEndianScalarZ : CommonBase {
 	 * Constructs a new COption_BigEndianScalarZ containing nothing
 	 */
 	public static Option_BigEndianScalarZ none() {
-		long ret = bindings.COption_BigEndianScalarZ_none();
+		long ret = Bindings.COptionBigEndianScalarZNone();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_BigEndianScalarZ ret_hu_conv = org.ldk.structs.Option_BigEndianScalarZ.constr_from_ptr(ret);
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -63,7 +63,7 @@ public class Option_BigEndianScalarZ : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.COption_BigEndianScalarZ_clone_ptr(this.ptr);
+		long ret = Bindings.COptionBigEndianScalarZClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -73,7 +73,7 @@ public class Option_BigEndianScalarZ : CommonBase {
 	 * but with all dynamically-allocated buffers duplicated in new buffers.
 	 */
 	public Option_BigEndianScalarZ clone() {
-		long ret = bindings.COption_BigEndianScalarZ_clone(this.ptr);
+		long ret = Bindings.COptionBigEndianScalarZClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_BigEndianScalarZ ret_hu_conv = org.ldk.structs.Option_BigEndianScalarZ.constr_from_ptr(ret);

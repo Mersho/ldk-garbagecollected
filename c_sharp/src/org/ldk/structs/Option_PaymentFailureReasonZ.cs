@@ -11,11 +11,11 @@ namespace org { namespace ldk { namespace structs {
 public class Option_PaymentFailureReasonZ : CommonBase {
 	protected Option_PaymentFailureReasonZ(object _dummy, long ptr) : base(ptr) { }
 	~Option_PaymentFailureReasonZ() {
-		if (ptr != 0) { bindings.COption_PaymentFailureReasonZ_free(ptr); }
+		if (ptr != 0) { Bindings.COptionPaymentFailureReasonZFree(ptr); }
 	}
 
 	internal static Option_PaymentFailureReasonZ constr_from_ptr(long ptr) {
-		long raw_ty = bindings.LDKCOption_PaymentFailureReasonZ_ty_from_ptr(ptr);
+		long raw_ty = Bindings.LDKCOptionPaymentFailureReasonZTyFromPtr(ptr);
 		switch (raw_ty) {
 			case 0: return new Option_PaymentFailureReasonZ_Some(ptr);
 			case 1: return new Option_PaymentFailureReasonZ_None(ptr);
@@ -28,7 +28,7 @@ public class Option_PaymentFailureReasonZ : CommonBase {
 	public class Option_PaymentFailureReasonZ_Some : Option_PaymentFailureReasonZ {
 		public PaymentFailureReason some;
 		internal Option_PaymentFailureReasonZ_Some(long ptr) : base(null, ptr) {
-			this.some = bindings.LDKCOption_PaymentFailureReasonZ_Some_get_some(ptr);
+			this.some = Bindings.LDKCOptionPaymentFailureReasonZSomeGetSome(ptr);
 		}
 	}
 	/** A Option_PaymentFailureReasonZ of type None */
@@ -40,7 +40,7 @@ public class Option_PaymentFailureReasonZ : CommonBase {
 	 * Constructs a new COption_PaymentFailureReasonZ containing a crate::lightning::events::PaymentFailureReason
 	 */
 	public static Option_PaymentFailureReasonZ some(PaymentFailureReason o) {
-		long ret = bindings.COption_PaymentFailureReasonZ_some(o);
+		long ret = Bindings.COptionPaymentFailureReasonZSome(o);
 		GC.KeepAlive(o);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_PaymentFailureReasonZ ret_hu_conv = org.ldk.structs.Option_PaymentFailureReasonZ.constr_from_ptr(ret);
@@ -52,7 +52,7 @@ public class Option_PaymentFailureReasonZ : CommonBase {
 	 * Constructs a new COption_PaymentFailureReasonZ containing nothing
 	 */
 	public static Option_PaymentFailureReasonZ none() {
-		long ret = bindings.COption_PaymentFailureReasonZ_none();
+		long ret = Bindings.COptionPaymentFailureReasonZNone();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_PaymentFailureReasonZ ret_hu_conv = org.ldk.structs.Option_PaymentFailureReasonZ.constr_from_ptr(ret);
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -60,7 +60,7 @@ public class Option_PaymentFailureReasonZ : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.COption_PaymentFailureReasonZ_clone_ptr(this.ptr);
+		long ret = Bindings.COptionPaymentFailureReasonZClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -70,7 +70,7 @@ public class Option_PaymentFailureReasonZ : CommonBase {
 	 * but with all dynamically-allocated buffers duplicated in new buffers.
 	 */
 	public Option_PaymentFailureReasonZ clone() {
-		long ret = bindings.COption_PaymentFailureReasonZ_clone(this.ptr);
+		long ret = Bindings.COptionPaymentFailureReasonZClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_PaymentFailureReasonZ ret_hu_conv = org.ldk.structs.Option_PaymentFailureReasonZ.constr_from_ptr(ret);

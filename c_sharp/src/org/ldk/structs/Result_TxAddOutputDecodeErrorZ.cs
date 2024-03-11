@@ -8,11 +8,11 @@ namespace org { namespace ldk { namespace structs {
 public class Result_TxAddOutputDecodeErrorZ : CommonBase {
 	Result_TxAddOutputDecodeErrorZ(object _dummy, long ptr) : base(ptr) { }
 	~Result_TxAddOutputDecodeErrorZ() {
-		if (ptr != 0) { bindings.CResult_TxAddOutputDecodeErrorZ_free(ptr); }
+		if (ptr != 0) { Bindings.CResultTxAddOutputDecodeErrorZFree(ptr); }
 	}
 
 	internal static Result_TxAddOutputDecodeErrorZ constr_from_ptr(long ptr) {
-		if (bindings.CResult_TxAddOutputDecodeErrorZ_is_ok(ptr)) {
+		if (Bindings.CResultTxAddOutputDecodeErrorZIsOk(ptr)) {
 			return new Result_TxAddOutputDecodeErrorZ_OK(null, ptr);
 		} else {
 			return new Result_TxAddOutputDecodeErrorZ_Err(null, ptr);
@@ -21,7 +21,7 @@ public class Result_TxAddOutputDecodeErrorZ : CommonBase {
 	public class Result_TxAddOutputDecodeErrorZ_OK : Result_TxAddOutputDecodeErrorZ {
 		public readonly TxAddOutput res;
 		internal Result_TxAddOutputDecodeErrorZ_OK(object _dummy, long ptr) : base(_dummy, ptr) {
-			long res = bindings.CResult_TxAddOutputDecodeErrorZ_get_ok(ptr);
+			long res = Bindings.CResultTxAddOutputDecodeErrorZGetOk(ptr);
 			org.ldk.structs.TxAddOutput res_hu_conv = null; if (res < 0 || res > 4096) { res_hu_conv = new org.ldk.structs.TxAddOutput(null, res); }
 			if (res_hu_conv != null) { res_hu_conv.ptrs_to.AddLast(this); };
 			this.res = res_hu_conv;
@@ -31,7 +31,7 @@ public class Result_TxAddOutputDecodeErrorZ : CommonBase {
 	public class Result_TxAddOutputDecodeErrorZ_Err : Result_TxAddOutputDecodeErrorZ {
 		public readonly DecodeError err;
 		internal Result_TxAddOutputDecodeErrorZ_Err(object _dummy, long ptr) : base(_dummy, ptr) {
-			long err = bindings.CResult_TxAddOutputDecodeErrorZ_get_err(ptr);
+			long err = Bindings.CResultTxAddOutputDecodeErrorZGetErr(ptr);
 			org.ldk.structs.DecodeError err_hu_conv = org.ldk.structs.DecodeError.constr_from_ptr(err);
 			if (err_hu_conv != null) { err_hu_conv.ptrs_to.AddLast(this); };
 			this.err = err_hu_conv;
@@ -42,7 +42,7 @@ public class Result_TxAddOutputDecodeErrorZ : CommonBase {
 	 * Creates a new CResult_TxAddOutputDecodeErrorZ in the success state.
 	 */
 	public static Result_TxAddOutputDecodeErrorZ ok(org.ldk.structs.TxAddOutput o) {
-		long ret = bindings.CResult_TxAddOutputDecodeErrorZ_ok(o == null ? 0 : o.ptr);
+		long ret = Bindings.CResultTxAddOutputDecodeErrorZOk(o == null ? 0 : o.ptr);
 		GC.KeepAlive(o);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_TxAddOutputDecodeErrorZ ret_hu_conv = Result_TxAddOutputDecodeErrorZ.constr_from_ptr(ret);
@@ -54,7 +54,7 @@ public class Result_TxAddOutputDecodeErrorZ : CommonBase {
 	 * Creates a new CResult_TxAddOutputDecodeErrorZ in the error state.
 	 */
 	public static Result_TxAddOutputDecodeErrorZ err(org.ldk.structs.DecodeError e) {
-		long ret = bindings.CResult_TxAddOutputDecodeErrorZ_err(e.ptr);
+		long ret = Bindings.CResultTxAddOutputDecodeErrorZErr(e.ptr);
 		GC.KeepAlive(e);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_TxAddOutputDecodeErrorZ ret_hu_conv = Result_TxAddOutputDecodeErrorZ.constr_from_ptr(ret);
@@ -66,13 +66,13 @@ public class Result_TxAddOutputDecodeErrorZ : CommonBase {
 	 * Checks if the given object is currently in the success state
 	 */
 	public bool is_ok() {
-		bool ret = bindings.CResult_TxAddOutputDecodeErrorZ_is_ok(this.ptr);
+		bool ret = Bindings.CResultTxAddOutputDecodeErrorZIsOk(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.CResult_TxAddOutputDecodeErrorZ_clone_ptr(this.ptr);
+		long ret = Bindings.CResultTxAddOutputDecodeErrorZClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -82,7 +82,7 @@ public class Result_TxAddOutputDecodeErrorZ : CommonBase {
 	 * but with all dynamically-allocated buffers duplicated in new buffers.
 	 */
 	public Result_TxAddOutputDecodeErrorZ clone() {
-		long ret = bindings.CResult_TxAddOutputDecodeErrorZ_clone(this.ptr);
+		long ret = Bindings.CResultTxAddOutputDecodeErrorZClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_TxAddOutputDecodeErrorZ ret_hu_conv = Result_TxAddOutputDecodeErrorZ.constr_from_ptr(ret);

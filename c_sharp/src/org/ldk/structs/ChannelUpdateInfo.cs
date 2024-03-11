@@ -12,7 +12,7 @@ namespace org { namespace ldk { namespace structs {
 public class ChannelUpdateInfo : CommonBase {
 	internal ChannelUpdateInfo(object _dummy, long ptr) : base(ptr) { }
 	~ChannelUpdateInfo() {
-		if (ptr != 0) { bindings.ChannelUpdateInfo_free(ptr); }
+		if (ptr != 0) { Bindings.ChannelUpdateInfoFree(ptr); }
 	}
 
 	/**
@@ -20,7 +20,7 @@ public class ChannelUpdateInfo : CommonBase {
 	 * Value is opaque, as set in the announcement.
 	 */
 	public int get_last_update() {
-		int ret = bindings.ChannelUpdateInfo_get_last_update(this.ptr);
+		int ret = Bindings.ChannelUpdateInfoGetLastUpdate(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -30,7 +30,7 @@ public class ChannelUpdateInfo : CommonBase {
 	 * Value is opaque, as set in the announcement.
 	 */
 	public void set_last_update(int val) {
-		bindings.ChannelUpdateInfo_set_last_update(this.ptr, val);
+		Bindings.ChannelUpdateInfoSetLastUpdate(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -39,7 +39,7 @@ public class ChannelUpdateInfo : CommonBase {
 	 * Whether the channel can be currently used for payments (in this one direction).
 	 */
 	public bool get_enabled() {
-		bool ret = bindings.ChannelUpdateInfo_get_enabled(this.ptr);
+		bool ret = Bindings.ChannelUpdateInfoGetEnabled(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -48,7 +48,7 @@ public class ChannelUpdateInfo : CommonBase {
 	 * Whether the channel can be currently used for payments (in this one direction).
 	 */
 	public void set_enabled(bool val) {
-		bindings.ChannelUpdateInfo_set_enabled(this.ptr, val);
+		Bindings.ChannelUpdateInfoSetEnabled(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -57,7 +57,7 @@ public class ChannelUpdateInfo : CommonBase {
 	 * The difference in CLTV values that you must have when routing through this channel.
 	 */
 	public short get_cltv_expiry_delta() {
-		short ret = bindings.ChannelUpdateInfo_get_cltv_expiry_delta(this.ptr);
+		short ret = Bindings.ChannelUpdateInfoGetCltvExpiryDelta(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -66,7 +66,7 @@ public class ChannelUpdateInfo : CommonBase {
 	 * The difference in CLTV values that you must have when routing through this channel.
 	 */
 	public void set_cltv_expiry_delta(short val) {
-		bindings.ChannelUpdateInfo_set_cltv_expiry_delta(this.ptr, val);
+		Bindings.ChannelUpdateInfoSetCltvExpiryDelta(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -75,7 +75,7 @@ public class ChannelUpdateInfo : CommonBase {
 	 * The minimum value, which must be relayed to the next hop via the channel
 	 */
 	public long get_htlc_minimum_msat() {
-		long ret = bindings.ChannelUpdateInfo_get_htlc_minimum_msat(this.ptr);
+		long ret = Bindings.ChannelUpdateInfoGetHtlcMinimumMsat(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -84,7 +84,7 @@ public class ChannelUpdateInfo : CommonBase {
 	 * The minimum value, which must be relayed to the next hop via the channel
 	 */
 	public void set_htlc_minimum_msat(long val) {
-		bindings.ChannelUpdateInfo_set_htlc_minimum_msat(this.ptr, val);
+		Bindings.ChannelUpdateInfoSetHtlcMinimumMsat(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -93,7 +93,7 @@ public class ChannelUpdateInfo : CommonBase {
 	 * The maximum value which may be relayed to the next hop via the channel.
 	 */
 	public long get_htlc_maximum_msat() {
-		long ret = bindings.ChannelUpdateInfo_get_htlc_maximum_msat(this.ptr);
+		long ret = Bindings.ChannelUpdateInfoGetHtlcMaximumMsat(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -102,7 +102,7 @@ public class ChannelUpdateInfo : CommonBase {
 	 * The maximum value which may be relayed to the next hop via the channel.
 	 */
 	public void set_htlc_maximum_msat(long val) {
-		bindings.ChannelUpdateInfo_set_htlc_maximum_msat(this.ptr, val);
+		Bindings.ChannelUpdateInfoSetHtlcMaximumMsat(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -111,7 +111,7 @@ public class ChannelUpdateInfo : CommonBase {
 	 * Fees charged when the channel is used for routing
 	 */
 	public RoutingFees get_fees() {
-		long ret = bindings.ChannelUpdateInfo_get_fees(this.ptr);
+		long ret = Bindings.ChannelUpdateInfoGetFees(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.RoutingFees ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.RoutingFees(null, ret); }
@@ -123,7 +123,7 @@ public class ChannelUpdateInfo : CommonBase {
 	 * Fees charged when the channel is used for routing
 	 */
 	public void set_fees(org.ldk.structs.RoutingFees val) {
-		bindings.ChannelUpdateInfo_set_fees(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.ChannelUpdateInfoSetFees(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -138,7 +138,7 @@ public class ChannelUpdateInfo : CommonBase {
 	 * Note that the return value (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public ChannelUpdate get_last_update_message() {
-		long ret = bindings.ChannelUpdateInfo_get_last_update_message(this.ptr);
+		long ret = Bindings.ChannelUpdateInfoGetLastUpdateMessage(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChannelUpdate ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChannelUpdate(null, ret); }
@@ -155,7 +155,7 @@ public class ChannelUpdateInfo : CommonBase {
 	 * Note that val (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public void set_last_update_message(org.ldk.structs.ChannelUpdate val) {
-		bindings.ChannelUpdateInfo_set_last_update_message(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.ChannelUpdateInfoSetLastUpdateMessage(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -167,7 +167,7 @@ public class ChannelUpdateInfo : CommonBase {
 	 * Note that last_update_message_arg (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public static ChannelUpdateInfo of(int last_update_arg, bool enabled_arg, short cltv_expiry_delta_arg, long htlc_minimum_msat_arg, long htlc_maximum_msat_arg, org.ldk.structs.RoutingFees fees_arg, org.ldk.structs.ChannelUpdate last_update_message_arg) {
-		long ret = bindings.ChannelUpdateInfo_new(last_update_arg, enabled_arg, cltv_expiry_delta_arg, htlc_minimum_msat_arg, htlc_maximum_msat_arg, fees_arg == null ? 0 : fees_arg.ptr, last_update_message_arg == null ? 0 : last_update_message_arg.ptr);
+		long ret = Bindings.ChannelUpdateInfoNew(last_update_arg, enabled_arg, cltv_expiry_delta_arg, htlc_minimum_msat_arg, htlc_maximum_msat_arg, fees_arg == null ? 0 : fees_arg.ptr, last_update_message_arg == null ? 0 : last_update_message_arg.ptr);
 		GC.KeepAlive(last_update_arg);
 		GC.KeepAlive(enabled_arg);
 		GC.KeepAlive(cltv_expiry_delta_arg);
@@ -184,7 +184,7 @@ public class ChannelUpdateInfo : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.ChannelUpdateInfo_clone_ptr(this.ptr);
+		long ret = Bindings.ChannelUpdateInfoClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -193,7 +193,7 @@ public class ChannelUpdateInfo : CommonBase {
 	 * Creates a copy of the ChannelUpdateInfo
 	 */
 	public ChannelUpdateInfo clone() {
-		long ret = bindings.ChannelUpdateInfo_clone(this.ptr);
+		long ret = Bindings.ChannelUpdateInfoClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChannelUpdateInfo ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChannelUpdateInfo(null, ret); }
@@ -207,7 +207,7 @@ public class ChannelUpdateInfo : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.ChannelUpdateInfo b) {
-		bool ret = bindings.ChannelUpdateInfo_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.ChannelUpdateInfoEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -222,7 +222,7 @@ public class ChannelUpdateInfo : CommonBase {
 	 * Serialize the ChannelUpdateInfo object into a byte array which can be read by ChannelUpdateInfo_read
 	 */
 	public byte[] write() {
-		long ret = bindings.ChannelUpdateInfo_write(this.ptr);
+		long ret = Bindings.ChannelUpdateInfoWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -233,7 +233,7 @@ public class ChannelUpdateInfo : CommonBase {
 	 * Read a ChannelUpdateInfo from a byte array, created by ChannelUpdateInfo_write
 	 */
 	public static Result_ChannelUpdateInfoDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.ChannelUpdateInfo_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.ChannelUpdateInfoRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_ChannelUpdateInfoDecodeErrorZ ret_hu_conv = Result_ChannelUpdateInfoDecodeErrorZ.constr_from_ptr(ret);

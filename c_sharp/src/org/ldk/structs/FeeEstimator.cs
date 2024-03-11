@@ -9,7 +9,7 @@ namespace org { namespace ldk { namespace structs {
 
 
 /** An implementation of FeeEstimator */
-public interface FeeEstimatorInterface {
+public interface IFeeEstimator {
 	/**Gets estimated satoshis of fee required per 1000 Weight-Units.
 	 * 
 	 * LDK will wrap this method and ensure that the value returned is no smaller than 253
@@ -35,20 +35,20 @@ public interface FeeEstimatorInterface {
  * called from inside the library in response to chain events, P2P events, or timer events).
  */
 public class FeeEstimator : CommonBase {
-	internal bindings.LDKFeeEstimator bindings_instance;
+	internal Bindings.LDKFeeEstimator bindings_instance;
 	internal long instance_idx;
 
 	internal FeeEstimator(object _dummy, long ptr) : base(ptr) { bindings_instance = null; }
 	~FeeEstimator() {
-		if (ptr != 0) { bindings.FeeEstimator_free(ptr); }
+		if (ptr != 0) { Bindings.FeeEstimatorFree(ptr); }
 	}
 
 	private class LDKFeeEstimatorHolder { internal FeeEstimator held; }
-	private class LDKFeeEstimatorImpl : bindings.LDKFeeEstimator {
-		internal LDKFeeEstimatorImpl(FeeEstimatorInterface arg, LDKFeeEstimatorHolder impl_holder) { this.arg = arg; this.impl_holder = impl_holder; }
-		private FeeEstimatorInterface arg;
+	private class LDKFeeEstimatorImpl : Bindings.LDKFeeEstimator {
+		internal LDKFeeEstimatorImpl(IFeeEstimator arg, LDKFeeEstimatorHolder impl_holder) { this.arg = arg; this.impl_holder = impl_holder; }
+		private IFeeEstimator arg;
 		private LDKFeeEstimatorHolder impl_holder;
-		public int get_est_sat_per_1000_weight(ConfirmationTarget _confirmation_target) {
+		public int GetEstSatPer1000Weight(ConfirmationTarget _confirmation_target) {
 			int ret = arg.get_est_sat_per_1000_weight(_confirmation_target);
 				GC.KeepAlive(arg);
 			return ret;
@@ -56,10 +56,10 @@ public class FeeEstimator : CommonBase {
 	}
 
 	/** Creates a new instance of FeeEstimator from a given implementation */
-	public static FeeEstimator new_impl(FeeEstimatorInterface arg) {
+	public static FeeEstimator new_impl(IFeeEstimator arg) {
 		LDKFeeEstimatorHolder impl_holder = new LDKFeeEstimatorHolder();
 		LDKFeeEstimatorImpl impl = new LDKFeeEstimatorImpl(arg, impl_holder);
-		long[] ptr_idx = bindings.LDKFeeEstimator_new(impl);
+		long[] ptr_idx = Bindings.LDKFeeEstimatorNew(impl);
 
 		impl_holder.held = new FeeEstimator(null, ptr_idx[0]);
 		impl_holder.held.instance_idx = ptr_idx[1];
@@ -78,7 +78,7 @@ public class FeeEstimator : CommonBase {
 	 * satoshis-per-kbyte / 4
 	 */
 	public int get_est_sat_per_1000_weight(ConfirmationTarget confirmation_target) {
-		int ret = bindings.FeeEstimator_get_est_sat_per_1000_weight(this.ptr, confirmation_target);
+		int ret = Bindings.FeeEstimatorGetEstSatPer1000Weight(this.ptr, confirmation_target);
 		GC.KeepAlive(this);
 		GC.KeepAlive(confirmation_target);
 		return ret;

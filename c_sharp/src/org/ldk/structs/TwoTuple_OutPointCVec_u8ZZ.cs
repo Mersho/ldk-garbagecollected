@@ -12,14 +12,14 @@ namespace org { namespace ldk { namespace structs {
 public class TwoTuple_OutPointCVec_u8ZZ : CommonBase {
 	internal TwoTuple_OutPointCVec_u8ZZ(object _dummy, long ptr) : base(ptr) { }
 	~TwoTuple_OutPointCVec_u8ZZ() {
-		if (ptr != 0) { bindings.C2Tuple_OutPointCVec_u8ZZ_free(ptr); }
+		if (ptr != 0) { Bindings.C2TupleOutPointCVecU8ZzFree(ptr); }
 	}
 
 	/**
 	 * 
 	 */
 	public OutPoint get_a() {
-		long ret = bindings.C2Tuple_OutPointCVec_u8ZZ_get_a(this.ptr);
+		long ret = Bindings.C2TupleOutPointCVecU8ZzGetA(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.OutPoint ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.OutPoint(null, ret); }
@@ -31,7 +31,7 @@ public class TwoTuple_OutPointCVec_u8ZZ : CommonBase {
 	 * 
 	 */
 	public byte[] get_b() {
-		long ret = bindings.C2Tuple_OutPointCVec_u8ZZ_get_b(this.ptr);
+		long ret = Bindings.C2TupleOutPointCVecU8ZzGetB(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -39,7 +39,7 @@ public class TwoTuple_OutPointCVec_u8ZZ : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.C2Tuple_OutPointCVec_u8ZZ_clone_ptr(this.ptr);
+		long ret = Bindings.C2TupleOutPointCVecU8ZzClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -49,7 +49,7 @@ public class TwoTuple_OutPointCVec_u8ZZ : CommonBase {
 	 * but with all dynamically-allocated buffers duplicated in new buffers.
 	 */
 	public TwoTuple_OutPointCVec_u8ZZ clone() {
-		long ret = bindings.C2Tuple_OutPointCVec_u8ZZ_clone(this.ptr);
+		long ret = Bindings.C2TupleOutPointCVecU8ZzClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		TwoTuple_OutPointCVec_u8ZZ ret_hu_conv = new TwoTuple_OutPointCVec_u8ZZ(null, ret);
@@ -61,7 +61,7 @@ public class TwoTuple_OutPointCVec_u8ZZ : CommonBase {
 	 * Creates a new C2Tuple_OutPointCVec_u8ZZ from the contained elements.
 	 */
 	public static TwoTuple_OutPointCVec_u8ZZ of(org.ldk.structs.OutPoint a, byte[] b) {
-		long ret = bindings.C2Tuple_OutPointCVec_u8ZZ_new(a == null ? 0 : a.ptr, InternalUtils.encodeUint8Array(b));
+		long ret = Bindings.C2TupleOutPointCVecU8ZzNew(a == null ? 0 : a.ptr, InternalUtils.encodeUint8Array(b));
 		GC.KeepAlive(a);
 		GC.KeepAlive(b);
 		if (ret >= 0 && ret <= 4096) { return null; }

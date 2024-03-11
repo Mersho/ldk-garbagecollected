@@ -17,14 +17,14 @@ namespace org { namespace ldk { namespace structs {
 public class ScorerAccountingForInFlightHtlcs : CommonBase {
 	internal ScorerAccountingForInFlightHtlcs(object _dummy, long ptr) : base(ptr) { }
 	~ScorerAccountingForInFlightHtlcs() {
-		if (ptr != 0) { bindings.ScorerAccountingForInFlightHtlcs_free(ptr); }
+		if (ptr != 0) { Bindings.ScorerAccountingForInFlightHtlcsFree(ptr); }
 	}
 
 	/**
 	 * Initialize a new `ScorerAccountingForInFlightHtlcs`.
 	 */
 	public static ScorerAccountingForInFlightHtlcs of(org.ldk.structs.ScoreLookUp scorer, org.ldk.structs.InFlightHtlcs inflight_htlcs) {
-		long ret = bindings.ScorerAccountingForInFlightHtlcs_new(scorer.ptr, inflight_htlcs == null ? 0 : inflight_htlcs.ptr);
+		long ret = Bindings.ScorerAccountingForInFlightHtlcsNew(scorer.ptr, inflight_htlcs == null ? 0 : inflight_htlcs.ptr);
 		GC.KeepAlive(scorer);
 		GC.KeepAlive(inflight_htlcs);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -40,7 +40,7 @@ public class ScorerAccountingForInFlightHtlcs : CommonBase {
 	 * This copies the `inner` pointer in this_arg and thus the returned ScoreLookUp must be freed before this_arg is
 	 */
 	public ScoreLookUp as_ScoreLookUp() {
-		long ret = bindings.ScorerAccountingForInFlightHtlcs_as_ScoreLookUp(this.ptr);
+		long ret = Bindings.ScorerAccountingForInFlightHtlcsAsScoreLookUp(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		ScoreLookUp ret_hu_conv = new ScoreLookUp(null, ret);

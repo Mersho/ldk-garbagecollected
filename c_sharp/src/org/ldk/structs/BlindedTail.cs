@@ -15,7 +15,7 @@ namespace org { namespace ldk { namespace structs {
 public class BlindedTail : CommonBase {
 	internal BlindedTail(object _dummy, long ptr) : base(ptr) { }
 	~BlindedTail() {
-		if (ptr != 0) { bindings.BlindedTail_free(ptr); }
+		if (ptr != 0) { Bindings.BlindedTailFree(ptr); }
 	}
 
 	/**
@@ -24,7 +24,7 @@ public class BlindedTail : CommonBase {
 	 * [`BlindedPath`]: crate::blinded_path::BlindedPath
 	 */
 	public BlindedHop[] get_hops() {
-		long ret = bindings.BlindedTail_get_hops(this.ptr);
+		long ret = Bindings.BlindedTailGetHops(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		int ret_conv_12_len = InternalUtils.getArrayLength(ret);
@@ -35,7 +35,7 @@ public class BlindedTail : CommonBase {
 			if (ret_conv_12_hu_conv != null) { ret_conv_12_hu_conv.ptrs_to.AddLast(this); };
 			ret_conv_12_arr[m] = ret_conv_12_hu_conv;
 		}
-		bindings.free_buffer(ret);
+		Bindings.FreeBuffer(ret);
 		return ret_conv_12_arr;
 	}
 
@@ -45,7 +45,7 @@ public class BlindedTail : CommonBase {
 	 * [`BlindedPath`]: crate::blinded_path::BlindedPath
 	 */
 	public void set_hops(BlindedHop[] val) {
-		bindings.BlindedTail_set_hops(this.ptr, InternalUtils.encodeUint64Array(InternalUtils.mapArray(val, val_conv_12 => val_conv_12 == null ? 0 : val_conv_12.ptr)));
+		Bindings.BlindedTailSetHops(this.ptr, InternalUtils.encodeUint64Array(InternalUtils.mapArray(val, val_conv_12 => val_conv_12 == null ? 0 : val_conv_12.ptr)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		foreach (BlindedHop val_conv_12 in val) { if (this != null) { this.ptrs_to.AddLast(val_conv_12); }; };
@@ -57,7 +57,7 @@ public class BlindedTail : CommonBase {
 	 * [`BlindedPath`]: crate::blinded_path::BlindedPath
 	 */
 	public byte[] get_blinding_point() {
-		long ret = bindings.BlindedTail_get_blinding_point(this.ptr);
+		long ret = Bindings.BlindedTailGetBlindingPoint(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -70,7 +70,7 @@ public class BlindedTail : CommonBase {
 	 * [`BlindedPath`]: crate::blinded_path::BlindedPath
 	 */
 	public void set_blinding_point(byte[] val) {
-		bindings.BlindedTail_set_blinding_point(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 33)));
+		Bindings.BlindedTailSetBlindingPoint(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 33)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -80,7 +80,7 @@ public class BlindedTail : CommonBase {
 	 * inferring the destination. May be 0.
 	 */
 	public int get_excess_final_cltv_expiry_delta() {
-		int ret = bindings.BlindedTail_get_excess_final_cltv_expiry_delta(this.ptr);
+		int ret = Bindings.BlindedTailGetExcessFinalCltvExpiryDelta(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -90,7 +90,7 @@ public class BlindedTail : CommonBase {
 	 * inferring the destination. May be 0.
 	 */
 	public void set_excess_final_cltv_expiry_delta(int val) {
-		bindings.BlindedTail_set_excess_final_cltv_expiry_delta(this.ptr, val);
+		Bindings.BlindedTailSetExcessFinalCltvExpiryDelta(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -99,7 +99,7 @@ public class BlindedTail : CommonBase {
 	 * The total amount paid on this [`Path`], excluding the fees.
 	 */
 	public long get_final_value_msat() {
-		long ret = bindings.BlindedTail_get_final_value_msat(this.ptr);
+		long ret = Bindings.BlindedTailGetFinalValueMsat(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -108,7 +108,7 @@ public class BlindedTail : CommonBase {
 	 * The total amount paid on this [`Path`], excluding the fees.
 	 */
 	public void set_final_value_msat(long val) {
-		bindings.BlindedTail_set_final_value_msat(this.ptr, val);
+		Bindings.BlindedTailSetFinalValueMsat(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -117,7 +117,7 @@ public class BlindedTail : CommonBase {
 	 * Constructs a new BlindedTail given each field
 	 */
 	public static BlindedTail of(BlindedHop[] hops_arg, byte[] blinding_point_arg, int excess_final_cltv_expiry_delta_arg, long final_value_msat_arg) {
-		long ret = bindings.BlindedTail_new(InternalUtils.encodeUint64Array(InternalUtils.mapArray(hops_arg, hops_arg_conv_12 => hops_arg_conv_12 == null ? 0 : hops_arg_conv_12.ptr)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(blinding_point_arg, 33)), excess_final_cltv_expiry_delta_arg, final_value_msat_arg);
+		long ret = Bindings.BlindedTailNew(InternalUtils.encodeUint64Array(InternalUtils.mapArray(hops_arg, hops_arg_conv_12 => hops_arg_conv_12 == null ? 0 : hops_arg_conv_12.ptr)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(blinding_point_arg, 33)), excess_final_cltv_expiry_delta_arg, final_value_msat_arg);
 		GC.KeepAlive(hops_arg);
 		GC.KeepAlive(blinding_point_arg);
 		GC.KeepAlive(excess_final_cltv_expiry_delta_arg);
@@ -130,7 +130,7 @@ public class BlindedTail : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.BlindedTail_clone_ptr(this.ptr);
+		long ret = Bindings.BlindedTailClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -139,7 +139,7 @@ public class BlindedTail : CommonBase {
 	 * Creates a copy of the BlindedTail
 	 */
 	public BlindedTail clone() {
-		long ret = bindings.BlindedTail_clone(this.ptr);
+		long ret = Bindings.BlindedTailClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.BlindedTail ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.BlindedTail(null, ret); }
@@ -151,7 +151,7 @@ public class BlindedTail : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the BlindedTail.
 	 */
 	public long hash() {
-		long ret = bindings.BlindedTail_hash(this.ptr);
+		long ret = Bindings.BlindedTailHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -165,7 +165,7 @@ public class BlindedTail : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.BlindedTail b) {
-		bool ret = bindings.BlindedTail_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.BlindedTailEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -180,7 +180,7 @@ public class BlindedTail : CommonBase {
 	 * Serialize the BlindedTail object into a byte array which can be read by BlindedTail_read
 	 */
 	public byte[] write() {
-		long ret = bindings.BlindedTail_write(this.ptr);
+		long ret = Bindings.BlindedTailWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -191,7 +191,7 @@ public class BlindedTail : CommonBase {
 	 * Read a BlindedTail from a byte array, created by BlindedTail_write
 	 */
 	public static Result_BlindedTailDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.BlindedTail_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.BlindedTailRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_BlindedTailDecodeErrorZ ret_hu_conv = Result_BlindedTailDecodeErrorZ.constr_from_ptr(ret);

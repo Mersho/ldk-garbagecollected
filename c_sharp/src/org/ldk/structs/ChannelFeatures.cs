@@ -12,7 +12,7 @@ namespace org { namespace ldk { namespace structs {
 public class ChannelFeatures : CommonBase {
 	internal ChannelFeatures(object _dummy, long ptr) : base(ptr) { }
 	~ChannelFeatures() {
-		if (ptr != 0) { bindings.ChannelFeatures_free(ptr); }
+		if (ptr != 0) { Bindings.ChannelFeaturesFree(ptr); }
 	}
 
 	/**
@@ -21,7 +21,7 @@ public class ChannelFeatures : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.ChannelFeatures b) {
-		bool ret = bindings.ChannelFeatures_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.ChannelFeaturesEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -33,7 +33,7 @@ public class ChannelFeatures : CommonBase {
 		return this.eq((ChannelFeatures)o);
 	}
 	internal long clone_ptr() {
-		long ret = bindings.ChannelFeatures_clone_ptr(this.ptr);
+		long ret = Bindings.ChannelFeaturesClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -42,7 +42,7 @@ public class ChannelFeatures : CommonBase {
 	 * Creates a copy of the ChannelFeatures
 	 */
 	public ChannelFeatures clone() {
-		long ret = bindings.ChannelFeatures_clone(this.ptr);
+		long ret = Bindings.ChannelFeaturesClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChannelFeatures ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChannelFeatures(null, ret); }
@@ -54,7 +54,7 @@ public class ChannelFeatures : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the ChannelFeatures.
 	 */
 	public long hash() {
-		long ret = bindings.ChannelFeatures_hash(this.ptr);
+		long ret = Bindings.ChannelFeaturesHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -66,7 +66,7 @@ public class ChannelFeatures : CommonBase {
 	 * Create a blank Features with no features set
 	 */
 	public static ChannelFeatures empty() {
-		long ret = bindings.ChannelFeatures_empty();
+		long ret = Bindings.ChannelFeaturesEmpty();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChannelFeatures ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChannelFeatures(null, ret); }
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -77,7 +77,7 @@ public class ChannelFeatures : CommonBase {
 	 * Returns true if this `Features` object contains required features unknown by `other`.
 	 */
 	public bool requires_unknown_bits_from(org.ldk.structs.ChannelFeatures other) {
-		bool ret = bindings.ChannelFeatures_requires_unknown_bits_from(this.ptr, other == null ? 0 : other.ptr);
+		bool ret = Bindings.ChannelFeaturesRequiresUnknownBitsFrom(this.ptr, other == null ? 0 : other.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(other);
 		if (this != null) { this.ptrs_to.AddLast(other); };
@@ -89,7 +89,7 @@ public class ChannelFeatures : CommonBase {
 	 * \"required\".
 	 */
 	public bool requires_unknown_bits() {
-		bool ret = bindings.ChannelFeatures_requires_unknown_bits(this.ptr);
+		bool ret = Bindings.ChannelFeaturesRequiresUnknownBits(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -104,7 +104,7 @@ public class ChannelFeatures : CommonBase {
 	 * [BOLT 9]: https://github.com/lightning/bolts/blob/master/09-features.md
 	 */
 	public Result_NoneNoneZ set_required_feature_bit(long bit) {
-		long ret = bindings.ChannelFeatures_set_required_feature_bit(this.ptr, bit);
+		long ret = Bindings.ChannelFeaturesSetRequiredFeatureBit(this.ptr, bit);
 		GC.KeepAlive(this);
 		GC.KeepAlive(bit);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -122,7 +122,7 @@ public class ChannelFeatures : CommonBase {
 	 * [BOLT 9]: https://github.com/lightning/bolts/blob/master/09-features.md
 	 */
 	public Result_NoneNoneZ set_optional_feature_bit(long bit) {
-		long ret = bindings.ChannelFeatures_set_optional_feature_bit(this.ptr, bit);
+		long ret = Bindings.ChannelFeaturesSetOptionalFeatureBit(this.ptr, bit);
 		GC.KeepAlive(this);
 		GC.KeepAlive(bit);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -140,7 +140,7 @@ public class ChannelFeatures : CommonBase {
 	 * [bLIP 2]: https://github.com/lightning/blips/blob/master/blip-0002.md#feature-bits
 	 */
 	public Result_NoneNoneZ set_required_custom_bit(long bit) {
-		long ret = bindings.ChannelFeatures_set_required_custom_bit(this.ptr, bit);
+		long ret = Bindings.ChannelFeaturesSetRequiredCustomBit(this.ptr, bit);
 		GC.KeepAlive(this);
 		GC.KeepAlive(bit);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -158,7 +158,7 @@ public class ChannelFeatures : CommonBase {
 	 * [bLIP 2]: https://github.com/lightning/blips/blob/master/blip-0002.md#feature-bits
 	 */
 	public Result_NoneNoneZ set_optional_custom_bit(long bit) {
-		long ret = bindings.ChannelFeatures_set_optional_custom_bit(this.ptr, bit);
+		long ret = Bindings.ChannelFeaturesSetOptionalCustomBit(this.ptr, bit);
 		GC.KeepAlive(this);
 		GC.KeepAlive(bit);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -170,7 +170,7 @@ public class ChannelFeatures : CommonBase {
 	 * Serialize the ChannelFeatures object into a byte array which can be read by ChannelFeatures_read
 	 */
 	public byte[] write() {
-		long ret = bindings.ChannelFeatures_write(this.ptr);
+		long ret = Bindings.ChannelFeaturesWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -181,7 +181,7 @@ public class ChannelFeatures : CommonBase {
 	 * Read a ChannelFeatures from a byte array, created by ChannelFeatures_write
 	 */
 	public static Result_ChannelFeaturesDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.ChannelFeatures_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.ChannelFeaturesRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_ChannelFeaturesDecodeErrorZ ret_hu_conv = Result_ChannelFeaturesDecodeErrorZ.constr_from_ptr(ret);

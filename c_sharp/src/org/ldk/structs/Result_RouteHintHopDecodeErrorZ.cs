@@ -8,11 +8,11 @@ namespace org { namespace ldk { namespace structs {
 public class Result_RouteHintHopDecodeErrorZ : CommonBase {
 	Result_RouteHintHopDecodeErrorZ(object _dummy, long ptr) : base(ptr) { }
 	~Result_RouteHintHopDecodeErrorZ() {
-		if (ptr != 0) { bindings.CResult_RouteHintHopDecodeErrorZ_free(ptr); }
+		if (ptr != 0) { Bindings.CResultRouteHintHopDecodeErrorZFree(ptr); }
 	}
 
 	internal static Result_RouteHintHopDecodeErrorZ constr_from_ptr(long ptr) {
-		if (bindings.CResult_RouteHintHopDecodeErrorZ_is_ok(ptr)) {
+		if (Bindings.CResultRouteHintHopDecodeErrorZIsOk(ptr)) {
 			return new Result_RouteHintHopDecodeErrorZ_OK(null, ptr);
 		} else {
 			return new Result_RouteHintHopDecodeErrorZ_Err(null, ptr);
@@ -21,7 +21,7 @@ public class Result_RouteHintHopDecodeErrorZ : CommonBase {
 	public class Result_RouteHintHopDecodeErrorZ_OK : Result_RouteHintHopDecodeErrorZ {
 		public readonly RouteHintHop res;
 		internal Result_RouteHintHopDecodeErrorZ_OK(object _dummy, long ptr) : base(_dummy, ptr) {
-			long res = bindings.CResult_RouteHintHopDecodeErrorZ_get_ok(ptr);
+			long res = Bindings.CResultRouteHintHopDecodeErrorZGetOk(ptr);
 			org.ldk.structs.RouteHintHop res_hu_conv = null; if (res < 0 || res > 4096) { res_hu_conv = new org.ldk.structs.RouteHintHop(null, res); }
 			if (res_hu_conv != null) { res_hu_conv.ptrs_to.AddLast(this); };
 			this.res = res_hu_conv;
@@ -31,7 +31,7 @@ public class Result_RouteHintHopDecodeErrorZ : CommonBase {
 	public class Result_RouteHintHopDecodeErrorZ_Err : Result_RouteHintHopDecodeErrorZ {
 		public readonly DecodeError err;
 		internal Result_RouteHintHopDecodeErrorZ_Err(object _dummy, long ptr) : base(_dummy, ptr) {
-			long err = bindings.CResult_RouteHintHopDecodeErrorZ_get_err(ptr);
+			long err = Bindings.CResultRouteHintHopDecodeErrorZGetErr(ptr);
 			org.ldk.structs.DecodeError err_hu_conv = org.ldk.structs.DecodeError.constr_from_ptr(err);
 			if (err_hu_conv != null) { err_hu_conv.ptrs_to.AddLast(this); };
 			this.err = err_hu_conv;
@@ -42,7 +42,7 @@ public class Result_RouteHintHopDecodeErrorZ : CommonBase {
 	 * Creates a new CResult_RouteHintHopDecodeErrorZ in the success state.
 	 */
 	public static Result_RouteHintHopDecodeErrorZ ok(org.ldk.structs.RouteHintHop o) {
-		long ret = bindings.CResult_RouteHintHopDecodeErrorZ_ok(o == null ? 0 : o.ptr);
+		long ret = Bindings.CResultRouteHintHopDecodeErrorZOk(o == null ? 0 : o.ptr);
 		GC.KeepAlive(o);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_RouteHintHopDecodeErrorZ ret_hu_conv = Result_RouteHintHopDecodeErrorZ.constr_from_ptr(ret);
@@ -54,7 +54,7 @@ public class Result_RouteHintHopDecodeErrorZ : CommonBase {
 	 * Creates a new CResult_RouteHintHopDecodeErrorZ in the error state.
 	 */
 	public static Result_RouteHintHopDecodeErrorZ err(org.ldk.structs.DecodeError e) {
-		long ret = bindings.CResult_RouteHintHopDecodeErrorZ_err(e.ptr);
+		long ret = Bindings.CResultRouteHintHopDecodeErrorZErr(e.ptr);
 		GC.KeepAlive(e);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_RouteHintHopDecodeErrorZ ret_hu_conv = Result_RouteHintHopDecodeErrorZ.constr_from_ptr(ret);
@@ -66,13 +66,13 @@ public class Result_RouteHintHopDecodeErrorZ : CommonBase {
 	 * Checks if the given object is currently in the success state
 	 */
 	public bool is_ok() {
-		bool ret = bindings.CResult_RouteHintHopDecodeErrorZ_is_ok(this.ptr);
+		bool ret = Bindings.CResultRouteHintHopDecodeErrorZIsOk(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.CResult_RouteHintHopDecodeErrorZ_clone_ptr(this.ptr);
+		long ret = Bindings.CResultRouteHintHopDecodeErrorZClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -82,7 +82,7 @@ public class Result_RouteHintHopDecodeErrorZ : CommonBase {
 	 * but with all dynamically-allocated buffers duplicated in new buffers.
 	 */
 	public Result_RouteHintHopDecodeErrorZ clone() {
-		long ret = bindings.CResult_RouteHintHopDecodeErrorZ_clone(this.ptr);
+		long ret = Bindings.CResultRouteHintHopDecodeErrorZClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_RouteHintHopDecodeErrorZ ret_hu_conv = Result_RouteHintHopDecodeErrorZ.constr_from_ptr(ret);

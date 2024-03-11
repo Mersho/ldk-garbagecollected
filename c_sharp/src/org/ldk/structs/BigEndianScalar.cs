@@ -10,13 +10,13 @@ public class BigEndianScalar : CommonBase {
 	public readonly byte[] scalar_bytes;
 
     internal BigEndianScalar(object _dummy, long ptr) : base(ptr) {
-		this.scalar_bytes = InternalUtils.decodeUint8Array(bindings.BigEndianScalar_get_bytes(ptr));
+		this.scalar_bytes = InternalUtils.decodeUint8Array(Bindings.BigEndianScalarGetBytes(ptr));
 	}
-    public BigEndianScalar(byte[] scalar_bytes) : base(bindings.BigEndianScalar_new(InternalUtils.encodeUint8Array(scalar_bytes))) {
-		this.scalar_bytes = InternalUtils.decodeUint8Array(bindings.BigEndianScalar_get_bytes(ptr));
+    public BigEndianScalar(byte[] scalar_bytes) : base(Bindings.BigEndianScalarNew(InternalUtils.encodeUint8Array(scalar_bytes))) {
+		this.scalar_bytes = InternalUtils.decodeUint8Array(Bindings.BigEndianScalarGetBytes(ptr));
 	}
 
 	~BigEndianScalar() {
-		if (ptr != 0) { bindings.BigEndianScalar_free(ptr); }
+		if (ptr != 0) { Bindings.BigEndianScalarFree(ptr); }
 	}
 }} } }

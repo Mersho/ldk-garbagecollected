@@ -12,11 +12,11 @@ namespace org { namespace ldk { namespace structs {
 public class PaymentPurpose : CommonBase {
 	protected PaymentPurpose(object _dummy, long ptr) : base(ptr) { }
 	~PaymentPurpose() {
-		if (ptr != 0) { bindings.PaymentPurpose_free(ptr); }
+		if (ptr != 0) { Bindings.PaymentPurposeFree(ptr); }
 	}
 
 	internal static PaymentPurpose constr_from_ptr(long ptr) {
-		long raw_ty = bindings.LDKPaymentPurpose_ty_from_ptr(ptr);
+		long raw_ty = Bindings.LDKPaymentPurposeTyFromPtr(ptr);
 		switch (raw_ty) {
 			case 0: return new PaymentPurpose_InvoicePayment(ptr);
 			case 1: return new PaymentPurpose_SpontaneousPayment(ptr);
@@ -50,11 +50,11 @@ public class PaymentPurpose : CommonBase {
 		 */
 		public byte[] payment_secret;
 		internal PaymentPurpose_InvoicePayment(long ptr) : base(null, ptr) {
-			long payment_preimage = bindings.LDKPaymentPurpose_InvoicePayment_get_payment_preimage(ptr);
+			long payment_preimage = Bindings.LDKPaymentPurposeInvoicePaymentGetPaymentPreimage(ptr);
 			org.ldk.structs.Option_ThirtyTwoBytesZ payment_preimage_hu_conv = org.ldk.structs.Option_ThirtyTwoBytesZ.constr_from_ptr(payment_preimage);
 			if (payment_preimage_hu_conv != null) { payment_preimage_hu_conv.ptrs_to.AddLast(this); };
 			this.payment_preimage = payment_preimage_hu_conv;
-			long payment_secret = bindings.LDKPaymentPurpose_InvoicePayment_get_payment_secret(ptr);
+			long payment_secret = Bindings.LDKPaymentPurposeInvoicePaymentGetPaymentSecret(ptr);
 			byte[] payment_secret_conv = InternalUtils.decodeUint8Array(payment_secret);
 			this.payment_secret = payment_secret_conv;
 		}
@@ -63,13 +63,13 @@ public class PaymentPurpose : CommonBase {
 	public class PaymentPurpose_SpontaneousPayment : PaymentPurpose {
 		public byte[] spontaneous_payment;
 		internal PaymentPurpose_SpontaneousPayment(long ptr) : base(null, ptr) {
-			long spontaneous_payment = bindings.LDKPaymentPurpose_SpontaneousPayment_get_spontaneous_payment(ptr);
+			long spontaneous_payment = Bindings.LDKPaymentPurposeSpontaneousPaymentGetSpontaneousPayment(ptr);
 			byte[] spontaneous_payment_conv = InternalUtils.decodeUint8Array(spontaneous_payment);
 			this.spontaneous_payment = spontaneous_payment_conv;
 		}
 	}
 	internal long clone_ptr() {
-		long ret = bindings.PaymentPurpose_clone_ptr(this.ptr);
+		long ret = Bindings.PaymentPurposeClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -78,7 +78,7 @@ public class PaymentPurpose : CommonBase {
 	 * Creates a copy of the PaymentPurpose
 	 */
 	public PaymentPurpose clone() {
-		long ret = bindings.PaymentPurpose_clone(this.ptr);
+		long ret = Bindings.PaymentPurposeClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.PaymentPurpose ret_hu_conv = org.ldk.structs.PaymentPurpose.constr_from_ptr(ret);
@@ -90,7 +90,7 @@ public class PaymentPurpose : CommonBase {
 	 * Utility method to constructs a new InvoicePayment-variant PaymentPurpose
 	 */
 	public static PaymentPurpose invoice_payment(org.ldk.structs.Option_ThirtyTwoBytesZ payment_preimage, byte[] payment_secret) {
-		long ret = bindings.PaymentPurpose_invoice_payment(payment_preimage.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_secret, 32)));
+		long ret = Bindings.PaymentPurposeInvoicePayment(payment_preimage.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_secret, 32)));
 		GC.KeepAlive(payment_preimage);
 		GC.KeepAlive(payment_secret);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -104,7 +104,7 @@ public class PaymentPurpose : CommonBase {
 	 * Utility method to constructs a new SpontaneousPayment-variant PaymentPurpose
 	 */
 	public static PaymentPurpose spontaneous_payment(byte[] a) {
-		long ret = bindings.PaymentPurpose_spontaneous_payment(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(a, 32)));
+		long ret = Bindings.PaymentPurposeSpontaneousPayment(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(a, 32)));
 		GC.KeepAlive(a);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.PaymentPurpose ret_hu_conv = org.ldk.structs.PaymentPurpose.constr_from_ptr(ret);
@@ -117,7 +117,7 @@ public class PaymentPurpose : CommonBase {
 	 * This ignores pointers and is_owned flags and looks at the values in fields.
 	 */
 	public bool eq(org.ldk.structs.PaymentPurpose b) {
-		bool ret = bindings.PaymentPurpose_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.PaymentPurposeEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		return ret;
@@ -131,7 +131,7 @@ public class PaymentPurpose : CommonBase {
 	 * Returns the preimage for this payment, if it is known.
 	 */
 	public Option_ThirtyTwoBytesZ preimage() {
-		long ret = bindings.PaymentPurpose_preimage(this.ptr);
+		long ret = Bindings.PaymentPurposePreimage(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_ThirtyTwoBytesZ ret_hu_conv = org.ldk.structs.Option_ThirtyTwoBytesZ.constr_from_ptr(ret);
@@ -143,7 +143,7 @@ public class PaymentPurpose : CommonBase {
 	 * Serialize the PaymentPurpose object into a byte array which can be read by PaymentPurpose_read
 	 */
 	public byte[] write() {
-		long ret = bindings.PaymentPurpose_write(this.ptr);
+		long ret = Bindings.PaymentPurposeWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -154,7 +154,7 @@ public class PaymentPurpose : CommonBase {
 	 * Read a PaymentPurpose from a byte array, created by PaymentPurpose_write
 	 */
 	public static Result_PaymentPurposeDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.PaymentPurpose_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.PaymentPurposeRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_PaymentPurposeDecodeErrorZ ret_hu_conv = Result_PaymentPurposeDecodeErrorZ.constr_from_ptr(ret);

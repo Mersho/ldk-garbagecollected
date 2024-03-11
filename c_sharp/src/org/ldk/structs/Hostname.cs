@@ -18,11 +18,11 @@ namespace org { namespace ldk { namespace structs {
 public class Hostname : CommonBase {
 	internal Hostname(object _dummy, long ptr) : base(ptr) { }
 	~Hostname() {
-		if (ptr != 0) { bindings.Hostname_free(ptr); }
+		if (ptr != 0) { Bindings.HostnameFree(ptr); }
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.Hostname_clone_ptr(this.ptr);
+		long ret = Bindings.HostnameClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -31,7 +31,7 @@ public class Hostname : CommonBase {
 	 * Creates a copy of the Hostname
 	 */
 	public Hostname clone() {
-		long ret = bindings.Hostname_clone(this.ptr);
+		long ret = Bindings.HostnameClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Hostname ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.Hostname(null, ret); }
@@ -43,7 +43,7 @@ public class Hostname : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the Hostname.
 	 */
 	public long hash() {
-		long ret = bindings.Hostname_hash(this.ptr);
+		long ret = Bindings.HostnameHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -57,7 +57,7 @@ public class Hostname : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.Hostname b) {
-		bool ret = bindings.Hostname_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.HostnameEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -72,7 +72,7 @@ public class Hostname : CommonBase {
 	 * Returns the length of the hostname.
 	 */
 	public byte len() {
-		byte ret = bindings.Hostname_len(this.ptr);
+		byte ret = Bindings.HostnameLen(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -81,7 +81,7 @@ public class Hostname : CommonBase {
 	 * Serialize the Hostname object into a byte array which can be read by Hostname_read
 	 */
 	public byte[] write() {
-		long ret = bindings.Hostname_write(this.ptr);
+		long ret = Bindings.HostnameWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -92,7 +92,7 @@ public class Hostname : CommonBase {
 	 * Read a Hostname from a byte array, created by Hostname_write
 	 */
 	public static Result_HostnameDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.Hostname_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.HostnameRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_HostnameDecodeErrorZ ret_hu_conv = Result_HostnameDecodeErrorZ.constr_from_ptr(ret);

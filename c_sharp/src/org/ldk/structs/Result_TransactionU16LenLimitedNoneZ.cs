@@ -8,11 +8,11 @@ namespace org { namespace ldk { namespace structs {
 public class Result_TransactionU16LenLimitedNoneZ : CommonBase {
 	Result_TransactionU16LenLimitedNoneZ(object _dummy, long ptr) : base(ptr) { }
 	~Result_TransactionU16LenLimitedNoneZ() {
-		if (ptr != 0) { bindings.CResult_TransactionU16LenLimitedNoneZ_free(ptr); }
+		if (ptr != 0) { Bindings.CResultTransactionU16LenLimitedNoneZFree(ptr); }
 	}
 
 	internal static Result_TransactionU16LenLimitedNoneZ constr_from_ptr(long ptr) {
-		if (bindings.CResult_TransactionU16LenLimitedNoneZ_is_ok(ptr)) {
+		if (Bindings.CResultTransactionU16LenLimitedNoneZIsOk(ptr)) {
 			return new Result_TransactionU16LenLimitedNoneZ_OK(null, ptr);
 		} else {
 			return new Result_TransactionU16LenLimitedNoneZ_Err(null, ptr);
@@ -21,7 +21,7 @@ public class Result_TransactionU16LenLimitedNoneZ : CommonBase {
 	public class Result_TransactionU16LenLimitedNoneZ_OK : Result_TransactionU16LenLimitedNoneZ {
 		public readonly TransactionU16LenLimited res;
 		internal Result_TransactionU16LenLimitedNoneZ_OK(object _dummy, long ptr) : base(_dummy, ptr) {
-			long res = bindings.CResult_TransactionU16LenLimitedNoneZ_get_ok(ptr);
+			long res = Bindings.CResultTransactionU16LenLimitedNoneZGetOk(ptr);
 			org.ldk.structs.TransactionU16LenLimited res_hu_conv = null; if (res < 0 || res > 4096) { res_hu_conv = new org.ldk.structs.TransactionU16LenLimited(null, res); }
 			if (res_hu_conv != null) { res_hu_conv.ptrs_to.AddLast(this); };
 			this.res = res_hu_conv;
@@ -37,7 +37,7 @@ public class Result_TransactionU16LenLimitedNoneZ : CommonBase {
 	 * Creates a new CResult_TransactionU16LenLimitedNoneZ in the success state.
 	 */
 	public static Result_TransactionU16LenLimitedNoneZ ok(org.ldk.structs.TransactionU16LenLimited o) {
-		long ret = bindings.CResult_TransactionU16LenLimitedNoneZ_ok(o == null ? 0 : o.ptr);
+		long ret = Bindings.CResultTransactionU16LenLimitedNoneZOk(o == null ? 0 : o.ptr);
 		GC.KeepAlive(o);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_TransactionU16LenLimitedNoneZ ret_hu_conv = Result_TransactionU16LenLimitedNoneZ.constr_from_ptr(ret);
@@ -49,7 +49,7 @@ public class Result_TransactionU16LenLimitedNoneZ : CommonBase {
 	 * Creates a new CResult_TransactionU16LenLimitedNoneZ in the error state.
 	 */
 	public static Result_TransactionU16LenLimitedNoneZ err() {
-		long ret = bindings.CResult_TransactionU16LenLimitedNoneZ_err();
+		long ret = Bindings.CResultTransactionU16LenLimitedNoneZErr();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_TransactionU16LenLimitedNoneZ ret_hu_conv = Result_TransactionU16LenLimitedNoneZ.constr_from_ptr(ret);
 		return ret_hu_conv;
@@ -59,13 +59,13 @@ public class Result_TransactionU16LenLimitedNoneZ : CommonBase {
 	 * Checks if the given object is currently in the success state
 	 */
 	public bool is_ok() {
-		bool ret = bindings.CResult_TransactionU16LenLimitedNoneZ_is_ok(this.ptr);
+		bool ret = Bindings.CResultTransactionU16LenLimitedNoneZIsOk(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.CResult_TransactionU16LenLimitedNoneZ_clone_ptr(this.ptr);
+		long ret = Bindings.CResultTransactionU16LenLimitedNoneZClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -75,7 +75,7 @@ public class Result_TransactionU16LenLimitedNoneZ : CommonBase {
 	 * but with all dynamically-allocated buffers duplicated in new buffers.
 	 */
 	public Result_TransactionU16LenLimitedNoneZ clone() {
-		long ret = bindings.CResult_TransactionU16LenLimitedNoneZ_clone(this.ptr);
+		long ret = Bindings.CResultTransactionU16LenLimitedNoneZClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_TransactionU16LenLimitedNoneZ ret_hu_conv = Result_TransactionU16LenLimitedNoneZ.constr_from_ptr(ret);

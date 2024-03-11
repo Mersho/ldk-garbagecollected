@@ -9,7 +9,7 @@ namespace org { namespace ldk { namespace structs {
 
 
 /** An implementation of LockableScore */
-public interface LockableScoreInterface {
+public interface ILockableScore {
 	/**Returns read locked scorer.
 	 */
 	ScoreLookUp read_lock();
@@ -29,27 +29,27 @@ public interface LockableScoreInterface {
  * [`find_route`]: crate::routing::router::find_route
  */
 public class LockableScore : CommonBase {
-	internal bindings.LDKLockableScore bindings_instance;
+	internal Bindings.LDKLockableScore bindings_instance;
 	internal long instance_idx;
 
 	internal LockableScore(object _dummy, long ptr) : base(ptr) { bindings_instance = null; }
 	~LockableScore() {
-		if (ptr != 0) { bindings.LockableScore_free(ptr); }
+		if (ptr != 0) { Bindings.LockableScoreFree(ptr); }
 	}
 
 	private class LDKLockableScoreHolder { internal LockableScore held; }
-	private class LDKLockableScoreImpl : bindings.LDKLockableScore {
-		internal LDKLockableScoreImpl(LockableScoreInterface arg, LDKLockableScoreHolder impl_holder) { this.arg = arg; this.impl_holder = impl_holder; }
-		private LockableScoreInterface arg;
+	private class LDKLockableScoreImpl : Bindings.LDKLockableScore {
+		internal LDKLockableScoreImpl(ILockableScore arg, LDKLockableScoreHolder impl_holder) { this.arg = arg; this.impl_holder = impl_holder; }
+		private ILockableScore arg;
 		private LDKLockableScoreHolder impl_holder;
-		public long read_lock() {
+		public long ReadLock() {
 			ScoreLookUp ret = arg.read_lock();
 				GC.KeepAlive(arg);
 			long result = ret.ptr;
 			if (impl_holder.held != null) { impl_holder.held.ptrs_to.AddLast(ret); };
 			return result;
 		}
-		public long write_lock() {
+		public long WriteLock() {
 			ScoreUpdate ret = arg.write_lock();
 				GC.KeepAlive(arg);
 			long result = ret.ptr;
@@ -59,10 +59,10 @@ public class LockableScore : CommonBase {
 	}
 
 	/** Creates a new instance of LockableScore from a given implementation */
-	public static LockableScore new_impl(LockableScoreInterface arg) {
+	public static LockableScore new_impl(ILockableScore arg) {
 		LDKLockableScoreHolder impl_holder = new LDKLockableScoreHolder();
 		LDKLockableScoreImpl impl = new LDKLockableScoreImpl(arg, impl_holder);
-		long[] ptr_idx = bindings.LDKLockableScore_new(impl);
+		long[] ptr_idx = Bindings.LDKLockableScoreNew(impl);
 
 		impl_holder.held = new LockableScore(null, ptr_idx[0]);
 		impl_holder.held.instance_idx = ptr_idx[1];
@@ -74,7 +74,7 @@ public class LockableScore : CommonBase {
 	 * Returns read locked scorer.
 	 */
 	public ScoreLookUp read_lock() {
-		long ret = bindings.LockableScore_read_lock(this.ptr);
+		long ret = Bindings.LockableScoreReadLock(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		ScoreLookUp ret_hu_conv = new ScoreLookUp(null, ret);
@@ -86,7 +86,7 @@ public class LockableScore : CommonBase {
 	 * Returns write locked scorer.
 	 */
 	public ScoreUpdate write_lock() {
-		long ret = bindings.LockableScore_write_lock(this.ptr);
+		long ret = Bindings.LockableScoreWriteLock(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		ScoreUpdate ret_hu_conv = new ScoreUpdate(null, ret);

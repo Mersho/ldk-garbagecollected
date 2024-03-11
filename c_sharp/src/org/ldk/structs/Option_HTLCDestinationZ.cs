@@ -11,11 +11,11 @@ namespace org { namespace ldk { namespace structs {
 public class Option_HTLCDestinationZ : CommonBase {
 	protected Option_HTLCDestinationZ(object _dummy, long ptr) : base(ptr) { }
 	~Option_HTLCDestinationZ() {
-		if (ptr != 0) { bindings.COption_HTLCDestinationZ_free(ptr); }
+		if (ptr != 0) { Bindings.COptionHTLCDestinationZFree(ptr); }
 	}
 
 	internal static Option_HTLCDestinationZ constr_from_ptr(long ptr) {
-		long raw_ty = bindings.LDKCOption_HTLCDestinationZ_ty_from_ptr(ptr);
+		long raw_ty = Bindings.LDKCOptionHTLCDestinationZTyFromPtr(ptr);
 		switch (raw_ty) {
 			case 0: return new Option_HTLCDestinationZ_Some(ptr);
 			case 1: return new Option_HTLCDestinationZ_None(ptr);
@@ -28,7 +28,7 @@ public class Option_HTLCDestinationZ : CommonBase {
 	public class Option_HTLCDestinationZ_Some : Option_HTLCDestinationZ {
 		public HTLCDestination some;
 		internal Option_HTLCDestinationZ_Some(long ptr) : base(null, ptr) {
-			long some = bindings.LDKCOption_HTLCDestinationZ_Some_get_some(ptr);
+			long some = Bindings.LDKCOptionHTLCDestinationZSomeGetSome(ptr);
 			org.ldk.structs.HTLCDestination some_hu_conv = org.ldk.structs.HTLCDestination.constr_from_ptr(some);
 			if (some_hu_conv != null) { some_hu_conv.ptrs_to.AddLast(this); };
 			this.some = some_hu_conv;
@@ -43,7 +43,7 @@ public class Option_HTLCDestinationZ : CommonBase {
 	 * Constructs a new COption_HTLCDestinationZ containing a crate::lightning::events::HTLCDestination
 	 */
 	public static Option_HTLCDestinationZ some(org.ldk.structs.HTLCDestination o) {
-		long ret = bindings.COption_HTLCDestinationZ_some(o.ptr);
+		long ret = Bindings.COptionHTLCDestinationZSome(o.ptr);
 		GC.KeepAlive(o);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_HTLCDestinationZ ret_hu_conv = org.ldk.structs.Option_HTLCDestinationZ.constr_from_ptr(ret);
@@ -56,7 +56,7 @@ public class Option_HTLCDestinationZ : CommonBase {
 	 * Constructs a new COption_HTLCDestinationZ containing nothing
 	 */
 	public static Option_HTLCDestinationZ none() {
-		long ret = bindings.COption_HTLCDestinationZ_none();
+		long ret = Bindings.COptionHTLCDestinationZNone();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_HTLCDestinationZ ret_hu_conv = org.ldk.structs.Option_HTLCDestinationZ.constr_from_ptr(ret);
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -64,7 +64,7 @@ public class Option_HTLCDestinationZ : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.COption_HTLCDestinationZ_clone_ptr(this.ptr);
+		long ret = Bindings.COptionHTLCDestinationZClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -74,7 +74,7 @@ public class Option_HTLCDestinationZ : CommonBase {
 	 * but with all dynamically-allocated buffers duplicated in new buffers.
 	 */
 	public Option_HTLCDestinationZ clone() {
-		long ret = bindings.COption_HTLCDestinationZ_clone(this.ptr);
+		long ret = Bindings.COptionHTLCDestinationZClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_HTLCDestinationZ ret_hu_conv = org.ldk.structs.Option_HTLCDestinationZ.constr_from_ptr(ret);

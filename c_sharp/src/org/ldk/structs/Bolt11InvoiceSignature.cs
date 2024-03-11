@@ -12,11 +12,11 @@ namespace org { namespace ldk { namespace structs {
 public class Bolt11InvoiceSignature : CommonBase {
 	internal Bolt11InvoiceSignature(object _dummy, long ptr) : base(ptr) { }
 	~Bolt11InvoiceSignature() {
-		if (ptr != 0) { bindings.Bolt11InvoiceSignature_free(ptr); }
+		if (ptr != 0) { Bindings.Bolt11InvoiceSignatureFree(ptr); }
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.Bolt11InvoiceSignature_clone_ptr(this.ptr);
+		long ret = Bindings.Bolt11InvoiceSignatureClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -25,7 +25,7 @@ public class Bolt11InvoiceSignature : CommonBase {
 	 * Creates a copy of the Bolt11InvoiceSignature
 	 */
 	public Bolt11InvoiceSignature clone() {
-		long ret = bindings.Bolt11InvoiceSignature_clone(this.ptr);
+		long ret = Bindings.Bolt11InvoiceSignatureClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Bolt11InvoiceSignature ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.Bolt11InvoiceSignature(null, ret); }
@@ -37,7 +37,7 @@ public class Bolt11InvoiceSignature : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the Bolt11InvoiceSignature.
 	 */
 	public long hash() {
-		long ret = bindings.Bolt11InvoiceSignature_hash(this.ptr);
+		long ret = Bindings.Bolt11InvoiceSignatureHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -51,7 +51,7 @@ public class Bolt11InvoiceSignature : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.Bolt11InvoiceSignature b) {
-		bool ret = bindings.Bolt11InvoiceSignature_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.Bolt11InvoiceSignatureEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };

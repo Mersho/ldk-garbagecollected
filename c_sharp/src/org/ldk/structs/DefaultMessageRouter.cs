@@ -12,14 +12,14 @@ namespace org { namespace ldk { namespace structs {
 public class DefaultMessageRouter : CommonBase {
 	internal DefaultMessageRouter(object _dummy, long ptr) : base(ptr) { }
 	~DefaultMessageRouter() {
-		if (ptr != 0) { bindings.DefaultMessageRouter_free(ptr); }
+		if (ptr != 0) { Bindings.DefaultMessageRouterFree(ptr); }
 	}
 
 	/**
 	 * Creates a [`DefaultMessageRouter`] using the given [`NetworkGraph`].
 	 */
 	public static DefaultMessageRouter of(org.ldk.structs.NetworkGraph network_graph, org.ldk.structs.EntropySource entropy_source) {
-		long ret = bindings.DefaultMessageRouter_new(network_graph == null ? 0 : network_graph.ptr, entropy_source.ptr);
+		long ret = Bindings.DefaultMessageRouterNew(network_graph == null ? 0 : network_graph.ptr, entropy_source.ptr);
 		GC.KeepAlive(network_graph);
 		GC.KeepAlive(entropy_source);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -35,7 +35,7 @@ public class DefaultMessageRouter : CommonBase {
 	 * This copies the `inner` pointer in this_arg and thus the returned MessageRouter must be freed before this_arg is
 	 */
 	public MessageRouter as_MessageRouter() {
-		long ret = bindings.DefaultMessageRouter_as_MessageRouter(this.ptr);
+		long ret = Bindings.DefaultMessageRouterAsMessageRouter(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		MessageRouter ret_hu_conv = new MessageRouter(null, ret);

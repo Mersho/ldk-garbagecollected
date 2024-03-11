@@ -12,14 +12,14 @@ namespace org { namespace ldk { namespace structs {
 public class TwoTuple_u64u64Z : CommonBase {
 	internal TwoTuple_u64u64Z(object _dummy, long ptr) : base(ptr) { }
 	~TwoTuple_u64u64Z() {
-		if (ptr != 0) { bindings.C2Tuple_u64u64Z_free(ptr); }
+		if (ptr != 0) { Bindings.C2TupleU64U64ZFree(ptr); }
 	}
 
 	/**
 	 * 
 	 */
 	public long get_a() {
-		long ret = bindings.C2Tuple_u64u64Z_get_a(this.ptr);
+		long ret = Bindings.C2TupleU64U64ZGetA(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -28,13 +28,13 @@ public class TwoTuple_u64u64Z : CommonBase {
 	 * 
 	 */
 	public long get_b() {
-		long ret = bindings.C2Tuple_u64u64Z_get_b(this.ptr);
+		long ret = Bindings.C2TupleU64U64ZGetB(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.C2Tuple_u64u64Z_clone_ptr(this.ptr);
+		long ret = Bindings.C2TupleU64U64ZClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -44,7 +44,7 @@ public class TwoTuple_u64u64Z : CommonBase {
 	 * but with all dynamically-allocated buffers duplicated in new buffers.
 	 */
 	public TwoTuple_u64u64Z clone() {
-		long ret = bindings.C2Tuple_u64u64Z_clone(this.ptr);
+		long ret = Bindings.C2TupleU64U64ZClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		TwoTuple_u64u64Z ret_hu_conv = new TwoTuple_u64u64Z(null, ret);
@@ -56,7 +56,7 @@ public class TwoTuple_u64u64Z : CommonBase {
 	 * Creates a new C2Tuple_u64u64Z from the contained elements.
 	 */
 	public static TwoTuple_u64u64Z of(long a, long b) {
-		long ret = bindings.C2Tuple_u64u64Z_new(a, b);
+		long ret = Bindings.C2TupleU64U64ZNew(a, b);
 		GC.KeepAlive(a);
 		GC.KeepAlive(b);
 		if (ret >= 0 && ret <= 4096) { return null; }

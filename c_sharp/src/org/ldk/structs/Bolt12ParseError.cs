@@ -12,11 +12,11 @@ namespace org { namespace ldk { namespace structs {
 public class Bolt12ParseError : CommonBase {
 	internal Bolt12ParseError(object _dummy, long ptr) : base(ptr) { }
 	~Bolt12ParseError() {
-		if (ptr != 0) { bindings.Bolt12ParseError_free(ptr); }
+		if (ptr != 0) { Bindings.Bolt12ParseErrorFree(ptr); }
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.Bolt12ParseError_clone_ptr(this.ptr);
+		long ret = Bindings.Bolt12ParseErrorClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -25,7 +25,7 @@ public class Bolt12ParseError : CommonBase {
 	 * Creates a copy of the Bolt12ParseError
 	 */
 	public Bolt12ParseError clone() {
-		long ret = bindings.Bolt12ParseError_clone(this.ptr);
+		long ret = Bindings.Bolt12ParseErrorClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Bolt12ParseError ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.Bolt12ParseError(null, ret); }

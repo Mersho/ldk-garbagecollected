@@ -8,11 +8,11 @@ namespace org { namespace ldk { namespace structs {
 public class Result_COption_NetworkUpdateZDecodeErrorZ : CommonBase {
 	Result_COption_NetworkUpdateZDecodeErrorZ(object _dummy, long ptr) : base(ptr) { }
 	~Result_COption_NetworkUpdateZDecodeErrorZ() {
-		if (ptr != 0) { bindings.CResult_COption_NetworkUpdateZDecodeErrorZ_free(ptr); }
+		if (ptr != 0) { Bindings.CResultCOptionNetworkUpdateZDecodeErrorZFree(ptr); }
 	}
 
 	internal static Result_COption_NetworkUpdateZDecodeErrorZ constr_from_ptr(long ptr) {
-		if (bindings.CResult_COption_NetworkUpdateZDecodeErrorZ_is_ok(ptr)) {
+		if (Bindings.CResultCOptionNetworkUpdateZDecodeErrorZIsOk(ptr)) {
 			return new Result_COption_NetworkUpdateZDecodeErrorZ_OK(null, ptr);
 		} else {
 			return new Result_COption_NetworkUpdateZDecodeErrorZ_Err(null, ptr);
@@ -21,7 +21,7 @@ public class Result_COption_NetworkUpdateZDecodeErrorZ : CommonBase {
 	public class Result_COption_NetworkUpdateZDecodeErrorZ_OK : Result_COption_NetworkUpdateZDecodeErrorZ {
 		public readonly Option_NetworkUpdateZ res;
 		internal Result_COption_NetworkUpdateZDecodeErrorZ_OK(object _dummy, long ptr) : base(_dummy, ptr) {
-			long res = bindings.CResult_COption_NetworkUpdateZDecodeErrorZ_get_ok(ptr);
+			long res = Bindings.CResultCOptionNetworkUpdateZDecodeErrorZGetOk(ptr);
 			org.ldk.structs.Option_NetworkUpdateZ res_hu_conv = org.ldk.structs.Option_NetworkUpdateZ.constr_from_ptr(res);
 			if (res_hu_conv != null) { res_hu_conv.ptrs_to.AddLast(this); };
 			this.res = res_hu_conv;
@@ -31,7 +31,7 @@ public class Result_COption_NetworkUpdateZDecodeErrorZ : CommonBase {
 	public class Result_COption_NetworkUpdateZDecodeErrorZ_Err : Result_COption_NetworkUpdateZDecodeErrorZ {
 		public readonly DecodeError err;
 		internal Result_COption_NetworkUpdateZDecodeErrorZ_Err(object _dummy, long ptr) : base(_dummy, ptr) {
-			long err = bindings.CResult_COption_NetworkUpdateZDecodeErrorZ_get_err(ptr);
+			long err = Bindings.CResultCOptionNetworkUpdateZDecodeErrorZGetErr(ptr);
 			org.ldk.structs.DecodeError err_hu_conv = org.ldk.structs.DecodeError.constr_from_ptr(err);
 			if (err_hu_conv != null) { err_hu_conv.ptrs_to.AddLast(this); };
 			this.err = err_hu_conv;
@@ -42,7 +42,7 @@ public class Result_COption_NetworkUpdateZDecodeErrorZ : CommonBase {
 	 * Creates a new CResult_COption_NetworkUpdateZDecodeErrorZ in the success state.
 	 */
 	public static Result_COption_NetworkUpdateZDecodeErrorZ ok(org.ldk.structs.Option_NetworkUpdateZ o) {
-		long ret = bindings.CResult_COption_NetworkUpdateZDecodeErrorZ_ok(o.ptr);
+		long ret = Bindings.CResultCOptionNetworkUpdateZDecodeErrorZOk(o.ptr);
 		GC.KeepAlive(o);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_COption_NetworkUpdateZDecodeErrorZ ret_hu_conv = Result_COption_NetworkUpdateZDecodeErrorZ.constr_from_ptr(ret);
@@ -54,7 +54,7 @@ public class Result_COption_NetworkUpdateZDecodeErrorZ : CommonBase {
 	 * Creates a new CResult_COption_NetworkUpdateZDecodeErrorZ in the error state.
 	 */
 	public static Result_COption_NetworkUpdateZDecodeErrorZ err(org.ldk.structs.DecodeError e) {
-		long ret = bindings.CResult_COption_NetworkUpdateZDecodeErrorZ_err(e.ptr);
+		long ret = Bindings.CResultCOptionNetworkUpdateZDecodeErrorZErr(e.ptr);
 		GC.KeepAlive(e);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_COption_NetworkUpdateZDecodeErrorZ ret_hu_conv = Result_COption_NetworkUpdateZDecodeErrorZ.constr_from_ptr(ret);
@@ -66,13 +66,13 @@ public class Result_COption_NetworkUpdateZDecodeErrorZ : CommonBase {
 	 * Checks if the given object is currently in the success state
 	 */
 	public bool is_ok() {
-		bool ret = bindings.CResult_COption_NetworkUpdateZDecodeErrorZ_is_ok(this.ptr);
+		bool ret = Bindings.CResultCOptionNetworkUpdateZDecodeErrorZIsOk(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.CResult_COption_NetworkUpdateZDecodeErrorZ_clone_ptr(this.ptr);
+		long ret = Bindings.CResultCOptionNetworkUpdateZDecodeErrorZClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -82,7 +82,7 @@ public class Result_COption_NetworkUpdateZDecodeErrorZ : CommonBase {
 	 * but with all dynamically-allocated buffers duplicated in new buffers.
 	 */
 	public Result_COption_NetworkUpdateZDecodeErrorZ clone() {
-		long ret = bindings.CResult_COption_NetworkUpdateZDecodeErrorZ_clone(this.ptr);
+		long ret = Bindings.CResultCOptionNetworkUpdateZDecodeErrorZClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_COption_NetworkUpdateZDecodeErrorZ ret_hu_conv = Result_COption_NetworkUpdateZDecodeErrorZ.constr_from_ptr(ret);

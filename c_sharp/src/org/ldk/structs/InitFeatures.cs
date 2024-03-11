@@ -12,7 +12,7 @@ namespace org { namespace ldk { namespace structs {
 public class InitFeatures : CommonBase {
 	internal InitFeatures(object _dummy, long ptr) : base(ptr) { }
 	~InitFeatures() {
-		if (ptr != 0) { bindings.InitFeatures_free(ptr); }
+		if (ptr != 0) { Bindings.InitFeaturesFree(ptr); }
 	}
 
 	/**
@@ -21,7 +21,7 @@ public class InitFeatures : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.InitFeatures b) {
-		bool ret = bindings.InitFeatures_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.InitFeaturesEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -33,7 +33,7 @@ public class InitFeatures : CommonBase {
 		return this.eq((InitFeatures)o);
 	}
 	internal long clone_ptr() {
-		long ret = bindings.InitFeatures_clone_ptr(this.ptr);
+		long ret = Bindings.InitFeaturesClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -42,7 +42,7 @@ public class InitFeatures : CommonBase {
 	 * Creates a copy of the InitFeatures
 	 */
 	public InitFeatures clone() {
-		long ret = bindings.InitFeatures_clone(this.ptr);
+		long ret = Bindings.InitFeaturesClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.InitFeatures ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.InitFeatures(null, ret); }
@@ -54,7 +54,7 @@ public class InitFeatures : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the InitFeatures.
 	 */
 	public long hash() {
-		long ret = bindings.InitFeatures_hash(this.ptr);
+		long ret = Bindings.InitFeaturesHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -66,7 +66,7 @@ public class InitFeatures : CommonBase {
 	 * Create a blank Features with no features set
 	 */
 	public static InitFeatures empty() {
-		long ret = bindings.InitFeatures_empty();
+		long ret = Bindings.InitFeaturesEmpty();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.InitFeatures ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.InitFeatures(null, ret); }
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -77,7 +77,7 @@ public class InitFeatures : CommonBase {
 	 * Returns true if this `Features` object contains required features unknown by `other`.
 	 */
 	public bool requires_unknown_bits_from(org.ldk.structs.InitFeatures other) {
-		bool ret = bindings.InitFeatures_requires_unknown_bits_from(this.ptr, other == null ? 0 : other.ptr);
+		bool ret = Bindings.InitFeaturesRequiresUnknownBitsFrom(this.ptr, other == null ? 0 : other.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(other);
 		if (this != null) { this.ptrs_to.AddLast(other); };
@@ -89,7 +89,7 @@ public class InitFeatures : CommonBase {
 	 * \"required\".
 	 */
 	public bool requires_unknown_bits() {
-		bool ret = bindings.InitFeatures_requires_unknown_bits(this.ptr);
+		bool ret = Bindings.InitFeaturesRequiresUnknownBits(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -104,7 +104,7 @@ public class InitFeatures : CommonBase {
 	 * [BOLT 9]: https://github.com/lightning/bolts/blob/master/09-features.md
 	 */
 	public Result_NoneNoneZ set_required_feature_bit(long bit) {
-		long ret = bindings.InitFeatures_set_required_feature_bit(this.ptr, bit);
+		long ret = Bindings.InitFeaturesSetRequiredFeatureBit(this.ptr, bit);
 		GC.KeepAlive(this);
 		GC.KeepAlive(bit);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -122,7 +122,7 @@ public class InitFeatures : CommonBase {
 	 * [BOLT 9]: https://github.com/lightning/bolts/blob/master/09-features.md
 	 */
 	public Result_NoneNoneZ set_optional_feature_bit(long bit) {
-		long ret = bindings.InitFeatures_set_optional_feature_bit(this.ptr, bit);
+		long ret = Bindings.InitFeaturesSetOptionalFeatureBit(this.ptr, bit);
 		GC.KeepAlive(this);
 		GC.KeepAlive(bit);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -140,7 +140,7 @@ public class InitFeatures : CommonBase {
 	 * [bLIP 2]: https://github.com/lightning/blips/blob/master/blip-0002.md#feature-bits
 	 */
 	public Result_NoneNoneZ set_required_custom_bit(long bit) {
-		long ret = bindings.InitFeatures_set_required_custom_bit(this.ptr, bit);
+		long ret = Bindings.InitFeaturesSetRequiredCustomBit(this.ptr, bit);
 		GC.KeepAlive(this);
 		GC.KeepAlive(bit);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -158,7 +158,7 @@ public class InitFeatures : CommonBase {
 	 * [bLIP 2]: https://github.com/lightning/blips/blob/master/blip-0002.md#feature-bits
 	 */
 	public Result_NoneNoneZ set_optional_custom_bit(long bit) {
-		long ret = bindings.InitFeatures_set_optional_custom_bit(this.ptr, bit);
+		long ret = Bindings.InitFeaturesSetOptionalCustomBit(this.ptr, bit);
 		GC.KeepAlive(this);
 		GC.KeepAlive(bit);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -170,7 +170,7 @@ public class InitFeatures : CommonBase {
 	 * Serialize the InitFeatures object into a byte array which can be read by InitFeatures_read
 	 */
 	public byte[] write() {
-		long ret = bindings.InitFeatures_write(this.ptr);
+		long ret = Bindings.InitFeaturesWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -181,7 +181,7 @@ public class InitFeatures : CommonBase {
 	 * Read a InitFeatures from a byte array, created by InitFeatures_write
 	 */
 	public static Result_InitFeaturesDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.InitFeatures_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.InitFeaturesRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_InitFeaturesDecodeErrorZ ret_hu_conv = Result_InitFeaturesDecodeErrorZ.constr_from_ptr(ret);
@@ -192,7 +192,7 @@ public class InitFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_data_loss_protect_optional() {
-		bindings.InitFeatures_set_data_loss_protect_optional(this.ptr);
+		Bindings.InitFeaturesSetDataLossProtectOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -200,7 +200,7 @@ public class InitFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_data_loss_protect_required() {
-		bindings.InitFeatures_set_data_loss_protect_required(this.ptr);
+		Bindings.InitFeaturesSetDataLossProtectRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -208,7 +208,7 @@ public class InitFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_data_loss_protect() {
-		bool ret = bindings.InitFeatures_supports_data_loss_protect(this.ptr);
+		bool ret = Bindings.InitFeaturesSupportsDataLossProtect(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -217,7 +217,7 @@ public class InitFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_data_loss_protect() {
-		bool ret = bindings.InitFeatures_requires_data_loss_protect(this.ptr);
+		bool ret = Bindings.InitFeaturesRequiresDataLossProtect(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -226,7 +226,7 @@ public class InitFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_initial_routing_sync_optional() {
-		bindings.InitFeatures_set_initial_routing_sync_optional(this.ptr);
+		Bindings.InitFeaturesSetInitialRoutingSyncOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -234,7 +234,7 @@ public class InitFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_initial_routing_sync_required() {
-		bindings.InitFeatures_set_initial_routing_sync_required(this.ptr);
+		Bindings.InitFeaturesSetInitialRoutingSyncRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -242,7 +242,7 @@ public class InitFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool initial_routing_sync() {
-		bool ret = bindings.InitFeatures_initial_routing_sync(this.ptr);
+		bool ret = Bindings.InitFeaturesInitialRoutingSync(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -251,7 +251,7 @@ public class InitFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_upfront_shutdown_script_optional() {
-		bindings.InitFeatures_set_upfront_shutdown_script_optional(this.ptr);
+		Bindings.InitFeaturesSetUpfrontShutdownScriptOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -259,7 +259,7 @@ public class InitFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_upfront_shutdown_script_required() {
-		bindings.InitFeatures_set_upfront_shutdown_script_required(this.ptr);
+		Bindings.InitFeaturesSetUpfrontShutdownScriptRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -267,7 +267,7 @@ public class InitFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_upfront_shutdown_script() {
-		bool ret = bindings.InitFeatures_supports_upfront_shutdown_script(this.ptr);
+		bool ret = Bindings.InitFeaturesSupportsUpfrontShutdownScript(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -276,7 +276,7 @@ public class InitFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_upfront_shutdown_script() {
-		bool ret = bindings.InitFeatures_requires_upfront_shutdown_script(this.ptr);
+		bool ret = Bindings.InitFeaturesRequiresUpfrontShutdownScript(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -285,7 +285,7 @@ public class InitFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_gossip_queries_optional() {
-		bindings.InitFeatures_set_gossip_queries_optional(this.ptr);
+		Bindings.InitFeaturesSetGossipQueriesOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -293,7 +293,7 @@ public class InitFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_gossip_queries_required() {
-		bindings.InitFeatures_set_gossip_queries_required(this.ptr);
+		Bindings.InitFeaturesSetGossipQueriesRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -301,7 +301,7 @@ public class InitFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_gossip_queries() {
-		bool ret = bindings.InitFeatures_supports_gossip_queries(this.ptr);
+		bool ret = Bindings.InitFeaturesSupportsGossipQueries(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -310,7 +310,7 @@ public class InitFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_gossip_queries() {
-		bool ret = bindings.InitFeatures_requires_gossip_queries(this.ptr);
+		bool ret = Bindings.InitFeaturesRequiresGossipQueries(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -319,7 +319,7 @@ public class InitFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_variable_length_onion_optional() {
-		bindings.InitFeatures_set_variable_length_onion_optional(this.ptr);
+		Bindings.InitFeaturesSetVariableLengthOnionOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -327,7 +327,7 @@ public class InitFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_variable_length_onion_required() {
-		bindings.InitFeatures_set_variable_length_onion_required(this.ptr);
+		Bindings.InitFeaturesSetVariableLengthOnionRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -335,7 +335,7 @@ public class InitFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_variable_length_onion() {
-		bool ret = bindings.InitFeatures_supports_variable_length_onion(this.ptr);
+		bool ret = Bindings.InitFeaturesSupportsVariableLengthOnion(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -344,7 +344,7 @@ public class InitFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_variable_length_onion() {
-		bool ret = bindings.InitFeatures_requires_variable_length_onion(this.ptr);
+		bool ret = Bindings.InitFeaturesRequiresVariableLengthOnion(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -353,7 +353,7 @@ public class InitFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_static_remote_key_optional() {
-		bindings.InitFeatures_set_static_remote_key_optional(this.ptr);
+		Bindings.InitFeaturesSetStaticRemoteKeyOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -361,7 +361,7 @@ public class InitFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_static_remote_key_required() {
-		bindings.InitFeatures_set_static_remote_key_required(this.ptr);
+		Bindings.InitFeaturesSetStaticRemoteKeyRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -369,7 +369,7 @@ public class InitFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_static_remote_key() {
-		bool ret = bindings.InitFeatures_supports_static_remote_key(this.ptr);
+		bool ret = Bindings.InitFeaturesSupportsStaticRemoteKey(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -378,7 +378,7 @@ public class InitFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_static_remote_key() {
-		bool ret = bindings.InitFeatures_requires_static_remote_key(this.ptr);
+		bool ret = Bindings.InitFeaturesRequiresStaticRemoteKey(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -387,7 +387,7 @@ public class InitFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_payment_secret_optional() {
-		bindings.InitFeatures_set_payment_secret_optional(this.ptr);
+		Bindings.InitFeaturesSetPaymentSecretOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -395,7 +395,7 @@ public class InitFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_payment_secret_required() {
-		bindings.InitFeatures_set_payment_secret_required(this.ptr);
+		Bindings.InitFeaturesSetPaymentSecretRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -403,7 +403,7 @@ public class InitFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_payment_secret() {
-		bool ret = bindings.InitFeatures_supports_payment_secret(this.ptr);
+		bool ret = Bindings.InitFeaturesSupportsPaymentSecret(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -412,7 +412,7 @@ public class InitFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_payment_secret() {
-		bool ret = bindings.InitFeatures_requires_payment_secret(this.ptr);
+		bool ret = Bindings.InitFeaturesRequiresPaymentSecret(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -421,7 +421,7 @@ public class InitFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_basic_mpp_optional() {
-		bindings.InitFeatures_set_basic_mpp_optional(this.ptr);
+		Bindings.InitFeaturesSetBasicMppOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -429,7 +429,7 @@ public class InitFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_basic_mpp_required() {
-		bindings.InitFeatures_set_basic_mpp_required(this.ptr);
+		Bindings.InitFeaturesSetBasicMppRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -437,7 +437,7 @@ public class InitFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_basic_mpp() {
-		bool ret = bindings.InitFeatures_supports_basic_mpp(this.ptr);
+		bool ret = Bindings.InitFeaturesSupportsBasicMpp(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -446,7 +446,7 @@ public class InitFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_basic_mpp() {
-		bool ret = bindings.InitFeatures_requires_basic_mpp(this.ptr);
+		bool ret = Bindings.InitFeaturesRequiresBasicMpp(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -455,7 +455,7 @@ public class InitFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_wumbo_optional() {
-		bindings.InitFeatures_set_wumbo_optional(this.ptr);
+		Bindings.InitFeaturesSetWumboOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -463,7 +463,7 @@ public class InitFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_wumbo_required() {
-		bindings.InitFeatures_set_wumbo_required(this.ptr);
+		Bindings.InitFeaturesSetWumboRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -471,7 +471,7 @@ public class InitFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_wumbo() {
-		bool ret = bindings.InitFeatures_supports_wumbo(this.ptr);
+		bool ret = Bindings.InitFeaturesSupportsWumbo(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -480,7 +480,7 @@ public class InitFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_wumbo() {
-		bool ret = bindings.InitFeatures_requires_wumbo(this.ptr);
+		bool ret = Bindings.InitFeaturesRequiresWumbo(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -489,7 +489,7 @@ public class InitFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_anchors_nonzero_fee_htlc_tx_optional() {
-		bindings.InitFeatures_set_anchors_nonzero_fee_htlc_tx_optional(this.ptr);
+		Bindings.InitFeaturesSetAnchorsNonzeroFeeHtlcTxOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -497,7 +497,7 @@ public class InitFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_anchors_nonzero_fee_htlc_tx_required() {
-		bindings.InitFeatures_set_anchors_nonzero_fee_htlc_tx_required(this.ptr);
+		Bindings.InitFeaturesSetAnchorsNonzeroFeeHtlcTxRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -505,7 +505,7 @@ public class InitFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_anchors_nonzero_fee_htlc_tx() {
-		bool ret = bindings.InitFeatures_supports_anchors_nonzero_fee_htlc_tx(this.ptr);
+		bool ret = Bindings.InitFeaturesSupportsAnchorsNonzeroFeeHtlcTx(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -514,7 +514,7 @@ public class InitFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_anchors_nonzero_fee_htlc_tx() {
-		bool ret = bindings.InitFeatures_requires_anchors_nonzero_fee_htlc_tx(this.ptr);
+		bool ret = Bindings.InitFeaturesRequiresAnchorsNonzeroFeeHtlcTx(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -523,7 +523,7 @@ public class InitFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_anchors_zero_fee_htlc_tx_optional() {
-		bindings.InitFeatures_set_anchors_zero_fee_htlc_tx_optional(this.ptr);
+		Bindings.InitFeaturesSetAnchorsZeroFeeHtlcTxOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -531,7 +531,7 @@ public class InitFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_anchors_zero_fee_htlc_tx_required() {
-		bindings.InitFeatures_set_anchors_zero_fee_htlc_tx_required(this.ptr);
+		Bindings.InitFeaturesSetAnchorsZeroFeeHtlcTxRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -539,7 +539,7 @@ public class InitFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_anchors_zero_fee_htlc_tx() {
-		bool ret = bindings.InitFeatures_supports_anchors_zero_fee_htlc_tx(this.ptr);
+		bool ret = Bindings.InitFeaturesSupportsAnchorsZeroFeeHtlcTx(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -548,7 +548,7 @@ public class InitFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_anchors_zero_fee_htlc_tx() {
-		bool ret = bindings.InitFeatures_requires_anchors_zero_fee_htlc_tx(this.ptr);
+		bool ret = Bindings.InitFeaturesRequiresAnchorsZeroFeeHtlcTx(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -557,7 +557,7 @@ public class InitFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_route_blinding_optional() {
-		bindings.InitFeatures_set_route_blinding_optional(this.ptr);
+		Bindings.InitFeaturesSetRouteBlindingOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -565,7 +565,7 @@ public class InitFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_route_blinding_required() {
-		bindings.InitFeatures_set_route_blinding_required(this.ptr);
+		Bindings.InitFeaturesSetRouteBlindingRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -573,7 +573,7 @@ public class InitFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_route_blinding() {
-		bool ret = bindings.InitFeatures_supports_route_blinding(this.ptr);
+		bool ret = Bindings.InitFeaturesSupportsRouteBlinding(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -582,7 +582,7 @@ public class InitFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_route_blinding() {
-		bool ret = bindings.InitFeatures_requires_route_blinding(this.ptr);
+		bool ret = Bindings.InitFeaturesRequiresRouteBlinding(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -591,7 +591,7 @@ public class InitFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_shutdown_any_segwit_optional() {
-		bindings.InitFeatures_set_shutdown_any_segwit_optional(this.ptr);
+		Bindings.InitFeaturesSetShutdownAnySegwitOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -599,7 +599,7 @@ public class InitFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_shutdown_any_segwit_required() {
-		bindings.InitFeatures_set_shutdown_any_segwit_required(this.ptr);
+		Bindings.InitFeaturesSetShutdownAnySegwitRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -607,7 +607,7 @@ public class InitFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_shutdown_anysegwit() {
-		bool ret = bindings.InitFeatures_supports_shutdown_anysegwit(this.ptr);
+		bool ret = Bindings.InitFeaturesSupportsShutdownAnysegwit(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -616,7 +616,7 @@ public class InitFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_shutdown_anysegwit() {
-		bool ret = bindings.InitFeatures_requires_shutdown_anysegwit(this.ptr);
+		bool ret = Bindings.InitFeaturesRequiresShutdownAnysegwit(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -625,7 +625,7 @@ public class InitFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_taproot_optional() {
-		bindings.InitFeatures_set_taproot_optional(this.ptr);
+		Bindings.InitFeaturesSetTaprootOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -633,7 +633,7 @@ public class InitFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_taproot_required() {
-		bindings.InitFeatures_set_taproot_required(this.ptr);
+		Bindings.InitFeaturesSetTaprootRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -641,7 +641,7 @@ public class InitFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_taproot() {
-		bool ret = bindings.InitFeatures_supports_taproot(this.ptr);
+		bool ret = Bindings.InitFeaturesSupportsTaproot(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -650,7 +650,7 @@ public class InitFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_taproot() {
-		bool ret = bindings.InitFeatures_requires_taproot(this.ptr);
+		bool ret = Bindings.InitFeaturesRequiresTaproot(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -659,7 +659,7 @@ public class InitFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_onion_messages_optional() {
-		bindings.InitFeatures_set_onion_messages_optional(this.ptr);
+		Bindings.InitFeaturesSetOnionMessagesOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -667,7 +667,7 @@ public class InitFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_onion_messages_required() {
-		bindings.InitFeatures_set_onion_messages_required(this.ptr);
+		Bindings.InitFeaturesSetOnionMessagesRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -675,7 +675,7 @@ public class InitFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_onion_messages() {
-		bool ret = bindings.InitFeatures_supports_onion_messages(this.ptr);
+		bool ret = Bindings.InitFeaturesSupportsOnionMessages(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -684,7 +684,7 @@ public class InitFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_onion_messages() {
-		bool ret = bindings.InitFeatures_requires_onion_messages(this.ptr);
+		bool ret = Bindings.InitFeaturesRequiresOnionMessages(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -693,7 +693,7 @@ public class InitFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_channel_type_optional() {
-		bindings.InitFeatures_set_channel_type_optional(this.ptr);
+		Bindings.InitFeaturesSetChannelTypeOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -701,7 +701,7 @@ public class InitFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_channel_type_required() {
-		bindings.InitFeatures_set_channel_type_required(this.ptr);
+		Bindings.InitFeaturesSetChannelTypeRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -709,7 +709,7 @@ public class InitFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_channel_type() {
-		bool ret = bindings.InitFeatures_supports_channel_type(this.ptr);
+		bool ret = Bindings.InitFeaturesSupportsChannelType(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -718,7 +718,7 @@ public class InitFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_channel_type() {
-		bool ret = bindings.InitFeatures_requires_channel_type(this.ptr);
+		bool ret = Bindings.InitFeaturesRequiresChannelType(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -727,7 +727,7 @@ public class InitFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_scid_privacy_optional() {
-		bindings.InitFeatures_set_scid_privacy_optional(this.ptr);
+		Bindings.InitFeaturesSetScidPrivacyOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -735,7 +735,7 @@ public class InitFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_scid_privacy_required() {
-		bindings.InitFeatures_set_scid_privacy_required(this.ptr);
+		Bindings.InitFeaturesSetScidPrivacyRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -743,7 +743,7 @@ public class InitFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_scid_privacy() {
-		bool ret = bindings.InitFeatures_supports_scid_privacy(this.ptr);
+		bool ret = Bindings.InitFeaturesSupportsScidPrivacy(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -752,7 +752,7 @@ public class InitFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_scid_privacy() {
-		bool ret = bindings.InitFeatures_requires_scid_privacy(this.ptr);
+		bool ret = Bindings.InitFeaturesRequiresScidPrivacy(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -761,7 +761,7 @@ public class InitFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_zero_conf_optional() {
-		bindings.InitFeatures_set_zero_conf_optional(this.ptr);
+		Bindings.InitFeaturesSetZeroConfOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -769,7 +769,7 @@ public class InitFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_zero_conf_required() {
-		bindings.InitFeatures_set_zero_conf_required(this.ptr);
+		Bindings.InitFeaturesSetZeroConfRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -777,7 +777,7 @@ public class InitFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_zero_conf() {
-		bool ret = bindings.InitFeatures_supports_zero_conf(this.ptr);
+		bool ret = Bindings.InitFeaturesSupportsZeroConf(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -786,7 +786,7 @@ public class InitFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_zero_conf() {
-		bool ret = bindings.InitFeatures_requires_zero_conf(this.ptr);
+		bool ret = Bindings.InitFeaturesRequiresZeroConf(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}

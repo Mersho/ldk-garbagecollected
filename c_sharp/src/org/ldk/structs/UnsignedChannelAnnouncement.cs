@@ -14,14 +14,14 @@ namespace org { namespace ldk { namespace structs {
 public class UnsignedChannelAnnouncement : CommonBase {
 	internal UnsignedChannelAnnouncement(object _dummy, long ptr) : base(ptr) { }
 	~UnsignedChannelAnnouncement() {
-		if (ptr != 0) { bindings.UnsignedChannelAnnouncement_free(ptr); }
+		if (ptr != 0) { Bindings.UnsignedChannelAnnouncementFree(ptr); }
 	}
 
 	/**
 	 * The advertised channel features
 	 */
 	public ChannelFeatures get_features() {
-		long ret = bindings.UnsignedChannelAnnouncement_get_features(this.ptr);
+		long ret = Bindings.UnsignedChannelAnnouncementGetFeatures(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChannelFeatures ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChannelFeatures(null, ret); }
@@ -33,7 +33,7 @@ public class UnsignedChannelAnnouncement : CommonBase {
 	 * The advertised channel features
 	 */
 	public void set_features(org.ldk.structs.ChannelFeatures val) {
-		bindings.UnsignedChannelAnnouncement_set_features(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.UnsignedChannelAnnouncementSetFeatures(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -43,7 +43,7 @@ public class UnsignedChannelAnnouncement : CommonBase {
 	 * The genesis hash of the blockchain where the channel is to be opened
 	 */
 	public byte[] get_chain_hash() {
-		long ret = bindings.UnsignedChannelAnnouncement_get_chain_hash(this.ptr);
+		long ret = Bindings.UnsignedChannelAnnouncementGetChainHash(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -54,7 +54,7 @@ public class UnsignedChannelAnnouncement : CommonBase {
 	 * The genesis hash of the blockchain where the channel is to be opened
 	 */
 	public void set_chain_hash(byte[] val) {
-		bindings.UnsignedChannelAnnouncement_set_chain_hash(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
+		Bindings.UnsignedChannelAnnouncementSetChainHash(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -63,7 +63,7 @@ public class UnsignedChannelAnnouncement : CommonBase {
 	 * The short channel ID
 	 */
 	public long get_short_channel_id() {
-		long ret = bindings.UnsignedChannelAnnouncement_get_short_channel_id(this.ptr);
+		long ret = Bindings.UnsignedChannelAnnouncementGetShortChannelId(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -72,7 +72,7 @@ public class UnsignedChannelAnnouncement : CommonBase {
 	 * The short channel ID
 	 */
 	public void set_short_channel_id(long val) {
-		bindings.UnsignedChannelAnnouncement_set_short_channel_id(this.ptr, val);
+		Bindings.UnsignedChannelAnnouncementSetShortChannelId(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -81,7 +81,7 @@ public class UnsignedChannelAnnouncement : CommonBase {
 	 * One of the two `node_id`s which are endpoints of this channel
 	 */
 	public NodeId get_node_id_1() {
-		long ret = bindings.UnsignedChannelAnnouncement_get_node_id_1(this.ptr);
+		long ret = Bindings.UnsignedChannelAnnouncementGetNodeId1(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.NodeId ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.NodeId(null, ret); }
@@ -93,7 +93,7 @@ public class UnsignedChannelAnnouncement : CommonBase {
 	 * One of the two `node_id`s which are endpoints of this channel
 	 */
 	public void set_node_id_1(org.ldk.structs.NodeId val) {
-		bindings.UnsignedChannelAnnouncement_set_node_id_1(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.UnsignedChannelAnnouncementSetNodeId1(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -103,7 +103,7 @@ public class UnsignedChannelAnnouncement : CommonBase {
 	 * The other of the two `node_id`s which are endpoints of this channel
 	 */
 	public NodeId get_node_id_2() {
-		long ret = bindings.UnsignedChannelAnnouncement_get_node_id_2(this.ptr);
+		long ret = Bindings.UnsignedChannelAnnouncementGetNodeId2(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.NodeId ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.NodeId(null, ret); }
@@ -115,7 +115,7 @@ public class UnsignedChannelAnnouncement : CommonBase {
 	 * The other of the two `node_id`s which are endpoints of this channel
 	 */
 	public void set_node_id_2(org.ldk.structs.NodeId val) {
-		bindings.UnsignedChannelAnnouncement_set_node_id_2(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.UnsignedChannelAnnouncementSetNodeId2(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -125,7 +125,7 @@ public class UnsignedChannelAnnouncement : CommonBase {
 	 * The funding key for the first node
 	 */
 	public NodeId get_bitcoin_key_1() {
-		long ret = bindings.UnsignedChannelAnnouncement_get_bitcoin_key_1(this.ptr);
+		long ret = Bindings.UnsignedChannelAnnouncementGetBitcoinKey1(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.NodeId ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.NodeId(null, ret); }
@@ -137,7 +137,7 @@ public class UnsignedChannelAnnouncement : CommonBase {
 	 * The funding key for the first node
 	 */
 	public void set_bitcoin_key_1(org.ldk.structs.NodeId val) {
-		bindings.UnsignedChannelAnnouncement_set_bitcoin_key_1(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.UnsignedChannelAnnouncementSetBitcoinKey1(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -147,7 +147,7 @@ public class UnsignedChannelAnnouncement : CommonBase {
 	 * The funding key for the second node
 	 */
 	public NodeId get_bitcoin_key_2() {
-		long ret = bindings.UnsignedChannelAnnouncement_get_bitcoin_key_2(this.ptr);
+		long ret = Bindings.UnsignedChannelAnnouncementGetBitcoinKey2(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.NodeId ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.NodeId(null, ret); }
@@ -159,7 +159,7 @@ public class UnsignedChannelAnnouncement : CommonBase {
 	 * The funding key for the second node
 	 */
 	public void set_bitcoin_key_2(org.ldk.structs.NodeId val) {
-		bindings.UnsignedChannelAnnouncement_set_bitcoin_key_2(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.UnsignedChannelAnnouncementSetBitcoinKey2(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -174,7 +174,7 @@ public class UnsignedChannelAnnouncement : CommonBase {
 	 * Returns a copy of the field.
 	 */
 	public byte[] get_excess_data() {
-		long ret = bindings.UnsignedChannelAnnouncement_get_excess_data(this.ptr);
+		long ret = Bindings.UnsignedChannelAnnouncementGetExcessData(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -188,7 +188,7 @@ public class UnsignedChannelAnnouncement : CommonBase {
 	 * This is stored to ensure forward-compatibility as new fields are added to the lightning gossip protocol.
 	 */
 	public void set_excess_data(byte[] val) {
-		bindings.UnsignedChannelAnnouncement_set_excess_data(this.ptr, InternalUtils.encodeUint8Array(val));
+		Bindings.UnsignedChannelAnnouncementSetExcessData(this.ptr, InternalUtils.encodeUint8Array(val));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -197,7 +197,7 @@ public class UnsignedChannelAnnouncement : CommonBase {
 	 * Constructs a new UnsignedChannelAnnouncement given each field
 	 */
 	public static UnsignedChannelAnnouncement of(org.ldk.structs.ChannelFeatures features_arg, byte[] chain_hash_arg, long short_channel_id_arg, org.ldk.structs.NodeId node_id_1_arg, org.ldk.structs.NodeId node_id_2_arg, org.ldk.structs.NodeId bitcoin_key_1_arg, org.ldk.structs.NodeId bitcoin_key_2_arg, byte[] excess_data_arg) {
-		long ret = bindings.UnsignedChannelAnnouncement_new(features_arg == null ? 0 : features_arg.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(chain_hash_arg, 32)), short_channel_id_arg, node_id_1_arg == null ? 0 : node_id_1_arg.ptr, node_id_2_arg == null ? 0 : node_id_2_arg.ptr, bitcoin_key_1_arg == null ? 0 : bitcoin_key_1_arg.ptr, bitcoin_key_2_arg == null ? 0 : bitcoin_key_2_arg.ptr, InternalUtils.encodeUint8Array(excess_data_arg));
+		long ret = Bindings.UnsignedChannelAnnouncementNew(features_arg == null ? 0 : features_arg.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(chain_hash_arg, 32)), short_channel_id_arg, node_id_1_arg == null ? 0 : node_id_1_arg.ptr, node_id_2_arg == null ? 0 : node_id_2_arg.ptr, bitcoin_key_1_arg == null ? 0 : bitcoin_key_1_arg.ptr, bitcoin_key_2_arg == null ? 0 : bitcoin_key_2_arg.ptr, InternalUtils.encodeUint8Array(excess_data_arg));
 		GC.KeepAlive(features_arg);
 		GC.KeepAlive(chain_hash_arg);
 		GC.KeepAlive(short_channel_id_arg);
@@ -218,7 +218,7 @@ public class UnsignedChannelAnnouncement : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.UnsignedChannelAnnouncement_clone_ptr(this.ptr);
+		long ret = Bindings.UnsignedChannelAnnouncementClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -227,7 +227,7 @@ public class UnsignedChannelAnnouncement : CommonBase {
 	 * Creates a copy of the UnsignedChannelAnnouncement
 	 */
 	public UnsignedChannelAnnouncement clone() {
-		long ret = bindings.UnsignedChannelAnnouncement_clone(this.ptr);
+		long ret = Bindings.UnsignedChannelAnnouncementClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.UnsignedChannelAnnouncement ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.UnsignedChannelAnnouncement(null, ret); }
@@ -239,7 +239,7 @@ public class UnsignedChannelAnnouncement : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the UnsignedChannelAnnouncement.
 	 */
 	public long hash() {
-		long ret = bindings.UnsignedChannelAnnouncement_hash(this.ptr);
+		long ret = Bindings.UnsignedChannelAnnouncementHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -253,7 +253,7 @@ public class UnsignedChannelAnnouncement : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.UnsignedChannelAnnouncement b) {
-		bool ret = bindings.UnsignedChannelAnnouncement_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.UnsignedChannelAnnouncementEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -268,7 +268,7 @@ public class UnsignedChannelAnnouncement : CommonBase {
 	 * Serialize the UnsignedChannelAnnouncement object into a byte array which can be read by UnsignedChannelAnnouncement_read
 	 */
 	public byte[] write() {
-		long ret = bindings.UnsignedChannelAnnouncement_write(this.ptr);
+		long ret = Bindings.UnsignedChannelAnnouncementWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -279,7 +279,7 @@ public class UnsignedChannelAnnouncement : CommonBase {
 	 * Read a UnsignedChannelAnnouncement from a byte array, created by UnsignedChannelAnnouncement_write
 	 */
 	public static Result_UnsignedChannelAnnouncementDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.UnsignedChannelAnnouncement_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.UnsignedChannelAnnouncementRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_UnsignedChannelAnnouncementDecodeErrorZ ret_hu_conv = Result_UnsignedChannelAnnouncementDecodeErrorZ.constr_from_ptr(ret);

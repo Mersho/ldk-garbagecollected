@@ -8,11 +8,11 @@ namespace org { namespace ldk { namespace structs {
 public class Result_AcceptChannelDecodeErrorZ : CommonBase {
 	Result_AcceptChannelDecodeErrorZ(object _dummy, long ptr) : base(ptr) { }
 	~Result_AcceptChannelDecodeErrorZ() {
-		if (ptr != 0) { bindings.CResult_AcceptChannelDecodeErrorZ_free(ptr); }
+		if (ptr != 0) { Bindings.CResultAcceptChannelDecodeErrorZFree(ptr); }
 	}
 
 	internal static Result_AcceptChannelDecodeErrorZ constr_from_ptr(long ptr) {
-		if (bindings.CResult_AcceptChannelDecodeErrorZ_is_ok(ptr)) {
+		if (Bindings.CResultAcceptChannelDecodeErrorZIsOk(ptr)) {
 			return new Result_AcceptChannelDecodeErrorZ_OK(null, ptr);
 		} else {
 			return new Result_AcceptChannelDecodeErrorZ_Err(null, ptr);
@@ -21,7 +21,7 @@ public class Result_AcceptChannelDecodeErrorZ : CommonBase {
 	public class Result_AcceptChannelDecodeErrorZ_OK : Result_AcceptChannelDecodeErrorZ {
 		public readonly AcceptChannel res;
 		internal Result_AcceptChannelDecodeErrorZ_OK(object _dummy, long ptr) : base(_dummy, ptr) {
-			long res = bindings.CResult_AcceptChannelDecodeErrorZ_get_ok(ptr);
+			long res = Bindings.CResultAcceptChannelDecodeErrorZGetOk(ptr);
 			org.ldk.structs.AcceptChannel res_hu_conv = null; if (res < 0 || res > 4096) { res_hu_conv = new org.ldk.structs.AcceptChannel(null, res); }
 			if (res_hu_conv != null) { res_hu_conv.ptrs_to.AddLast(this); };
 			this.res = res_hu_conv;
@@ -31,7 +31,7 @@ public class Result_AcceptChannelDecodeErrorZ : CommonBase {
 	public class Result_AcceptChannelDecodeErrorZ_Err : Result_AcceptChannelDecodeErrorZ {
 		public readonly DecodeError err;
 		internal Result_AcceptChannelDecodeErrorZ_Err(object _dummy, long ptr) : base(_dummy, ptr) {
-			long err = bindings.CResult_AcceptChannelDecodeErrorZ_get_err(ptr);
+			long err = Bindings.CResultAcceptChannelDecodeErrorZGetErr(ptr);
 			org.ldk.structs.DecodeError err_hu_conv = org.ldk.structs.DecodeError.constr_from_ptr(err);
 			if (err_hu_conv != null) { err_hu_conv.ptrs_to.AddLast(this); };
 			this.err = err_hu_conv;
@@ -42,7 +42,7 @@ public class Result_AcceptChannelDecodeErrorZ : CommonBase {
 	 * Creates a new CResult_AcceptChannelDecodeErrorZ in the success state.
 	 */
 	public static Result_AcceptChannelDecodeErrorZ ok(org.ldk.structs.AcceptChannel o) {
-		long ret = bindings.CResult_AcceptChannelDecodeErrorZ_ok(o == null ? 0 : o.ptr);
+		long ret = Bindings.CResultAcceptChannelDecodeErrorZOk(o == null ? 0 : o.ptr);
 		GC.KeepAlive(o);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_AcceptChannelDecodeErrorZ ret_hu_conv = Result_AcceptChannelDecodeErrorZ.constr_from_ptr(ret);
@@ -54,7 +54,7 @@ public class Result_AcceptChannelDecodeErrorZ : CommonBase {
 	 * Creates a new CResult_AcceptChannelDecodeErrorZ in the error state.
 	 */
 	public static Result_AcceptChannelDecodeErrorZ err(org.ldk.structs.DecodeError e) {
-		long ret = bindings.CResult_AcceptChannelDecodeErrorZ_err(e.ptr);
+		long ret = Bindings.CResultAcceptChannelDecodeErrorZErr(e.ptr);
 		GC.KeepAlive(e);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_AcceptChannelDecodeErrorZ ret_hu_conv = Result_AcceptChannelDecodeErrorZ.constr_from_ptr(ret);
@@ -66,13 +66,13 @@ public class Result_AcceptChannelDecodeErrorZ : CommonBase {
 	 * Checks if the given object is currently in the success state
 	 */
 	public bool is_ok() {
-		bool ret = bindings.CResult_AcceptChannelDecodeErrorZ_is_ok(this.ptr);
+		bool ret = Bindings.CResultAcceptChannelDecodeErrorZIsOk(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.CResult_AcceptChannelDecodeErrorZ_clone_ptr(this.ptr);
+		long ret = Bindings.CResultAcceptChannelDecodeErrorZClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -82,7 +82,7 @@ public class Result_AcceptChannelDecodeErrorZ : CommonBase {
 	 * but with all dynamically-allocated buffers duplicated in new buffers.
 	 */
 	public Result_AcceptChannelDecodeErrorZ clone() {
-		long ret = bindings.CResult_AcceptChannelDecodeErrorZ_clone(this.ptr);
+		long ret = Bindings.CResultAcceptChannelDecodeErrorZClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_AcceptChannelDecodeErrorZ ret_hu_conv = Result_AcceptChannelDecodeErrorZ.constr_from_ptr(ret);

@@ -12,11 +12,11 @@ namespace org { namespace ldk { namespace structs {
 public class NodeId : CommonBase {
 	internal NodeId(object _dummy, long ptr) : base(ptr) { }
 	~NodeId() {
-		if (ptr != 0) { bindings.NodeId_free(ptr); }
+		if (ptr != 0) { Bindings.NodeIdFree(ptr); }
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.NodeId_clone_ptr(this.ptr);
+		long ret = Bindings.NodeIdClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -25,7 +25,7 @@ public class NodeId : CommonBase {
 	 * Creates a copy of the NodeId
 	 */
 	public NodeId clone() {
-		long ret = bindings.NodeId_clone(this.ptr);
+		long ret = Bindings.NodeIdClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.NodeId ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.NodeId(null, ret); }
@@ -37,7 +37,7 @@ public class NodeId : CommonBase {
 	 * Create a new NodeId from a public key
 	 */
 	public static NodeId from_pubkey(byte[] pubkey) {
-		long ret = bindings.NodeId_from_pubkey(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(pubkey, 33)));
+		long ret = Bindings.NodeIdFromPubkey(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(pubkey, 33)));
 		GC.KeepAlive(pubkey);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.NodeId ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.NodeId(null, ret); }
@@ -49,7 +49,7 @@ public class NodeId : CommonBase {
 	 * Get the public key slice from this NodeId
 	 */
 	public byte[] as_slice() {
-		long ret = bindings.NodeId_as_slice(this.ptr);
+		long ret = Bindings.NodeIdAsSlice(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -60,7 +60,7 @@ public class NodeId : CommonBase {
 	 * Get the public key as an array from this NodeId
 	 */
 	public byte[] as_array() {
-		long ret = bindings.NodeId_as_array(this.ptr);
+		long ret = Bindings.NodeIdAsArray(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -71,7 +71,7 @@ public class NodeId : CommonBase {
 	 * Get the public key from this NodeId
 	 */
 	public Result_PublicKeySecp256k1ErrorZ as_pubkey() {
-		long ret = bindings.NodeId_as_pubkey(this.ptr);
+		long ret = Bindings.NodeIdAsPubkey(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_PublicKeySecp256k1ErrorZ ret_hu_conv = Result_PublicKeySecp256k1ErrorZ.constr_from_ptr(ret);
@@ -82,7 +82,7 @@ public class NodeId : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the NodeId.
 	 */
 	public long hash() {
-		long ret = bindings.NodeId_hash(this.ptr);
+		long ret = Bindings.NodeIdHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -94,7 +94,7 @@ public class NodeId : CommonBase {
 	 * Serialize the NodeId object into a byte array which can be read by NodeId_read
 	 */
 	public byte[] write() {
-		long ret = bindings.NodeId_write(this.ptr);
+		long ret = Bindings.NodeIdWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -105,7 +105,7 @@ public class NodeId : CommonBase {
 	 * Read a NodeId from a byte array, created by NodeId_write
 	 */
 	public static Result_NodeIdDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.NodeId_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.NodeIdRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_NodeIdDecodeErrorZ ret_hu_conv = Result_NodeIdDecodeErrorZ.constr_from_ptr(ret);

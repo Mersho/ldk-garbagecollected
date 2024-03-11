@@ -8,11 +8,11 @@ namespace org { namespace ldk { namespace structs {
 public class Result_WarningMessageDecodeErrorZ : CommonBase {
 	Result_WarningMessageDecodeErrorZ(object _dummy, long ptr) : base(ptr) { }
 	~Result_WarningMessageDecodeErrorZ() {
-		if (ptr != 0) { bindings.CResult_WarningMessageDecodeErrorZ_free(ptr); }
+		if (ptr != 0) { Bindings.CResultWarningMessageDecodeErrorZFree(ptr); }
 	}
 
 	internal static Result_WarningMessageDecodeErrorZ constr_from_ptr(long ptr) {
-		if (bindings.CResult_WarningMessageDecodeErrorZ_is_ok(ptr)) {
+		if (Bindings.CResultWarningMessageDecodeErrorZIsOk(ptr)) {
 			return new Result_WarningMessageDecodeErrorZ_OK(null, ptr);
 		} else {
 			return new Result_WarningMessageDecodeErrorZ_Err(null, ptr);
@@ -21,7 +21,7 @@ public class Result_WarningMessageDecodeErrorZ : CommonBase {
 	public class Result_WarningMessageDecodeErrorZ_OK : Result_WarningMessageDecodeErrorZ {
 		public readonly WarningMessage res;
 		internal Result_WarningMessageDecodeErrorZ_OK(object _dummy, long ptr) : base(_dummy, ptr) {
-			long res = bindings.CResult_WarningMessageDecodeErrorZ_get_ok(ptr);
+			long res = Bindings.CResultWarningMessageDecodeErrorZGetOk(ptr);
 			org.ldk.structs.WarningMessage res_hu_conv = null; if (res < 0 || res > 4096) { res_hu_conv = new org.ldk.structs.WarningMessage(null, res); }
 			if (res_hu_conv != null) { res_hu_conv.ptrs_to.AddLast(this); };
 			this.res = res_hu_conv;
@@ -31,7 +31,7 @@ public class Result_WarningMessageDecodeErrorZ : CommonBase {
 	public class Result_WarningMessageDecodeErrorZ_Err : Result_WarningMessageDecodeErrorZ {
 		public readonly DecodeError err;
 		internal Result_WarningMessageDecodeErrorZ_Err(object _dummy, long ptr) : base(_dummy, ptr) {
-			long err = bindings.CResult_WarningMessageDecodeErrorZ_get_err(ptr);
+			long err = Bindings.CResultWarningMessageDecodeErrorZGetErr(ptr);
 			org.ldk.structs.DecodeError err_hu_conv = org.ldk.structs.DecodeError.constr_from_ptr(err);
 			if (err_hu_conv != null) { err_hu_conv.ptrs_to.AddLast(this); };
 			this.err = err_hu_conv;
@@ -42,7 +42,7 @@ public class Result_WarningMessageDecodeErrorZ : CommonBase {
 	 * Creates a new CResult_WarningMessageDecodeErrorZ in the success state.
 	 */
 	public static Result_WarningMessageDecodeErrorZ ok(org.ldk.structs.WarningMessage o) {
-		long ret = bindings.CResult_WarningMessageDecodeErrorZ_ok(o == null ? 0 : o.ptr);
+		long ret = Bindings.CResultWarningMessageDecodeErrorZOk(o == null ? 0 : o.ptr);
 		GC.KeepAlive(o);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_WarningMessageDecodeErrorZ ret_hu_conv = Result_WarningMessageDecodeErrorZ.constr_from_ptr(ret);
@@ -54,7 +54,7 @@ public class Result_WarningMessageDecodeErrorZ : CommonBase {
 	 * Creates a new CResult_WarningMessageDecodeErrorZ in the error state.
 	 */
 	public static Result_WarningMessageDecodeErrorZ err(org.ldk.structs.DecodeError e) {
-		long ret = bindings.CResult_WarningMessageDecodeErrorZ_err(e.ptr);
+		long ret = Bindings.CResultWarningMessageDecodeErrorZErr(e.ptr);
 		GC.KeepAlive(e);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_WarningMessageDecodeErrorZ ret_hu_conv = Result_WarningMessageDecodeErrorZ.constr_from_ptr(ret);
@@ -66,13 +66,13 @@ public class Result_WarningMessageDecodeErrorZ : CommonBase {
 	 * Checks if the given object is currently in the success state
 	 */
 	public bool is_ok() {
-		bool ret = bindings.CResult_WarningMessageDecodeErrorZ_is_ok(this.ptr);
+		bool ret = Bindings.CResultWarningMessageDecodeErrorZIsOk(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.CResult_WarningMessageDecodeErrorZ_clone_ptr(this.ptr);
+		long ret = Bindings.CResultWarningMessageDecodeErrorZClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -82,7 +82,7 @@ public class Result_WarningMessageDecodeErrorZ : CommonBase {
 	 * but with all dynamically-allocated buffers duplicated in new buffers.
 	 */
 	public Result_WarningMessageDecodeErrorZ clone() {
-		long ret = bindings.CResult_WarningMessageDecodeErrorZ_clone(this.ptr);
+		long ret = Bindings.CResultWarningMessageDecodeErrorZClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_WarningMessageDecodeErrorZ ret_hu_conv = Result_WarningMessageDecodeErrorZ.constr_from_ptr(ret);

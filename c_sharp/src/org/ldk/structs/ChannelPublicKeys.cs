@@ -12,7 +12,7 @@ namespace org { namespace ldk { namespace structs {
 public class ChannelPublicKeys : CommonBase {
 	internal ChannelPublicKeys(object _dummy, long ptr) : base(ptr) { }
 	~ChannelPublicKeys() {
-		if (ptr != 0) { bindings.ChannelPublicKeys_free(ptr); }
+		if (ptr != 0) { Bindings.ChannelPublicKeysFree(ptr); }
 	}
 
 	/**
@@ -20,7 +20,7 @@ public class ChannelPublicKeys : CommonBase {
 	 * on-chain channel lock-in 2-of-2 multisig output.
 	 */
 	public byte[] get_funding_pubkey() {
-		long ret = bindings.ChannelPublicKeys_get_funding_pubkey(this.ptr);
+		long ret = Bindings.ChannelPublicKeysGetFundingPubkey(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -32,7 +32,7 @@ public class ChannelPublicKeys : CommonBase {
 	 * on-chain channel lock-in 2-of-2 multisig output.
 	 */
 	public void set_funding_pubkey(byte[] val) {
-		bindings.ChannelPublicKeys_set_funding_pubkey(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 33)));
+		Bindings.ChannelPublicKeysSetFundingPubkey(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 33)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -44,7 +44,7 @@ public class ChannelPublicKeys : CommonBase {
 	 * states.
 	 */
 	public RevocationBasepoint get_revocation_basepoint() {
-		long ret = bindings.ChannelPublicKeys_get_revocation_basepoint(this.ptr);
+		long ret = Bindings.ChannelPublicKeysGetRevocationBasepoint(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.RevocationBasepoint ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.RevocationBasepoint(null, ret); }
@@ -59,7 +59,7 @@ public class ChannelPublicKeys : CommonBase {
 	 * states.
 	 */
 	public void set_revocation_basepoint(org.ldk.structs.RevocationBasepoint val) {
-		bindings.ChannelPublicKeys_set_revocation_basepoint(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.ChannelPublicKeysSetRevocationBasepoint(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -71,7 +71,7 @@ public class ChannelPublicKeys : CommonBase {
 	 * static across every commitment transaction.
 	 */
 	public byte[] get_payment_point() {
-		long ret = bindings.ChannelPublicKeys_get_payment_point(this.ptr);
+		long ret = Bindings.ChannelPublicKeysGetPaymentPoint(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -84,7 +84,7 @@ public class ChannelPublicKeys : CommonBase {
 	 * static across every commitment transaction.
 	 */
 	public void set_payment_point(byte[] val) {
-		bindings.ChannelPublicKeys_set_payment_point(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 33)));
+		Bindings.ChannelPublicKeysSetPaymentPoint(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 33)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -95,7 +95,7 @@ public class ChannelPublicKeys : CommonBase {
 	 * after some delay (or can be claimed via the revocation path).
 	 */
 	public DelayedPaymentBasepoint get_delayed_payment_basepoint() {
-		long ret = bindings.ChannelPublicKeys_get_delayed_payment_basepoint(this.ptr);
+		long ret = Bindings.ChannelPublicKeysGetDelayedPaymentBasepoint(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.DelayedPaymentBasepoint ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.DelayedPaymentBasepoint(null, ret); }
@@ -109,7 +109,7 @@ public class ChannelPublicKeys : CommonBase {
 	 * after some delay (or can be claimed via the revocation path).
 	 */
 	public void set_delayed_payment_basepoint(org.ldk.structs.DelayedPaymentBasepoint val) {
-		bindings.ChannelPublicKeys_set_delayed_payment_basepoint(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.ChannelPublicKeysSetDelayedPaymentBasepoint(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -120,7 +120,7 @@ public class ChannelPublicKeys : CommonBase {
 	 * which is used to encumber HTLC-in-flight outputs.
 	 */
 	public HtlcBasepoint get_htlc_basepoint() {
-		long ret = bindings.ChannelPublicKeys_get_htlc_basepoint(this.ptr);
+		long ret = Bindings.ChannelPublicKeysGetHtlcBasepoint(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.HtlcBasepoint ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.HtlcBasepoint(null, ret); }
@@ -133,7 +133,7 @@ public class ChannelPublicKeys : CommonBase {
 	 * which is used to encumber HTLC-in-flight outputs.
 	 */
 	public void set_htlc_basepoint(org.ldk.structs.HtlcBasepoint val) {
-		bindings.ChannelPublicKeys_set_htlc_basepoint(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.ChannelPublicKeysSetHtlcBasepoint(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -143,7 +143,7 @@ public class ChannelPublicKeys : CommonBase {
 	 * Constructs a new ChannelPublicKeys given each field
 	 */
 	public static ChannelPublicKeys of(byte[] funding_pubkey_arg, org.ldk.structs.RevocationBasepoint revocation_basepoint_arg, byte[] payment_point_arg, org.ldk.structs.DelayedPaymentBasepoint delayed_payment_basepoint_arg, org.ldk.structs.HtlcBasepoint htlc_basepoint_arg) {
-		long ret = bindings.ChannelPublicKeys_new(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(funding_pubkey_arg, 33)), revocation_basepoint_arg == null ? 0 : revocation_basepoint_arg.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_point_arg, 33)), delayed_payment_basepoint_arg == null ? 0 : delayed_payment_basepoint_arg.ptr, htlc_basepoint_arg == null ? 0 : htlc_basepoint_arg.ptr);
+		long ret = Bindings.ChannelPublicKeysNew(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(funding_pubkey_arg, 33)), revocation_basepoint_arg == null ? 0 : revocation_basepoint_arg.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_point_arg, 33)), delayed_payment_basepoint_arg == null ? 0 : delayed_payment_basepoint_arg.ptr, htlc_basepoint_arg == null ? 0 : htlc_basepoint_arg.ptr);
 		GC.KeepAlive(funding_pubkey_arg);
 		GC.KeepAlive(revocation_basepoint_arg);
 		GC.KeepAlive(payment_point_arg);
@@ -159,7 +159,7 @@ public class ChannelPublicKeys : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.ChannelPublicKeys_clone_ptr(this.ptr);
+		long ret = Bindings.ChannelPublicKeysClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -168,7 +168,7 @@ public class ChannelPublicKeys : CommonBase {
 	 * Creates a copy of the ChannelPublicKeys
 	 */
 	public ChannelPublicKeys clone() {
-		long ret = bindings.ChannelPublicKeys_clone(this.ptr);
+		long ret = Bindings.ChannelPublicKeysClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChannelPublicKeys ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChannelPublicKeys(null, ret); }
@@ -180,7 +180,7 @@ public class ChannelPublicKeys : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the ChannelPublicKeys.
 	 */
 	public long hash() {
-		long ret = bindings.ChannelPublicKeys_hash(this.ptr);
+		long ret = Bindings.ChannelPublicKeysHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -194,7 +194,7 @@ public class ChannelPublicKeys : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.ChannelPublicKeys b) {
-		bool ret = bindings.ChannelPublicKeys_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.ChannelPublicKeysEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -209,7 +209,7 @@ public class ChannelPublicKeys : CommonBase {
 	 * Serialize the ChannelPublicKeys object into a byte array which can be read by ChannelPublicKeys_read
 	 */
 	public byte[] write() {
-		long ret = bindings.ChannelPublicKeys_write(this.ptr);
+		long ret = Bindings.ChannelPublicKeysWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -220,7 +220,7 @@ public class ChannelPublicKeys : CommonBase {
 	 * Read a ChannelPublicKeys from a byte array, created by ChannelPublicKeys_write
 	 */
 	public static Result_ChannelPublicKeysDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.ChannelPublicKeys_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.ChannelPublicKeysRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_ChannelPublicKeysDecodeErrorZ ret_hu_conv = Result_ChannelPublicKeysDecodeErrorZ.constr_from_ptr(ret);

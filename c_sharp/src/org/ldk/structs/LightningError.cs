@@ -12,14 +12,14 @@ namespace org { namespace ldk { namespace structs {
 public class LightningError : CommonBase {
 	internal LightningError(object _dummy, long ptr) : base(ptr) { }
 	~LightningError() {
-		if (ptr != 0) { bindings.LightningError_free(ptr); }
+		if (ptr != 0) { Bindings.LightningErrorFree(ptr); }
 	}
 
 	/**
 	 * A human-readable message describing the error
 	 */
 	public string get_err() {
-		long ret = bindings.LightningError_get_err(this.ptr);
+		long ret = Bindings.LightningErrorGetErr(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		string ret_conv = InternalUtils.decodeString(ret);
@@ -30,7 +30,7 @@ public class LightningError : CommonBase {
 	 * A human-readable message describing the error
 	 */
 	public void set_err(string val) {
-		bindings.LightningError_set_err(this.ptr, InternalUtils.encodeString(val));
+		Bindings.LightningErrorSetErr(this.ptr, InternalUtils.encodeString(val));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -39,7 +39,7 @@ public class LightningError : CommonBase {
 	 * The action which should be taken against the offending peer.
 	 */
 	public ErrorAction get_action() {
-		long ret = bindings.LightningError_get_action(this.ptr);
+		long ret = Bindings.LightningErrorGetAction(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ErrorAction ret_hu_conv = org.ldk.structs.ErrorAction.constr_from_ptr(ret);
@@ -51,7 +51,7 @@ public class LightningError : CommonBase {
 	 * The action which should be taken against the offending peer.
 	 */
 	public void set_action(org.ldk.structs.ErrorAction val) {
-		bindings.LightningError_set_action(this.ptr, val.ptr);
+		Bindings.LightningErrorSetAction(this.ptr, val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -61,7 +61,7 @@ public class LightningError : CommonBase {
 	 * Constructs a new LightningError given each field
 	 */
 	public static LightningError of(string err_arg, org.ldk.structs.ErrorAction action_arg) {
-		long ret = bindings.LightningError_new(InternalUtils.encodeString(err_arg), action_arg.ptr);
+		long ret = Bindings.LightningErrorNew(InternalUtils.encodeString(err_arg), action_arg.ptr);
 		GC.KeepAlive(err_arg);
 		GC.KeepAlive(action_arg);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -72,7 +72,7 @@ public class LightningError : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.LightningError_clone_ptr(this.ptr);
+		long ret = Bindings.LightningErrorClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -81,7 +81,7 @@ public class LightningError : CommonBase {
 	 * Creates a copy of the LightningError
 	 */
 	public LightningError clone() {
-		long ret = bindings.LightningError_clone(this.ptr);
+		long ret = Bindings.LightningErrorClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.LightningError ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.LightningError(null, ret); }

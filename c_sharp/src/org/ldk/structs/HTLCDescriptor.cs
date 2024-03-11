@@ -12,14 +12,14 @@ namespace org { namespace ldk { namespace structs {
 public class HTLCDescriptor : CommonBase {
 	internal HTLCDescriptor(object _dummy, long ptr) : base(ptr) { }
 	~HTLCDescriptor() {
-		if (ptr != 0) { bindings.HTLCDescriptor_free(ptr); }
+		if (ptr != 0) { Bindings.HTLCDescriptorFree(ptr); }
 	}
 
 	/**
 	 * The parameters required to derive the signer for the HTLC input.
 	 */
 	public ChannelDerivationParameters get_channel_derivation_parameters() {
-		long ret = bindings.HTLCDescriptor_get_channel_derivation_parameters(this.ptr);
+		long ret = Bindings.HTLCDescriptorGetChannelDerivationParameters(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChannelDerivationParameters ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChannelDerivationParameters(null, ret); }
@@ -31,7 +31,7 @@ public class HTLCDescriptor : CommonBase {
 	 * The parameters required to derive the signer for the HTLC input.
 	 */
 	public void set_channel_derivation_parameters(org.ldk.structs.ChannelDerivationParameters val) {
-		bindings.HTLCDescriptor_set_channel_derivation_parameters(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.HTLCDescriptorSetChannelDerivationParameters(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -41,7 +41,7 @@ public class HTLCDescriptor : CommonBase {
 	 * The number of the commitment transaction in which the HTLC output lives.
 	 */
 	public long get_per_commitment_number() {
-		long ret = bindings.HTLCDescriptor_get_per_commitment_number(this.ptr);
+		long ret = Bindings.HTLCDescriptorGetPerCommitmentNumber(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -50,7 +50,7 @@ public class HTLCDescriptor : CommonBase {
 	 * The number of the commitment transaction in which the HTLC output lives.
 	 */
 	public void set_per_commitment_number(long val) {
-		bindings.HTLCDescriptor_set_per_commitment_number(this.ptr, val);
+		Bindings.HTLCDescriptorSetPerCommitmentNumber(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -63,7 +63,7 @@ public class HTLCDescriptor : CommonBase {
 	 * See <https://github.com/lightning/bolts/blob/master/03-transactions.md#keys> for more info.
 	 */
 	public byte[] get_per_commitment_point() {
-		long ret = bindings.HTLCDescriptor_get_per_commitment_point(this.ptr);
+		long ret = Bindings.HTLCDescriptorGetPerCommitmentPoint(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -78,7 +78,7 @@ public class HTLCDescriptor : CommonBase {
 	 * See <https://github.com/lightning/bolts/blob/master/03-transactions.md#keys> for more info.
 	 */
 	public void set_per_commitment_point(byte[] val) {
-		bindings.HTLCDescriptor_set_per_commitment_point(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 33)));
+		Bindings.HTLCDescriptorSetPerCommitmentPoint(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 33)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -89,7 +89,7 @@ public class HTLCDescriptor : CommonBase {
 	 * negotiated feerate at the time the commitment transaction was built.
 	 */
 	public int get_feerate_per_kw() {
-		int ret = bindings.HTLCDescriptor_get_feerate_per_kw(this.ptr);
+		int ret = Bindings.HTLCDescriptorGetFeeratePerKw(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -100,7 +100,7 @@ public class HTLCDescriptor : CommonBase {
 	 * negotiated feerate at the time the commitment transaction was built.
 	 */
 	public void set_feerate_per_kw(int val) {
-		bindings.HTLCDescriptor_set_feerate_per_kw(this.ptr, val);
+		Bindings.HTLCDescriptorSetFeeratePerKw(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -109,7 +109,7 @@ public class HTLCDescriptor : CommonBase {
 	 * The details of the HTLC as it appears in the commitment transaction.
 	 */
 	public HTLCOutputInCommitment get_htlc() {
-		long ret = bindings.HTLCDescriptor_get_htlc(this.ptr);
+		long ret = Bindings.HTLCDescriptorGetHtlc(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.HTLCOutputInCommitment ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.HTLCOutputInCommitment(null, ret); }
@@ -121,7 +121,7 @@ public class HTLCDescriptor : CommonBase {
 	 * The details of the HTLC as it appears in the commitment transaction.
 	 */
 	public void set_htlc(org.ldk.structs.HTLCOutputInCommitment val) {
-		bindings.HTLCDescriptor_set_htlc(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.HTLCDescriptorSetHtlc(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -132,7 +132,7 @@ public class HTLCDescriptor : CommonBase {
 	 * taken.
 	 */
 	public Option_ThirtyTwoBytesZ get_preimage() {
-		long ret = bindings.HTLCDescriptor_get_preimage(this.ptr);
+		long ret = Bindings.HTLCDescriptorGetPreimage(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_ThirtyTwoBytesZ ret_hu_conv = org.ldk.structs.Option_ThirtyTwoBytesZ.constr_from_ptr(ret);
@@ -145,7 +145,7 @@ public class HTLCDescriptor : CommonBase {
 	 * taken.
 	 */
 	public void set_preimage(org.ldk.structs.Option_ThirtyTwoBytesZ val) {
-		bindings.HTLCDescriptor_set_preimage(this.ptr, val.ptr);
+		Bindings.HTLCDescriptorSetPreimage(this.ptr, val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -155,7 +155,7 @@ public class HTLCDescriptor : CommonBase {
 	 * The counterparty's signature required to spend the HTLC output.
 	 */
 	public byte[] get_counterparty_sig() {
-		long ret = bindings.HTLCDescriptor_get_counterparty_sig(this.ptr);
+		long ret = Bindings.HTLCDescriptorGetCounterpartySig(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -166,13 +166,13 @@ public class HTLCDescriptor : CommonBase {
 	 * The counterparty's signature required to spend the HTLC output.
 	 */
 	public void set_counterparty_sig(byte[] val) {
-		bindings.HTLCDescriptor_set_counterparty_sig(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 64)));
+		Bindings.HTLCDescriptorSetCounterpartySig(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 64)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.HTLCDescriptor_clone_ptr(this.ptr);
+		long ret = Bindings.HTLCDescriptorClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -181,7 +181,7 @@ public class HTLCDescriptor : CommonBase {
 	 * Creates a copy of the HTLCDescriptor
 	 */
 	public HTLCDescriptor clone() {
-		long ret = bindings.HTLCDescriptor_clone(this.ptr);
+		long ret = Bindings.HTLCDescriptorClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.HTLCDescriptor ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.HTLCDescriptor(null, ret); }
@@ -195,7 +195,7 @@ public class HTLCDescriptor : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.HTLCDescriptor b) {
-		bool ret = bindings.HTLCDescriptor_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.HTLCDescriptorEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -210,7 +210,7 @@ public class HTLCDescriptor : CommonBase {
 	 * Serialize the HTLCDescriptor object into a byte array which can be read by HTLCDescriptor_read
 	 */
 	public byte[] write() {
-		long ret = bindings.HTLCDescriptor_write(this.ptr);
+		long ret = Bindings.HTLCDescriptorWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -221,7 +221,7 @@ public class HTLCDescriptor : CommonBase {
 	 * Read a HTLCDescriptor from a byte array, created by HTLCDescriptor_write
 	 */
 	public static Result_HTLCDescriptorDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.HTLCDescriptor_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.HTLCDescriptorRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_HTLCDescriptorDecodeErrorZ ret_hu_conv = Result_HTLCDescriptorDecodeErrorZ.constr_from_ptr(ret);
@@ -233,7 +233,7 @@ public class HTLCDescriptor : CommonBase {
 	 * being spent by the HTLC input in the HTLC transaction.
 	 */
 	public OutPoint outpoint() {
-		long ret = bindings.HTLCDescriptor_outpoint(this.ptr);
+		long ret = Bindings.HTLCDescriptorOutpoint(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.OutPoint ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.OutPoint(null, ret); }
@@ -246,7 +246,7 @@ public class HTLCDescriptor : CommonBase {
 	 * [`Self::unsigned_tx_input`].
 	 */
 	public TxOut previous_utxo() {
-		long ret = bindings.HTLCDescriptor_previous_utxo(this.ptr);
+		long ret = Bindings.HTLCDescriptorPreviousUtxo(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		TxOut ret_conv = new TxOut(null, ret);
@@ -258,7 +258,7 @@ public class HTLCDescriptor : CommonBase {
 	 * transaction.
 	 */
 	public TxIn unsigned_tx_input() {
-		long ret = bindings.HTLCDescriptor_unsigned_tx_input(this.ptr);
+		long ret = Bindings.HTLCDescriptorUnsignedTxInput(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		TxIn ret_conv = new TxIn(null, ret);
@@ -270,7 +270,7 @@ public class HTLCDescriptor : CommonBase {
 	 * transaction.
 	 */
 	public TxOut tx_output() {
-		long ret = bindings.HTLCDescriptor_tx_output(this.ptr);
+		long ret = Bindings.HTLCDescriptorTxOutput(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		TxOut ret_conv = new TxOut(null, ret);
@@ -281,7 +281,7 @@ public class HTLCDescriptor : CommonBase {
 	 * Returns the witness script of the HTLC output in the commitment transaction.
 	 */
 	public byte[] witness_script() {
-		long ret = bindings.HTLCDescriptor_witness_script(this.ptr);
+		long ret = Bindings.HTLCDescriptorWitnessScript(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -293,7 +293,7 @@ public class HTLCDescriptor : CommonBase {
 	 * transaction.
 	 */
 	public byte[] tx_input_witness(byte[] signature, byte[] witness_script) {
-		long ret = bindings.HTLCDescriptor_tx_input_witness(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(signature, 64)), InternalUtils.encodeUint8Array(witness_script));
+		long ret = Bindings.HTLCDescriptorTxInputWitness(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(signature, 64)), InternalUtils.encodeUint8Array(witness_script));
 		GC.KeepAlive(this);
 		GC.KeepAlive(signature);
 		GC.KeepAlive(witness_script);
@@ -306,7 +306,7 @@ public class HTLCDescriptor : CommonBase {
 	 * Derives the channel signer required to sign the HTLC input.
 	 */
 	public WriteableEcdsaChannelSigner derive_channel_signer(org.ldk.structs.SignerProvider signer_provider) {
-		long ret = bindings.HTLCDescriptor_derive_channel_signer(this.ptr, signer_provider.ptr);
+		long ret = Bindings.HTLCDescriptorDeriveChannelSigner(this.ptr, signer_provider.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(signer_provider);
 		if (ret >= 0 && ret <= 4096) { return null; }

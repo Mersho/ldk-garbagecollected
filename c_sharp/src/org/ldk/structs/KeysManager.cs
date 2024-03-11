@@ -24,7 +24,7 @@ namespace org { namespace ldk { namespace structs {
 public class KeysManager : CommonBase {
 	internal KeysManager(object _dummy, long ptr) : base(ptr) { }
 	~KeysManager() {
-		if (ptr != 0) { bindings.KeysManager_free(ptr); }
+		if (ptr != 0) { Bindings.KeysManagerFree(ptr); }
 	}
 
 	/**
@@ -47,7 +47,7 @@ public class KeysManager : CommonBase {
 	 * [`ChannelMonitor`]: crate::chain::channelmonitor::ChannelMonitor
 	 */
 	public static KeysManager of(byte[] seed, long starting_time_secs, int starting_time_nanos) {
-		long ret = bindings.KeysManager_new(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(seed, 32)), starting_time_secs, starting_time_nanos);
+		long ret = Bindings.KeysManagerNew(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(seed, 32)), starting_time_secs, starting_time_nanos);
 		GC.KeepAlive(seed);
 		GC.KeepAlive(starting_time_secs);
 		GC.KeepAlive(starting_time_nanos);
@@ -61,7 +61,7 @@ public class KeysManager : CommonBase {
 	 * Gets the \"node_id\" secret key used to sign gossip announcements, decode onion data, etc.
 	 */
 	public byte[] get_node_secret_key() {
-		long ret = bindings.KeysManager_get_node_secret_key(this.ptr);
+		long ret = Bindings.KeysManagerGetNodeSecretKey(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -72,7 +72,7 @@ public class KeysManager : CommonBase {
 	 * Derive an old [`WriteableEcdsaChannelSigner`] containing per-channel secrets based on a key derivation parameters.
 	 */
 	public InMemorySigner derive_channel_keys(long channel_value_satoshis, byte[] _params) {
-		long ret = bindings.KeysManager_derive_channel_keys(this.ptr, channel_value_satoshis, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(_params, 32)));
+		long ret = Bindings.KeysManagerDeriveChannelKeys(this.ptr, channel_value_satoshis, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(_params, 32)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(channel_value_satoshis);
 		GC.KeepAlive(_params);
@@ -93,7 +93,7 @@ public class KeysManager : CommonBase {
 	 * this [`KeysManager`] or one of the [`InMemorySigner`] created by this [`KeysManager`].
 	 */
 	public Result_CVec_u8ZNoneZ sign_spendable_outputs_psbt(SpendableOutputDescriptor[] descriptors, byte[] psbt) {
-		long ret = bindings.KeysManager_sign_spendable_outputs_psbt(this.ptr, InternalUtils.encodeUint64Array(InternalUtils.mapArray(descriptors, descriptors_conv_27 => descriptors_conv_27.ptr)), InternalUtils.encodeUint8Array(psbt));
+		long ret = Bindings.KeysManagerSignSpendableOutputsPsbt(this.ptr, InternalUtils.encodeUint64Array(InternalUtils.mapArray(descriptors, descriptors_conv_27 => descriptors_conv_27.ptr)), InternalUtils.encodeUint8Array(psbt));
 		GC.KeepAlive(this);
 		GC.KeepAlive(descriptors);
 		GC.KeepAlive(psbt);
@@ -123,7 +123,7 @@ public class KeysManager : CommonBase {
 	 * this [`KeysManager`] or one of the [`InMemorySigner`] created by this [`KeysManager`].
 	 */
 	public Result_TransactionNoneZ spend_spendable_outputs(SpendableOutputDescriptor[] descriptors, TxOut[] outputs, byte[] change_destination_script, int feerate_sat_per_1000_weight, org.ldk.structs.Option_u32Z locktime) {
-		long ret = bindings.KeysManager_spend_spendable_outputs(this.ptr, InternalUtils.encodeUint64Array(InternalUtils.mapArray(descriptors, descriptors_conv_27 => descriptors_conv_27.ptr)), InternalUtils.encodeUint64Array(InternalUtils.mapArray(outputs, outputs_conv_7 => outputs_conv_7.ptr)), InternalUtils.encodeUint8Array(change_destination_script), feerate_sat_per_1000_weight, locktime.ptr);
+		long ret = Bindings.KeysManagerSpendSpendableOutputs(this.ptr, InternalUtils.encodeUint64Array(InternalUtils.mapArray(descriptors, descriptors_conv_27 => descriptors_conv_27.ptr)), InternalUtils.encodeUint64Array(InternalUtils.mapArray(outputs, outputs_conv_7 => outputs_conv_7.ptr)), InternalUtils.encodeUint8Array(change_destination_script), feerate_sat_per_1000_weight, locktime.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(descriptors);
 		GC.KeepAlive(outputs);
@@ -142,7 +142,7 @@ public class KeysManager : CommonBase {
 	 * This copies the `inner` pointer in this_arg and thus the returned EntropySource must be freed before this_arg is
 	 */
 	public EntropySource as_EntropySource() {
-		long ret = bindings.KeysManager_as_EntropySource(this.ptr);
+		long ret = Bindings.KeysManagerAsEntropySource(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		EntropySource ret_hu_conv = new EntropySource(null, ret);
@@ -155,7 +155,7 @@ public class KeysManager : CommonBase {
 	 * This copies the `inner` pointer in this_arg and thus the returned NodeSigner must be freed before this_arg is
 	 */
 	public NodeSigner as_NodeSigner() {
-		long ret = bindings.KeysManager_as_NodeSigner(this.ptr);
+		long ret = Bindings.KeysManagerAsNodeSigner(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		NodeSigner ret_hu_conv = new NodeSigner(null, ret);
@@ -168,7 +168,7 @@ public class KeysManager : CommonBase {
 	 * This copies the `inner` pointer in this_arg and thus the returned SignerProvider must be freed before this_arg is
 	 */
 	public SignerProvider as_SignerProvider() {
-		long ret = bindings.KeysManager_as_SignerProvider(this.ptr);
+		long ret = Bindings.KeysManagerAsSignerProvider(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		SignerProvider ret_hu_conv = new SignerProvider(null, ret);

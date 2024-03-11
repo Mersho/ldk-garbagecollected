@@ -12,11 +12,11 @@ namespace org { namespace ldk { namespace structs {
 public class BestBlock : CommonBase {
 	internal BestBlock(object _dummy, long ptr) : base(ptr) { }
 	~BestBlock() {
-		if (ptr != 0) { bindings.BestBlock_free(ptr); }
+		if (ptr != 0) { Bindings.BestBlockFree(ptr); }
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.BestBlock_clone_ptr(this.ptr);
+		long ret = Bindings.BestBlockClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -25,7 +25,7 @@ public class BestBlock : CommonBase {
 	 * Creates a copy of the BestBlock
 	 */
 	public BestBlock clone() {
-		long ret = bindings.BestBlock_clone(this.ptr);
+		long ret = Bindings.BestBlockClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.BestBlock ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.BestBlock(null, ret); }
@@ -39,7 +39,7 @@ public class BestBlock : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.BestBlock b) {
-		bool ret = bindings.BestBlock_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.BestBlockEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -55,7 +55,7 @@ public class BestBlock : CommonBase {
 	 * network.
 	 */
 	public static BestBlock from_network(Network network) {
-		long ret = bindings.BestBlock_from_network(network);
+		long ret = Bindings.BestBlockFromNetwork(network);
 		GC.KeepAlive(network);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.BestBlock ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.BestBlock(null, ret); }
@@ -67,7 +67,7 @@ public class BestBlock : CommonBase {
 	 * Returns a `BestBlock` as identified by the given block hash and height.
 	 */
 	public static BestBlock of(byte[] block_hash, int height) {
-		long ret = bindings.BestBlock_new(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(block_hash, 32)), height);
+		long ret = Bindings.BestBlockNew(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(block_hash, 32)), height);
 		GC.KeepAlive(block_hash);
 		GC.KeepAlive(height);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -80,7 +80,7 @@ public class BestBlock : CommonBase {
 	 * Returns the best block hash.
 	 */
 	public byte[] block_hash() {
-		long ret = bindings.BestBlock_block_hash(this.ptr);
+		long ret = Bindings.BestBlockBlockHash(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -91,7 +91,7 @@ public class BestBlock : CommonBase {
 	 * Returns the best block height.
 	 */
 	public int height() {
-		int ret = bindings.BestBlock_height(this.ptr);
+		int ret = Bindings.BestBlockHeight(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}

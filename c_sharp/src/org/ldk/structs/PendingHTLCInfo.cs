@@ -13,14 +13,14 @@ namespace org { namespace ldk { namespace structs {
 public class PendingHTLCInfo : CommonBase {
 	internal PendingHTLCInfo(object _dummy, long ptr) : base(ptr) { }
 	~PendingHTLCInfo() {
-		if (ptr != 0) { bindings.PendingHTLCInfo_free(ptr); }
+		if (ptr != 0) { Bindings.PendingHTLCInfoFree(ptr); }
 	}
 
 	/**
 	 * Further routing details based on whether the HTLC is being forwarded or received.
 	 */
 	public PendingHTLCRouting get_routing() {
-		long ret = bindings.PendingHTLCInfo_get_routing(this.ptr);
+		long ret = Bindings.PendingHTLCInfoGetRouting(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.PendingHTLCRouting ret_hu_conv = org.ldk.structs.PendingHTLCRouting.constr_from_ptr(ret);
@@ -32,7 +32,7 @@ public class PendingHTLCInfo : CommonBase {
 	 * Further routing details based on whether the HTLC is being forwarded or received.
 	 */
 	public void set_routing(org.ldk.structs.PendingHTLCRouting val) {
-		bindings.PendingHTLCInfo_set_routing(this.ptr, val.ptr);
+		Bindings.PendingHTLCInfoSetRouting(this.ptr, val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -44,7 +44,7 @@ public class PendingHTLCInfo : CommonBase {
 	 * This is later used to encrypt failure packets in the event that the HTLC is failed.
 	 */
 	public byte[] get_incoming_shared_secret() {
-		long ret = bindings.PendingHTLCInfo_get_incoming_shared_secret(this.ptr);
+		long ret = Bindings.PendingHTLCInfoGetIncomingSharedSecret(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -57,7 +57,7 @@ public class PendingHTLCInfo : CommonBase {
 	 * This is later used to encrypt failure packets in the event that the HTLC is failed.
 	 */
 	public void set_incoming_shared_secret(byte[] val) {
-		bindings.PendingHTLCInfo_set_incoming_shared_secret(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
+		Bindings.PendingHTLCInfoSetIncomingSharedSecret(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -66,7 +66,7 @@ public class PendingHTLCInfo : CommonBase {
 	 * Hash of the payment preimage, to lock the payment until the receiver releases the preimage.
 	 */
 	public byte[] get_payment_hash() {
-		long ret = bindings.PendingHTLCInfo_get_payment_hash(this.ptr);
+		long ret = Bindings.PendingHTLCInfoGetPaymentHash(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -77,7 +77,7 @@ public class PendingHTLCInfo : CommonBase {
 	 * Hash of the payment preimage, to lock the payment until the receiver releases the preimage.
 	 */
 	public void set_payment_hash(byte[] val) {
-		bindings.PendingHTLCInfo_set_payment_hash(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
+		Bindings.PendingHTLCInfoSetPaymentHash(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -89,7 +89,7 @@ public class PendingHTLCInfo : CommonBase {
 	 * versions.
 	 */
 	public Option_u64Z get_incoming_amt_msat() {
-		long ret = bindings.PendingHTLCInfo_get_incoming_amt_msat(this.ptr);
+		long ret = Bindings.PendingHTLCInfoGetIncomingAmtMsat(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_u64Z ret_hu_conv = org.ldk.structs.Option_u64Z.constr_from_ptr(ret);
@@ -104,7 +104,7 @@ public class PendingHTLCInfo : CommonBase {
 	 * versions.
 	 */
 	public void set_incoming_amt_msat(org.ldk.structs.Option_u64Z val) {
-		bindings.PendingHTLCInfo_set_incoming_amt_msat(this.ptr, val.ptr);
+		Bindings.PendingHTLCInfoSetIncomingAmtMsat(this.ptr, val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -124,7 +124,7 @@ public class PendingHTLCInfo : CommonBase {
 	 * [`Self::outgoing_amt_msat`].
 	 */
 	public long get_outgoing_amt_msat() {
-		long ret = bindings.PendingHTLCInfo_get_outgoing_amt_msat(this.ptr);
+		long ret = Bindings.PendingHTLCInfoGetOutgoingAmtMsat(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -143,7 +143,7 @@ public class PendingHTLCInfo : CommonBase {
 	 * [`Self::outgoing_amt_msat`].
 	 */
 	public void set_outgoing_amt_msat(long val) {
-		bindings.PendingHTLCInfo_set_outgoing_amt_msat(this.ptr, val);
+		Bindings.PendingHTLCInfoSetOutgoingAmtMsat(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -153,7 +153,7 @@ public class PendingHTLCInfo : CommonBase {
 	 * should have been set on the received HTLC for received payments).
 	 */
 	public int get_outgoing_cltv_value() {
-		int ret = bindings.PendingHTLCInfo_get_outgoing_cltv_value(this.ptr);
+		int ret = Bindings.PendingHTLCInfoGetOutgoingCltvValue(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -163,7 +163,7 @@ public class PendingHTLCInfo : CommonBase {
 	 * should have been set on the received HTLC for received payments).
 	 */
 	public void set_outgoing_cltv_value(int val) {
-		bindings.PendingHTLCInfo_set_outgoing_cltv_value(this.ptr, val);
+		Bindings.PendingHTLCInfoSetOutgoingCltvValue(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -180,7 +180,7 @@ public class PendingHTLCInfo : CommonBase {
 	 * shoulder them.
 	 */
 	public Option_u64Z get_skimmed_fee_msat() {
-		long ret = bindings.PendingHTLCInfo_get_skimmed_fee_msat(this.ptr);
+		long ret = Bindings.PendingHTLCInfoGetSkimmedFeeMsat(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_u64Z ret_hu_conv = org.ldk.structs.Option_u64Z.constr_from_ptr(ret);
@@ -200,7 +200,7 @@ public class PendingHTLCInfo : CommonBase {
 	 * shoulder them.
 	 */
 	public void set_skimmed_fee_msat(org.ldk.structs.Option_u64Z val) {
-		bindings.PendingHTLCInfo_set_skimmed_fee_msat(this.ptr, val.ptr);
+		Bindings.PendingHTLCInfoSetSkimmedFeeMsat(this.ptr, val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -210,7 +210,7 @@ public class PendingHTLCInfo : CommonBase {
 	 * Constructs a new PendingHTLCInfo given each field
 	 */
 	public static PendingHTLCInfo of(org.ldk.structs.PendingHTLCRouting routing_arg, byte[] incoming_shared_secret_arg, byte[] payment_hash_arg, org.ldk.structs.Option_u64Z incoming_amt_msat_arg, long outgoing_amt_msat_arg, int outgoing_cltv_value_arg, org.ldk.structs.Option_u64Z skimmed_fee_msat_arg) {
-		long ret = bindings.PendingHTLCInfo_new(routing_arg.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(incoming_shared_secret_arg, 32)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_hash_arg, 32)), incoming_amt_msat_arg.ptr, outgoing_amt_msat_arg, outgoing_cltv_value_arg, skimmed_fee_msat_arg.ptr);
+		long ret = Bindings.PendingHTLCInfoNew(routing_arg.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(incoming_shared_secret_arg, 32)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_hash_arg, 32)), incoming_amt_msat_arg.ptr, outgoing_amt_msat_arg, outgoing_cltv_value_arg, skimmed_fee_msat_arg.ptr);
 		GC.KeepAlive(routing_arg);
 		GC.KeepAlive(incoming_shared_secret_arg);
 		GC.KeepAlive(payment_hash_arg);
@@ -228,7 +228,7 @@ public class PendingHTLCInfo : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.PendingHTLCInfo_clone_ptr(this.ptr);
+		long ret = Bindings.PendingHTLCInfoClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -237,7 +237,7 @@ public class PendingHTLCInfo : CommonBase {
 	 * Creates a copy of the PendingHTLCInfo
 	 */
 	public PendingHTLCInfo clone() {
-		long ret = bindings.PendingHTLCInfo_clone(this.ptr);
+		long ret = Bindings.PendingHTLCInfoClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.PendingHTLCInfo ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.PendingHTLCInfo(null, ret); }
@@ -249,7 +249,7 @@ public class PendingHTLCInfo : CommonBase {
 	 * Serialize the PendingHTLCInfo object into a byte array which can be read by PendingHTLCInfo_read
 	 */
 	public byte[] write() {
-		long ret = bindings.PendingHTLCInfo_write(this.ptr);
+		long ret = Bindings.PendingHTLCInfoWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -260,7 +260,7 @@ public class PendingHTLCInfo : CommonBase {
 	 * Read a PendingHTLCInfo from a byte array, created by PendingHTLCInfo_write
 	 */
 	public static Result_PendingHTLCInfoDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.PendingHTLCInfo_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.PendingHTLCInfoRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_PendingHTLCInfoDecodeErrorZ ret_hu_conv = Result_PendingHTLCInfoDecodeErrorZ.constr_from_ptr(ret);

@@ -12,7 +12,7 @@ namespace org { namespace ldk { namespace structs {
 public class InvalidShutdownScript : CommonBase {
 	internal InvalidShutdownScript(object _dummy, long ptr) : base(ptr) { }
 	~InvalidShutdownScript() {
-		if (ptr != 0) { bindings.InvalidShutdownScript_free(ptr); }
+		if (ptr != 0) { Bindings.InvalidShutdownScriptFree(ptr); }
 	}
 
 	/**
@@ -21,7 +21,7 @@ public class InvalidShutdownScript : CommonBase {
 	 * [BOLT #2]: https://github.com/lightning/bolts/blob/master/02-peer-protocol.md
 	 */
 	public byte[] get_script() {
-		long ret = bindings.InvalidShutdownScript_get_script(this.ptr);
+		long ret = Bindings.InvalidShutdownScriptGetScript(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -34,7 +34,7 @@ public class InvalidShutdownScript : CommonBase {
 	 * [BOLT #2]: https://github.com/lightning/bolts/blob/master/02-peer-protocol.md
 	 */
 	public void set_script(byte[] val) {
-		bindings.InvalidShutdownScript_set_script(this.ptr, InternalUtils.encodeUint8Array(val));
+		Bindings.InvalidShutdownScriptSetScript(this.ptr, InternalUtils.encodeUint8Array(val));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -43,7 +43,7 @@ public class InvalidShutdownScript : CommonBase {
 	 * Constructs a new InvalidShutdownScript given each field
 	 */
 	public static InvalidShutdownScript of(byte[] script_arg) {
-		long ret = bindings.InvalidShutdownScript_new(InternalUtils.encodeUint8Array(script_arg));
+		long ret = Bindings.InvalidShutdownScriptNew(InternalUtils.encodeUint8Array(script_arg));
 		GC.KeepAlive(script_arg);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.InvalidShutdownScript ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.InvalidShutdownScript(null, ret); }
@@ -52,7 +52,7 @@ public class InvalidShutdownScript : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.InvalidShutdownScript_clone_ptr(this.ptr);
+		long ret = Bindings.InvalidShutdownScriptClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -61,7 +61,7 @@ public class InvalidShutdownScript : CommonBase {
 	 * Creates a copy of the InvalidShutdownScript
 	 */
 	public InvalidShutdownScript clone() {
-		long ret = bindings.InvalidShutdownScript_clone(this.ptr);
+		long ret = Bindings.InvalidShutdownScriptClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.InvalidShutdownScript ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.InvalidShutdownScript(null, ret); }

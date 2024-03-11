@@ -12,7 +12,7 @@ namespace org { namespace ldk { namespace structs {
 public class MessageHandler : CommonBase {
 	internal MessageHandler(object _dummy, long ptr) : base(ptr) { }
 	~MessageHandler() {
-		if (ptr != 0) { bindings.MessageHandler_free(ptr); }
+		if (ptr != 0) { Bindings.MessageHandlerFree(ptr); }
 	}
 
 	/**
@@ -22,7 +22,7 @@ public class MessageHandler : CommonBase {
 	 * [`ChannelManager`]: crate::ln::channelmanager::ChannelManager
 	 */
 	public ChannelMessageHandler get_chan_handler() {
-		long ret = bindings.MessageHandler_get_chan_handler(this.ptr);
+		long ret = Bindings.MessageHandlerGetChanHandler(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		ChannelMessageHandler ret_hu_conv = new ChannelMessageHandler(null, ret);
@@ -37,7 +37,7 @@ public class MessageHandler : CommonBase {
 	 * [`ChannelManager`]: crate::ln::channelmanager::ChannelManager
 	 */
 	public void set_chan_handler(org.ldk.structs.ChannelMessageHandler val) {
-		bindings.MessageHandler_set_chan_handler(this.ptr, val.ptr);
+		Bindings.MessageHandlerSetChanHandler(this.ptr, val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -50,7 +50,7 @@ public class MessageHandler : CommonBase {
 	 * [`P2PGossipSync`]: crate::routing::gossip::P2PGossipSync
 	 */
 	public RoutingMessageHandler get_route_handler() {
-		long ret = bindings.MessageHandler_get_route_handler(this.ptr);
+		long ret = Bindings.MessageHandlerGetRouteHandler(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		RoutingMessageHandler ret_hu_conv = new RoutingMessageHandler(null, ret);
@@ -65,7 +65,7 @@ public class MessageHandler : CommonBase {
 	 * [`P2PGossipSync`]: crate::routing::gossip::P2PGossipSync
 	 */
 	public void set_route_handler(org.ldk.structs.RoutingMessageHandler val) {
-		bindings.MessageHandler_set_route_handler(this.ptr, val.ptr);
+		Bindings.MessageHandlerSetRouteHandler(this.ptr, val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -78,7 +78,7 @@ public class MessageHandler : CommonBase {
 	 * [`OnionMessenger`]: crate::onion_message::messenger::OnionMessenger
 	 */
 	public OnionMessageHandler get_onion_message_handler() {
-		long ret = bindings.MessageHandler_get_onion_message_handler(this.ptr);
+		long ret = Bindings.MessageHandlerGetOnionMessageHandler(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		OnionMessageHandler ret_hu_conv = new OnionMessageHandler(null, ret);
@@ -93,7 +93,7 @@ public class MessageHandler : CommonBase {
 	 * [`OnionMessenger`]: crate::onion_message::messenger::OnionMessenger
 	 */
 	public void set_onion_message_handler(org.ldk.structs.OnionMessageHandler val) {
-		bindings.MessageHandler_set_onion_message_handler(this.ptr, val.ptr);
+		Bindings.MessageHandlerSetOnionMessageHandler(this.ptr, val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -104,7 +104,7 @@ public class MessageHandler : CommonBase {
 	 * [`IgnoringMessageHandler`].
 	 */
 	public CustomMessageHandler get_custom_message_handler() {
-		long ret = bindings.MessageHandler_get_custom_message_handler(this.ptr);
+		long ret = Bindings.MessageHandlerGetCustomMessageHandler(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		CustomMessageHandler ret_hu_conv = new CustomMessageHandler(null, ret);
@@ -117,7 +117,7 @@ public class MessageHandler : CommonBase {
 	 * [`IgnoringMessageHandler`].
 	 */
 	public void set_custom_message_handler(org.ldk.structs.CustomMessageHandler val) {
-		bindings.MessageHandler_set_custom_message_handler(this.ptr, val.ptr);
+		Bindings.MessageHandlerSetCustomMessageHandler(this.ptr, val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -127,7 +127,7 @@ public class MessageHandler : CommonBase {
 	 * Constructs a new MessageHandler given each field
 	 */
 	public static MessageHandler of(org.ldk.structs.ChannelMessageHandler chan_handler_arg, org.ldk.structs.RoutingMessageHandler route_handler_arg, org.ldk.structs.OnionMessageHandler onion_message_handler_arg, org.ldk.structs.CustomMessageHandler custom_message_handler_arg) {
-		long ret = bindings.MessageHandler_new(chan_handler_arg.ptr, route_handler_arg.ptr, onion_message_handler_arg.ptr, custom_message_handler_arg.ptr);
+		long ret = Bindings.MessageHandlerNew(chan_handler_arg.ptr, route_handler_arg.ptr, onion_message_handler_arg.ptr, custom_message_handler_arg.ptr);
 		GC.KeepAlive(chan_handler_arg);
 		GC.KeepAlive(route_handler_arg);
 		GC.KeepAlive(onion_message_handler_arg);

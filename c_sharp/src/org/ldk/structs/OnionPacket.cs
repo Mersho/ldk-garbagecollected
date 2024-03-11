@@ -12,14 +12,14 @@ namespace org { namespace ldk { namespace structs {
 public class OnionPacket : CommonBase {
 	internal OnionPacket(object _dummy, long ptr) : base(ptr) { }
 	~OnionPacket() {
-		if (ptr != 0) { bindings.OnionPacket_free(ptr); }
+		if (ptr != 0) { Bindings.OnionPacketFree(ptr); }
 	}
 
 	/**
 	 * BOLT 4 version number.
 	 */
 	public byte get_version() {
-		byte ret = bindings.OnionPacket_get_version(this.ptr);
+		byte ret = Bindings.OnionPacketGetVersion(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -28,7 +28,7 @@ public class OnionPacket : CommonBase {
 	 * BOLT 4 version number.
 	 */
 	public void set_version(byte val) {
-		bindings.OnionPacket_set_version(this.ptr, val);
+		Bindings.OnionPacketSetVersion(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -43,7 +43,7 @@ public class OnionPacket : CommonBase {
 	 * Returns a copy of the field.
 	 */
 	public Result_PublicKeySecp256k1ErrorZ get_public_key() {
-		long ret = bindings.OnionPacket_get_public_key(this.ptr);
+		long ret = Bindings.OnionPacketGetPublicKey(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_PublicKeySecp256k1ErrorZ ret_hu_conv = Result_PublicKeySecp256k1ErrorZ.constr_from_ptr(ret);
@@ -58,7 +58,7 @@ public class OnionPacket : CommonBase {
 	 * like.
 	 */
 	public void set_public_key(org.ldk.structs.Result_PublicKeySecp256k1ErrorZ val) {
-		bindings.OnionPacket_set_public_key(this.ptr, val != null ? val.ptr : 0);
+		Bindings.OnionPacketSetPublicKey(this.ptr, val != null ? val.ptr : 0);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -67,7 +67,7 @@ public class OnionPacket : CommonBase {
 	 * HMAC to verify the integrity of hop_data.
 	 */
 	public byte[] get_hmac() {
-		long ret = bindings.OnionPacket_get_hmac(this.ptr);
+		long ret = Bindings.OnionPacketGetHmac(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -78,13 +78,13 @@ public class OnionPacket : CommonBase {
 	 * HMAC to verify the integrity of hop_data.
 	 */
 	public void set_hmac(byte[] val) {
-		bindings.OnionPacket_set_hmac(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
+		Bindings.OnionPacketSetHmac(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.OnionPacket_clone_ptr(this.ptr);
+		long ret = Bindings.OnionPacketClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -93,7 +93,7 @@ public class OnionPacket : CommonBase {
 	 * Creates a copy of the OnionPacket
 	 */
 	public OnionPacket clone() {
-		long ret = bindings.OnionPacket_clone(this.ptr);
+		long ret = Bindings.OnionPacketClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.OnionPacket ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.OnionPacket(null, ret); }
@@ -105,7 +105,7 @@ public class OnionPacket : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the OnionPacket.
 	 */
 	public long hash() {
-		long ret = bindings.OnionPacket_hash(this.ptr);
+		long ret = Bindings.OnionPacketHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -119,7 +119,7 @@ public class OnionPacket : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.OnionPacket b) {
-		bool ret = bindings.OnionPacket_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.OnionPacketEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -134,7 +134,7 @@ public class OnionPacket : CommonBase {
 	 * Serialize the OnionPacket object into a byte array which can be read by OnionPacket_read
 	 */
 	public byte[] write() {
-		long ret = bindings.OnionPacket_write(this.ptr);
+		long ret = Bindings.OnionPacketWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -145,7 +145,7 @@ public class OnionPacket : CommonBase {
 	 * Read a OnionPacket from a byte array, created by OnionPacket_write
 	 */
 	public static Result_OnionPacketDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.OnionPacket_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.OnionPacketRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_OnionPacketDecodeErrorZ ret_hu_conv = Result_OnionPacketDecodeErrorZ.constr_from_ptr(ret);

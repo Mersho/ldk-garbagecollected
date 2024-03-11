@@ -20,11 +20,11 @@ namespace org { namespace ldk { namespace structs {
 public class HtlcKey : CommonBase {
 	internal HtlcKey(object _dummy, long ptr) : base(ptr) { }
 	~HtlcKey() {
-		if (ptr != 0) { bindings.HtlcKey_free(ptr); }
+		if (ptr != 0) { Bindings.HtlcKeyFree(ptr); }
 	}
 
 	public byte[] get_a() {
-		long ret = bindings.HtlcKey_get_a(this.ptr);
+		long ret = Bindings.HtlcKeyGetA(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -32,7 +32,7 @@ public class HtlcKey : CommonBase {
 	}
 
 	public void set_a(byte[] val) {
-		bindings.HtlcKey_set_a(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 33)));
+		Bindings.HtlcKeySetA(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 33)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -41,7 +41,7 @@ public class HtlcKey : CommonBase {
 	 * Constructs a new HtlcKey given each field
 	 */
 	public static HtlcKey of(byte[] a_arg) {
-		long ret = bindings.HtlcKey_new(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(a_arg, 33)));
+		long ret = Bindings.HtlcKeyNew(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(a_arg, 33)));
 		GC.KeepAlive(a_arg);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.HtlcKey ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.HtlcKey(null, ret); }
@@ -55,7 +55,7 @@ public class HtlcKey : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.HtlcKey b) {
-		bool ret = bindings.HtlcKey_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.HtlcKeyEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -67,7 +67,7 @@ public class HtlcKey : CommonBase {
 		return this.eq((HtlcKey)o);
 	}
 	internal long clone_ptr() {
-		long ret = bindings.HtlcKey_clone_ptr(this.ptr);
+		long ret = Bindings.HtlcKeyClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -76,7 +76,7 @@ public class HtlcKey : CommonBase {
 	 * Creates a copy of the HtlcKey
 	 */
 	public HtlcKey clone() {
-		long ret = bindings.HtlcKey_clone(this.ptr);
+		long ret = Bindings.HtlcKeyClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.HtlcKey ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.HtlcKey(null, ret); }
@@ -88,7 +88,7 @@ public class HtlcKey : CommonBase {
 	 * Derive a public htlcpubkey using one node\'s `per_commitment_point` and its countersignatory\'s `basepoint`
 	 */
 	public static HtlcKey from_basepoint(org.ldk.structs.HtlcBasepoint countersignatory_basepoint, byte[] per_commitment_point) {
-		long ret = bindings.HtlcKey_from_basepoint(countersignatory_basepoint == null ? 0 : countersignatory_basepoint.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(per_commitment_point, 33)));
+		long ret = Bindings.HtlcKeyFromBasepoint(countersignatory_basepoint == null ? 0 : countersignatory_basepoint.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(per_commitment_point, 33)));
 		GC.KeepAlive(countersignatory_basepoint);
 		GC.KeepAlive(per_commitment_point);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -102,7 +102,7 @@ public class HtlcKey : CommonBase {
 	 * Build a htlcpubkey directly from an already-derived private key
 	 */
 	public static HtlcKey from_secret_key(byte[] sk) {
-		long ret = bindings.HtlcKey_from_secret_key(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(sk, 32)));
+		long ret = Bindings.HtlcKeyFromSecretKey(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(sk, 32)));
 		GC.KeepAlive(sk);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.HtlcKey ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.HtlcKey(null, ret); }
@@ -114,7 +114,7 @@ public class HtlcKey : CommonBase {
 	 * Get inner Public Key
 	 */
 	public byte[] to_public_key() {
-		long ret = bindings.HtlcKey_to_public_key(this.ptr);
+		long ret = Bindings.HtlcKeyToPublicKey(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -125,7 +125,7 @@ public class HtlcKey : CommonBase {
 	 * Serialize the HtlcKey object into a byte array which can be read by HtlcKey_read
 	 */
 	public byte[] write() {
-		long ret = bindings.HtlcKey_write(this.ptr);
+		long ret = Bindings.HtlcKeyWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -136,7 +136,7 @@ public class HtlcKey : CommonBase {
 	 * Read a HtlcKey from a byte array, created by HtlcKey_write
 	 */
 	public static Result_HtlcKeyDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.HtlcKey_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.HtlcKeyRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_HtlcKeyDecodeErrorZ ret_hu_conv = Result_HtlcKeyDecodeErrorZ.constr_from_ptr(ret);

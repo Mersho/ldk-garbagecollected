@@ -14,14 +14,14 @@ namespace org { namespace ldk { namespace structs {
 public class Init : CommonBase {
 	internal Init(object _dummy, long ptr) : base(ptr) { }
 	~Init() {
-		if (ptr != 0) { bindings.Init_free(ptr); }
+		if (ptr != 0) { Bindings.InitFree(ptr); }
 	}
 
 	/**
 	 * The relevant features which the sender supports.
 	 */
 	public InitFeatures get_features() {
-		long ret = bindings.Init_get_features(this.ptr);
+		long ret = Bindings.InitGetFeatures(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.InitFeatures ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.InitFeatures(null, ret); }
@@ -33,7 +33,7 @@ public class Init : CommonBase {
 	 * The relevant features which the sender supports.
 	 */
 	public void set_features(org.ldk.structs.InitFeatures val) {
-		bindings.Init_set_features(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.InitSetFeatures(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -47,7 +47,7 @@ public class Init : CommonBase {
 	 * Returns a copy of the field.
 	 */
 	public Option_CVec_ThirtyTwoBytesZZ get_networks() {
-		long ret = bindings.Init_get_networks(this.ptr);
+		long ret = Bindings.InitGetNetworks(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_CVec_ThirtyTwoBytesZZ ret_hu_conv = org.ldk.structs.Option_CVec_ThirtyTwoBytesZZ.constr_from_ptr(ret);
@@ -61,7 +61,7 @@ public class Init : CommonBase {
 	 * If there are no common chains, the connection will be closed.
 	 */
 	public void set_networks(org.ldk.structs.Option_CVec_ThirtyTwoBytesZZ val) {
-		bindings.Init_set_networks(this.ptr, val.ptr);
+		Bindings.InitSetNetworks(this.ptr, val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -76,7 +76,7 @@ public class Init : CommonBase {
 	 * the new address.
 	 */
 	public Option_SocketAddressZ get_remote_network_address() {
-		long ret = bindings.Init_get_remote_network_address(this.ptr);
+		long ret = Bindings.InitGetRemoteNetworkAddress(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_SocketAddressZ ret_hu_conv = org.ldk.structs.Option_SocketAddressZ.constr_from_ptr(ret);
@@ -93,7 +93,7 @@ public class Init : CommonBase {
 	 * the new address.
 	 */
 	public void set_remote_network_address(org.ldk.structs.Option_SocketAddressZ val) {
-		bindings.Init_set_remote_network_address(this.ptr, val.ptr);
+		Bindings.InitSetRemoteNetworkAddress(this.ptr, val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -103,7 +103,7 @@ public class Init : CommonBase {
 	 * Constructs a new Init given each field
 	 */
 	public static Init of(org.ldk.structs.InitFeatures features_arg, org.ldk.structs.Option_CVec_ThirtyTwoBytesZZ networks_arg, org.ldk.structs.Option_SocketAddressZ remote_network_address_arg) {
-		long ret = bindings.Init_new(features_arg == null ? 0 : features_arg.ptr, networks_arg.ptr, remote_network_address_arg.ptr);
+		long ret = Bindings.InitNew(features_arg == null ? 0 : features_arg.ptr, networks_arg.ptr, remote_network_address_arg.ptr);
 		GC.KeepAlive(features_arg);
 		GC.KeepAlive(networks_arg);
 		GC.KeepAlive(remote_network_address_arg);
@@ -117,7 +117,7 @@ public class Init : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.Init_clone_ptr(this.ptr);
+		long ret = Bindings.InitClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -126,7 +126,7 @@ public class Init : CommonBase {
 	 * Creates a copy of the Init
 	 */
 	public Init clone() {
-		long ret = bindings.Init_clone(this.ptr);
+		long ret = Bindings.InitClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Init ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.Init(null, ret); }
@@ -138,7 +138,7 @@ public class Init : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the Init.
 	 */
 	public long hash() {
-		long ret = bindings.Init_hash(this.ptr);
+		long ret = Bindings.InitHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -152,7 +152,7 @@ public class Init : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.Init b) {
-		bool ret = bindings.Init_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.InitEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -167,7 +167,7 @@ public class Init : CommonBase {
 	 * Serialize the Init object into a byte array which can be read by Init_read
 	 */
 	public byte[] write() {
-		long ret = bindings.Init_write(this.ptr);
+		long ret = Bindings.InitWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -178,7 +178,7 @@ public class Init : CommonBase {
 	 * Read a Init from a byte array, created by Init_write
 	 */
 	public static Result_InitDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.Init_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.InitRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_InitDecodeErrorZ ret_hu_conv = Result_InitDecodeErrorZ.constr_from_ptr(ret);

@@ -22,11 +22,11 @@ namespace org { namespace ldk { namespace structs {
 public class ChannelMonitor : CommonBase {
 	internal ChannelMonitor(object _dummy, long ptr) : base(ptr) { }
 	~ChannelMonitor() {
-		if (ptr != 0) { bindings.ChannelMonitor_free(ptr); }
+		if (ptr != 0) { Bindings.ChannelMonitorFree(ptr); }
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.ChannelMonitor_clone_ptr(this.ptr);
+		long ret = Bindings.ChannelMonitorClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -35,7 +35,7 @@ public class ChannelMonitor : CommonBase {
 	 * Creates a copy of the ChannelMonitor
 	 */
 	public ChannelMonitor clone() {
-		long ret = bindings.ChannelMonitor_clone(this.ptr);
+		long ret = Bindings.ChannelMonitorClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChannelMonitor ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChannelMonitor(null, ret); }
@@ -47,7 +47,7 @@ public class ChannelMonitor : CommonBase {
 	 * Serialize the ChannelMonitor object into a byte array which can be read by ChannelMonitor_read
 	 */
 	public byte[] write() {
-		long ret = bindings.ChannelMonitor_write(this.ptr);
+		long ret = Bindings.ChannelMonitorWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -61,7 +61,7 @@ public class ChannelMonitor : CommonBase {
 	 * panics if the given update is not the next update by update_id.
 	 */
 	public Result_NoneNoneZ update_monitor(org.ldk.structs.ChannelMonitorUpdate updates, org.ldk.structs.BroadcasterInterface broadcaster, org.ldk.structs.FeeEstimator fee_estimator, org.ldk.structs.Logger logger) {
-		long ret = bindings.ChannelMonitor_update_monitor(this.ptr, updates == null ? 0 : updates.ptr, broadcaster.ptr, fee_estimator.ptr, logger.ptr);
+		long ret = Bindings.ChannelMonitorUpdateMonitor(this.ptr, updates == null ? 0 : updates.ptr, broadcaster.ptr, fee_estimator.ptr, logger.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(updates);
 		GC.KeepAlive(broadcaster);
@@ -81,7 +81,7 @@ public class ChannelMonitor : CommonBase {
 	 * ChannelMonitor.
 	 */
 	public long get_latest_update_id() {
-		long ret = bindings.ChannelMonitor_get_latest_update_id(this.ptr);
+		long ret = Bindings.ChannelMonitorGetLatestUpdateId(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -90,7 +90,7 @@ public class ChannelMonitor : CommonBase {
 	 * Gets the funding transaction outpoint of the channel this ChannelMonitor is monitoring for.
 	 */
 	public TwoTuple_OutPointCVec_u8ZZ get_funding_txo() {
-		long ret = bindings.ChannelMonitor_get_funding_txo(this.ptr);
+		long ret = Bindings.ChannelMonitorGetFundingTxo(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		TwoTuple_OutPointCVec_u8ZZ ret_hu_conv = new TwoTuple_OutPointCVec_u8ZZ(null, ret);
@@ -103,7 +103,7 @@ public class ChannelMonitor : CommonBase {
 	 * transaction), which we must learn about spends of via block_connected().
 	 */
 	public TwoTuple_ThirtyTwoBytesCVec_C2Tuple_u32CVec_u8ZZZZ[] get_outputs_to_watch() {
-		long ret = bindings.ChannelMonitor_get_outputs_to_watch(this.ptr);
+		long ret = Bindings.ChannelMonitorGetOutputsToWatch(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		int ret_conv_52_len = InternalUtils.getArrayLength(ret);
@@ -114,7 +114,7 @@ public class ChannelMonitor : CommonBase {
 			if (ret_conv_52_hu_conv != null) { ret_conv_52_hu_conv.ptrs_to.AddLast(this); };
 			ret_conv_52_arr[a] = ret_conv_52_hu_conv;
 		}
-		bindings.free_buffer(ret);
+		Bindings.FreeBuffer(ret);
 		return ret_conv_52_arr;
 	}
 
@@ -124,7 +124,7 @@ public class ChannelMonitor : CommonBase {
 	 * have been registered.
 	 */
 	public void load_outputs_to_watch(org.ldk.structs.Filter filter, org.ldk.structs.Logger logger) {
-		bindings.ChannelMonitor_load_outputs_to_watch(this.ptr, filter.ptr, logger.ptr);
+		Bindings.ChannelMonitorLoadOutputsToWatch(this.ptr, filter.ptr, logger.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(filter);
 		GC.KeepAlive(logger);
@@ -137,7 +137,7 @@ public class ChannelMonitor : CommonBase {
 	 * ChannelManager via [`chain::Watch::release_pending_monitor_events`].
 	 */
 	public MonitorEvent[] get_and_clear_pending_monitor_events() {
-		long ret = bindings.ChannelMonitor_get_and_clear_pending_monitor_events(this.ptr);
+		long ret = Bindings.ChannelMonitorGetAndClearPendingMonitorEvents(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		int ret_conv_14_len = InternalUtils.getArrayLength(ret);
@@ -148,7 +148,7 @@ public class ChannelMonitor : CommonBase {
 			if (ret_conv_14_hu_conv != null) { ret_conv_14_hu_conv.ptrs_to.AddLast(this); };
 			ret_conv_14_arr[o] = ret_conv_14_hu_conv;
 		}
-		bindings.free_buffer(ret);
+		Bindings.FreeBuffer(ret);
 		return ret_conv_14_arr;
 	}
 
@@ -168,7 +168,7 @@ public class ChannelMonitor : CommonBase {
 	 * [`BumpTransaction`]: crate::events::Event::BumpTransaction
 	 */
 	public void process_pending_events(org.ldk.structs.EventHandler handler) {
-		bindings.ChannelMonitor_process_pending_events(this.ptr, handler.ptr);
+		Bindings.ChannelMonitorProcessPendingEvents(this.ptr, handler.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(handler);
 		if (this != null) { this.ptrs_to.AddLast(handler); };
@@ -191,7 +191,7 @@ public class ChannelMonitor : CommonBase {
 	 * Note that the return value (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public CommitmentTransaction initial_counterparty_commitment_tx() {
-		long ret = bindings.ChannelMonitor_initial_counterparty_commitment_tx(this.ptr);
+		long ret = Bindings.ChannelMonitorInitialCounterpartyCommitmentTx(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.CommitmentTransaction ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.CommitmentTransaction(null, ret); }
@@ -222,7 +222,7 @@ public class ChannelMonitor : CommonBase {
 	 * [`Persist::update_persisted_channel`]: crate::chain::chainmonitor::Persist::update_persisted_channel
 	 */
 	public CommitmentTransaction[] counterparty_commitment_txs_from_update(org.ldk.structs.ChannelMonitorUpdate update) {
-		long ret = bindings.ChannelMonitor_counterparty_commitment_txs_from_update(this.ptr, update == null ? 0 : update.ptr);
+		long ret = Bindings.ChannelMonitorCounterpartyCommitmentTxsFromUpdate(this.ptr, update == null ? 0 : update.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(update);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -234,7 +234,7 @@ public class ChannelMonitor : CommonBase {
 			if (ret_conv_23_hu_conv != null) { ret_conv_23_hu_conv.ptrs_to.AddLast(this); };
 			ret_conv_23_arr[x] = ret_conv_23_hu_conv;
 		}
-		bindings.free_buffer(ret);
+		Bindings.FreeBuffer(ret);
 		if (this != null) { this.ptrs_to.AddLast(update); };
 		return ret_conv_23_arr;
 	}
@@ -259,7 +259,7 @@ public class ChannelMonitor : CommonBase {
 	 * [`Persist`]: crate::chain::chainmonitor::Persist
 	 */
 	public Result_TransactionNoneZ sign_to_local_justice_tx(byte[] justice_tx, long input_idx, long value, long commitment_number) {
-		long ret = bindings.ChannelMonitor_sign_to_local_justice_tx(this.ptr, InternalUtils.encodeUint8Array(justice_tx), input_idx, value, commitment_number);
+		long ret = Bindings.ChannelMonitorSignToLocalJusticeTx(this.ptr, InternalUtils.encodeUint8Array(justice_tx), input_idx, value, commitment_number);
 		GC.KeepAlive(this);
 		GC.KeepAlive(justice_tx);
 		GC.KeepAlive(input_idx);
@@ -279,7 +279,7 @@ public class ChannelMonitor : CommonBase {
 	 * Note that the return value (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public byte[] get_counterparty_node_id() {
-		long ret = bindings.ChannelMonitor_get_counterparty_node_id(this.ptr);
+		long ret = Bindings.ChannelMonitorGetCounterpartyNodeId(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -303,7 +303,7 @@ public class ChannelMonitor : CommonBase {
 	 * [`ChannelManager`]: crate::ln::channelmanager::ChannelManager
 	 */
 	public byte[][] get_latest_holder_commitment_txn(org.ldk.structs.Logger logger) {
-		long ret = bindings.ChannelMonitor_get_latest_holder_commitment_txn(this.ptr, logger.ptr);
+		long ret = Bindings.ChannelMonitorGetLatestHolderCommitmentTxn(this.ptr, logger.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(logger);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -314,7 +314,7 @@ public class ChannelMonitor : CommonBase {
 			byte[] ret_conv_8_conv = InternalUtils.decodeUint8Array(ret_conv_8);
 			ret_conv_8_arr[i] = ret_conv_8_conv;
 		}
-		bindings.free_buffer(ret);
+		Bindings.FreeBuffer(ret);
 		if (this != null) { this.ptrs_to.AddLast(logger); };
 		return ret_conv_8_arr;
 	}
@@ -333,7 +333,7 @@ public class ChannelMonitor : CommonBase {
 	 * [`get_outputs_to_watch`]: #method.get_outputs_to_watch
 	 */
 	public TwoTuple_ThirtyTwoBytesCVec_C2Tuple_u32TxOutZZZ[] block_connected(byte[] header, TwoTuple_usizeTransactionZ[] txdata, int height, org.ldk.structs.BroadcasterInterface broadcaster, org.ldk.structs.FeeEstimator fee_estimator, org.ldk.structs.Logger logger) {
-		long ret = bindings.ChannelMonitor_block_connected(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(header, 80)), InternalUtils.encodeUint64Array(InternalUtils.mapArray(txdata, txdata_conv_28 => txdata_conv_28 != null ? txdata_conv_28.ptr : 0)), height, broadcaster.ptr, fee_estimator.ptr, logger.ptr);
+		long ret = Bindings.ChannelMonitorBlockConnected(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(header, 80)), InternalUtils.encodeUint64Array(InternalUtils.mapArray(txdata, txdata_conv_28 => txdata_conv_28 != null ? txdata_conv_28.ptr : 0)), height, broadcaster.ptr, fee_estimator.ptr, logger.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(header);
 		GC.KeepAlive(txdata);
@@ -350,7 +350,7 @@ public class ChannelMonitor : CommonBase {
 			if (ret_conv_49_hu_conv != null) { ret_conv_49_hu_conv.ptrs_to.AddLast(this); };
 			ret_conv_49_arr[x] = ret_conv_49_hu_conv;
 		}
-		bindings.free_buffer(ret);
+		Bindings.FreeBuffer(ret);
 		if (this != null) { this.ptrs_to.AddLast(broadcaster); };
 		if (this != null) { this.ptrs_to.AddLast(fee_estimator); };
 		if (this != null) { this.ptrs_to.AddLast(logger); };
@@ -362,7 +362,7 @@ public class ChannelMonitor : CommonBase {
 	 * appropriately.
 	 */
 	public void block_disconnected(byte[] header, int height, org.ldk.structs.BroadcasterInterface broadcaster, org.ldk.structs.FeeEstimator fee_estimator, org.ldk.structs.Logger logger) {
-		bindings.ChannelMonitor_block_disconnected(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(header, 80)), height, broadcaster.ptr, fee_estimator.ptr, logger.ptr);
+		Bindings.ChannelMonitorBlockDisconnected(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(header, 80)), height, broadcaster.ptr, fee_estimator.ptr, logger.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(header);
 		GC.KeepAlive(height);
@@ -384,7 +384,7 @@ public class ChannelMonitor : CommonBase {
 	 * [`block_connected`]: Self::block_connected
 	 */
 	public TwoTuple_ThirtyTwoBytesCVec_C2Tuple_u32TxOutZZZ[] transactions_confirmed(byte[] header, TwoTuple_usizeTransactionZ[] txdata, int height, org.ldk.structs.BroadcasterInterface broadcaster, org.ldk.structs.FeeEstimator fee_estimator, org.ldk.structs.Logger logger) {
-		long ret = bindings.ChannelMonitor_transactions_confirmed(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(header, 80)), InternalUtils.encodeUint64Array(InternalUtils.mapArray(txdata, txdata_conv_28 => txdata_conv_28 != null ? txdata_conv_28.ptr : 0)), height, broadcaster.ptr, fee_estimator.ptr, logger.ptr);
+		long ret = Bindings.ChannelMonitorTransactionsConfirmed(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(header, 80)), InternalUtils.encodeUint64Array(InternalUtils.mapArray(txdata, txdata_conv_28 => txdata_conv_28 != null ? txdata_conv_28.ptr : 0)), height, broadcaster.ptr, fee_estimator.ptr, logger.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(header);
 		GC.KeepAlive(txdata);
@@ -401,7 +401,7 @@ public class ChannelMonitor : CommonBase {
 			if (ret_conv_49_hu_conv != null) { ret_conv_49_hu_conv.ptrs_to.AddLast(this); };
 			ret_conv_49_arr[x] = ret_conv_49_hu_conv;
 		}
-		bindings.free_buffer(ret);
+		Bindings.FreeBuffer(ret);
 		if (this != null) { this.ptrs_to.AddLast(broadcaster); };
 		if (this != null) { this.ptrs_to.AddLast(fee_estimator); };
 		if (this != null) { this.ptrs_to.AddLast(logger); };
@@ -417,7 +417,7 @@ public class ChannelMonitor : CommonBase {
 	 * [`block_disconnected`]: Self::block_disconnected
 	 */
 	public void transaction_unconfirmed(byte[] txid, org.ldk.structs.BroadcasterInterface broadcaster, org.ldk.structs.FeeEstimator fee_estimator, org.ldk.structs.Logger logger) {
-		bindings.ChannelMonitor_transaction_unconfirmed(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(txid, 32)), broadcaster.ptr, fee_estimator.ptr, logger.ptr);
+		Bindings.ChannelMonitorTransactionUnconfirmed(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(txid, 32)), broadcaster.ptr, fee_estimator.ptr, logger.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(txid);
 		GC.KeepAlive(broadcaster);
@@ -438,7 +438,7 @@ public class ChannelMonitor : CommonBase {
 	 * [`block_connected`]: Self::block_connected
 	 */
 	public TwoTuple_ThirtyTwoBytesCVec_C2Tuple_u32TxOutZZZ[] best_block_updated(byte[] header, int height, org.ldk.structs.BroadcasterInterface broadcaster, org.ldk.structs.FeeEstimator fee_estimator, org.ldk.structs.Logger logger) {
-		long ret = bindings.ChannelMonitor_best_block_updated(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(header, 80)), height, broadcaster.ptr, fee_estimator.ptr, logger.ptr);
+		long ret = Bindings.ChannelMonitorBestBlockUpdated(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(header, 80)), height, broadcaster.ptr, fee_estimator.ptr, logger.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(header);
 		GC.KeepAlive(height);
@@ -454,7 +454,7 @@ public class ChannelMonitor : CommonBase {
 			if (ret_conv_49_hu_conv != null) { ret_conv_49_hu_conv.ptrs_to.AddLast(this); };
 			ret_conv_49_arr[x] = ret_conv_49_hu_conv;
 		}
-		bindings.free_buffer(ret);
+		Bindings.FreeBuffer(ret);
 		if (this != null) { this.ptrs_to.AddLast(broadcaster); };
 		if (this != null) { this.ptrs_to.AddLast(fee_estimator); };
 		if (this != null) { this.ptrs_to.AddLast(logger); };
@@ -465,7 +465,7 @@ public class ChannelMonitor : CommonBase {
 	 * Returns the set of txids that should be monitored for re-organization out of the chain.
 	 */
 	public ThreeTuple_ThirtyTwoBytesu32COption_ThirtyTwoBytesZZ[] get_relevant_txids() {
-		long ret = bindings.ChannelMonitor_get_relevant_txids(this.ptr);
+		long ret = Bindings.ChannelMonitorGetRelevantTxids(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		int ret_conv_54_len = InternalUtils.getArrayLength(ret);
@@ -476,7 +476,7 @@ public class ChannelMonitor : CommonBase {
 			if (ret_conv_54_hu_conv != null) { ret_conv_54_hu_conv.ptrs_to.AddLast(this); };
 			ret_conv_54_arr[c] = ret_conv_54_hu_conv;
 		}
-		bindings.free_buffer(ret);
+		Bindings.FreeBuffer(ret);
 		return ret_conv_54_arr;
 	}
 
@@ -485,7 +485,7 @@ public class ChannelMonitor : CommonBase {
 	 * [`chain::Confirm`] interfaces.
 	 */
 	public BestBlock current_best_block() {
-		long ret = bindings.ChannelMonitor_current_best_block(this.ptr);
+		long ret = Bindings.ChannelMonitorCurrentBestBlock(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.BestBlock ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.BestBlock(null, ret); }
@@ -501,7 +501,7 @@ public class ChannelMonitor : CommonBase {
 	 * connections, like on mobile.
 	 */
 	public void rebroadcast_pending_claims(org.ldk.structs.BroadcasterInterface broadcaster, org.ldk.structs.FeeEstimator fee_estimator, org.ldk.structs.Logger logger) {
-		bindings.ChannelMonitor_rebroadcast_pending_claims(this.ptr, broadcaster.ptr, fee_estimator.ptr, logger.ptr);
+		Bindings.ChannelMonitorRebroadcastPendingClaims(this.ptr, broadcaster.ptr, fee_estimator.ptr, logger.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(broadcaster);
 		GC.KeepAlive(fee_estimator);
@@ -532,7 +532,7 @@ public class ChannelMonitor : CommonBase {
 	 * `confirmation_height` must be the height of the block in which `tx` was included in.
 	 */
 	public SpendableOutputDescriptor[] get_spendable_outputs(byte[] tx, int confirmation_height) {
-		long ret = bindings.ChannelMonitor_get_spendable_outputs(this.ptr, InternalUtils.encodeUint8Array(tx), confirmation_height);
+		long ret = Bindings.ChannelMonitorGetSpendableOutputs(this.ptr, InternalUtils.encodeUint8Array(tx), confirmation_height);
 		GC.KeepAlive(this);
 		GC.KeepAlive(tx);
 		GC.KeepAlive(confirmation_height);
@@ -545,7 +545,7 @@ public class ChannelMonitor : CommonBase {
 			if (ret_conv_27_hu_conv != null) { ret_conv_27_hu_conv.ptrs_to.AddLast(this); };
 			ret_conv_27_arr[b] = ret_conv_27_hu_conv;
 		}
-		bindings.free_buffer(ret);
+		Bindings.FreeBuffer(ret);
 		return ret_conv_27_arr;
 	}
 
@@ -566,7 +566,7 @@ public class ChannelMonitor : CommonBase {
 	 * may be returned here and their meanings.
 	 */
 	public Balance[] get_claimable_balances() {
-		long ret = bindings.ChannelMonitor_get_claimable_balances(this.ptr);
+		long ret = Bindings.ChannelMonitorGetClaimableBalances(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		int ret_conv_9_len = InternalUtils.getArrayLength(ret);
@@ -577,7 +577,7 @@ public class ChannelMonitor : CommonBase {
 			if (ret_conv_9_hu_conv != null) { ret_conv_9_hu_conv.ptrs_to.AddLast(this); };
 			ret_conv_9_arr[j] = ret_conv_9_hu_conv;
 		}
-		bindings.free_buffer(ret);
+		Bindings.FreeBuffer(ret);
 		return ret_conv_9_arr;
 	}
 

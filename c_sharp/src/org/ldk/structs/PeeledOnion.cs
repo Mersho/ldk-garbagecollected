@@ -12,11 +12,11 @@ namespace org { namespace ldk { namespace structs {
 public class PeeledOnion : CommonBase {
 	protected PeeledOnion(object _dummy, long ptr) : base(ptr) { }
 	~PeeledOnion() {
-		if (ptr != 0) { bindings.PeeledOnion_free(ptr); }
+		if (ptr != 0) { Bindings.PeeledOnionFree(ptr); }
 	}
 
 	internal static PeeledOnion constr_from_ptr(long ptr) {
-		long raw_ty = bindings.LDKPeeledOnion_ty_from_ptr(ptr);
+		long raw_ty = Bindings.LDKPeeledOnionTyFromPtr(ptr);
 		switch (raw_ty) {
 			case 0: return new PeeledOnion_Forward(ptr);
 			case 1: return new PeeledOnion_Receive(ptr);
@@ -30,10 +30,10 @@ public class PeeledOnion : CommonBase {
 		public byte[] _0;
 		public OnionMessage _1;
 		internal PeeledOnion_Forward(long ptr) : base(null, ptr) {
-			long _0 = bindings.LDKPeeledOnion_Forward_get__0(ptr);
+			long _0 = Bindings.LDKPeeledOnionForwardGet0(ptr);
 			byte[] _0_conv = InternalUtils.decodeUint8Array(_0);
 			this._0 = _0_conv;
-			long _1 = bindings.LDKPeeledOnion_Forward_get__1(ptr);
+			long _1 = Bindings.LDKPeeledOnionForwardGet1(ptr);
 			org.ldk.structs.OnionMessage _1_hu_conv = null; if (_1 < 0 || _1 > 4096) { _1_hu_conv = new org.ldk.structs.OnionMessage(null, _1); }
 			if (_1_hu_conv != null) { _1_hu_conv.ptrs_to.AddLast(this); };
 			this._1 = _1_hu_conv;
@@ -51,21 +51,21 @@ public class PeeledOnion : CommonBase {
 		 */
 		public BlindedPath _2;
 		internal PeeledOnion_Receive(long ptr) : base(null, ptr) {
-			long _0 = bindings.LDKPeeledOnion_Receive_get__0(ptr);
+			long _0 = Bindings.LDKPeeledOnionReceiveGet0(ptr);
 			org.ldk.structs.ParsedOnionMessageContents _0_hu_conv = org.ldk.structs.ParsedOnionMessageContents.constr_from_ptr(_0);
 			if (_0_hu_conv != null) { _0_hu_conv.ptrs_to.AddLast(this); };
 			this._0 = _0_hu_conv;
-			long _1 = bindings.LDKPeeledOnion_Receive_get__1(ptr);
+			long _1 = Bindings.LDKPeeledOnionReceiveGet1(ptr);
 			byte[] _1_conv = InternalUtils.decodeUint8Array(_1);
 			this._1 = _1_conv;
-			long _2 = bindings.LDKPeeledOnion_Receive_get__2(ptr);
+			long _2 = Bindings.LDKPeeledOnionReceiveGet2(ptr);
 			org.ldk.structs.BlindedPath _2_hu_conv = null; if (_2 < 0 || _2 > 4096) { _2_hu_conv = new org.ldk.structs.BlindedPath(null, _2); }
 			if (_2_hu_conv != null) { _2_hu_conv.ptrs_to.AddLast(this); };
 			this._2 = _2_hu_conv;
 		}
 	}
 	internal long clone_ptr() {
-		long ret = bindings.PeeledOnion_clone_ptr(this.ptr);
+		long ret = Bindings.PeeledOnionClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -74,7 +74,7 @@ public class PeeledOnion : CommonBase {
 	 * Creates a copy of the PeeledOnion
 	 */
 	public PeeledOnion clone() {
-		long ret = bindings.PeeledOnion_clone(this.ptr);
+		long ret = Bindings.PeeledOnionClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.PeeledOnion ret_hu_conv = org.ldk.structs.PeeledOnion.constr_from_ptr(ret);
@@ -86,7 +86,7 @@ public class PeeledOnion : CommonBase {
 	 * Utility method to constructs a new Forward-variant PeeledOnion
 	 */
 	public static PeeledOnion forward(byte[] a, org.ldk.structs.OnionMessage b) {
-		long ret = bindings.PeeledOnion_forward(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(a, 33)), b == null ? 0 : b.ptr);
+		long ret = Bindings.PeeledOnionForward(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(a, 33)), b == null ? 0 : b.ptr);
 		GC.KeepAlive(a);
 		GC.KeepAlive(b);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -100,7 +100,7 @@ public class PeeledOnion : CommonBase {
 	 * Utility method to constructs a new Receive-variant PeeledOnion
 	 */
 	public static PeeledOnion receive(org.ldk.structs.ParsedOnionMessageContents a, byte[] b, org.ldk.structs.BlindedPath c) {
-		long ret = bindings.PeeledOnion_receive(a.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(b, 32)), c == null ? 0 : c.ptr);
+		long ret = Bindings.PeeledOnionReceive(a.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(b, 32)), c == null ? 0 : c.ptr);
 		GC.KeepAlive(a);
 		GC.KeepAlive(b);
 		GC.KeepAlive(c);

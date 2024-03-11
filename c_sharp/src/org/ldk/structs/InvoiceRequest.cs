@@ -18,11 +18,11 @@ namespace org { namespace ldk { namespace structs {
 public class InvoiceRequest : CommonBase {
 	internal InvoiceRequest(object _dummy, long ptr) : base(ptr) { }
 	~InvoiceRequest() {
-		if (ptr != 0) { bindings.InvoiceRequest_free(ptr); }
+		if (ptr != 0) { Bindings.InvoiceRequestFree(ptr); }
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.InvoiceRequest_clone_ptr(this.ptr);
+		long ret = Bindings.InvoiceRequestClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -31,7 +31,7 @@ public class InvoiceRequest : CommonBase {
 	 * Creates a copy of the InvoiceRequest
 	 */
 	public InvoiceRequest clone() {
-		long ret = bindings.InvoiceRequest_clone(this.ptr);
+		long ret = Bindings.InvoiceRequestClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.InvoiceRequest ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.InvoiceRequest(null, ret); }
@@ -45,7 +45,7 @@ public class InvoiceRequest : CommonBase {
 	 * for the selected chain.
 	 */
 	public byte[][] chains() {
-		long ret = bindings.InvoiceRequest_chains(this.ptr);
+		long ret = Bindings.InvoiceRequestChains(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		int ret_conv_8_len = InternalUtils.getArrayLength(ret);
@@ -55,7 +55,7 @@ public class InvoiceRequest : CommonBase {
 			byte[] ret_conv_8_conv = InternalUtils.decodeUint8Array(ret_conv_8);
 			ret_conv_8_arr[i] = ret_conv_8_conv;
 		}
-		bindings.free_buffer(ret);
+		Bindings.FreeBuffer(ret);
 		return ret_conv_8_arr;
 	}
 
@@ -64,7 +64,7 @@ public class InvoiceRequest : CommonBase {
 	 * is reflected in `invoice_request` messages along with all the other fields from the `offer`.
 	 */
 	public Option_CVec_u8ZZ metadata() {
-		long ret = bindings.InvoiceRequest_metadata(this.ptr);
+		long ret = Bindings.InvoiceRequestMetadata(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_CVec_u8ZZ ret_hu_conv = org.ldk.structs.Option_CVec_u8ZZ.constr_from_ptr(ret);
@@ -78,7 +78,7 @@ public class InvoiceRequest : CommonBase {
 	 * Note that the return value (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public Amount amount() {
-		long ret = bindings.InvoiceRequest_amount(this.ptr);
+		long ret = Bindings.InvoiceRequestAmount(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Amount ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.Amount(null, ret); }
@@ -91,7 +91,7 @@ public class InvoiceRequest : CommonBase {
 	 * but with the caveat that it has not been verified in any way.
 	 */
 	public PrintableString description() {
-		long ret = bindings.InvoiceRequest_description(this.ptr);
+		long ret = Bindings.InvoiceRequestDescription(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.PrintableString ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.PrintableString(null, ret); }
@@ -103,7 +103,7 @@ public class InvoiceRequest : CommonBase {
 	 * Features pertaining to the offer.
 	 */
 	public OfferFeatures offer_features() {
-		long ret = bindings.InvoiceRequest_offer_features(this.ptr);
+		long ret = Bindings.InvoiceRequestOfferFeatures(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.OfferFeatures ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.OfferFeatures(null, ret); }
@@ -117,7 +117,7 @@ public class InvoiceRequest : CommonBase {
 	 * If `None`, the offer does not expire.
 	 */
 	public Option_u64Z absolute_expiry() {
-		long ret = bindings.InvoiceRequest_absolute_expiry(this.ptr);
+		long ret = Bindings.InvoiceRequestAbsoluteExpiry(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_u64Z ret_hu_conv = org.ldk.structs.Option_u64Z.constr_from_ptr(ret);
@@ -132,7 +132,7 @@ public class InvoiceRequest : CommonBase {
 	 * Note that the return value (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public PrintableString issuer() {
-		long ret = bindings.InvoiceRequest_issuer(this.ptr);
+		long ret = Bindings.InvoiceRequestIssuer(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.PrintableString ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.PrintableString(null, ret); }
@@ -145,7 +145,7 @@ public class InvoiceRequest : CommonBase {
 	 * recipient privacy by obfuscating its node id.
 	 */
 	public BlindedPath[] paths() {
-		long ret = bindings.InvoiceRequest_paths(this.ptr);
+		long ret = Bindings.InvoiceRequestPaths(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		int ret_conv_13_len = InternalUtils.getArrayLength(ret);
@@ -156,7 +156,7 @@ public class InvoiceRequest : CommonBase {
 			if (ret_conv_13_hu_conv != null) { ret_conv_13_hu_conv.ptrs_to.AddLast(this); };
 			ret_conv_13_arr[n] = ret_conv_13_hu_conv;
 		}
-		bindings.free_buffer(ret);
+		Bindings.FreeBuffer(ret);
 		return ret_conv_13_arr;
 	}
 
@@ -164,7 +164,7 @@ public class InvoiceRequest : CommonBase {
 	 * The quantity of items supported.
 	 */
 	public Quantity supported_quantity() {
-		long ret = bindings.InvoiceRequest_supported_quantity(this.ptr);
+		long ret = Bindings.InvoiceRequestSupportedQuantity(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Quantity ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.Quantity(null, ret); }
@@ -176,7 +176,7 @@ public class InvoiceRequest : CommonBase {
 	 * The public key used by the recipient to sign invoices.
 	 */
 	public byte[] signing_pubkey() {
-		long ret = bindings.InvoiceRequest_signing_pubkey(this.ptr);
+		long ret = Bindings.InvoiceRequestSigningPubkey(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -190,7 +190,7 @@ public class InvoiceRequest : CommonBase {
 	 * [`payer_id`]: Self::payer_id
 	 */
 	public byte[] payer_metadata() {
-		long ret = bindings.InvoiceRequest_payer_metadata(this.ptr);
+		long ret = Bindings.InvoiceRequestPayerMetadata(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -201,7 +201,7 @@ public class InvoiceRequest : CommonBase {
 	 * A chain from [`Offer::chains`] that the offer is valid for.
 	 */
 	public byte[] chain() {
-		long ret = bindings.InvoiceRequest_chain(this.ptr);
+		long ret = Bindings.InvoiceRequestChain(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -215,7 +215,7 @@ public class InvoiceRequest : CommonBase {
 	 * [`chain`]: Self::chain
 	 */
 	public Option_u64Z amount_msats() {
-		long ret = bindings.InvoiceRequest_amount_msats(this.ptr);
+		long ret = Bindings.InvoiceRequestAmountMsats(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_u64Z ret_hu_conv = org.ldk.structs.Option_u64Z.constr_from_ptr(ret);
@@ -227,7 +227,7 @@ public class InvoiceRequest : CommonBase {
 	 * Features pertaining to requesting an invoice.
 	 */
 	public InvoiceRequestFeatures invoice_request_features() {
-		long ret = bindings.InvoiceRequest_invoice_request_features(this.ptr);
+		long ret = Bindings.InvoiceRequestInvoiceRequestFeatures(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.InvoiceRequestFeatures ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.InvoiceRequestFeatures(null, ret); }
@@ -239,7 +239,7 @@ public class InvoiceRequest : CommonBase {
 	 * The quantity of the offer's item conforming to [`Offer::is_valid_quantity`].
 	 */
 	public Option_u64Z quantity() {
-		long ret = bindings.InvoiceRequest_quantity(this.ptr);
+		long ret = Bindings.InvoiceRequestQuantity(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_u64Z ret_hu_conv = org.ldk.structs.Option_u64Z.constr_from_ptr(ret);
@@ -251,7 +251,7 @@ public class InvoiceRequest : CommonBase {
 	 * A possibly transient pubkey used to sign the invoice request.
 	 */
 	public byte[] payer_id() {
-		long ret = bindings.InvoiceRequest_payer_id(this.ptr);
+		long ret = Bindings.InvoiceRequestPayerId(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -265,7 +265,7 @@ public class InvoiceRequest : CommonBase {
 	 * Note that the return value (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public PrintableString payer_note() {
-		long ret = bindings.InvoiceRequest_payer_note(this.ptr);
+		long ret = Bindings.InvoiceRequestPayerNote(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.PrintableString ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.PrintableString(null, ret); }
@@ -279,7 +279,7 @@ public class InvoiceRequest : CommonBase {
 	 * [`payer_id`]: Self::payer_id
 	 */
 	public byte[] signature() {
-		long ret = bindings.InvoiceRequest_signature(this.ptr);
+		long ret = Bindings.InvoiceRequestSignature(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -294,7 +294,7 @@ public class InvoiceRequest : CommonBase {
 	 * [`Bolt12Invoice`]: crate::offers::invoice::Bolt12Invoice
 	 */
 	public Result_VerifiedInvoiceRequestNoneZ verify(org.ldk.structs.ExpandedKey key) {
-		long ret = bindings.InvoiceRequest_verify(this.ptr, key == null ? 0 : key.ptr);
+		long ret = Bindings.InvoiceRequestVerify(this.ptr, key == null ? 0 : key.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(key);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -308,7 +308,7 @@ public class InvoiceRequest : CommonBase {
 	 * Serialize the InvoiceRequest object into a byte array which can be read by InvoiceRequest_read
 	 */
 	public byte[] write() {
-		long ret = bindings.InvoiceRequest_write(this.ptr);
+		long ret = Bindings.InvoiceRequestWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);

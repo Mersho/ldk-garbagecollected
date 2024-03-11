@@ -22,14 +22,14 @@ namespace org { namespace ldk { namespace structs {
 public class ReplyChannelRange : CommonBase {
 	internal ReplyChannelRange(object _dummy, long ptr) : base(ptr) { }
 	~ReplyChannelRange() {
-		if (ptr != 0) { bindings.ReplyChannelRange_free(ptr); }
+		if (ptr != 0) { Bindings.ReplyChannelRangeFree(ptr); }
 	}
 
 	/**
 	 * The genesis hash of the blockchain being queried
 	 */
 	public byte[] get_chain_hash() {
-		long ret = bindings.ReplyChannelRange_get_chain_hash(this.ptr);
+		long ret = Bindings.ReplyChannelRangeGetChainHash(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -40,7 +40,7 @@ public class ReplyChannelRange : CommonBase {
 	 * The genesis hash of the blockchain being queried
 	 */
 	public void set_chain_hash(byte[] val) {
-		bindings.ReplyChannelRange_set_chain_hash(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
+		Bindings.ReplyChannelRangeSetChainHash(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -49,7 +49,7 @@ public class ReplyChannelRange : CommonBase {
 	 * The height of the first block in the range of the reply
 	 */
 	public int get_first_blocknum() {
-		int ret = bindings.ReplyChannelRange_get_first_blocknum(this.ptr);
+		int ret = Bindings.ReplyChannelRangeGetFirstBlocknum(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -58,7 +58,7 @@ public class ReplyChannelRange : CommonBase {
 	 * The height of the first block in the range of the reply
 	 */
 	public void set_first_blocknum(int val) {
-		bindings.ReplyChannelRange_set_first_blocknum(this.ptr, val);
+		Bindings.ReplyChannelRangeSetFirstBlocknum(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -67,7 +67,7 @@ public class ReplyChannelRange : CommonBase {
 	 * The number of blocks included in the range of the reply
 	 */
 	public int get_number_of_blocks() {
-		int ret = bindings.ReplyChannelRange_get_number_of_blocks(this.ptr);
+		int ret = Bindings.ReplyChannelRangeGetNumberOfBlocks(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -76,7 +76,7 @@ public class ReplyChannelRange : CommonBase {
 	 * The number of blocks included in the range of the reply
 	 */
 	public void set_number_of_blocks(int val) {
-		bindings.ReplyChannelRange_set_number_of_blocks(this.ptr, val);
+		Bindings.ReplyChannelRangeSetNumberOfBlocks(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -85,7 +85,7 @@ public class ReplyChannelRange : CommonBase {
 	 * True when this is the final reply for a query
 	 */
 	public bool get_sync_complete() {
-		bool ret = bindings.ReplyChannelRange_get_sync_complete(this.ptr);
+		bool ret = Bindings.ReplyChannelRangeGetSyncComplete(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -94,7 +94,7 @@ public class ReplyChannelRange : CommonBase {
 	 * True when this is the final reply for a query
 	 */
 	public void set_sync_complete(bool val) {
-		bindings.ReplyChannelRange_set_sync_complete(this.ptr, val);
+		Bindings.ReplyChannelRangeSetSyncComplete(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -105,7 +105,7 @@ public class ReplyChannelRange : CommonBase {
 	 * Returns a copy of the field.
 	 */
 	public long[] get_short_channel_ids() {
-		long ret = bindings.ReplyChannelRange_get_short_channel_ids(this.ptr);
+		long ret = Bindings.ReplyChannelRangeGetShortChannelIds(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		long[] ret_conv = InternalUtils.decodeUint64Array(ret);
@@ -116,7 +116,7 @@ public class ReplyChannelRange : CommonBase {
 	 * The `short_channel_id`s in the channel range
 	 */
 	public void set_short_channel_ids(long[] val) {
-		bindings.ReplyChannelRange_set_short_channel_ids(this.ptr, InternalUtils.encodeUint64Array(val));
+		Bindings.ReplyChannelRangeSetShortChannelIds(this.ptr, InternalUtils.encodeUint64Array(val));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -125,7 +125,7 @@ public class ReplyChannelRange : CommonBase {
 	 * Constructs a new ReplyChannelRange given each field
 	 */
 	public static ReplyChannelRange of(byte[] chain_hash_arg, int first_blocknum_arg, int number_of_blocks_arg, bool sync_complete_arg, long[] short_channel_ids_arg) {
-		long ret = bindings.ReplyChannelRange_new(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(chain_hash_arg, 32)), first_blocknum_arg, number_of_blocks_arg, sync_complete_arg, InternalUtils.encodeUint64Array(short_channel_ids_arg));
+		long ret = Bindings.ReplyChannelRangeNew(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(chain_hash_arg, 32)), first_blocknum_arg, number_of_blocks_arg, sync_complete_arg, InternalUtils.encodeUint64Array(short_channel_ids_arg));
 		GC.KeepAlive(chain_hash_arg);
 		GC.KeepAlive(first_blocknum_arg);
 		GC.KeepAlive(number_of_blocks_arg);
@@ -138,7 +138,7 @@ public class ReplyChannelRange : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.ReplyChannelRange_clone_ptr(this.ptr);
+		long ret = Bindings.ReplyChannelRangeClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -147,7 +147,7 @@ public class ReplyChannelRange : CommonBase {
 	 * Creates a copy of the ReplyChannelRange
 	 */
 	public ReplyChannelRange clone() {
-		long ret = bindings.ReplyChannelRange_clone(this.ptr);
+		long ret = Bindings.ReplyChannelRangeClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ReplyChannelRange ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ReplyChannelRange(null, ret); }
@@ -159,7 +159,7 @@ public class ReplyChannelRange : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the ReplyChannelRange.
 	 */
 	public long hash() {
-		long ret = bindings.ReplyChannelRange_hash(this.ptr);
+		long ret = Bindings.ReplyChannelRangeHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -173,7 +173,7 @@ public class ReplyChannelRange : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.ReplyChannelRange b) {
-		bool ret = bindings.ReplyChannelRange_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.ReplyChannelRangeEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -188,7 +188,7 @@ public class ReplyChannelRange : CommonBase {
 	 * Read a ReplyChannelRange from a byte array, created by ReplyChannelRange_write
 	 */
 	public static Result_ReplyChannelRangeDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.ReplyChannelRange_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.ReplyChannelRangeRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_ReplyChannelRangeDecodeErrorZ ret_hu_conv = Result_ReplyChannelRangeDecodeErrorZ.constr_from_ptr(ret);
@@ -199,7 +199,7 @@ public class ReplyChannelRange : CommonBase {
 	 * Serialize the ReplyChannelRange object into a byte array which can be read by ReplyChannelRange_read
 	 */
 	public byte[] write() {
-		long ret = bindings.ReplyChannelRange_write(this.ptr);
+		long ret = Bindings.ReplyChannelRangeWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);

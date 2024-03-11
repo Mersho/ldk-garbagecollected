@@ -12,14 +12,14 @@ namespace org { namespace ldk { namespace structs {
 public class ThreeTuple_OffersMessageDestinationBlindedPathZ : CommonBase {
 	internal ThreeTuple_OffersMessageDestinationBlindedPathZ(object _dummy, long ptr) : base(ptr) { }
 	~ThreeTuple_OffersMessageDestinationBlindedPathZ() {
-		if (ptr != 0) { bindings.C3Tuple_OffersMessageDestinationBlindedPathZ_free(ptr); }
+		if (ptr != 0) { Bindings.C3TupleOffersMessageDestinationBlindedPathZFree(ptr); }
 	}
 
 	/**
 	 * 
 	 */
 	public OffersMessage get_a() {
-		long ret = bindings.C3Tuple_OffersMessageDestinationBlindedPathZ_get_a(this.ptr);
+		long ret = Bindings.C3TupleOffersMessageDestinationBlindedPathZGetA(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.OffersMessage ret_hu_conv = org.ldk.structs.OffersMessage.constr_from_ptr(ret);
@@ -31,7 +31,7 @@ public class ThreeTuple_OffersMessageDestinationBlindedPathZ : CommonBase {
 	 * 
 	 */
 	public Destination get_b() {
-		long ret = bindings.C3Tuple_OffersMessageDestinationBlindedPathZ_get_b(this.ptr);
+		long ret = Bindings.C3TupleOffersMessageDestinationBlindedPathZGetB(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Destination ret_hu_conv = org.ldk.structs.Destination.constr_from_ptr(ret);
@@ -43,7 +43,7 @@ public class ThreeTuple_OffersMessageDestinationBlindedPathZ : CommonBase {
 	 * 
 	 */
 	public BlindedPath get_c() {
-		long ret = bindings.C3Tuple_OffersMessageDestinationBlindedPathZ_get_c(this.ptr);
+		long ret = Bindings.C3TupleOffersMessageDestinationBlindedPathZGetC(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.BlindedPath ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.BlindedPath(null, ret); }
@@ -52,7 +52,7 @@ public class ThreeTuple_OffersMessageDestinationBlindedPathZ : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.C3Tuple_OffersMessageDestinationBlindedPathZ_clone_ptr(this.ptr);
+		long ret = Bindings.C3TupleOffersMessageDestinationBlindedPathZClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -62,7 +62,7 @@ public class ThreeTuple_OffersMessageDestinationBlindedPathZ : CommonBase {
 	 * but with all dynamically-allocated buffers duplicated in new buffers.
 	 */
 	public ThreeTuple_OffersMessageDestinationBlindedPathZ clone() {
-		long ret = bindings.C3Tuple_OffersMessageDestinationBlindedPathZ_clone(this.ptr);
+		long ret = Bindings.C3TupleOffersMessageDestinationBlindedPathZClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		ThreeTuple_OffersMessageDestinationBlindedPathZ ret_hu_conv = new ThreeTuple_OffersMessageDestinationBlindedPathZ(null, ret);
@@ -74,7 +74,7 @@ public class ThreeTuple_OffersMessageDestinationBlindedPathZ : CommonBase {
 	 * Creates a new C3Tuple_OffersMessageDestinationBlindedPathZ from the contained elements.
 	 */
 	public static ThreeTuple_OffersMessageDestinationBlindedPathZ of(org.ldk.structs.OffersMessage a, org.ldk.structs.Destination b, org.ldk.structs.BlindedPath c) {
-		long ret = bindings.C3Tuple_OffersMessageDestinationBlindedPathZ_new(a.ptr, b.ptr, c == null ? 0 : c.ptr);
+		long ret = Bindings.C3TupleOffersMessageDestinationBlindedPathZNew(a.ptr, b.ptr, c == null ? 0 : c.ptr);
 		GC.KeepAlive(a);
 		GC.KeepAlive(b);
 		GC.KeepAlive(c);

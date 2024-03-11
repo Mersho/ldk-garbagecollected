@@ -8,11 +8,11 @@ namespace org { namespace ldk { namespace structs {
 public class Result_CVec_C2Tuple_ThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZ : CommonBase {
 	Result_CVec_C2Tuple_ThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZ(object _dummy, long ptr) : base(ptr) { }
 	~Result_CVec_C2Tuple_ThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZ() {
-		if (ptr != 0) { bindings.CResult_CVec_C2Tuple_ThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZ_free(ptr); }
+		if (ptr != 0) { Bindings.CResultCVecC2TupleThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZFree(ptr); }
 	}
 
 	internal static Result_CVec_C2Tuple_ThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZ constr_from_ptr(long ptr) {
-		if (bindings.CResult_CVec_C2Tuple_ThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZ_is_ok(ptr)) {
+		if (Bindings.CResultCVecC2TupleThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZIsOk(ptr)) {
 			return new Result_CVec_C2Tuple_ThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZ_OK(null, ptr);
 		} else {
 			return new Result_CVec_C2Tuple_ThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZ_Err(null, ptr);
@@ -21,7 +21,7 @@ public class Result_CVec_C2Tuple_ThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZ
 	public class Result_CVec_C2Tuple_ThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZ_OK : Result_CVec_C2Tuple_ThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZ {
 		public readonly TwoTuple_ThirtyTwoBytesThirtyTwoBytesZ[] res;
 		internal Result_CVec_C2Tuple_ThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZ_OK(object _dummy, long ptr) : base(_dummy, ptr) {
-			long res = bindings.CResult_CVec_C2Tuple_ThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZ_get_ok(ptr);
+			long res = Bindings.CResultCVecC2TupleThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZGetOk(ptr);
 			int res_conv_40_len = InternalUtils.getArrayLength(res);
 			TwoTuple_ThirtyTwoBytesThirtyTwoBytesZ[] res_conv_40_arr = new TwoTuple_ThirtyTwoBytesThirtyTwoBytesZ[res_conv_40_len];
 			for (int o = 0; o < res_conv_40_len; o++) {
@@ -30,7 +30,7 @@ public class Result_CVec_C2Tuple_ThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZ
 				if (res_conv_40_hu_conv != null) { res_conv_40_hu_conv.ptrs_to.AddLast(this); };
 				res_conv_40_arr[o] = res_conv_40_hu_conv;
 			}
-			bindings.free_buffer(res);
+			Bindings.FreeBuffer(res);
 			this.res = res_conv_40_arr;
 		}
 	}
@@ -38,7 +38,7 @@ public class Result_CVec_C2Tuple_ThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZ
 	public class Result_CVec_C2Tuple_ThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZ_Err : Result_CVec_C2Tuple_ThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZ {
 		public readonly ProbeSendFailure err;
 		internal Result_CVec_C2Tuple_ThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZ_Err(object _dummy, long ptr) : base(_dummy, ptr) {
-			long err = bindings.CResult_CVec_C2Tuple_ThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZ_get_err(ptr);
+			long err = Bindings.CResultCVecC2TupleThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZGetErr(ptr);
 			org.ldk.structs.ProbeSendFailure err_hu_conv = org.ldk.structs.ProbeSendFailure.constr_from_ptr(err);
 			if (err_hu_conv != null) { err_hu_conv.ptrs_to.AddLast(this); };
 			this.err = err_hu_conv;
@@ -49,7 +49,7 @@ public class Result_CVec_C2Tuple_ThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZ
 	 * Creates a new CResult_CVec_C2Tuple_ThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZ in the success state.
 	 */
 	public static Result_CVec_C2Tuple_ThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZ ok(TwoTuple_ThirtyTwoBytesThirtyTwoBytesZ[] o) {
-		long ret = bindings.CResult_CVec_C2Tuple_ThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZ_ok(InternalUtils.encodeUint64Array(InternalUtils.mapArray(o, o_conv_40 => o_conv_40 != null ? o_conv_40.ptr : 0)));
+		long ret = Bindings.CResultCVecC2TupleThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZOk(InternalUtils.encodeUint64Array(InternalUtils.mapArray(o, o_conv_40 => o_conv_40 != null ? o_conv_40.ptr : 0)));
 		GC.KeepAlive(o);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_CVec_C2Tuple_ThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZ ret_hu_conv = Result_CVec_C2Tuple_ThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZ.constr_from_ptr(ret);
@@ -60,7 +60,7 @@ public class Result_CVec_C2Tuple_ThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZ
 	 * Creates a new CResult_CVec_C2Tuple_ThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZ in the error state.
 	 */
 	public static Result_CVec_C2Tuple_ThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZ err(org.ldk.structs.ProbeSendFailure e) {
-		long ret = bindings.CResult_CVec_C2Tuple_ThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZ_err(e.ptr);
+		long ret = Bindings.CResultCVecC2TupleThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZErr(e.ptr);
 		GC.KeepAlive(e);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_CVec_C2Tuple_ThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZ ret_hu_conv = Result_CVec_C2Tuple_ThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZ.constr_from_ptr(ret);
@@ -72,13 +72,13 @@ public class Result_CVec_C2Tuple_ThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZ
 	 * Checks if the given object is currently in the success state
 	 */
 	public bool is_ok() {
-		bool ret = bindings.CResult_CVec_C2Tuple_ThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZ_is_ok(this.ptr);
+		bool ret = Bindings.CResultCVecC2TupleThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZIsOk(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.CResult_CVec_C2Tuple_ThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZ_clone_ptr(this.ptr);
+		long ret = Bindings.CResultCVecC2TupleThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -88,7 +88,7 @@ public class Result_CVec_C2Tuple_ThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZ
 	 * but with all dynamically-allocated buffers duplicated in new buffers.
 	 */
 	public Result_CVec_C2Tuple_ThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZ clone() {
-		long ret = bindings.CResult_CVec_C2Tuple_ThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZ_clone(this.ptr);
+		long ret = Bindings.CResultCVecC2TupleThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_CVec_C2Tuple_ThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZ ret_hu_conv = Result_CVec_C2Tuple_ThirtyTwoBytesThirtyTwoBytesZZProbeSendFailureZ.constr_from_ptr(ret);

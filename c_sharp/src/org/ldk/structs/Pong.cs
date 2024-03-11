@@ -14,7 +14,7 @@ namespace org { namespace ldk { namespace structs {
 public class Pong : CommonBase {
 	internal Pong(object _dummy, long ptr) : base(ptr) { }
 	~Pong() {
-		if (ptr != 0) { bindings.Pong_free(ptr); }
+		if (ptr != 0) { Bindings.PongFree(ptr); }
 	}
 
 	/**
@@ -23,7 +23,7 @@ public class Pong : CommonBase {
 	 * This field is not sent on the wire. byteslen zeros are sent.
 	 */
 	public short get_byteslen() {
-		short ret = bindings.Pong_get_byteslen(this.ptr);
+		short ret = Bindings.PongGetByteslen(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -34,7 +34,7 @@ public class Pong : CommonBase {
 	 * This field is not sent on the wire. byteslen zeros are sent.
 	 */
 	public void set_byteslen(short val) {
-		bindings.Pong_set_byteslen(this.ptr, val);
+		Bindings.PongSetByteslen(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -43,7 +43,7 @@ public class Pong : CommonBase {
 	 * Constructs a new Pong given each field
 	 */
 	public static Pong of(short byteslen_arg) {
-		long ret = bindings.Pong_new(byteslen_arg);
+		long ret = Bindings.PongNew(byteslen_arg);
 		GC.KeepAlive(byteslen_arg);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Pong ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.Pong(null, ret); }
@@ -52,7 +52,7 @@ public class Pong : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.Pong_clone_ptr(this.ptr);
+		long ret = Bindings.PongClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -61,7 +61,7 @@ public class Pong : CommonBase {
 	 * Creates a copy of the Pong
 	 */
 	public Pong clone() {
-		long ret = bindings.Pong_clone(this.ptr);
+		long ret = Bindings.PongClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Pong ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.Pong(null, ret); }
@@ -73,7 +73,7 @@ public class Pong : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the Pong.
 	 */
 	public long hash() {
-		long ret = bindings.Pong_hash(this.ptr);
+		long ret = Bindings.PongHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -87,7 +87,7 @@ public class Pong : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.Pong b) {
-		bool ret = bindings.Pong_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.PongEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -102,7 +102,7 @@ public class Pong : CommonBase {
 	 * Serialize the Pong object into a byte array which can be read by Pong_read
 	 */
 	public byte[] write() {
-		long ret = bindings.Pong_write(this.ptr);
+		long ret = Bindings.PongWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -113,7 +113,7 @@ public class Pong : CommonBase {
 	 * Read a Pong from a byte array, created by Pong_write
 	 */
 	public static Result_PongDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.Pong_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.PongRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_PongDecodeErrorZ ret_hu_conv = Result_PongDecodeErrorZ.constr_from_ptr(ret);

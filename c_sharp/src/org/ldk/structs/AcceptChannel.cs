@@ -16,14 +16,14 @@ namespace org { namespace ldk { namespace structs {
 public class AcceptChannel : CommonBase {
 	internal AcceptChannel(object _dummy, long ptr) : base(ptr) { }
 	~AcceptChannel() {
-		if (ptr != 0) { bindings.AcceptChannel_free(ptr); }
+		if (ptr != 0) { Bindings.AcceptChannelFree(ptr); }
 	}
 
 	/**
 	 * A temporary channel ID, until the funding outpoint is announced
 	 */
 	public byte[] get_temporary_channel_id() {
-		long ret = bindings.AcceptChannel_get_temporary_channel_id(this.ptr);
+		long ret = Bindings.AcceptChannelGetTemporaryChannelId(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -34,7 +34,7 @@ public class AcceptChannel : CommonBase {
 	 * A temporary channel ID, until the funding outpoint is announced
 	 */
 	public void set_temporary_channel_id(byte[] val) {
-		bindings.AcceptChannel_set_temporary_channel_id(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
+		Bindings.AcceptChannelSetTemporaryChannelId(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -43,7 +43,7 @@ public class AcceptChannel : CommonBase {
 	 * The threshold below which outputs on transactions broadcast by sender will be omitted
 	 */
 	public long get_dust_limit_satoshis() {
-		long ret = bindings.AcceptChannel_get_dust_limit_satoshis(this.ptr);
+		long ret = Bindings.AcceptChannelGetDustLimitSatoshis(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -52,7 +52,7 @@ public class AcceptChannel : CommonBase {
 	 * The threshold below which outputs on transactions broadcast by sender will be omitted
 	 */
 	public void set_dust_limit_satoshis(long val) {
-		bindings.AcceptChannel_set_dust_limit_satoshis(this.ptr, val);
+		Bindings.AcceptChannelSetDustLimitSatoshis(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -61,7 +61,7 @@ public class AcceptChannel : CommonBase {
 	 * The maximum inbound HTLC value in flight towards sender, in milli-satoshi
 	 */
 	public long get_max_htlc_value_in_flight_msat() {
-		long ret = bindings.AcceptChannel_get_max_htlc_value_in_flight_msat(this.ptr);
+		long ret = Bindings.AcceptChannelGetMaxHtlcValueInFlightMsat(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -70,7 +70,7 @@ public class AcceptChannel : CommonBase {
 	 * The maximum inbound HTLC value in flight towards sender, in milli-satoshi
 	 */
 	public void set_max_htlc_value_in_flight_msat(long val) {
-		bindings.AcceptChannel_set_max_htlc_value_in_flight_msat(this.ptr, val);
+		Bindings.AcceptChannelSetMaxHtlcValueInFlightMsat(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -79,7 +79,7 @@ public class AcceptChannel : CommonBase {
 	 * The minimum value unencumbered by HTLCs for the counterparty to keep in the channel
 	 */
 	public long get_channel_reserve_satoshis() {
-		long ret = bindings.AcceptChannel_get_channel_reserve_satoshis(this.ptr);
+		long ret = Bindings.AcceptChannelGetChannelReserveSatoshis(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -88,7 +88,7 @@ public class AcceptChannel : CommonBase {
 	 * The minimum value unencumbered by HTLCs for the counterparty to keep in the channel
 	 */
 	public void set_channel_reserve_satoshis(long val) {
-		bindings.AcceptChannel_set_channel_reserve_satoshis(this.ptr, val);
+		Bindings.AcceptChannelSetChannelReserveSatoshis(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -97,7 +97,7 @@ public class AcceptChannel : CommonBase {
 	 * The minimum HTLC size incoming to sender, in milli-satoshi
 	 */
 	public long get_htlc_minimum_msat() {
-		long ret = bindings.AcceptChannel_get_htlc_minimum_msat(this.ptr);
+		long ret = Bindings.AcceptChannelGetHtlcMinimumMsat(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -106,7 +106,7 @@ public class AcceptChannel : CommonBase {
 	 * The minimum HTLC size incoming to sender, in milli-satoshi
 	 */
 	public void set_htlc_minimum_msat(long val) {
-		bindings.AcceptChannel_set_htlc_minimum_msat(this.ptr, val);
+		Bindings.AcceptChannelSetHtlcMinimumMsat(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -115,7 +115,7 @@ public class AcceptChannel : CommonBase {
 	 * Minimum depth of the funding transaction before the channel is considered open
 	 */
 	public int get_minimum_depth() {
-		int ret = bindings.AcceptChannel_get_minimum_depth(this.ptr);
+		int ret = Bindings.AcceptChannelGetMinimumDepth(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -124,7 +124,7 @@ public class AcceptChannel : CommonBase {
 	 * Minimum depth of the funding transaction before the channel is considered open
 	 */
 	public void set_minimum_depth(int val) {
-		bindings.AcceptChannel_set_minimum_depth(this.ptr, val);
+		Bindings.AcceptChannelSetMinimumDepth(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -133,7 +133,7 @@ public class AcceptChannel : CommonBase {
 	 * The number of blocks which the counterparty will have to wait to claim on-chain funds if they broadcast a commitment transaction
 	 */
 	public short get_to_self_delay() {
-		short ret = bindings.AcceptChannel_get_to_self_delay(this.ptr);
+		short ret = Bindings.AcceptChannelGetToSelfDelay(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -142,7 +142,7 @@ public class AcceptChannel : CommonBase {
 	 * The number of blocks which the counterparty will have to wait to claim on-chain funds if they broadcast a commitment transaction
 	 */
 	public void set_to_self_delay(short val) {
-		bindings.AcceptChannel_set_to_self_delay(this.ptr, val);
+		Bindings.AcceptChannelSetToSelfDelay(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -151,7 +151,7 @@ public class AcceptChannel : CommonBase {
 	 * The maximum number of inbound HTLCs towards sender
 	 */
 	public short get_max_accepted_htlcs() {
-		short ret = bindings.AcceptChannel_get_max_accepted_htlcs(this.ptr);
+		short ret = Bindings.AcceptChannelGetMaxAcceptedHtlcs(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -160,7 +160,7 @@ public class AcceptChannel : CommonBase {
 	 * The maximum number of inbound HTLCs towards sender
 	 */
 	public void set_max_accepted_htlcs(short val) {
-		bindings.AcceptChannel_set_max_accepted_htlcs(this.ptr, val);
+		Bindings.AcceptChannelSetMaxAcceptedHtlcs(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -169,7 +169,7 @@ public class AcceptChannel : CommonBase {
 	 * The sender's key controlling the funding transaction
 	 */
 	public byte[] get_funding_pubkey() {
-		long ret = bindings.AcceptChannel_get_funding_pubkey(this.ptr);
+		long ret = Bindings.AcceptChannelGetFundingPubkey(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -180,7 +180,7 @@ public class AcceptChannel : CommonBase {
 	 * The sender's key controlling the funding transaction
 	 */
 	public void set_funding_pubkey(byte[] val) {
-		bindings.AcceptChannel_set_funding_pubkey(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 33)));
+		Bindings.AcceptChannelSetFundingPubkey(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 33)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -189,7 +189,7 @@ public class AcceptChannel : CommonBase {
 	 * Used to derive a revocation key for transactions broadcast by counterparty
 	 */
 	public byte[] get_revocation_basepoint() {
-		long ret = bindings.AcceptChannel_get_revocation_basepoint(this.ptr);
+		long ret = Bindings.AcceptChannelGetRevocationBasepoint(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -200,7 +200,7 @@ public class AcceptChannel : CommonBase {
 	 * Used to derive a revocation key for transactions broadcast by counterparty
 	 */
 	public void set_revocation_basepoint(byte[] val) {
-		bindings.AcceptChannel_set_revocation_basepoint(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 33)));
+		Bindings.AcceptChannelSetRevocationBasepoint(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 33)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -209,7 +209,7 @@ public class AcceptChannel : CommonBase {
 	 * A payment key to sender for transactions broadcast by counterparty
 	 */
 	public byte[] get_payment_point() {
-		long ret = bindings.AcceptChannel_get_payment_point(this.ptr);
+		long ret = Bindings.AcceptChannelGetPaymentPoint(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -220,7 +220,7 @@ public class AcceptChannel : CommonBase {
 	 * A payment key to sender for transactions broadcast by counterparty
 	 */
 	public void set_payment_point(byte[] val) {
-		bindings.AcceptChannel_set_payment_point(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 33)));
+		Bindings.AcceptChannelSetPaymentPoint(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 33)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -229,7 +229,7 @@ public class AcceptChannel : CommonBase {
 	 * Used to derive a payment key to sender for transactions broadcast by sender
 	 */
 	public byte[] get_delayed_payment_basepoint() {
-		long ret = bindings.AcceptChannel_get_delayed_payment_basepoint(this.ptr);
+		long ret = Bindings.AcceptChannelGetDelayedPaymentBasepoint(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -240,7 +240,7 @@ public class AcceptChannel : CommonBase {
 	 * Used to derive a payment key to sender for transactions broadcast by sender
 	 */
 	public void set_delayed_payment_basepoint(byte[] val) {
-		bindings.AcceptChannel_set_delayed_payment_basepoint(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 33)));
+		Bindings.AcceptChannelSetDelayedPaymentBasepoint(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 33)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -249,7 +249,7 @@ public class AcceptChannel : CommonBase {
 	 * Used to derive an HTLC payment key to sender for transactions broadcast by counterparty
 	 */
 	public byte[] get_htlc_basepoint() {
-		long ret = bindings.AcceptChannel_get_htlc_basepoint(this.ptr);
+		long ret = Bindings.AcceptChannelGetHtlcBasepoint(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -260,7 +260,7 @@ public class AcceptChannel : CommonBase {
 	 * Used to derive an HTLC payment key to sender for transactions broadcast by counterparty
 	 */
 	public void set_htlc_basepoint(byte[] val) {
-		bindings.AcceptChannel_set_htlc_basepoint(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 33)));
+		Bindings.AcceptChannelSetHtlcBasepoint(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 33)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -269,7 +269,7 @@ public class AcceptChannel : CommonBase {
 	 * The first to-be-broadcast-by-sender transaction's per commitment point
 	 */
 	public byte[] get_first_per_commitment_point() {
-		long ret = bindings.AcceptChannel_get_first_per_commitment_point(this.ptr);
+		long ret = Bindings.AcceptChannelGetFirstPerCommitmentPoint(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -280,7 +280,7 @@ public class AcceptChannel : CommonBase {
 	 * The first to-be-broadcast-by-sender transaction's per commitment point
 	 */
 	public void set_first_per_commitment_point(byte[] val) {
-		bindings.AcceptChannel_set_first_per_commitment_point(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 33)));
+		Bindings.AcceptChannelSetFirstPerCommitmentPoint(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 33)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -289,7 +289,7 @@ public class AcceptChannel : CommonBase {
 	 * A request to pre-set the to-sender output's scriptPubkey for when we collaboratively close
 	 */
 	public Option_CVec_u8ZZ get_shutdown_scriptpubkey() {
-		long ret = bindings.AcceptChannel_get_shutdown_scriptpubkey(this.ptr);
+		long ret = Bindings.AcceptChannelGetShutdownScriptpubkey(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_CVec_u8ZZ ret_hu_conv = org.ldk.structs.Option_CVec_u8ZZ.constr_from_ptr(ret);
@@ -301,7 +301,7 @@ public class AcceptChannel : CommonBase {
 	 * A request to pre-set the to-sender output's scriptPubkey for when we collaboratively close
 	 */
 	public void set_shutdown_scriptpubkey(org.ldk.structs.Option_CVec_u8ZZ val) {
-		bindings.AcceptChannel_set_shutdown_scriptpubkey(this.ptr, val.ptr);
+		Bindings.AcceptChannelSetShutdownScriptpubkey(this.ptr, val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -317,7 +317,7 @@ public class AcceptChannel : CommonBase {
 	 * Note that the return value (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public ChannelTypeFeatures get_channel_type() {
-		long ret = bindings.AcceptChannel_get_channel_type(this.ptr);
+		long ret = Bindings.AcceptChannelGetChannelType(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChannelTypeFeatures ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChannelTypeFeatures(null, ret); }
@@ -335,7 +335,7 @@ public class AcceptChannel : CommonBase {
 	 * Note that val (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public void set_channel_type(org.ldk.structs.ChannelTypeFeatures val) {
-		bindings.AcceptChannel_set_channel_type(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.AcceptChannelSetChannelType(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -347,7 +347,7 @@ public class AcceptChannel : CommonBase {
 	 * Note that channel_type_arg (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public static AcceptChannel of(byte[] temporary_channel_id_arg, long dust_limit_satoshis_arg, long max_htlc_value_in_flight_msat_arg, long channel_reserve_satoshis_arg, long htlc_minimum_msat_arg, int minimum_depth_arg, short to_self_delay_arg, short max_accepted_htlcs_arg, byte[] funding_pubkey_arg, byte[] revocation_basepoint_arg, byte[] payment_point_arg, byte[] delayed_payment_basepoint_arg, byte[] htlc_basepoint_arg, byte[] first_per_commitment_point_arg, org.ldk.structs.Option_CVec_u8ZZ shutdown_scriptpubkey_arg, org.ldk.structs.ChannelTypeFeatures channel_type_arg) {
-		long ret = bindings.AcceptChannel_new(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(temporary_channel_id_arg, 32)), dust_limit_satoshis_arg, max_htlc_value_in_flight_msat_arg, channel_reserve_satoshis_arg, htlc_minimum_msat_arg, minimum_depth_arg, to_self_delay_arg, max_accepted_htlcs_arg, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(funding_pubkey_arg, 33)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(revocation_basepoint_arg, 33)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_point_arg, 33)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(delayed_payment_basepoint_arg, 33)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(htlc_basepoint_arg, 33)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(first_per_commitment_point_arg, 33)), shutdown_scriptpubkey_arg.ptr, channel_type_arg == null ? 0 : channel_type_arg.ptr);
+		long ret = Bindings.AcceptChannelNew(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(temporary_channel_id_arg, 32)), dust_limit_satoshis_arg, max_htlc_value_in_flight_msat_arg, channel_reserve_satoshis_arg, htlc_minimum_msat_arg, minimum_depth_arg, to_self_delay_arg, max_accepted_htlcs_arg, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(funding_pubkey_arg, 33)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(revocation_basepoint_arg, 33)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_point_arg, 33)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(delayed_payment_basepoint_arg, 33)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(htlc_basepoint_arg, 33)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(first_per_commitment_point_arg, 33)), shutdown_scriptpubkey_arg.ptr, channel_type_arg == null ? 0 : channel_type_arg.ptr);
 		GC.KeepAlive(temporary_channel_id_arg);
 		GC.KeepAlive(dust_limit_satoshis_arg);
 		GC.KeepAlive(max_htlc_value_in_flight_msat_arg);
@@ -373,7 +373,7 @@ public class AcceptChannel : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.AcceptChannel_clone_ptr(this.ptr);
+		long ret = Bindings.AcceptChannelClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -382,7 +382,7 @@ public class AcceptChannel : CommonBase {
 	 * Creates a copy of the AcceptChannel
 	 */
 	public AcceptChannel clone() {
-		long ret = bindings.AcceptChannel_clone(this.ptr);
+		long ret = Bindings.AcceptChannelClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.AcceptChannel ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.AcceptChannel(null, ret); }
@@ -394,7 +394,7 @@ public class AcceptChannel : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the AcceptChannel.
 	 */
 	public long hash() {
-		long ret = bindings.AcceptChannel_hash(this.ptr);
+		long ret = Bindings.AcceptChannelHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -408,7 +408,7 @@ public class AcceptChannel : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.AcceptChannel b) {
-		bool ret = bindings.AcceptChannel_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.AcceptChannelEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -423,7 +423,7 @@ public class AcceptChannel : CommonBase {
 	 * Serialize the AcceptChannel object into a byte array which can be read by AcceptChannel_read
 	 */
 	public byte[] write() {
-		long ret = bindings.AcceptChannel_write(this.ptr);
+		long ret = Bindings.AcceptChannelWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -434,7 +434,7 @@ public class AcceptChannel : CommonBase {
 	 * Read a AcceptChannel from a byte array, created by AcceptChannel_write
 	 */
 	public static Result_AcceptChannelDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.AcceptChannel_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.AcceptChannelRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_AcceptChannelDecodeErrorZ ret_hu_conv = Result_AcceptChannelDecodeErrorZ.constr_from_ptr(ret);

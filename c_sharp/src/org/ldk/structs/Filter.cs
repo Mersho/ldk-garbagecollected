@@ -9,7 +9,7 @@ namespace org { namespace ldk { namespace structs {
 
 
 /** An implementation of Filter */
-public interface FilterInterface {
+public interface IFilter {
 	/**Registers interest in a transaction with `txid` and having an output with `script_pubkey` as
 	 * a spending condition.
 	 */
@@ -47,26 +47,26 @@ public interface FilterInterface {
  * [BIP 158]: https://github.com/bitcoin/bips/blob/master/bip-0158.mediawiki
  */
 public class Filter : CommonBase {
-	internal bindings.LDKFilter bindings_instance;
+	internal Bindings.LDKFilter bindings_instance;
 	internal long instance_idx;
 
 	internal Filter(object _dummy, long ptr) : base(ptr) { bindings_instance = null; }
 	~Filter() {
-		if (ptr != 0) { bindings.Filter_free(ptr); }
+		if (ptr != 0) { Bindings.FilterFree(ptr); }
 	}
 
 	private class LDKFilterHolder { internal Filter held; }
-	private class LDKFilterImpl : bindings.LDKFilter {
-		internal LDKFilterImpl(FilterInterface arg, LDKFilterHolder impl_holder) { this.arg = arg; this.impl_holder = impl_holder; }
-		private FilterInterface arg;
+	private class LDKFilterImpl : Bindings.LDKFilter {
+		internal LDKFilterImpl(IFilter arg, LDKFilterHolder impl_holder) { this.arg = arg; this.impl_holder = impl_holder; }
+		private IFilter arg;
 		private LDKFilterHolder impl_holder;
-		public void register_tx(long _txid, long _script_pubkey) {
+		public void RegisterTx(long _txid, long _script_pubkey) {
 			byte[] _txid_conv = InternalUtils.decodeUint8Array(_txid);
 			byte[] _script_pubkey_conv = InternalUtils.decodeUint8Array(_script_pubkey);
 			arg.register_tx(_txid_conv, _script_pubkey_conv);
 				GC.KeepAlive(arg);
 		}
-		public void register_output(long _output) {
+		public void RegisterOutput(long _output) {
 			org.ldk.structs.WatchedOutput _output_hu_conv = null; if (_output < 0 || _output > 4096) { _output_hu_conv = new org.ldk.structs.WatchedOutput(null, _output); }
 			if (_output_hu_conv != null) { _output_hu_conv.ptrs_to.AddLast(this); };
 			arg.register_output(_output_hu_conv);
@@ -75,10 +75,10 @@ public class Filter : CommonBase {
 	}
 
 	/** Creates a new instance of Filter from a given implementation */
-	public static Filter new_impl(FilterInterface arg) {
+	public static Filter new_impl(IFilter arg) {
 		LDKFilterHolder impl_holder = new LDKFilterHolder();
 		LDKFilterImpl impl = new LDKFilterImpl(arg, impl_holder);
-		long[] ptr_idx = bindings.LDKFilter_new(impl);
+		long[] ptr_idx = Bindings.LDKFilterNew(impl);
 
 		impl_holder.held = new Filter(null, ptr_idx[0]);
 		impl_holder.held.instance_idx = ptr_idx[1];
@@ -91,7 +91,7 @@ public class Filter : CommonBase {
 	 * a spending condition.
 	 */
 	public void register_tx(byte[] txid, byte[] script_pubkey) {
-		bindings.Filter_register_tx(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(txid, 32)), InternalUtils.encodeUint8Array(script_pubkey));
+		Bindings.FilterRegisterTx(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(txid, 32)), InternalUtils.encodeUint8Array(script_pubkey));
 		GC.KeepAlive(this);
 		GC.KeepAlive(txid);
 		GC.KeepAlive(script_pubkey);
@@ -106,7 +106,7 @@ public class Filter : CommonBase {
 	 * registered mid-processing.
 	 */
 	public void register_output(org.ldk.structs.WatchedOutput output) {
-		bindings.Filter_register_output(this.ptr, output == null ? 0 : output.ptr);
+		Bindings.FilterRegisterOutput(this.ptr, output == null ? 0 : output.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(output);
 		if (this != null) { this.ptrs_to.AddLast(output); };

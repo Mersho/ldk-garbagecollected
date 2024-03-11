@@ -12,8 +12,8 @@ public class WitnessProgram : CommonBase {
 	public readonly WitnessVersion version;
 
 	internal WitnessProgram(object _dummy, long ptr) : base(ptr) {
-		this.program = InternalUtils.decodeUint8Array(bindings.WitnessProgram_get_program(ptr));
-		this.version = new WitnessVersion(bindings.WitnessProgram_get_version(ptr));
+		this.program = InternalUtils.decodeUint8Array(Bindings.WitnessProgramGetProgram(ptr));
+		this.version = new WitnessVersion(Bindings.WitnessProgramGetVersion(ptr));
 	}
 	static private long check_args(byte[] program, WitnessVersion version) {
 		if (program.Length < 2 || program.Length > 40) throw new ArgumentException();
@@ -21,9 +21,9 @@ public class WitnessProgram : CommonBase {
 		return InternalUtils.encodeUint8Array(program);
 	}
 	public WitnessProgram(byte[] program, WitnessVersion version) :
-		this(null, bindings.WitnessProgram_new(version.getVal(), check_args(program, version))) {}
+		this(null, Bindings.WitnessProgramNew(version.getVal(), check_args(program, version))) {}
 
 	~WitnessProgram() {
-		if (ptr != 0) { bindings.WitnessProgram_free(ptr); }
+		if (ptr != 0) { Bindings.WitnessProgramFree(ptr); }
 	}
 }} } }

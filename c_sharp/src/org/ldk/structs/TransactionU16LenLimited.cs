@@ -15,11 +15,11 @@ namespace org { namespace ldk { namespace structs {
 public class TransactionU16LenLimited : CommonBase {
 	internal TransactionU16LenLimited(object _dummy, long ptr) : base(ptr) { }
 	~TransactionU16LenLimited() {
-		if (ptr != 0) { bindings.TransactionU16LenLimited_free(ptr); }
+		if (ptr != 0) { Bindings.TransactionU16LenLimitedFree(ptr); }
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.TransactionU16LenLimited_clone_ptr(this.ptr);
+		long ret = Bindings.TransactionU16LenLimitedClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -28,7 +28,7 @@ public class TransactionU16LenLimited : CommonBase {
 	 * Creates a copy of the TransactionU16LenLimited
 	 */
 	public TransactionU16LenLimited clone() {
-		long ret = bindings.TransactionU16LenLimited_clone(this.ptr);
+		long ret = Bindings.TransactionU16LenLimitedClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.TransactionU16LenLimited ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.TransactionU16LenLimited(null, ret); }
@@ -40,7 +40,7 @@ public class TransactionU16LenLimited : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the TransactionU16LenLimited.
 	 */
 	public long hash() {
-		long ret = bindings.TransactionU16LenLimited_hash(this.ptr);
+		long ret = Bindings.TransactionU16LenLimitedHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -54,7 +54,7 @@ public class TransactionU16LenLimited : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.TransactionU16LenLimited b) {
-		bool ret = bindings.TransactionU16LenLimited_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.TransactionU16LenLimitedEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -70,7 +70,7 @@ public class TransactionU16LenLimited : CommonBase {
 	 * serialized length is <= u16::MAX.
 	 */
 	public static Result_TransactionU16LenLimitedNoneZ of(byte[] transaction) {
-		long ret = bindings.TransactionU16LenLimited_new(InternalUtils.encodeUint8Array(transaction));
+		long ret = Bindings.TransactionU16LenLimitedNew(InternalUtils.encodeUint8Array(transaction));
 		GC.KeepAlive(transaction);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_TransactionU16LenLimitedNoneZ ret_hu_conv = Result_TransactionU16LenLimitedNoneZ.constr_from_ptr(ret);
@@ -81,7 +81,7 @@ public class TransactionU16LenLimited : CommonBase {
 	 * Consumes this `TransactionU16LenLimited` and returns its contained `Transaction`.
 	 */
 	public byte[] into_transaction() {
-		long ret = bindings.TransactionU16LenLimited_into_transaction(this.ptr);
+		long ret = Bindings.TransactionU16LenLimitedIntoTransaction(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -93,7 +93,7 @@ public class TransactionU16LenLimited : CommonBase {
 	 * Serialize the TransactionU16LenLimited object into a byte array which can be read by TransactionU16LenLimited_read
 	 */
 	public byte[] write() {
-		long ret = bindings.TransactionU16LenLimited_write(this.ptr);
+		long ret = Bindings.TransactionU16LenLimitedWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -104,7 +104,7 @@ public class TransactionU16LenLimited : CommonBase {
 	 * Read a TransactionU16LenLimited from a byte array, created by TransactionU16LenLimited_write
 	 */
 	public static Result_TransactionU16LenLimitedDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.TransactionU16LenLimited_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.TransactionU16LenLimitedRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_TransactionU16LenLimitedDecodeErrorZ ret_hu_conv = Result_TransactionU16LenLimitedDecodeErrorZ.constr_from_ptr(ret);

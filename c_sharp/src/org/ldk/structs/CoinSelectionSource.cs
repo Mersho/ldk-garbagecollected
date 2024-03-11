@@ -9,7 +9,7 @@ namespace org { namespace ldk { namespace structs {
 
 
 /** An implementation of CoinSelectionSource */
-public interface CoinSelectionSourceInterface {
+public interface ICoinSelectionSource {
 	/**Performs coin selection of a set of UTXOs, with at least 1 confirmation each, that are
 	 * available to spend. Implementations are free to pick their coin selection algorithm of
 	 * choice, as long as the following requirements are met:
@@ -54,20 +54,20 @@ public interface CoinSelectionSourceInterface {
  * which can provide a default implementation of this trait when used with [`Wallet`].
  */
 public class CoinSelectionSource : CommonBase {
-	internal bindings.LDKCoinSelectionSource bindings_instance;
+	internal Bindings.LDKCoinSelectionSource bindings_instance;
 	internal long instance_idx;
 
 	internal CoinSelectionSource(object _dummy, long ptr) : base(ptr) { bindings_instance = null; }
 	~CoinSelectionSource() {
-		if (ptr != 0) { bindings.CoinSelectionSource_free(ptr); }
+		if (ptr != 0) { Bindings.CoinSelectionSourceFree(ptr); }
 	}
 
 	private class LDKCoinSelectionSourceHolder { internal CoinSelectionSource held; }
-	private class LDKCoinSelectionSourceImpl : bindings.LDKCoinSelectionSource {
-		internal LDKCoinSelectionSourceImpl(CoinSelectionSourceInterface arg, LDKCoinSelectionSourceHolder impl_holder) { this.arg = arg; this.impl_holder = impl_holder; }
-		private CoinSelectionSourceInterface arg;
+	private class LDKCoinSelectionSourceImpl : Bindings.LDKCoinSelectionSource {
+		internal LDKCoinSelectionSourceImpl(ICoinSelectionSource arg, LDKCoinSelectionSourceHolder impl_holder) { this.arg = arg; this.impl_holder = impl_holder; }
+		private ICoinSelectionSource arg;
 		private LDKCoinSelectionSourceHolder impl_holder;
-		public long select_confirmed_utxos(long _claim_id, long _must_spend, long _must_pay_to, int _target_feerate_sat_per_1000_weight) {
+		public long SelectConfirmedUtxos(long _claim_id, long _must_spend, long _must_pay_to, int _target_feerate_sat_per_1000_weight) {
 			byte[] _claim_id_conv = InternalUtils.decodeUint8Array(_claim_id);
 			int _must_spend_conv_7_len = InternalUtils.getArrayLength(_must_spend);
 			Input[] _must_spend_conv_7_arr = new Input[_must_spend_conv_7_len];
@@ -77,7 +77,7 @@ public class CoinSelectionSource : CommonBase {
 				if (_must_spend_conv_7_hu_conv != null) { _must_spend_conv_7_hu_conv.ptrs_to.AddLast(this); };
 				_must_spend_conv_7_arr[h] = _must_spend_conv_7_hu_conv;
 			}
-			bindings.free_buffer(_must_spend);
+			Bindings.FreeBuffer(_must_spend);
 			int _must_pay_to_conv_7_len = InternalUtils.getArrayLength(_must_pay_to);
 			TxOut[] _must_pay_to_conv_7_arr = new TxOut[_must_pay_to_conv_7_len];
 			for (int h = 0; h < _must_pay_to_conv_7_len; h++) {
@@ -85,13 +85,13 @@ public class CoinSelectionSource : CommonBase {
 				TxOut _must_pay_to_conv_7_conv = new TxOut(null, _must_pay_to_conv_7);
 				_must_pay_to_conv_7_arr[h] = _must_pay_to_conv_7_conv;
 			}
-			bindings.free_buffer(_must_pay_to);
+			Bindings.FreeBuffer(_must_pay_to);
 			Result_CoinSelectionNoneZ ret = arg.select_confirmed_utxos(_claim_id_conv, _must_spend_conv_7_arr, _must_pay_to_conv_7_arr, _target_feerate_sat_per_1000_weight);
 				GC.KeepAlive(arg);
 			long result = ret == null ? 0 : ret.clone_ptr();
 			return result;
 		}
-		public long sign_psbt(long _psbt) {
+		public long SignPsbt(long _psbt) {
 			byte[] _psbt_conv = InternalUtils.decodeUint8Array(_psbt);
 			Result_TransactionNoneZ ret = arg.sign_psbt(_psbt_conv);
 				GC.KeepAlive(arg);
@@ -101,10 +101,10 @@ public class CoinSelectionSource : CommonBase {
 	}
 
 	/** Creates a new instance of CoinSelectionSource from a given implementation */
-	public static CoinSelectionSource new_impl(CoinSelectionSourceInterface arg) {
+	public static CoinSelectionSource new_impl(ICoinSelectionSource arg) {
 		LDKCoinSelectionSourceHolder impl_holder = new LDKCoinSelectionSourceHolder();
 		LDKCoinSelectionSourceImpl impl = new LDKCoinSelectionSourceImpl(arg, impl_holder);
-		long[] ptr_idx = bindings.LDKCoinSelectionSource_new(impl);
+		long[] ptr_idx = Bindings.LDKCoinSelectionSourceNew(impl);
 
 		impl_holder.held = new CoinSelectionSource(null, ptr_idx[0]);
 		impl_holder.held.instance_idx = ptr_idx[1];
@@ -141,7 +141,7 @@ public class CoinSelectionSource : CommonBase {
 	 * set of other claims being double spent to a minimum.
 	 */
 	public Result_CoinSelectionNoneZ select_confirmed_utxos(byte[] claim_id, Input[] must_spend, TxOut[] must_pay_to, int target_feerate_sat_per_1000_weight) {
-		long ret = bindings.CoinSelectionSource_select_confirmed_utxos(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(claim_id, 32)), InternalUtils.encodeUint64Array(InternalUtils.mapArray(must_spend, must_spend_conv_7 => must_spend_conv_7 == null ? 0 : must_spend_conv_7.ptr)), InternalUtils.encodeUint64Array(InternalUtils.mapArray(must_pay_to, must_pay_to_conv_7 => must_pay_to_conv_7.ptr)), target_feerate_sat_per_1000_weight);
+		long ret = Bindings.CoinSelectionSourceSelectConfirmedUtxos(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(claim_id, 32)), InternalUtils.encodeUint64Array(InternalUtils.mapArray(must_spend, must_spend_conv_7 => must_spend_conv_7 == null ? 0 : must_spend_conv_7.ptr)), InternalUtils.encodeUint64Array(InternalUtils.mapArray(must_pay_to, must_pay_to_conv_7 => must_pay_to_conv_7.ptr)), target_feerate_sat_per_1000_weight);
 		GC.KeepAlive(this);
 		GC.KeepAlive(claim_id);
 		GC.KeepAlive(must_spend);
@@ -161,7 +161,7 @@ public class CoinSelectionSource : CommonBase {
 	 * unsigned transaction and then sign it with your wallet.
 	 */
 	public Result_TransactionNoneZ sign_psbt(byte[] psbt) {
-		long ret = bindings.CoinSelectionSource_sign_psbt(this.ptr, InternalUtils.encodeUint8Array(psbt));
+		long ret = Bindings.CoinSelectionSourceSignPsbt(this.ptr, InternalUtils.encodeUint8Array(psbt));
 		GC.KeepAlive(this);
 		GC.KeepAlive(psbt);
 		if (ret >= 0 && ret <= 4096) { return null; }

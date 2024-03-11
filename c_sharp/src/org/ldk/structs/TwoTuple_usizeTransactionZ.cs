@@ -12,14 +12,14 @@ namespace org { namespace ldk { namespace structs {
 public class TwoTuple_usizeTransactionZ : CommonBase {
 	internal TwoTuple_usizeTransactionZ(object _dummy, long ptr) : base(ptr) { }
 	~TwoTuple_usizeTransactionZ() {
-		if (ptr != 0) { bindings.C2Tuple_usizeTransactionZ_free(ptr); }
+		if (ptr != 0) { Bindings.C2TupleUsizetransactionzFree(ptr); }
 	}
 
 	/**
 	 * 
 	 */
 	public long get_a() {
-		long ret = bindings.C2Tuple_usizeTransactionZ_get_a(this.ptr);
+		long ret = Bindings.C2TupleUsizetransactionzGetA(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -28,7 +28,7 @@ public class TwoTuple_usizeTransactionZ : CommonBase {
 	 * 
 	 */
 	public byte[] get_b() {
-		long ret = bindings.C2Tuple_usizeTransactionZ_get_b(this.ptr);
+		long ret = Bindings.C2TupleUsizetransactionzGetB(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -36,7 +36,7 @@ public class TwoTuple_usizeTransactionZ : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.C2Tuple_usizeTransactionZ_clone_ptr(this.ptr);
+		long ret = Bindings.C2TupleUsizetransactionzClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -46,7 +46,7 @@ public class TwoTuple_usizeTransactionZ : CommonBase {
 	 * but with all dynamically-allocated buffers duplicated in new buffers.
 	 */
 	public TwoTuple_usizeTransactionZ clone() {
-		long ret = bindings.C2Tuple_usizeTransactionZ_clone(this.ptr);
+		long ret = Bindings.C2TupleUsizetransactionzClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		TwoTuple_usizeTransactionZ ret_hu_conv = new TwoTuple_usizeTransactionZ(null, ret);
@@ -58,7 +58,7 @@ public class TwoTuple_usizeTransactionZ : CommonBase {
 	 * Creates a new C2Tuple_usizeTransactionZ from the contained elements.
 	 */
 	public static TwoTuple_usizeTransactionZ of(long a, byte[] b) {
-		long ret = bindings.C2Tuple_usizeTransactionZ_new(a, InternalUtils.encodeUint8Array(b));
+		long ret = Bindings.C2TupleUsizetransactionzNew(a, InternalUtils.encodeUint8Array(b));
 		GC.KeepAlive(a);
 		GC.KeepAlive(b);
 		if (ret >= 0 && ret <= 4096) { return null; }

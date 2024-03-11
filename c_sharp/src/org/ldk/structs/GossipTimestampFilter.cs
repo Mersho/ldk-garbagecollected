@@ -16,14 +16,14 @@ namespace org { namespace ldk { namespace structs {
 public class GossipTimestampFilter : CommonBase {
 	internal GossipTimestampFilter(object _dummy, long ptr) : base(ptr) { }
 	~GossipTimestampFilter() {
-		if (ptr != 0) { bindings.GossipTimestampFilter_free(ptr); }
+		if (ptr != 0) { Bindings.GossipTimestampFilterFree(ptr); }
 	}
 
 	/**
 	 * The genesis hash of the blockchain for channel and node information
 	 */
 	public byte[] get_chain_hash() {
-		long ret = bindings.GossipTimestampFilter_get_chain_hash(this.ptr);
+		long ret = Bindings.GossipTimestampFilterGetChainHash(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -34,7 +34,7 @@ public class GossipTimestampFilter : CommonBase {
 	 * The genesis hash of the blockchain for channel and node information
 	 */
 	public void set_chain_hash(byte[] val) {
-		bindings.GossipTimestampFilter_set_chain_hash(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
+		Bindings.GossipTimestampFilterSetChainHash(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -43,7 +43,7 @@ public class GossipTimestampFilter : CommonBase {
 	 * The starting unix timestamp
 	 */
 	public int get_first_timestamp() {
-		int ret = bindings.GossipTimestampFilter_get_first_timestamp(this.ptr);
+		int ret = Bindings.GossipTimestampFilterGetFirstTimestamp(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -52,7 +52,7 @@ public class GossipTimestampFilter : CommonBase {
 	 * The starting unix timestamp
 	 */
 	public void set_first_timestamp(int val) {
-		bindings.GossipTimestampFilter_set_first_timestamp(this.ptr, val);
+		Bindings.GossipTimestampFilterSetFirstTimestamp(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -61,7 +61,7 @@ public class GossipTimestampFilter : CommonBase {
 	 * The range of information in seconds
 	 */
 	public int get_timestamp_range() {
-		int ret = bindings.GossipTimestampFilter_get_timestamp_range(this.ptr);
+		int ret = Bindings.GossipTimestampFilterGetTimestampRange(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -70,7 +70,7 @@ public class GossipTimestampFilter : CommonBase {
 	 * The range of information in seconds
 	 */
 	public void set_timestamp_range(int val) {
-		bindings.GossipTimestampFilter_set_timestamp_range(this.ptr, val);
+		Bindings.GossipTimestampFilterSetTimestampRange(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -79,7 +79,7 @@ public class GossipTimestampFilter : CommonBase {
 	 * Constructs a new GossipTimestampFilter given each field
 	 */
 	public static GossipTimestampFilter of(byte[] chain_hash_arg, int first_timestamp_arg, int timestamp_range_arg) {
-		long ret = bindings.GossipTimestampFilter_new(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(chain_hash_arg, 32)), first_timestamp_arg, timestamp_range_arg);
+		long ret = Bindings.GossipTimestampFilterNew(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(chain_hash_arg, 32)), first_timestamp_arg, timestamp_range_arg);
 		GC.KeepAlive(chain_hash_arg);
 		GC.KeepAlive(first_timestamp_arg);
 		GC.KeepAlive(timestamp_range_arg);
@@ -90,7 +90,7 @@ public class GossipTimestampFilter : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.GossipTimestampFilter_clone_ptr(this.ptr);
+		long ret = Bindings.GossipTimestampFilterClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -99,7 +99,7 @@ public class GossipTimestampFilter : CommonBase {
 	 * Creates a copy of the GossipTimestampFilter
 	 */
 	public GossipTimestampFilter clone() {
-		long ret = bindings.GossipTimestampFilter_clone(this.ptr);
+		long ret = Bindings.GossipTimestampFilterClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.GossipTimestampFilter ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.GossipTimestampFilter(null, ret); }
@@ -111,7 +111,7 @@ public class GossipTimestampFilter : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the GossipTimestampFilter.
 	 */
 	public long hash() {
-		long ret = bindings.GossipTimestampFilter_hash(this.ptr);
+		long ret = Bindings.GossipTimestampFilterHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -125,7 +125,7 @@ public class GossipTimestampFilter : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.GossipTimestampFilter b) {
-		bool ret = bindings.GossipTimestampFilter_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.GossipTimestampFilterEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -140,7 +140,7 @@ public class GossipTimestampFilter : CommonBase {
 	 * Serialize the GossipTimestampFilter object into a byte array which can be read by GossipTimestampFilter_read
 	 */
 	public byte[] write() {
-		long ret = bindings.GossipTimestampFilter_write(this.ptr);
+		long ret = Bindings.GossipTimestampFilterWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -151,7 +151,7 @@ public class GossipTimestampFilter : CommonBase {
 	 * Read a GossipTimestampFilter from a byte array, created by GossipTimestampFilter_write
 	 */
 	public static Result_GossipTimestampFilterDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.GossipTimestampFilter_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.GossipTimestampFilterRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_GossipTimestampFilterDecodeErrorZ ret_hu_conv = Result_GossipTimestampFilterDecodeErrorZ.constr_from_ptr(ret);

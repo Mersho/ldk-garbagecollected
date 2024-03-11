@@ -12,7 +12,7 @@ namespace org { namespace ldk { namespace structs {
 public class NetworkGraph : CommonBase {
 	internal NetworkGraph(object _dummy, long ptr) : base(ptr) { }
 	~NetworkGraph() {
-		if (ptr != 0) { bindings.NetworkGraph_free(ptr); }
+		if (ptr != 0) { Bindings.NetworkGraphFree(ptr); }
 	}
 
 	/**
@@ -23,7 +23,7 @@ public class NetworkGraph : CommonBase {
 	 * [`Event`]: crate::events::Event
 	 */
 	public void handle_network_update(org.ldk.structs.NetworkUpdate network_update) {
-		bindings.NetworkGraph_handle_network_update(this.ptr, network_update == null ? 0 : network_update.ptr);
+		Bindings.NetworkGraphHandleNetworkUpdate(this.ptr, network_update == null ? 0 : network_update.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(network_update);
 	}
@@ -32,7 +32,7 @@ public class NetworkGraph : CommonBase {
 	 * Gets the chain hash for this network graph.
 	 */
 	public byte[] get_chain_hash() {
-		long ret = bindings.NetworkGraph_get_chain_hash(this.ptr);
+		long ret = Bindings.NetworkGraphGetChainHash(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -43,7 +43,7 @@ public class NetworkGraph : CommonBase {
 	 * Serialize the NetworkGraph object into a byte array which can be read by NetworkGraph_read
 	 */
 	public byte[] write() {
-		long ret = bindings.NetworkGraph_write(this.ptr);
+		long ret = Bindings.NetworkGraphWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -54,7 +54,7 @@ public class NetworkGraph : CommonBase {
 	 * Read a NetworkGraph from a byte array, created by NetworkGraph_write
 	 */
 	public static Result_NetworkGraphDecodeErrorZ read(byte[] ser, org.ldk.structs.Logger arg) {
-		long ret = bindings.NetworkGraph_read(InternalUtils.encodeUint8Array(ser), arg.ptr);
+		long ret = Bindings.NetworkGraphRead(InternalUtils.encodeUint8Array(ser), arg.ptr);
 		GC.KeepAlive(ser);
 		GC.KeepAlive(arg);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -67,7 +67,7 @@ public class NetworkGraph : CommonBase {
 	 * Creates a new, empty, network graph.
 	 */
 	public static NetworkGraph of(Network network, org.ldk.structs.Logger logger) {
-		long ret = bindings.NetworkGraph_new(network, logger.ptr);
+		long ret = Bindings.NetworkGraphNew(network, logger.ptr);
 		GC.KeepAlive(network);
 		GC.KeepAlive(logger);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -81,7 +81,7 @@ public class NetworkGraph : CommonBase {
 	 * Returns a read-only view of the network graph.
 	 */
 	public ReadOnlyNetworkGraph read_only() {
-		long ret = bindings.NetworkGraph_read_only(this.ptr);
+		long ret = Bindings.NetworkGraphReadOnly(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ReadOnlyNetworkGraph ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ReadOnlyNetworkGraph(null, ret); }
@@ -94,7 +94,7 @@ public class NetworkGraph : CommonBase {
 	 * It will be set by the rapid sync process after every sync completion.
 	 */
 	public Option_u32Z get_last_rapid_gossip_sync_timestamp() {
-		long ret = bindings.NetworkGraph_get_last_rapid_gossip_sync_timestamp(this.ptr);
+		long ret = Bindings.NetworkGraphGetLastRapidGossipSyncTimestamp(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_u32Z ret_hu_conv = org.ldk.structs.Option_u32Z.constr_from_ptr(ret);
@@ -107,7 +107,7 @@ public class NetworkGraph : CommonBase {
 	 * This should be done automatically by the rapid sync process after every sync completion.
 	 */
 	public void set_last_rapid_gossip_sync_timestamp(int last_rapid_gossip_sync_timestamp) {
-		bindings.NetworkGraph_set_last_rapid_gossip_sync_timestamp(this.ptr, last_rapid_gossip_sync_timestamp);
+		Bindings.NetworkGraphSetLastRapidGossipSyncTimestamp(this.ptr, last_rapid_gossip_sync_timestamp);
 		GC.KeepAlive(this);
 		GC.KeepAlive(last_rapid_gossip_sync_timestamp);
 	}
@@ -121,7 +121,7 @@ public class NetworkGraph : CommonBase {
 	 * routing messages from a source using a protocol other than the lightning P2P protocol.
 	 */
 	public Result_NoneLightningErrorZ update_node_from_announcement(org.ldk.structs.NodeAnnouncement msg) {
-		long ret = bindings.NetworkGraph_update_node_from_announcement(this.ptr, msg == null ? 0 : msg.ptr);
+		long ret = Bindings.NetworkGraphUpdateNodeFromAnnouncement(this.ptr, msg == null ? 0 : msg.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(msg);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -137,7 +137,7 @@ public class NetworkGraph : CommonBase {
 	 * peers.
 	 */
 	public Result_NoneLightningErrorZ update_node_from_unsigned_announcement(org.ldk.structs.UnsignedNodeAnnouncement msg) {
-		long ret = bindings.NetworkGraph_update_node_from_unsigned_announcement(this.ptr, msg == null ? 0 : msg.ptr);
+		long ret = Bindings.NetworkGraphUpdateNodeFromUnsignedAnnouncement(this.ptr, msg == null ? 0 : msg.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(msg);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -157,7 +157,7 @@ public class NetworkGraph : CommonBase {
 	 * the corresponding UTXO exists on chain and is correctly-formatted.
 	 */
 	public Result_NoneLightningErrorZ update_channel_from_announcement(org.ldk.structs.ChannelAnnouncement msg, org.ldk.structs.Option_UtxoLookupZ utxo_lookup) {
-		long ret = bindings.NetworkGraph_update_channel_from_announcement(this.ptr, msg == null ? 0 : msg.ptr, utxo_lookup.ptr);
+		long ret = Bindings.NetworkGraphUpdateChannelFromAnnouncement(this.ptr, msg == null ? 0 : msg.ptr, utxo_lookup.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(msg);
 		GC.KeepAlive(utxo_lookup);
@@ -178,7 +178,7 @@ public class NetworkGraph : CommonBase {
 	 * This will skip verification of if the channel is actually on-chain.
 	 */
 	public Result_NoneLightningErrorZ update_channel_from_announcement_no_lookup(org.ldk.structs.ChannelAnnouncement msg) {
-		long ret = bindings.NetworkGraph_update_channel_from_announcement_no_lookup(this.ptr, msg == null ? 0 : msg.ptr);
+		long ret = Bindings.NetworkGraphUpdateChannelFromAnnouncementNoLookup(this.ptr, msg == null ? 0 : msg.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(msg);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -196,7 +196,7 @@ public class NetworkGraph : CommonBase {
 	 * the corresponding UTXO exists on chain and is correctly-formatted.
 	 */
 	public Result_NoneLightningErrorZ update_channel_from_unsigned_announcement(org.ldk.structs.UnsignedChannelAnnouncement msg, org.ldk.structs.Option_UtxoLookupZ utxo_lookup) {
-		long ret = bindings.NetworkGraph_update_channel_from_unsigned_announcement(this.ptr, msg == null ? 0 : msg.ptr, utxo_lookup.ptr);
+		long ret = Bindings.NetworkGraphUpdateChannelFromUnsignedAnnouncement(this.ptr, msg == null ? 0 : msg.ptr, utxo_lookup.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(msg);
 		GC.KeepAlive(utxo_lookup);
@@ -216,7 +216,7 @@ public class NetworkGraph : CommonBase {
 	 * All other parameters as used in [`msgs::UnsignedChannelAnnouncement`] fields.
 	 */
 	public Result_NoneLightningErrorZ add_channel_from_partial_announcement(long short_channel_id, long timestamp, org.ldk.structs.ChannelFeatures features, byte[] node_id_1, byte[] node_id_2) {
-		long ret = bindings.NetworkGraph_add_channel_from_partial_announcement(this.ptr, short_channel_id, timestamp, features == null ? 0 : features.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(node_id_1, 33)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(node_id_2, 33)));
+		long ret = Bindings.NetworkGraphAddChannelFromPartialAnnouncement(this.ptr, short_channel_id, timestamp, features == null ? 0 : features.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(node_id_1, 33)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(node_id_2, 33)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(short_channel_id);
 		GC.KeepAlive(timestamp);
@@ -235,7 +235,7 @@ public class NetworkGraph : CommonBase {
 	 * The channel and any node for which this was their last channel are removed from the graph.
 	 */
 	public void channel_failed_permanent(long short_channel_id) {
-		bindings.NetworkGraph_channel_failed_permanent(this.ptr, short_channel_id);
+		Bindings.NetworkGraphChannelFailedPermanent(this.ptr, short_channel_id);
 		GC.KeepAlive(this);
 		GC.KeepAlive(short_channel_id);
 	}
@@ -245,7 +245,7 @@ public class NetworkGraph : CommonBase {
 	 * from local storage.
 	 */
 	public void node_failed_permanent(byte[] node_id) {
-		bindings.NetworkGraph_node_failed_permanent(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(node_id, 33)));
+		Bindings.NetworkGraphNodeFailedPermanent(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(node_id, 33)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(node_id);
 	}
@@ -269,7 +269,7 @@ public class NetworkGraph : CommonBase {
 	 * [`NetworkGraph::remove_stale_channels_and_tracking_with_time`] for `no-std` use.
 	 */
 	public void remove_stale_channels_and_tracking() {
-		bindings.NetworkGraph_remove_stale_channels_and_tracking(this.ptr);
+		Bindings.NetworkGraphRemoveStaleChannelsAndTracking(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -289,7 +289,7 @@ public class NetworkGraph : CommonBase {
 	 * enabled, [`NetworkGraph::remove_stale_channels_and_tracking`] may be preferable.
 	 */
 	public void remove_stale_channels_and_tracking_with_time(long current_time_unix) {
-		bindings.NetworkGraph_remove_stale_channels_and_tracking_with_time(this.ptr, current_time_unix);
+		Bindings.NetworkGraphRemoveStaleChannelsAndTrackingWithTime(this.ptr, current_time_unix);
 		GC.KeepAlive(this);
 		GC.KeepAlive(current_time_unix);
 	}
@@ -306,7 +306,7 @@ public class NetworkGraph : CommonBase {
 	 * materially in the future will be rejected.
 	 */
 	public Result_NoneLightningErrorZ update_channel(org.ldk.structs.ChannelUpdate msg) {
-		long ret = bindings.NetworkGraph_update_channel(this.ptr, msg == null ? 0 : msg.ptr);
+		long ret = Bindings.NetworkGraphUpdateChannel(this.ptr, msg == null ? 0 : msg.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(msg);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -324,7 +324,7 @@ public class NetworkGraph : CommonBase {
 	 * materially in the future will be rejected.
 	 */
 	public Result_NoneLightningErrorZ update_channel_unsigned(org.ldk.structs.UnsignedChannelUpdate msg) {
-		long ret = bindings.NetworkGraph_update_channel_unsigned(this.ptr, msg == null ? 0 : msg.ptr);
+		long ret = Bindings.NetworkGraphUpdateChannelUnsigned(this.ptr, msg == null ? 0 : msg.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(msg);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -342,7 +342,7 @@ public class NetworkGraph : CommonBase {
 	 * materially in the future will be rejected.
 	 */
 	public Result_NoneLightningErrorZ verify_channel_update(org.ldk.structs.ChannelUpdate msg) {
-		long ret = bindings.NetworkGraph_verify_channel_update(this.ptr, msg == null ? 0 : msg.ptr);
+		long ret = Bindings.NetworkGraphVerifyChannelUpdate(this.ptr, msg == null ? 0 : msg.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(msg);
 		if (ret >= 0 && ret <= 4096) { return null; }

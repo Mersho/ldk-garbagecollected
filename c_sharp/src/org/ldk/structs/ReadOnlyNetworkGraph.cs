@@ -12,7 +12,7 @@ namespace org { namespace ldk { namespace structs {
 public class ReadOnlyNetworkGraph : CommonBase, IDisposable {
 	internal ReadOnlyNetworkGraph(object _dummy, long ptr) : base(ptr) { }
 	public void Dispose() {
-		if (ptr != 0) { bindings.ReadOnlyNetworkGraph_free(ptr); }
+		if (ptr != 0) { Bindings.ReadOnlyNetworkGraphFree(ptr); }
 	}
 
 	/**
@@ -21,7 +21,7 @@ public class ReadOnlyNetworkGraph : CommonBase, IDisposable {
 	 * Note that the return value (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public ChannelInfo channel(long short_channel_id) {
-		long ret = bindings.ReadOnlyNetworkGraph_channel(this.ptr, short_channel_id);
+		long ret = Bindings.ReadOnlyNetworkGraphChannel(this.ptr, short_channel_id);
 		GC.KeepAlive(this);
 		GC.KeepAlive(short_channel_id);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -34,7 +34,7 @@ public class ReadOnlyNetworkGraph : CommonBase, IDisposable {
 	 * Returns the list of channels in the graph
 	 */
 	public long[] list_channels() {
-		long ret = bindings.ReadOnlyNetworkGraph_list_channels(this.ptr);
+		long ret = Bindings.ReadOnlyNetworkGraphListChannels(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		long[] ret_conv = InternalUtils.decodeUint64Array(ret);
@@ -47,7 +47,7 @@ public class ReadOnlyNetworkGraph : CommonBase, IDisposable {
 	 * Note that the return value (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public NodeInfo node(org.ldk.structs.NodeId node_id) {
-		long ret = bindings.ReadOnlyNetworkGraph_node(this.ptr, node_id == null ? 0 : node_id.ptr);
+		long ret = Bindings.ReadOnlyNetworkGraphNode(this.ptr, node_id == null ? 0 : node_id.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(node_id);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -61,7 +61,7 @@ public class ReadOnlyNetworkGraph : CommonBase, IDisposable {
 	 * Returns the list of nodes in the graph
 	 */
 	public NodeId[] list_nodes() {
-		long ret = bindings.ReadOnlyNetworkGraph_list_nodes(this.ptr);
+		long ret = Bindings.ReadOnlyNetworkGraphListNodes(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		int ret_conv_8_len = InternalUtils.getArrayLength(ret);
@@ -72,7 +72,7 @@ public class ReadOnlyNetworkGraph : CommonBase, IDisposable {
 			if (ret_conv_8_hu_conv != null) { ret_conv_8_hu_conv.ptrs_to.AddLast(this); };
 			ret_conv_8_arr[i] = ret_conv_8_hu_conv;
 		}
-		bindings.free_buffer(ret);
+		Bindings.FreeBuffer(ret);
 		return ret_conv_8_arr;
 	}
 
@@ -82,7 +82,7 @@ public class ReadOnlyNetworkGraph : CommonBase, IDisposable {
 	 * or if node announcement for the node was never received.
 	 */
 	public Option_CVec_SocketAddressZZ get_addresses(byte[] pubkey) {
-		long ret = bindings.ReadOnlyNetworkGraph_get_addresses(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(pubkey, 33)));
+		long ret = Bindings.ReadOnlyNetworkGraphGetAddresses(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(pubkey, 33)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(pubkey);
 		if (ret >= 0 && ret <= 4096) { return null; }

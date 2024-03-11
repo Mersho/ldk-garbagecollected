@@ -19,11 +19,11 @@ namespace org { namespace ldk { namespace structs {
 public class Refund : CommonBase {
 	internal Refund(object _dummy, long ptr) : base(ptr) { }
 	~Refund() {
-		if (ptr != 0) { bindings.Refund_free(ptr); }
+		if (ptr != 0) { Bindings.RefundFree(ptr); }
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.Refund_clone_ptr(this.ptr);
+		long ret = Bindings.RefundClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -32,7 +32,7 @@ public class Refund : CommonBase {
 	 * Creates a copy of the Refund
 	 */
 	public Refund clone() {
-		long ret = bindings.Refund_clone(this.ptr);
+		long ret = Bindings.RefundClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Refund ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.Refund(null, ret); }
@@ -45,7 +45,7 @@ public class Refund : CommonBase {
 	 * but with the caveat that it has not been verified in any way.
 	 */
 	public PrintableString description() {
-		long ret = bindings.Refund_description(this.ptr);
+		long ret = Bindings.RefundDescription(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.PrintableString ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.PrintableString(null, ret); }
@@ -59,7 +59,7 @@ public class Refund : CommonBase {
 	 * If `None`, the refund does not expire.
 	 */
 	public Option_u64Z absolute_expiry() {
-		long ret = bindings.Refund_absolute_expiry(this.ptr);
+		long ret = Bindings.RefundAbsoluteExpiry(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_u64Z ret_hu_conv = org.ldk.structs.Option_u64Z.constr_from_ptr(ret);
@@ -71,7 +71,7 @@ public class Refund : CommonBase {
 	 * Whether the refund has expired.
 	 */
 	public bool is_expired() {
-		bool ret = bindings.Refund_is_expired(this.ptr);
+		bool ret = Bindings.RefundIsExpired(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -80,7 +80,7 @@ public class Refund : CommonBase {
 	 * Whether the refund has expired given the duration since the Unix epoch.
 	 */
 	public bool is_expired_no_std(long duration_since_epoch) {
-		bool ret = bindings.Refund_is_expired_no_std(this.ptr, duration_since_epoch);
+		bool ret = Bindings.RefundIsExpiredNoStd(this.ptr, duration_since_epoch);
 		GC.KeepAlive(this);
 		GC.KeepAlive(duration_since_epoch);
 		return ret;
@@ -93,7 +93,7 @@ public class Refund : CommonBase {
 	 * Note that the return value (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public PrintableString issuer() {
-		long ret = bindings.Refund_issuer(this.ptr);
+		long ret = Bindings.RefundIssuer(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.PrintableString ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.PrintableString(null, ret); }
@@ -106,7 +106,7 @@ public class Refund : CommonBase {
 	 * privacy by obfuscating its node id.
 	 */
 	public BlindedPath[] paths() {
-		long ret = bindings.Refund_paths(this.ptr);
+		long ret = Bindings.RefundPaths(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		int ret_conv_13_len = InternalUtils.getArrayLength(ret);
@@ -117,7 +117,7 @@ public class Refund : CommonBase {
 			if (ret_conv_13_hu_conv != null) { ret_conv_13_hu_conv.ptrs_to.AddLast(this); };
 			ret_conv_13_arr[n] = ret_conv_13_hu_conv;
 		}
-		bindings.free_buffer(ret);
+		Bindings.FreeBuffer(ret);
 		return ret_conv_13_arr;
 	}
 
@@ -128,7 +128,7 @@ public class Refund : CommonBase {
 	 * [`payer_id`]: Self::payer_id
 	 */
 	public byte[] payer_metadata() {
-		long ret = bindings.Refund_payer_metadata(this.ptr);
+		long ret = Bindings.RefundPayerMetadata(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -139,7 +139,7 @@ public class Refund : CommonBase {
 	 * A chain that the refund is valid for.
 	 */
 	public byte[] chain() {
-		long ret = bindings.Refund_chain(this.ptr);
+		long ret = Bindings.RefundChain(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -152,7 +152,7 @@ public class Refund : CommonBase {
 	 * [`chain`]: Self::chain
 	 */
 	public long amount_msats() {
-		long ret = bindings.Refund_amount_msats(this.ptr);
+		long ret = Bindings.RefundAmountMsats(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -161,7 +161,7 @@ public class Refund : CommonBase {
 	 * Features pertaining to requesting an invoice.
 	 */
 	public InvoiceRequestFeatures features() {
-		long ret = bindings.Refund_features(this.ptr);
+		long ret = Bindings.RefundFeatures(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.InvoiceRequestFeatures ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.InvoiceRequestFeatures(null, ret); }
@@ -173,7 +173,7 @@ public class Refund : CommonBase {
 	 * The quantity of an item that refund is for.
 	 */
 	public Option_u64Z quantity() {
-		long ret = bindings.Refund_quantity(this.ptr);
+		long ret = Bindings.RefundQuantity(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_u64Z ret_hu_conv = org.ldk.structs.Option_u64Z.constr_from_ptr(ret);
@@ -188,7 +188,7 @@ public class Refund : CommonBase {
 	 * [`paths`]: Self::paths
 	 */
 	public byte[] payer_id() {
-		long ret = bindings.Refund_payer_id(this.ptr);
+		long ret = Bindings.RefundPayerId(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -201,7 +201,7 @@ public class Refund : CommonBase {
 	 * Note that the return value (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public PrintableString payer_note() {
-		long ret = bindings.Refund_payer_note(this.ptr);
+		long ret = Bindings.RefundPayerNote(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.PrintableString ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.PrintableString(null, ret); }
@@ -213,7 +213,7 @@ public class Refund : CommonBase {
 	 * Serialize the Refund object into a byte array which can be read by Refund_read
 	 */
 	public byte[] write() {
-		long ret = bindings.Refund_write(this.ptr);
+		long ret = Bindings.RefundWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -224,7 +224,7 @@ public class Refund : CommonBase {
 	 * Read a Refund object from a string
 	 */
 	public static Result_RefundBolt12ParseErrorZ from_str(string s) {
-		long ret = bindings.Refund_from_str(InternalUtils.encodeString(s));
+		long ret = Bindings.RefundFromStr(InternalUtils.encodeString(s));
 		GC.KeepAlive(s);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_RefundBolt12ParseErrorZ ret_hu_conv = Result_RefundBolt12ParseErrorZ.constr_from_ptr(ret);

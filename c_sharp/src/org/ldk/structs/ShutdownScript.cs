@@ -14,11 +14,11 @@ namespace org { namespace ldk { namespace structs {
 public class ShutdownScript : CommonBase {
 	internal ShutdownScript(object _dummy, long ptr) : base(ptr) { }
 	~ShutdownScript() {
-		if (ptr != 0) { bindings.ShutdownScript_free(ptr); }
+		if (ptr != 0) { Bindings.ShutdownScriptFree(ptr); }
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.ShutdownScript_clone_ptr(this.ptr);
+		long ret = Bindings.ShutdownScriptClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -27,7 +27,7 @@ public class ShutdownScript : CommonBase {
 	 * Creates a copy of the ShutdownScript
 	 */
 	public ShutdownScript clone() {
-		long ret = bindings.ShutdownScript_clone(this.ptr);
+		long ret = Bindings.ShutdownScriptClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ShutdownScript ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ShutdownScript(null, ret); }
@@ -41,7 +41,7 @@ public class ShutdownScript : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.ShutdownScript b) {
-		bool ret = bindings.ShutdownScript_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.ShutdownScriptEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -56,7 +56,7 @@ public class ShutdownScript : CommonBase {
 	 * Serialize the ShutdownScript object into a byte array which can be read by ShutdownScript_read
 	 */
 	public byte[] write() {
-		long ret = bindings.ShutdownScript_write(this.ptr);
+		long ret = Bindings.ShutdownScriptWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -67,7 +67,7 @@ public class ShutdownScript : CommonBase {
 	 * Read a ShutdownScript from a byte array, created by ShutdownScript_write
 	 */
 	public static Result_ShutdownScriptDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.ShutdownScript_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.ShutdownScriptRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_ShutdownScriptDecodeErrorZ ret_hu_conv = Result_ShutdownScriptDecodeErrorZ.constr_from_ptr(ret);
@@ -78,7 +78,7 @@ public class ShutdownScript : CommonBase {
 	 * Generates a P2WPKH script pubkey from the given [`WPubkeyHash`].
 	 */
 	public static ShutdownScript new_p2wpkh(byte[] pubkey_hash) {
-		long ret = bindings.ShutdownScript_new_p2wpkh(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(pubkey_hash, 20)));
+		long ret = Bindings.ShutdownScriptNewP2Wpkh(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(pubkey_hash, 20)));
 		GC.KeepAlive(pubkey_hash);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ShutdownScript ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ShutdownScript(null, ret); }
@@ -90,7 +90,7 @@ public class ShutdownScript : CommonBase {
 	 * Generates a P2WSH script pubkey from the given [`WScriptHash`].
 	 */
 	public static ShutdownScript new_p2wsh(byte[] script_hash) {
-		long ret = bindings.ShutdownScript_new_p2wsh(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(script_hash, 32)));
+		long ret = Bindings.ShutdownScriptNewP2Wsh(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(script_hash, 32)));
 		GC.KeepAlive(script_hash);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ShutdownScript ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ShutdownScript(null, ret); }
@@ -109,7 +109,7 @@ public class ShutdownScript : CommonBase {
 	 * This function may return an error if `program` is invalid for the segwit `version`.
 	 */
 	public static Result_ShutdownScriptInvalidShutdownScriptZ new_witness_program(org.ldk.structs.WitnessProgram witness_program) {
-		long ret = bindings.ShutdownScript_new_witness_program(witness_program.ptr);
+		long ret = Bindings.ShutdownScriptNewWitnessProgram(witness_program.ptr);
 		GC.KeepAlive(witness_program);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_ShutdownScriptInvalidShutdownScriptZ ret_hu_conv = Result_ShutdownScriptInvalidShutdownScriptZ.constr_from_ptr(ret);
@@ -120,7 +120,7 @@ public class ShutdownScript : CommonBase {
 	 * Converts the shutdown script into the underlying [`ScriptBuf`].
 	 */
 	public byte[] into_inner() {
-		long ret = bindings.ShutdownScript_into_inner(this.ptr);
+		long ret = Bindings.ShutdownScriptIntoInner(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -134,7 +134,7 @@ public class ShutdownScript : CommonBase {
 	 * Note that the return value (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public byte[] as_legacy_pubkey() {
-		long ret = bindings.ShutdownScript_as_legacy_pubkey(this.ptr);
+		long ret = Bindings.ShutdownScriptAsLegacyPubkey(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -147,7 +147,7 @@ public class ShutdownScript : CommonBase {
 	 * Specifically, checks for compliance with feature `option_shutdown_anysegwit`.
 	 */
 	public bool is_compatible(org.ldk.structs.InitFeatures features) {
-		bool ret = bindings.ShutdownScript_is_compatible(this.ptr, features == null ? 0 : features.ptr);
+		bool ret = Bindings.ShutdownScriptIsCompatible(this.ptr, features == null ? 0 : features.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(features);
 		if (this != null) { this.ptrs_to.AddLast(features); };

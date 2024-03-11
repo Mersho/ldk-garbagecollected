@@ -14,14 +14,14 @@ namespace org { namespace ldk { namespace structs {
 public class UpdateFailMalformedHTLC : CommonBase {
 	internal UpdateFailMalformedHTLC(object _dummy, long ptr) : base(ptr) { }
 	~UpdateFailMalformedHTLC() {
-		if (ptr != 0) { bindings.UpdateFailMalformedHTLC_free(ptr); }
+		if (ptr != 0) { Bindings.UpdateFailMalformedHTLCFree(ptr); }
 	}
 
 	/**
 	 * The channel ID
 	 */
 	public byte[] get_channel_id() {
-		long ret = bindings.UpdateFailMalformedHTLC_get_channel_id(this.ptr);
+		long ret = Bindings.UpdateFailMalformedHTLCGetChannelId(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -32,7 +32,7 @@ public class UpdateFailMalformedHTLC : CommonBase {
 	 * The channel ID
 	 */
 	public void set_channel_id(byte[] val) {
-		bindings.UpdateFailMalformedHTLC_set_channel_id(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
+		Bindings.UpdateFailMalformedHTLCSetChannelId(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -41,7 +41,7 @@ public class UpdateFailMalformedHTLC : CommonBase {
 	 * The HTLC ID
 	 */
 	public long get_htlc_id() {
-		long ret = bindings.UpdateFailMalformedHTLC_get_htlc_id(this.ptr);
+		long ret = Bindings.UpdateFailMalformedHTLCGetHtlcId(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -50,7 +50,7 @@ public class UpdateFailMalformedHTLC : CommonBase {
 	 * The HTLC ID
 	 */
 	public void set_htlc_id(long val) {
-		bindings.UpdateFailMalformedHTLC_set_htlc_id(this.ptr, val);
+		Bindings.UpdateFailMalformedHTLCSetHtlcId(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -59,7 +59,7 @@ public class UpdateFailMalformedHTLC : CommonBase {
 	 * The failure code
 	 */
 	public short get_failure_code() {
-		short ret = bindings.UpdateFailMalformedHTLC_get_failure_code(this.ptr);
+		short ret = Bindings.UpdateFailMalformedHTLCGetFailureCode(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -68,13 +68,13 @@ public class UpdateFailMalformedHTLC : CommonBase {
 	 * The failure code
 	 */
 	public void set_failure_code(short val) {
-		bindings.UpdateFailMalformedHTLC_set_failure_code(this.ptr, val);
+		Bindings.UpdateFailMalformedHTLCSetFailureCode(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.UpdateFailMalformedHTLC_clone_ptr(this.ptr);
+		long ret = Bindings.UpdateFailMalformedHTLCClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -83,7 +83,7 @@ public class UpdateFailMalformedHTLC : CommonBase {
 	 * Creates a copy of the UpdateFailMalformedHTLC
 	 */
 	public UpdateFailMalformedHTLC clone() {
-		long ret = bindings.UpdateFailMalformedHTLC_clone(this.ptr);
+		long ret = Bindings.UpdateFailMalformedHTLCClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.UpdateFailMalformedHTLC ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.UpdateFailMalformedHTLC(null, ret); }
@@ -95,7 +95,7 @@ public class UpdateFailMalformedHTLC : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the UpdateFailMalformedHTLC.
 	 */
 	public long hash() {
-		long ret = bindings.UpdateFailMalformedHTLC_hash(this.ptr);
+		long ret = Bindings.UpdateFailMalformedHTLCHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -109,7 +109,7 @@ public class UpdateFailMalformedHTLC : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.UpdateFailMalformedHTLC b) {
-		bool ret = bindings.UpdateFailMalformedHTLC_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.UpdateFailMalformedHTLCEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -124,7 +124,7 @@ public class UpdateFailMalformedHTLC : CommonBase {
 	 * Serialize the UpdateFailMalformedHTLC object into a byte array which can be read by UpdateFailMalformedHTLC_read
 	 */
 	public byte[] write() {
-		long ret = bindings.UpdateFailMalformedHTLC_write(this.ptr);
+		long ret = Bindings.UpdateFailMalformedHTLCWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -135,7 +135,7 @@ public class UpdateFailMalformedHTLC : CommonBase {
 	 * Read a UpdateFailMalformedHTLC from a byte array, created by UpdateFailMalformedHTLC_write
 	 */
 	public static Result_UpdateFailMalformedHTLCDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.UpdateFailMalformedHTLC_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.UpdateFailMalformedHTLCRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_UpdateFailMalformedHTLCDecodeErrorZ ret_hu_conv = Result_UpdateFailMalformedHTLCDecodeErrorZ.constr_from_ptr(ret);

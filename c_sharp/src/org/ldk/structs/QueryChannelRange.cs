@@ -17,14 +17,14 @@ namespace org { namespace ldk { namespace structs {
 public class QueryChannelRange : CommonBase {
 	internal QueryChannelRange(object _dummy, long ptr) : base(ptr) { }
 	~QueryChannelRange() {
-		if (ptr != 0) { bindings.QueryChannelRange_free(ptr); }
+		if (ptr != 0) { Bindings.QueryChannelRangeFree(ptr); }
 	}
 
 	/**
 	 * The genesis hash of the blockchain being queried
 	 */
 	public byte[] get_chain_hash() {
-		long ret = bindings.QueryChannelRange_get_chain_hash(this.ptr);
+		long ret = Bindings.QueryChannelRangeGetChainHash(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -35,7 +35,7 @@ public class QueryChannelRange : CommonBase {
 	 * The genesis hash of the blockchain being queried
 	 */
 	public void set_chain_hash(byte[] val) {
-		bindings.QueryChannelRange_set_chain_hash(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
+		Bindings.QueryChannelRangeSetChainHash(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -44,7 +44,7 @@ public class QueryChannelRange : CommonBase {
 	 * The height of the first block for the channel UTXOs being queried
 	 */
 	public int get_first_blocknum() {
-		int ret = bindings.QueryChannelRange_get_first_blocknum(this.ptr);
+		int ret = Bindings.QueryChannelRangeGetFirstBlocknum(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -53,7 +53,7 @@ public class QueryChannelRange : CommonBase {
 	 * The height of the first block for the channel UTXOs being queried
 	 */
 	public void set_first_blocknum(int val) {
-		bindings.QueryChannelRange_set_first_blocknum(this.ptr, val);
+		Bindings.QueryChannelRangeSetFirstBlocknum(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -62,7 +62,7 @@ public class QueryChannelRange : CommonBase {
 	 * The number of blocks to include in the query results
 	 */
 	public int get_number_of_blocks() {
-		int ret = bindings.QueryChannelRange_get_number_of_blocks(this.ptr);
+		int ret = Bindings.QueryChannelRangeGetNumberOfBlocks(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -71,7 +71,7 @@ public class QueryChannelRange : CommonBase {
 	 * The number of blocks to include in the query results
 	 */
 	public void set_number_of_blocks(int val) {
-		bindings.QueryChannelRange_set_number_of_blocks(this.ptr, val);
+		Bindings.QueryChannelRangeSetNumberOfBlocks(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -80,7 +80,7 @@ public class QueryChannelRange : CommonBase {
 	 * Constructs a new QueryChannelRange given each field
 	 */
 	public static QueryChannelRange of(byte[] chain_hash_arg, int first_blocknum_arg, int number_of_blocks_arg) {
-		long ret = bindings.QueryChannelRange_new(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(chain_hash_arg, 32)), first_blocknum_arg, number_of_blocks_arg);
+		long ret = Bindings.QueryChannelRangeNew(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(chain_hash_arg, 32)), first_blocknum_arg, number_of_blocks_arg);
 		GC.KeepAlive(chain_hash_arg);
 		GC.KeepAlive(first_blocknum_arg);
 		GC.KeepAlive(number_of_blocks_arg);
@@ -91,7 +91,7 @@ public class QueryChannelRange : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.QueryChannelRange_clone_ptr(this.ptr);
+		long ret = Bindings.QueryChannelRangeClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -100,7 +100,7 @@ public class QueryChannelRange : CommonBase {
 	 * Creates a copy of the QueryChannelRange
 	 */
 	public QueryChannelRange clone() {
-		long ret = bindings.QueryChannelRange_clone(this.ptr);
+		long ret = Bindings.QueryChannelRangeClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.QueryChannelRange ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.QueryChannelRange(null, ret); }
@@ -112,7 +112,7 @@ public class QueryChannelRange : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the QueryChannelRange.
 	 */
 	public long hash() {
-		long ret = bindings.QueryChannelRange_hash(this.ptr);
+		long ret = Bindings.QueryChannelRangeHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -126,7 +126,7 @@ public class QueryChannelRange : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.QueryChannelRange b) {
-		bool ret = bindings.QueryChannelRange_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.QueryChannelRangeEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -143,7 +143,7 @@ public class QueryChannelRange : CommonBase {
 	 * Overflow returns `0xffffffff`, otherwise returns `first_blocknum + number_of_blocks`.
 	 */
 	public int end_blocknum() {
-		int ret = bindings.QueryChannelRange_end_blocknum(this.ptr);
+		int ret = Bindings.QueryChannelRangeEndBlocknum(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -152,7 +152,7 @@ public class QueryChannelRange : CommonBase {
 	 * Serialize the QueryChannelRange object into a byte array which can be read by QueryChannelRange_read
 	 */
 	public byte[] write() {
-		long ret = bindings.QueryChannelRange_write(this.ptr);
+		long ret = Bindings.QueryChannelRangeWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -163,7 +163,7 @@ public class QueryChannelRange : CommonBase {
 	 * Read a QueryChannelRange from a byte array, created by QueryChannelRange_write
 	 */
 	public static Result_QueryChannelRangeDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.QueryChannelRange_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.QueryChannelRangeRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_QueryChannelRangeDecodeErrorZ ret_hu_conv = Result_QueryChannelRangeDecodeErrorZ.constr_from_ptr(ret);

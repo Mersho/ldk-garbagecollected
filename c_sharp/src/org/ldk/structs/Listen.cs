@@ -9,7 +9,7 @@ namespace org { namespace ldk { namespace structs {
 
 
 /** An implementation of Listen */
-public interface ListenInterface {
+public interface IListen {
 	/**Notifies the listener that a block was added at the given height, with the transaction data
 	 * possibly filtered.
 	 */
@@ -36,20 +36,20 @@ public interface ListenInterface {
  * other similar filtering.
  */
 public class Listen : CommonBase {
-	internal bindings.LDKListen bindings_instance;
+	internal Bindings.LDKListen bindings_instance;
 	internal long instance_idx;
 
 	internal Listen(object _dummy, long ptr) : base(ptr) { bindings_instance = null; }
 	~Listen() {
-		if (ptr != 0) { bindings.Listen_free(ptr); }
+		if (ptr != 0) { Bindings.ListenFree(ptr); }
 	}
 
 	private class LDKListenHolder { internal Listen held; }
-	private class LDKListenImpl : bindings.LDKListen {
-		internal LDKListenImpl(ListenInterface arg, LDKListenHolder impl_holder) { this.arg = arg; this.impl_holder = impl_holder; }
-		private ListenInterface arg;
+	private class LDKListenImpl : Bindings.LDKListen {
+		internal LDKListenImpl(IListen arg, LDKListenHolder impl_holder) { this.arg = arg; this.impl_holder = impl_holder; }
+		private IListen arg;
 		private LDKListenHolder impl_holder;
-		public void filtered_block_connected(long _header, long _txdata, int _height) {
+		public void FilteredBlockConnected(long _header, long _txdata, int _height) {
 			byte[] _header_conv = InternalUtils.decodeUint8Array(_header);
 			int _txdata_conv_28_len = InternalUtils.getArrayLength(_txdata);
 			TwoTuple_usizeTransactionZ[] _txdata_conv_28_arr = new TwoTuple_usizeTransactionZ[_txdata_conv_28_len];
@@ -59,16 +59,16 @@ public class Listen : CommonBase {
 				if (_txdata_conv_28_hu_conv != null) { _txdata_conv_28_hu_conv.ptrs_to.AddLast(this); };
 				_txdata_conv_28_arr[c] = _txdata_conv_28_hu_conv;
 			}
-			bindings.free_buffer(_txdata);
+			Bindings.FreeBuffer(_txdata);
 			arg.filtered_block_connected(_header_conv, _txdata_conv_28_arr, _height);
 				GC.KeepAlive(arg);
 		}
-		public void block_connected(long _block, int _height) {
+		public void BlockConnected(long _block, int _height) {
 			byte[] _block_conv = InternalUtils.decodeUint8Array(_block);
 			arg.block_connected(_block_conv, _height);
 				GC.KeepAlive(arg);
 		}
-		public void block_disconnected(long _header, int _height) {
+		public void BlockDisconnected(long _header, int _height) {
 			byte[] _header_conv = InternalUtils.decodeUint8Array(_header);
 			arg.block_disconnected(_header_conv, _height);
 				GC.KeepAlive(arg);
@@ -76,10 +76,10 @@ public class Listen : CommonBase {
 	}
 
 	/** Creates a new instance of Listen from a given implementation */
-	public static Listen new_impl(ListenInterface arg) {
+	public static Listen new_impl(IListen arg) {
 		LDKListenHolder impl_holder = new LDKListenHolder();
 		LDKListenImpl impl = new LDKListenImpl(arg, impl_holder);
-		long[] ptr_idx = bindings.LDKListen_new(impl);
+		long[] ptr_idx = Bindings.LDKListenNew(impl);
 
 		impl_holder.held = new Listen(null, ptr_idx[0]);
 		impl_holder.held.instance_idx = ptr_idx[1];
@@ -92,7 +92,7 @@ public class Listen : CommonBase {
 	 * possibly filtered.
 	 */
 	public void filtered_block_connected(byte[] header, TwoTuple_usizeTransactionZ[] txdata, int height) {
-		bindings.Listen_filtered_block_connected(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(header, 80)), InternalUtils.encodeUint64Array(InternalUtils.mapArray(txdata, txdata_conv_28 => txdata_conv_28 != null ? txdata_conv_28.ptr : 0)), height);
+		Bindings.ListenFilteredBlockConnected(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(header, 80)), InternalUtils.encodeUint64Array(InternalUtils.mapArray(txdata, txdata_conv_28 => txdata_conv_28 != null ? txdata_conv_28.ptr : 0)), height);
 		GC.KeepAlive(this);
 		GC.KeepAlive(header);
 		GC.KeepAlive(txdata);
@@ -103,7 +103,7 @@ public class Listen : CommonBase {
 	 * Notifies the listener that a block was added at the given height.
 	 */
 	public void block_connected(byte[] block, int height) {
-		bindings.Listen_block_connected(this.ptr, InternalUtils.encodeUint8Array(block), height);
+		Bindings.ListenBlockConnected(this.ptr, InternalUtils.encodeUint8Array(block), height);
 		GC.KeepAlive(this);
 		GC.KeepAlive(block);
 		GC.KeepAlive(height);
@@ -113,7 +113,7 @@ public class Listen : CommonBase {
 	 * Notifies the listener that a block was removed at the given height.
 	 */
 	public void block_disconnected(byte[] header, int height) {
-		bindings.Listen_block_disconnected(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(header, 80)), height);
+		Bindings.ListenBlockDisconnected(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(header, 80)), height);
 		GC.KeepAlive(this);
 		GC.KeepAlive(header);
 		GC.KeepAlive(height);

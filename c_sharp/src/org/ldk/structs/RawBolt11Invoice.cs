@@ -16,14 +16,14 @@ namespace org { namespace ldk { namespace structs {
 public class RawBolt11Invoice : CommonBase {
 	internal RawBolt11Invoice(object _dummy, long ptr) : base(ptr) { }
 	~RawBolt11Invoice() {
-		if (ptr != 0) { bindings.RawBolt11Invoice_free(ptr); }
+		if (ptr != 0) { Bindings.RawBolt11InvoiceFree(ptr); }
 	}
 
 	/**
 	 * data part
 	 */
 	public RawDataPart get_data() {
-		long ret = bindings.RawBolt11Invoice_get_data(this.ptr);
+		long ret = Bindings.RawBolt11InvoiceGetData(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.RawDataPart ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.RawDataPart(null, ret); }
@@ -35,7 +35,7 @@ public class RawBolt11Invoice : CommonBase {
 	 * data part
 	 */
 	public void set_data(org.ldk.structs.RawDataPart val) {
-		bindings.RawBolt11Invoice_set_data(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.RawBolt11InvoiceSetData(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -47,7 +47,7 @@ public class RawBolt11Invoice : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.RawBolt11Invoice b) {
-		bool ret = bindings.RawBolt11Invoice_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.RawBolt11InvoiceEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -59,7 +59,7 @@ public class RawBolt11Invoice : CommonBase {
 		return this.eq((RawBolt11Invoice)o);
 	}
 	internal long clone_ptr() {
-		long ret = bindings.RawBolt11Invoice_clone_ptr(this.ptr);
+		long ret = Bindings.RawBolt11InvoiceClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -68,7 +68,7 @@ public class RawBolt11Invoice : CommonBase {
 	 * Creates a copy of the RawBolt11Invoice
 	 */
 	public RawBolt11Invoice clone() {
-		long ret = bindings.RawBolt11Invoice_clone(this.ptr);
+		long ret = Bindings.RawBolt11InvoiceClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.RawBolt11Invoice ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.RawBolt11Invoice(null, ret); }
@@ -80,7 +80,7 @@ public class RawBolt11Invoice : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the RawBolt11Invoice.
 	 */
 	public long hash() {
-		long ret = bindings.RawBolt11Invoice_hash(this.ptr);
+		long ret = Bindings.RawBolt11InvoiceHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -92,7 +92,7 @@ public class RawBolt11Invoice : CommonBase {
 	 * Calculate the hash of the encoded `RawBolt11Invoice` which should be signed.
 	 */
 	public byte[] signable_hash() {
-		long ret = bindings.RawBolt11Invoice_signable_hash(this.ptr);
+		long ret = Bindings.RawBolt11InvoiceSignableHash(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -103,7 +103,7 @@ public class RawBolt11Invoice : CommonBase {
 	 * Note that the return value (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public Sha256 payment_hash() {
-		long ret = bindings.RawBolt11Invoice_payment_hash(this.ptr);
+		long ret = Bindings.RawBolt11InvoicePaymentHash(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Sha256 ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.Sha256(null, ret); }
@@ -115,7 +115,7 @@ public class RawBolt11Invoice : CommonBase {
 	 * Note that the return value (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public Description description() {
-		long ret = bindings.RawBolt11Invoice_description(this.ptr);
+		long ret = Bindings.RawBolt11InvoiceDescription(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Description ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.Description(null, ret); }
@@ -127,7 +127,7 @@ public class RawBolt11Invoice : CommonBase {
 	 * Note that the return value (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public PayeePubKey payee_pub_key() {
-		long ret = bindings.RawBolt11Invoice_payee_pub_key(this.ptr);
+		long ret = Bindings.RawBolt11InvoicePayeePubKey(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.PayeePubKey ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.PayeePubKey(null, ret); }
@@ -139,7 +139,7 @@ public class RawBolt11Invoice : CommonBase {
 	 * Note that the return value (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public Sha256 description_hash() {
-		long ret = bindings.RawBolt11Invoice_description_hash(this.ptr);
+		long ret = Bindings.RawBolt11InvoiceDescriptionHash(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Sha256 ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.Sha256(null, ret); }
@@ -151,7 +151,7 @@ public class RawBolt11Invoice : CommonBase {
 	 * Note that the return value (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public ExpiryTime expiry_time() {
-		long ret = bindings.RawBolt11Invoice_expiry_time(this.ptr);
+		long ret = Bindings.RawBolt11InvoiceExpiryTime(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ExpiryTime ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ExpiryTime(null, ret); }
@@ -163,7 +163,7 @@ public class RawBolt11Invoice : CommonBase {
 	 * Note that the return value (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public MinFinalCltvExpiryDelta min_final_cltv_expiry_delta() {
-		long ret = bindings.RawBolt11Invoice_min_final_cltv_expiry_delta(this.ptr);
+		long ret = Bindings.RawBolt11InvoiceMinFinalCltvExpiryDelta(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.MinFinalCltvExpiryDelta ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.MinFinalCltvExpiryDelta(null, ret); }
@@ -172,7 +172,7 @@ public class RawBolt11Invoice : CommonBase {
 	}
 
 	public Option_ThirtyTwoBytesZ payment_secret() {
-		long ret = bindings.RawBolt11Invoice_payment_secret(this.ptr);
+		long ret = Bindings.RawBolt11InvoicePaymentSecret(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_ThirtyTwoBytesZ ret_hu_conv = org.ldk.structs.Option_ThirtyTwoBytesZ.constr_from_ptr(ret);
@@ -181,7 +181,7 @@ public class RawBolt11Invoice : CommonBase {
 	}
 
 	public Option_CVec_u8ZZ payment_metadata() {
-		long ret = bindings.RawBolt11Invoice_payment_metadata(this.ptr);
+		long ret = Bindings.RawBolt11InvoicePaymentMetadata(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_CVec_u8ZZ ret_hu_conv = org.ldk.structs.Option_CVec_u8ZZ.constr_from_ptr(ret);
@@ -193,7 +193,7 @@ public class RawBolt11Invoice : CommonBase {
 	 * Note that the return value (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public Bolt11InvoiceFeatures features() {
-		long ret = bindings.RawBolt11Invoice_features(this.ptr);
+		long ret = Bindings.RawBolt11InvoiceFeatures(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Bolt11InvoiceFeatures ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.Bolt11InvoiceFeatures(null, ret); }
@@ -202,7 +202,7 @@ public class RawBolt11Invoice : CommonBase {
 	}
 
 	public PrivateRoute[] private_routes() {
-		long ret = bindings.RawBolt11Invoice_private_routes(this.ptr);
+		long ret = Bindings.RawBolt11InvoicePrivateRoutes(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		int ret_conv_14_len = InternalUtils.getArrayLength(ret);
@@ -213,12 +213,12 @@ public class RawBolt11Invoice : CommonBase {
 			if (ret_conv_14_hu_conv != null) { ret_conv_14_hu_conv.ptrs_to.AddLast(this); };
 			ret_conv_14_arr[o] = ret_conv_14_hu_conv;
 		}
-		bindings.free_buffer(ret);
+		Bindings.FreeBuffer(ret);
 		return ret_conv_14_arr;
 	}
 
 	public Option_u64Z amount_pico_btc() {
-		long ret = bindings.RawBolt11Invoice_amount_pico_btc(this.ptr);
+		long ret = Bindings.RawBolt11InvoiceAmountPicoBtc(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_u64Z ret_hu_conv = org.ldk.structs.Option_u64Z.constr_from_ptr(ret);
@@ -227,7 +227,7 @@ public class RawBolt11Invoice : CommonBase {
 	}
 
 	public Currency currency() {
-		Currency ret = bindings.RawBolt11Invoice_currency(this.ptr);
+		Currency ret = Bindings.RawBolt11InvoiceCurrency(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}

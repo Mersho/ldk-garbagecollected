@@ -11,11 +11,11 @@ namespace org { namespace ldk { namespace structs {
 public class Option_usizeZ : CommonBase {
 	protected Option_usizeZ(object _dummy, long ptr) : base(ptr) { }
 	~Option_usizeZ() {
-		if (ptr != 0) { bindings.COption_usizeZ_free(ptr); }
+		if (ptr != 0) { Bindings.COptionUsizezFree(ptr); }
 	}
 
 	internal static Option_usizeZ constr_from_ptr(long ptr) {
-		long raw_ty = bindings.LDKCOption_usizeZ_ty_from_ptr(ptr);
+		long raw_ty = Bindings.LDKCOptionUsizezTyFromPtr(ptr);
 		switch (raw_ty) {
 			case 0: return new Option_usizeZ_Some(ptr);
 			case 1: return new Option_usizeZ_None(ptr);
@@ -28,7 +28,7 @@ public class Option_usizeZ : CommonBase {
 	public class Option_usizeZ_Some : Option_usizeZ {
 		public long some;
 		internal Option_usizeZ_Some(long ptr) : base(null, ptr) {
-			this.some = bindings.LDKCOption_usizeZ_Some_get_some(ptr);
+			this.some = Bindings.LDKCOptionUsizezSomeGetSome(ptr);
 		}
 	}
 	/** A Option_usizeZ of type None */
@@ -40,7 +40,7 @@ public class Option_usizeZ : CommonBase {
 	 * Constructs a new COption_usizeZ containing a usize
 	 */
 	public static Option_usizeZ some(long o) {
-		long ret = bindings.COption_usizeZ_some(o);
+		long ret = Bindings.COptionUsizezSome(o);
 		GC.KeepAlive(o);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_usizeZ ret_hu_conv = org.ldk.structs.Option_usizeZ.constr_from_ptr(ret);
@@ -52,7 +52,7 @@ public class Option_usizeZ : CommonBase {
 	 * Constructs a new COption_usizeZ containing nothing
 	 */
 	public static Option_usizeZ none() {
-		long ret = bindings.COption_usizeZ_none();
+		long ret = Bindings.COptionUsizezNone();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_usizeZ ret_hu_conv = org.ldk.structs.Option_usizeZ.constr_from_ptr(ret);
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -60,7 +60,7 @@ public class Option_usizeZ : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.COption_usizeZ_clone_ptr(this.ptr);
+		long ret = Bindings.COptionUsizezClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -70,7 +70,7 @@ public class Option_usizeZ : CommonBase {
 	 * but with all dynamically-allocated buffers duplicated in new buffers.
 	 */
 	public Option_usizeZ clone() {
-		long ret = bindings.COption_usizeZ_clone(this.ptr);
+		long ret = Bindings.COptionUsizezClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_usizeZ ret_hu_conv = org.ldk.structs.Option_usizeZ.constr_from_ptr(ret);

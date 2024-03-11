@@ -11,11 +11,11 @@ namespace org { namespace ldk { namespace structs {
 public class Option_ThirtyTwoBytesZ : CommonBase {
 	protected Option_ThirtyTwoBytesZ(object _dummy, long ptr) : base(ptr) { }
 	~Option_ThirtyTwoBytesZ() {
-		if (ptr != 0) { bindings.COption_ThirtyTwoBytesZ_free(ptr); }
+		if (ptr != 0) { Bindings.COptionThirtyTwoBytesZFree(ptr); }
 	}
 
 	internal static Option_ThirtyTwoBytesZ constr_from_ptr(long ptr) {
-		long raw_ty = bindings.LDKCOption_ThirtyTwoBytesZ_ty_from_ptr(ptr);
+		long raw_ty = Bindings.LDKCOptionThirtyTwoBytesZTyFromPtr(ptr);
 		switch (raw_ty) {
 			case 0: return new Option_ThirtyTwoBytesZ_Some(ptr);
 			case 1: return new Option_ThirtyTwoBytesZ_None(ptr);
@@ -28,7 +28,7 @@ public class Option_ThirtyTwoBytesZ : CommonBase {
 	public class Option_ThirtyTwoBytesZ_Some : Option_ThirtyTwoBytesZ {
 		public byte[] some;
 		internal Option_ThirtyTwoBytesZ_Some(long ptr) : base(null, ptr) {
-			long some = bindings.LDKCOption_ThirtyTwoBytesZ_Some_get_some(ptr);
+			long some = Bindings.LDKCOptionThirtyTwoBytesZSomeGetSome(ptr);
 			byte[] some_conv = InternalUtils.decodeUint8Array(some);
 			this.some = some_conv;
 		}
@@ -42,7 +42,7 @@ public class Option_ThirtyTwoBytesZ : CommonBase {
 	 * Constructs a new COption_ThirtyTwoBytesZ containing a crate::c_types::ThirtyTwoBytes
 	 */
 	public static Option_ThirtyTwoBytesZ some(byte[] o) {
-		long ret = bindings.COption_ThirtyTwoBytesZ_some(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(o, 32)));
+		long ret = Bindings.COptionThirtyTwoBytesZSome(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(o, 32)));
 		GC.KeepAlive(o);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_ThirtyTwoBytesZ ret_hu_conv = org.ldk.structs.Option_ThirtyTwoBytesZ.constr_from_ptr(ret);
@@ -54,7 +54,7 @@ public class Option_ThirtyTwoBytesZ : CommonBase {
 	 * Constructs a new COption_ThirtyTwoBytesZ containing nothing
 	 */
 	public static Option_ThirtyTwoBytesZ none() {
-		long ret = bindings.COption_ThirtyTwoBytesZ_none();
+		long ret = Bindings.COptionThirtyTwoBytesZNone();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_ThirtyTwoBytesZ ret_hu_conv = org.ldk.structs.Option_ThirtyTwoBytesZ.constr_from_ptr(ret);
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -62,7 +62,7 @@ public class Option_ThirtyTwoBytesZ : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.COption_ThirtyTwoBytesZ_clone_ptr(this.ptr);
+		long ret = Bindings.COptionThirtyTwoBytesZClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -72,7 +72,7 @@ public class Option_ThirtyTwoBytesZ : CommonBase {
 	 * but with all dynamically-allocated buffers duplicated in new buffers.
 	 */
 	public Option_ThirtyTwoBytesZ clone() {
-		long ret = bindings.COption_ThirtyTwoBytesZ_clone(this.ptr);
+		long ret = Bindings.COptionThirtyTwoBytesZClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_ThirtyTwoBytesZ ret_hu_conv = org.ldk.structs.Option_ThirtyTwoBytesZ.constr_from_ptr(ret);

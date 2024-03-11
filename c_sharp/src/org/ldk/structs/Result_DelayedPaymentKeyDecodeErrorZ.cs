@@ -8,11 +8,11 @@ namespace org { namespace ldk { namespace structs {
 public class Result_DelayedPaymentKeyDecodeErrorZ : CommonBase {
 	Result_DelayedPaymentKeyDecodeErrorZ(object _dummy, long ptr) : base(ptr) { }
 	~Result_DelayedPaymentKeyDecodeErrorZ() {
-		if (ptr != 0) { bindings.CResult_DelayedPaymentKeyDecodeErrorZ_free(ptr); }
+		if (ptr != 0) { Bindings.CResultDelayedPaymentKeyDecodeErrorZFree(ptr); }
 	}
 
 	internal static Result_DelayedPaymentKeyDecodeErrorZ constr_from_ptr(long ptr) {
-		if (bindings.CResult_DelayedPaymentKeyDecodeErrorZ_is_ok(ptr)) {
+		if (Bindings.CResultDelayedPaymentKeyDecodeErrorZIsOk(ptr)) {
 			return new Result_DelayedPaymentKeyDecodeErrorZ_OK(null, ptr);
 		} else {
 			return new Result_DelayedPaymentKeyDecodeErrorZ_Err(null, ptr);
@@ -21,7 +21,7 @@ public class Result_DelayedPaymentKeyDecodeErrorZ : CommonBase {
 	public class Result_DelayedPaymentKeyDecodeErrorZ_OK : Result_DelayedPaymentKeyDecodeErrorZ {
 		public readonly DelayedPaymentKey res;
 		internal Result_DelayedPaymentKeyDecodeErrorZ_OK(object _dummy, long ptr) : base(_dummy, ptr) {
-			long res = bindings.CResult_DelayedPaymentKeyDecodeErrorZ_get_ok(ptr);
+			long res = Bindings.CResultDelayedPaymentKeyDecodeErrorZGetOk(ptr);
 			org.ldk.structs.DelayedPaymentKey res_hu_conv = null; if (res < 0 || res > 4096) { res_hu_conv = new org.ldk.structs.DelayedPaymentKey(null, res); }
 			if (res_hu_conv != null) { res_hu_conv.ptrs_to.AddLast(this); };
 			this.res = res_hu_conv;
@@ -31,7 +31,7 @@ public class Result_DelayedPaymentKeyDecodeErrorZ : CommonBase {
 	public class Result_DelayedPaymentKeyDecodeErrorZ_Err : Result_DelayedPaymentKeyDecodeErrorZ {
 		public readonly DecodeError err;
 		internal Result_DelayedPaymentKeyDecodeErrorZ_Err(object _dummy, long ptr) : base(_dummy, ptr) {
-			long err = bindings.CResult_DelayedPaymentKeyDecodeErrorZ_get_err(ptr);
+			long err = Bindings.CResultDelayedPaymentKeyDecodeErrorZGetErr(ptr);
 			org.ldk.structs.DecodeError err_hu_conv = org.ldk.structs.DecodeError.constr_from_ptr(err);
 			if (err_hu_conv != null) { err_hu_conv.ptrs_to.AddLast(this); };
 			this.err = err_hu_conv;
@@ -42,7 +42,7 @@ public class Result_DelayedPaymentKeyDecodeErrorZ : CommonBase {
 	 * Creates a new CResult_DelayedPaymentKeyDecodeErrorZ in the success state.
 	 */
 	public static Result_DelayedPaymentKeyDecodeErrorZ ok(org.ldk.structs.DelayedPaymentKey o) {
-		long ret = bindings.CResult_DelayedPaymentKeyDecodeErrorZ_ok(o == null ? 0 : o.ptr);
+		long ret = Bindings.CResultDelayedPaymentKeyDecodeErrorZOk(o == null ? 0 : o.ptr);
 		GC.KeepAlive(o);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_DelayedPaymentKeyDecodeErrorZ ret_hu_conv = Result_DelayedPaymentKeyDecodeErrorZ.constr_from_ptr(ret);
@@ -54,7 +54,7 @@ public class Result_DelayedPaymentKeyDecodeErrorZ : CommonBase {
 	 * Creates a new CResult_DelayedPaymentKeyDecodeErrorZ in the error state.
 	 */
 	public static Result_DelayedPaymentKeyDecodeErrorZ err(org.ldk.structs.DecodeError e) {
-		long ret = bindings.CResult_DelayedPaymentKeyDecodeErrorZ_err(e.ptr);
+		long ret = Bindings.CResultDelayedPaymentKeyDecodeErrorZErr(e.ptr);
 		GC.KeepAlive(e);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_DelayedPaymentKeyDecodeErrorZ ret_hu_conv = Result_DelayedPaymentKeyDecodeErrorZ.constr_from_ptr(ret);
@@ -66,13 +66,13 @@ public class Result_DelayedPaymentKeyDecodeErrorZ : CommonBase {
 	 * Checks if the given object is currently in the success state
 	 */
 	public bool is_ok() {
-		bool ret = bindings.CResult_DelayedPaymentKeyDecodeErrorZ_is_ok(this.ptr);
+		bool ret = Bindings.CResultDelayedPaymentKeyDecodeErrorZIsOk(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.CResult_DelayedPaymentKeyDecodeErrorZ_clone_ptr(this.ptr);
+		long ret = Bindings.CResultDelayedPaymentKeyDecodeErrorZClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -82,7 +82,7 @@ public class Result_DelayedPaymentKeyDecodeErrorZ : CommonBase {
 	 * but with all dynamically-allocated buffers duplicated in new buffers.
 	 */
 	public Result_DelayedPaymentKeyDecodeErrorZ clone() {
-		long ret = bindings.CResult_DelayedPaymentKeyDecodeErrorZ_clone(this.ptr);
+		long ret = Bindings.CResultDelayedPaymentKeyDecodeErrorZClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_DelayedPaymentKeyDecodeErrorZ ret_hu_conv = Result_DelayedPaymentKeyDecodeErrorZ.constr_from_ptr(ret);

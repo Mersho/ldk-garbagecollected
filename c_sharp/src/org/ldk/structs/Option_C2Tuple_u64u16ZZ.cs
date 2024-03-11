@@ -11,11 +11,11 @@ namespace org { namespace ldk { namespace structs {
 public class Option_C2Tuple_u64u16ZZ : CommonBase {
 	protected Option_C2Tuple_u64u16ZZ(object _dummy, long ptr) : base(ptr) { }
 	~Option_C2Tuple_u64u16ZZ() {
-		if (ptr != 0) { bindings.COption_C2Tuple_u64u16ZZ_free(ptr); }
+		if (ptr != 0) { Bindings.COptionC2TupleU64U16ZzFree(ptr); }
 	}
 
 	internal static Option_C2Tuple_u64u16ZZ constr_from_ptr(long ptr) {
-		long raw_ty = bindings.LDKCOption_C2Tuple_u64u16ZZ_ty_from_ptr(ptr);
+		long raw_ty = Bindings.LDKCOptionC2TupleU64U16ZzTyFromPtr(ptr);
 		switch (raw_ty) {
 			case 0: return new Option_C2Tuple_u64u16ZZ_Some(ptr);
 			case 1: return new Option_C2Tuple_u64u16ZZ_None(ptr);
@@ -28,7 +28,7 @@ public class Option_C2Tuple_u64u16ZZ : CommonBase {
 	public class Option_C2Tuple_u64u16ZZ_Some : Option_C2Tuple_u64u16ZZ {
 		public TwoTuple_u64u16Z some;
 		internal Option_C2Tuple_u64u16ZZ_Some(long ptr) : base(null, ptr) {
-			long some = bindings.LDKCOption_C2Tuple_u64u16ZZ_Some_get_some(ptr);
+			long some = Bindings.LDKCOptionC2TupleU64U16ZzSomeGetSome(ptr);
 			TwoTuple_u64u16Z some_hu_conv = new TwoTuple_u64u16Z(null, some);
 			if (some_hu_conv != null) { some_hu_conv.ptrs_to.AddLast(this); };
 			this.some = some_hu_conv;
@@ -43,7 +43,7 @@ public class Option_C2Tuple_u64u16ZZ : CommonBase {
 	 * Constructs a new COption_C2Tuple_u64u16ZZ containing a crate::c_types::derived::C2Tuple_u64u16Z
 	 */
 	public static Option_C2Tuple_u64u16ZZ some(org.ldk.structs.TwoTuple_u64u16Z o) {
-		long ret = bindings.COption_C2Tuple_u64u16ZZ_some(o != null ? o.ptr : 0);
+		long ret = Bindings.COptionC2TupleU64U16ZzSome(o != null ? o.ptr : 0);
 		GC.KeepAlive(o);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_C2Tuple_u64u16ZZ ret_hu_conv = org.ldk.structs.Option_C2Tuple_u64u16ZZ.constr_from_ptr(ret);
@@ -55,7 +55,7 @@ public class Option_C2Tuple_u64u16ZZ : CommonBase {
 	 * Constructs a new COption_C2Tuple_u64u16ZZ containing nothing
 	 */
 	public static Option_C2Tuple_u64u16ZZ none() {
-		long ret = bindings.COption_C2Tuple_u64u16ZZ_none();
+		long ret = Bindings.COptionC2TupleU64U16ZzNone();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_C2Tuple_u64u16ZZ ret_hu_conv = org.ldk.structs.Option_C2Tuple_u64u16ZZ.constr_from_ptr(ret);
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -63,7 +63,7 @@ public class Option_C2Tuple_u64u16ZZ : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.COption_C2Tuple_u64u16ZZ_clone_ptr(this.ptr);
+		long ret = Bindings.COptionC2TupleU64U16ZzClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -73,7 +73,7 @@ public class Option_C2Tuple_u64u16ZZ : CommonBase {
 	 * but with all dynamically-allocated buffers duplicated in new buffers.
 	 */
 	public Option_C2Tuple_u64u16ZZ clone() {
-		long ret = bindings.COption_C2Tuple_u64u16ZZ_clone(this.ptr);
+		long ret = Bindings.COptionC2TupleU64U16ZzClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_C2Tuple_u64u16ZZ ret_hu_conv = org.ldk.structs.Option_C2Tuple_u64u16ZZ.constr_from_ptr(ret);

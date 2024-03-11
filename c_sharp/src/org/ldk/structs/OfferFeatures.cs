@@ -12,7 +12,7 @@ namespace org { namespace ldk { namespace structs {
 public class OfferFeatures : CommonBase {
 	internal OfferFeatures(object _dummy, long ptr) : base(ptr) { }
 	~OfferFeatures() {
-		if (ptr != 0) { bindings.OfferFeatures_free(ptr); }
+		if (ptr != 0) { Bindings.OfferFeaturesFree(ptr); }
 	}
 
 	/**
@@ -21,7 +21,7 @@ public class OfferFeatures : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.OfferFeatures b) {
-		bool ret = bindings.OfferFeatures_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.OfferFeaturesEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -33,7 +33,7 @@ public class OfferFeatures : CommonBase {
 		return this.eq((OfferFeatures)o);
 	}
 	internal long clone_ptr() {
-		long ret = bindings.OfferFeatures_clone_ptr(this.ptr);
+		long ret = Bindings.OfferFeaturesClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -42,7 +42,7 @@ public class OfferFeatures : CommonBase {
 	 * Creates a copy of the OfferFeatures
 	 */
 	public OfferFeatures clone() {
-		long ret = bindings.OfferFeatures_clone(this.ptr);
+		long ret = Bindings.OfferFeaturesClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.OfferFeatures ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.OfferFeatures(null, ret); }
@@ -54,7 +54,7 @@ public class OfferFeatures : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the OfferFeatures.
 	 */
 	public long hash() {
-		long ret = bindings.OfferFeatures_hash(this.ptr);
+		long ret = Bindings.OfferFeaturesHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -66,7 +66,7 @@ public class OfferFeatures : CommonBase {
 	 * Create a blank Features with no features set
 	 */
 	public static OfferFeatures empty() {
-		long ret = bindings.OfferFeatures_empty();
+		long ret = Bindings.OfferFeaturesEmpty();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.OfferFeatures ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.OfferFeatures(null, ret); }
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -77,7 +77,7 @@ public class OfferFeatures : CommonBase {
 	 * Returns true if this `Features` object contains required features unknown by `other`.
 	 */
 	public bool requires_unknown_bits_from(org.ldk.structs.OfferFeatures other) {
-		bool ret = bindings.OfferFeatures_requires_unknown_bits_from(this.ptr, other == null ? 0 : other.ptr);
+		bool ret = Bindings.OfferFeaturesRequiresUnknownBitsFrom(this.ptr, other == null ? 0 : other.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(other);
 		if (this != null) { this.ptrs_to.AddLast(other); };
@@ -89,7 +89,7 @@ public class OfferFeatures : CommonBase {
 	 * \"required\".
 	 */
 	public bool requires_unknown_bits() {
-		bool ret = bindings.OfferFeatures_requires_unknown_bits(this.ptr);
+		bool ret = Bindings.OfferFeaturesRequiresUnknownBits(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -104,7 +104,7 @@ public class OfferFeatures : CommonBase {
 	 * [BOLT 9]: https://github.com/lightning/bolts/blob/master/09-features.md
 	 */
 	public Result_NoneNoneZ set_required_feature_bit(long bit) {
-		long ret = bindings.OfferFeatures_set_required_feature_bit(this.ptr, bit);
+		long ret = Bindings.OfferFeaturesSetRequiredFeatureBit(this.ptr, bit);
 		GC.KeepAlive(this);
 		GC.KeepAlive(bit);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -122,7 +122,7 @@ public class OfferFeatures : CommonBase {
 	 * [BOLT 9]: https://github.com/lightning/bolts/blob/master/09-features.md
 	 */
 	public Result_NoneNoneZ set_optional_feature_bit(long bit) {
-		long ret = bindings.OfferFeatures_set_optional_feature_bit(this.ptr, bit);
+		long ret = Bindings.OfferFeaturesSetOptionalFeatureBit(this.ptr, bit);
 		GC.KeepAlive(this);
 		GC.KeepAlive(bit);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -140,7 +140,7 @@ public class OfferFeatures : CommonBase {
 	 * [bLIP 2]: https://github.com/lightning/blips/blob/master/blip-0002.md#feature-bits
 	 */
 	public Result_NoneNoneZ set_required_custom_bit(long bit) {
-		long ret = bindings.OfferFeatures_set_required_custom_bit(this.ptr, bit);
+		long ret = Bindings.OfferFeaturesSetRequiredCustomBit(this.ptr, bit);
 		GC.KeepAlive(this);
 		GC.KeepAlive(bit);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -158,7 +158,7 @@ public class OfferFeatures : CommonBase {
 	 * [bLIP 2]: https://github.com/lightning/blips/blob/master/blip-0002.md#feature-bits
 	 */
 	public Result_NoneNoneZ set_optional_custom_bit(long bit) {
-		long ret = bindings.OfferFeatures_set_optional_custom_bit(this.ptr, bit);
+		long ret = Bindings.OfferFeaturesSetOptionalCustomBit(this.ptr, bit);
 		GC.KeepAlive(this);
 		GC.KeepAlive(bit);
 		if (ret >= 0 && ret <= 4096) { return null; }

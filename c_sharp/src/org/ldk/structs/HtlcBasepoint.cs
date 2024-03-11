@@ -16,11 +16,11 @@ namespace org { namespace ldk { namespace structs {
 public class HtlcBasepoint : CommonBase {
 	internal HtlcBasepoint(object _dummy, long ptr) : base(ptr) { }
 	~HtlcBasepoint() {
-		if (ptr != 0) { bindings.HtlcBasepoint_free(ptr); }
+		if (ptr != 0) { Bindings.HtlcBasepointFree(ptr); }
 	}
 
 	public byte[] get_a() {
-		long ret = bindings.HtlcBasepoint_get_a(this.ptr);
+		long ret = Bindings.HtlcBasepointGetA(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -28,7 +28,7 @@ public class HtlcBasepoint : CommonBase {
 	}
 
 	public void set_a(byte[] val) {
-		bindings.HtlcBasepoint_set_a(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 33)));
+		Bindings.HtlcBasepointSetA(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 33)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -37,7 +37,7 @@ public class HtlcBasepoint : CommonBase {
 	 * Constructs a new HtlcBasepoint given each field
 	 */
 	public static HtlcBasepoint of(byte[] a_arg) {
-		long ret = bindings.HtlcBasepoint_new(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(a_arg, 33)));
+		long ret = Bindings.HtlcBasepointNew(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(a_arg, 33)));
 		GC.KeepAlive(a_arg);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.HtlcBasepoint ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.HtlcBasepoint(null, ret); }
@@ -51,7 +51,7 @@ public class HtlcBasepoint : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.HtlcBasepoint b) {
-		bool ret = bindings.HtlcBasepoint_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.HtlcBasepointEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -63,7 +63,7 @@ public class HtlcBasepoint : CommonBase {
 		return this.eq((HtlcBasepoint)o);
 	}
 	internal long clone_ptr() {
-		long ret = bindings.HtlcBasepoint_clone_ptr(this.ptr);
+		long ret = Bindings.HtlcBasepointClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -72,7 +72,7 @@ public class HtlcBasepoint : CommonBase {
 	 * Creates a copy of the HtlcBasepoint
 	 */
 	public HtlcBasepoint clone() {
-		long ret = bindings.HtlcBasepoint_clone(this.ptr);
+		long ret = Bindings.HtlcBasepointClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.HtlcBasepoint ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.HtlcBasepoint(null, ret); }
@@ -84,7 +84,7 @@ public class HtlcBasepoint : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the HtlcBasepoint.
 	 */
 	public long hash() {
-		long ret = bindings.HtlcBasepoint_hash(this.ptr);
+		long ret = Bindings.HtlcBasepointHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -96,7 +96,7 @@ public class HtlcBasepoint : CommonBase {
 	 * Get inner Public Key
 	 */
 	public byte[] to_public_key() {
-		long ret = bindings.HtlcBasepoint_to_public_key(this.ptr);
+		long ret = Bindings.HtlcBasepointToPublicKey(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -107,7 +107,7 @@ public class HtlcBasepoint : CommonBase {
 	 * Serialize the HtlcBasepoint object into a byte array which can be read by HtlcBasepoint_read
 	 */
 	public byte[] write() {
-		long ret = bindings.HtlcBasepoint_write(this.ptr);
+		long ret = Bindings.HtlcBasepointWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -118,7 +118,7 @@ public class HtlcBasepoint : CommonBase {
 	 * Read a HtlcBasepoint from a byte array, created by HtlcBasepoint_write
 	 */
 	public static Result_HtlcBasepointDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.HtlcBasepoint_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.HtlcBasepointRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_HtlcBasepointDecodeErrorZ ret_hu_conv = Result_HtlcBasepointDecodeErrorZ.constr_from_ptr(ret);

@@ -14,14 +14,14 @@ namespace org { namespace ldk { namespace structs {
 public class HolderCommitmentTransaction : CommonBase {
 	internal HolderCommitmentTransaction(object _dummy, long ptr) : base(ptr) { }
 	~HolderCommitmentTransaction() {
-		if (ptr != 0) { bindings.HolderCommitmentTransaction_free(ptr); }
+		if (ptr != 0) { Bindings.HolderCommitmentTransactionFree(ptr); }
 	}
 
 	/**
 	 * Our counterparty's signature for the transaction
 	 */
 	public byte[] get_counterparty_sig() {
-		long ret = bindings.HolderCommitmentTransaction_get_counterparty_sig(this.ptr);
+		long ret = Bindings.HolderCommitmentTransactionGetCounterpartySig(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -32,7 +32,7 @@ public class HolderCommitmentTransaction : CommonBase {
 	 * Our counterparty's signature for the transaction
 	 */
 	public void set_counterparty_sig(byte[] val) {
-		bindings.HolderCommitmentTransaction_set_counterparty_sig(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 64)));
+		Bindings.HolderCommitmentTransactionSetCounterpartySig(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 64)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -43,7 +43,7 @@ public class HolderCommitmentTransaction : CommonBase {
 	 * Returns a copy of the field.
 	 */
 	public byte[][] get_counterparty_htlc_sigs() {
-		long ret = bindings.HolderCommitmentTransaction_get_counterparty_htlc_sigs(this.ptr);
+		long ret = Bindings.HolderCommitmentTransactionGetCounterpartyHtlcSigs(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		int ret_conv_8_len = InternalUtils.getArrayLength(ret);
@@ -53,7 +53,7 @@ public class HolderCommitmentTransaction : CommonBase {
 			byte[] ret_conv_8_conv = InternalUtils.decodeUint8Array(ret_conv_8);
 			ret_conv_8_arr[i] = ret_conv_8_conv;
 		}
-		bindings.free_buffer(ret);
+		Bindings.FreeBuffer(ret);
 		return ret_conv_8_arr;
 	}
 
@@ -61,13 +61,13 @@ public class HolderCommitmentTransaction : CommonBase {
 	 * All non-dust counterparty HTLC signatures, in the order they appear in the transaction
 	 */
 	public void set_counterparty_htlc_sigs(byte[][] val) {
-		bindings.HolderCommitmentTransaction_set_counterparty_htlc_sigs(this.ptr, InternalUtils.encodeUint64Array(InternalUtils.mapArray(val, val_conv_8 => InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val_conv_8, 64)))));
+		Bindings.HolderCommitmentTransactionSetCounterpartyHtlcSigs(this.ptr, InternalUtils.encodeUint64Array(InternalUtils.mapArray(val, val_conv_8 => InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val_conv_8, 64)))));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.HolderCommitmentTransaction_clone_ptr(this.ptr);
+		long ret = Bindings.HolderCommitmentTransactionClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -76,7 +76,7 @@ public class HolderCommitmentTransaction : CommonBase {
 	 * Creates a copy of the HolderCommitmentTransaction
 	 */
 	public HolderCommitmentTransaction clone() {
-		long ret = bindings.HolderCommitmentTransaction_clone(this.ptr);
+		long ret = Bindings.HolderCommitmentTransactionClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.HolderCommitmentTransaction ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.HolderCommitmentTransaction(null, ret); }
@@ -88,7 +88,7 @@ public class HolderCommitmentTransaction : CommonBase {
 	 * Serialize the HolderCommitmentTransaction object into a byte array which can be read by HolderCommitmentTransaction_read
 	 */
 	public byte[] write() {
-		long ret = bindings.HolderCommitmentTransaction_write(this.ptr);
+		long ret = Bindings.HolderCommitmentTransactionWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -99,7 +99,7 @@ public class HolderCommitmentTransaction : CommonBase {
 	 * Read a HolderCommitmentTransaction from a byte array, created by HolderCommitmentTransaction_write
 	 */
 	public static Result_HolderCommitmentTransactionDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.HolderCommitmentTransaction_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.HolderCommitmentTransactionRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_HolderCommitmentTransactionDecodeErrorZ ret_hu_conv = Result_HolderCommitmentTransactionDecodeErrorZ.constr_from_ptr(ret);
@@ -111,7 +111,7 @@ public class HolderCommitmentTransaction : CommonBase {
 	 * The funding keys are used to figure out which signature should go first when building the transaction for broadcast.
 	 */
 	public static HolderCommitmentTransaction of(org.ldk.structs.CommitmentTransaction commitment_tx, byte[] counterparty_sig, byte[][] counterparty_htlc_sigs, byte[] holder_funding_key, byte[] counterparty_funding_key) {
-		long ret = bindings.HolderCommitmentTransaction_new(commitment_tx == null ? 0 : commitment_tx.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(counterparty_sig, 64)), InternalUtils.encodeUint64Array(InternalUtils.mapArray(counterparty_htlc_sigs, counterparty_htlc_sigs_conv_8 => InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(counterparty_htlc_sigs_conv_8, 64)))), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(holder_funding_key, 33)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(counterparty_funding_key, 33)));
+		long ret = Bindings.HolderCommitmentTransactionNew(commitment_tx == null ? 0 : commitment_tx.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(counterparty_sig, 64)), InternalUtils.encodeUint64Array(InternalUtils.mapArray(counterparty_htlc_sigs, counterparty_htlc_sigs_conv_8 => InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(counterparty_htlc_sigs_conv_8, 64)))), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(holder_funding_key, 33)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(counterparty_funding_key, 33)));
 		GC.KeepAlive(commitment_tx);
 		GC.KeepAlive(counterparty_sig);
 		GC.KeepAlive(counterparty_htlc_sigs);

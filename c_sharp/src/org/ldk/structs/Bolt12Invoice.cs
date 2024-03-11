@@ -19,11 +19,11 @@ namespace org { namespace ldk { namespace structs {
 public class Bolt12Invoice : CommonBase {
 	internal Bolt12Invoice(object _dummy, long ptr) : base(ptr) { }
 	~Bolt12Invoice() {
-		if (ptr != 0) { bindings.Bolt12Invoice_free(ptr); }
+		if (ptr != 0) { Bindings.Bolt12InvoiceFree(ptr); }
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.Bolt12Invoice_clone_ptr(this.ptr);
+		long ret = Bindings.Bolt12InvoiceClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -32,7 +32,7 @@ public class Bolt12Invoice : CommonBase {
 	 * Creates a copy of the Bolt12Invoice
 	 */
 	public Bolt12Invoice clone() {
-		long ret = bindings.Bolt12Invoice_clone(this.ptr);
+		long ret = Bindings.Bolt12InvoiceClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Bolt12Invoice ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.Bolt12Invoice(null, ret); }
@@ -48,7 +48,7 @@ public class Bolt12Invoice : CommonBase {
 	 * [`Offer::chains`]: crate::offers::offer::Offer::chains
 	 */
 	public Option_CVec_ThirtyTwoBytesZZ offer_chains() {
-		long ret = bindings.Bolt12Invoice_offer_chains(this.ptr);
+		long ret = Bindings.Bolt12InvoiceOfferChains(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_CVec_ThirtyTwoBytesZZ ret_hu_conv = org.ldk.structs.Option_CVec_ThirtyTwoBytesZZ.constr_from_ptr(ret);
@@ -66,7 +66,7 @@ public class Bolt12Invoice : CommonBase {
 	 * [`InvoiceRequest::chain`]: crate::offers::invoice_request::InvoiceRequest::chain
 	 */
 	public byte[] chain() {
-		long ret = bindings.Bolt12Invoice_chain(this.ptr);
+		long ret = Bindings.Bolt12InvoiceChain(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -83,7 +83,7 @@ public class Bolt12Invoice : CommonBase {
 	 * [`Offer::metadata`]: crate::offers::offer::Offer::metadata
 	 */
 	public Option_CVec_u8ZZ metadata() {
-		long ret = bindings.Bolt12Invoice_metadata(this.ptr);
+		long ret = Bindings.Bolt12InvoiceMetadata(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_CVec_u8ZZ ret_hu_conv = org.ldk.structs.Option_CVec_u8ZZ.constr_from_ptr(ret);
@@ -103,7 +103,7 @@ public class Bolt12Invoice : CommonBase {
 	 * Note that the return value (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public Amount amount() {
-		long ret = bindings.Bolt12Invoice_amount(this.ptr);
+		long ret = Bindings.Bolt12InvoiceAmount(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Amount ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.Amount(null, ret); }
@@ -123,7 +123,7 @@ public class Bolt12Invoice : CommonBase {
 	 * Note that the return value (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public OfferFeatures offer_features() {
-		long ret = bindings.Bolt12Invoice_offer_features(this.ptr);
+		long ret = Bindings.Bolt12InvoiceOfferFeatures(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.OfferFeatures ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.OfferFeatures(null, ret); }
@@ -139,7 +139,7 @@ public class Bolt12Invoice : CommonBase {
 	 * [`Offer::description`]: crate::offers::offer::Offer::description
 	 */
 	public PrintableString description() {
-		long ret = bindings.Bolt12Invoice_description(this.ptr);
+		long ret = Bindings.Bolt12InvoiceDescription(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.PrintableString ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.PrintableString(null, ret); }
@@ -155,7 +155,7 @@ public class Bolt12Invoice : CommonBase {
 	 * [`Offer::absolute_expiry`]: crate::offers::offer::Offer::absolute_expiry
 	 */
 	public Option_u64Z absolute_expiry() {
-		long ret = bindings.Bolt12Invoice_absolute_expiry(this.ptr);
+		long ret = Bindings.Bolt12InvoiceAbsoluteExpiry(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_u64Z ret_hu_conv = org.ldk.structs.Option_u64Z.constr_from_ptr(ret);
@@ -173,7 +173,7 @@ public class Bolt12Invoice : CommonBase {
 	 * Note that the return value (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public PrintableString issuer() {
-		long ret = bindings.Bolt12Invoice_issuer(this.ptr);
+		long ret = Bindings.Bolt12InvoiceIssuer(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.PrintableString ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.PrintableString(null, ret); }
@@ -189,7 +189,7 @@ public class Bolt12Invoice : CommonBase {
 	 * [`Offer::paths`]: crate::offers::offer::Offer::paths
 	 */
 	public BlindedPath[] message_paths() {
-		long ret = bindings.Bolt12Invoice_message_paths(this.ptr);
+		long ret = Bindings.Bolt12InvoiceMessagePaths(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		int ret_conv_13_len = InternalUtils.getArrayLength(ret);
@@ -200,7 +200,7 @@ public class Bolt12Invoice : CommonBase {
 			if (ret_conv_13_hu_conv != null) { ret_conv_13_hu_conv.ptrs_to.AddLast(this); };
 			ret_conv_13_arr[n] = ret_conv_13_hu_conv;
 		}
-		bindings.free_buffer(ret);
+		Bindings.FreeBuffer(ret);
 		return ret_conv_13_arr;
 	}
 
@@ -215,7 +215,7 @@ public class Bolt12Invoice : CommonBase {
 	 * Note that the return value (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public Quantity supported_quantity() {
-		long ret = bindings.Bolt12Invoice_supported_quantity(this.ptr);
+		long ret = Bindings.Bolt12InvoiceSupportedQuantity(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Quantity ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.Quantity(null, ret); }
@@ -229,7 +229,7 @@ public class Bolt12Invoice : CommonBase {
 	 * From [`InvoiceRequest::payer_metadata`] or [`Refund::payer_metadata`].
 	 */
 	public byte[] payer_metadata() {
-		long ret = bindings.Bolt12Invoice_payer_metadata(this.ptr);
+		long ret = Bindings.Bolt12InvoicePayerMetadata(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -242,7 +242,7 @@ public class Bolt12Invoice : CommonBase {
 	 * From [`InvoiceRequest::invoice_request_features`] or [`Refund::features`].
 	 */
 	public InvoiceRequestFeatures invoice_request_features() {
-		long ret = bindings.Bolt12Invoice_invoice_request_features(this.ptr);
+		long ret = Bindings.Bolt12InvoiceInvoiceRequestFeatures(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.InvoiceRequestFeatures ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.InvoiceRequestFeatures(null, ret); }
@@ -256,7 +256,7 @@ public class Bolt12Invoice : CommonBase {
 	 * From [`InvoiceRequest::quantity`] or [`Refund::quantity`].
 	 */
 	public Option_u64Z quantity() {
-		long ret = bindings.Bolt12Invoice_quantity(this.ptr);
+		long ret = Bindings.Bolt12InvoiceQuantity(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_u64Z ret_hu_conv = org.ldk.structs.Option_u64Z.constr_from_ptr(ret);
@@ -271,7 +271,7 @@ public class Bolt12Invoice : CommonBase {
 	 * [`message_paths`]: Self::message_paths
 	 */
 	public byte[] payer_id() {
-		long ret = bindings.Bolt12Invoice_payer_id(this.ptr);
+		long ret = Bindings.Bolt12InvoicePayerId(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -286,7 +286,7 @@ public class Bolt12Invoice : CommonBase {
 	 * Note that the return value (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public PrintableString payer_note() {
-		long ret = bindings.Bolt12Invoice_payer_note(this.ptr);
+		long ret = Bindings.Bolt12InvoicePayerNote(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.PrintableString ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.PrintableString(null, ret); }
@@ -298,7 +298,7 @@ public class Bolt12Invoice : CommonBase {
 	 * Duration since the Unix epoch when the invoice was created.
 	 */
 	public long created_at() {
-		long ret = bindings.Bolt12Invoice_created_at(this.ptr);
+		long ret = Bindings.Bolt12InvoiceCreatedAt(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -308,7 +308,7 @@ public class Bolt12Invoice : CommonBase {
 	 * should no longer be paid.
 	 */
 	public long relative_expiry() {
-		long ret = bindings.Bolt12Invoice_relative_expiry(this.ptr);
+		long ret = Bindings.Bolt12InvoiceRelativeExpiry(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -317,7 +317,7 @@ public class Bolt12Invoice : CommonBase {
 	 * Whether the invoice has expired.
 	 */
 	public bool is_expired() {
-		bool ret = bindings.Bolt12Invoice_is_expired(this.ptr);
+		bool ret = Bindings.Bolt12InvoiceIsExpired(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -326,7 +326,7 @@ public class Bolt12Invoice : CommonBase {
 	 * SHA256 hash of the payment preimage that will be given in return for paying the invoice.
 	 */
 	public byte[] payment_hash() {
-		long ret = bindings.Bolt12Invoice_payment_hash(this.ptr);
+		long ret = Bindings.Bolt12InvoicePaymentHash(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -337,7 +337,7 @@ public class Bolt12Invoice : CommonBase {
 	 * The minimum amount required for a successful payment of the invoice.
 	 */
 	public long amount_msats() {
-		long ret = bindings.Bolt12Invoice_amount_msats(this.ptr);
+		long ret = Bindings.Bolt12InvoiceAmountMsats(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -346,7 +346,7 @@ public class Bolt12Invoice : CommonBase {
 	 * Features pertaining to paying an invoice.
 	 */
 	public Bolt12InvoiceFeatures invoice_features() {
-		long ret = bindings.Bolt12Invoice_invoice_features(this.ptr);
+		long ret = Bindings.Bolt12InvoiceInvoiceFeatures(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Bolt12InvoiceFeatures ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.Bolt12InvoiceFeatures(null, ret); }
@@ -358,7 +358,7 @@ public class Bolt12Invoice : CommonBase {
 	 * The public key corresponding to the key used to sign the invoice.
 	 */
 	public byte[] signing_pubkey() {
-		long ret = bindings.Bolt12Invoice_signing_pubkey(this.ptr);
+		long ret = Bindings.Bolt12InvoiceSigningPubkey(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -369,7 +369,7 @@ public class Bolt12Invoice : CommonBase {
 	 * Signature of the invoice verified using [`Bolt12Invoice::signing_pubkey`].
 	 */
 	public byte[] signature() {
-		long ret = bindings.Bolt12Invoice_signature(this.ptr);
+		long ret = Bindings.Bolt12InvoiceSignature(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -380,7 +380,7 @@ public class Bolt12Invoice : CommonBase {
 	 * Hash that was used for signing the invoice.
 	 */
 	public byte[] signable_hash() {
-		long ret = bindings.Bolt12Invoice_signable_hash(this.ptr);
+		long ret = Bindings.Bolt12InvoiceSignableHash(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -392,7 +392,7 @@ public class Bolt12Invoice : CommonBase {
 	 * the associated [`PaymentId`] to use when sending the payment.
 	 */
 	public Result_ThirtyTwoBytesNoneZ verify(org.ldk.structs.ExpandedKey key) {
-		long ret = bindings.Bolt12Invoice_verify(this.ptr, key == null ? 0 : key.ptr);
+		long ret = Bindings.Bolt12InvoiceVerify(this.ptr, key == null ? 0 : key.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(key);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -405,7 +405,7 @@ public class Bolt12Invoice : CommonBase {
 	 * Serialize the Bolt12Invoice object into a byte array which can be read by Bolt12Invoice_read
 	 */
 	public byte[] write() {
-		long ret = bindings.Bolt12Invoice_write(this.ptr);
+		long ret = Bindings.Bolt12InvoiceWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);

@@ -17,11 +17,11 @@ namespace org { namespace ldk { namespace structs {
 public class CommitmentTransaction : CommonBase {
 	internal CommitmentTransaction(object _dummy, long ptr) : base(ptr) { }
 	~CommitmentTransaction() {
-		if (ptr != 0) { bindings.CommitmentTransaction_free(ptr); }
+		if (ptr != 0) { Bindings.CommitmentTransactionFree(ptr); }
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.CommitmentTransaction_clone_ptr(this.ptr);
+		long ret = Bindings.CommitmentTransactionClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -30,7 +30,7 @@ public class CommitmentTransaction : CommonBase {
 	 * Creates a copy of the CommitmentTransaction
 	 */
 	public CommitmentTransaction clone() {
-		long ret = bindings.CommitmentTransaction_clone(this.ptr);
+		long ret = Bindings.CommitmentTransactionClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.CommitmentTransaction ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.CommitmentTransaction(null, ret); }
@@ -42,7 +42,7 @@ public class CommitmentTransaction : CommonBase {
 	 * Serialize the CommitmentTransaction object into a byte array which can be read by CommitmentTransaction_read
 	 */
 	public byte[] write() {
-		long ret = bindings.CommitmentTransaction_write(this.ptr);
+		long ret = Bindings.CommitmentTransactionWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -53,7 +53,7 @@ public class CommitmentTransaction : CommonBase {
 	 * Read a CommitmentTransaction from a byte array, created by CommitmentTransaction_write
 	 */
 	public static Result_CommitmentTransactionDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.CommitmentTransaction_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.CommitmentTransactionRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_CommitmentTransactionDecodeErrorZ ret_hu_conv = Result_CommitmentTransactionDecodeErrorZ.constr_from_ptr(ret);
@@ -64,7 +64,7 @@ public class CommitmentTransaction : CommonBase {
 	 * The backwards-counting commitment number
 	 */
 	public long commitment_number() {
-		long ret = bindings.CommitmentTransaction_commitment_number(this.ptr);
+		long ret = Bindings.CommitmentTransactionCommitmentNumber(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -73,7 +73,7 @@ public class CommitmentTransaction : CommonBase {
 	 * The per commitment point used by the broadcaster.
 	 */
 	public byte[] per_commitment_point() {
-		long ret = bindings.CommitmentTransaction_per_commitment_point(this.ptr);
+		long ret = Bindings.CommitmentTransactionPerCommitmentPoint(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -84,7 +84,7 @@ public class CommitmentTransaction : CommonBase {
 	 * The value to be sent to the broadcaster
 	 */
 	public long to_broadcaster_value_sat() {
-		long ret = bindings.CommitmentTransaction_to_broadcaster_value_sat(this.ptr);
+		long ret = Bindings.CommitmentTransactionToBroadcasterValueSat(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -93,7 +93,7 @@ public class CommitmentTransaction : CommonBase {
 	 * The value to be sent to the counterparty
 	 */
 	public long to_countersignatory_value_sat() {
-		long ret = bindings.CommitmentTransaction_to_countersignatory_value_sat(this.ptr);
+		long ret = Bindings.CommitmentTransactionToCountersignatoryValueSat(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -102,7 +102,7 @@ public class CommitmentTransaction : CommonBase {
 	 * The feerate paid per 1000-weight-unit in this commitment transaction.
 	 */
 	public int feerate_per_kw() {
-		int ret = bindings.CommitmentTransaction_feerate_per_kw(this.ptr);
+		int ret = Bindings.CommitmentTransactionFeeratePerKw(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -116,7 +116,7 @@ public class CommitmentTransaction : CommonBase {
 	 * be used by an external signer - instead use the verify function.
 	 */
 	public TrustedCommitmentTransaction trust() {
-		long ret = bindings.CommitmentTransaction_trust(this.ptr);
+		long ret = Bindings.CommitmentTransactionTrust(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.TrustedCommitmentTransaction ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.TrustedCommitmentTransaction(null, ret); }
@@ -133,7 +133,7 @@ public class CommitmentTransaction : CommonBase {
 	 * or using the built transaction.
 	 */
 	public Result_TrustedCommitmentTransactionNoneZ verify(org.ldk.structs.DirectedChannelTransactionParameters channel_parameters, org.ldk.structs.ChannelPublicKeys broadcaster_keys, org.ldk.structs.ChannelPublicKeys countersignatory_keys) {
-		long ret = bindings.CommitmentTransaction_verify(this.ptr, channel_parameters == null ? 0 : channel_parameters.ptr, broadcaster_keys == null ? 0 : broadcaster_keys.ptr, countersignatory_keys == null ? 0 : countersignatory_keys.ptr);
+		long ret = Bindings.CommitmentTransactionVerify(this.ptr, channel_parameters == null ? 0 : channel_parameters.ptr, broadcaster_keys == null ? 0 : broadcaster_keys.ptr, countersignatory_keys == null ? 0 : countersignatory_keys.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(channel_parameters);
 		GC.KeepAlive(broadcaster_keys);

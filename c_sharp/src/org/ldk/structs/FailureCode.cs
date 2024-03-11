@@ -14,11 +14,11 @@ namespace org { namespace ldk { namespace structs {
 public class FailureCode : CommonBase {
 	protected FailureCode(object _dummy, long ptr) : base(ptr) { }
 	~FailureCode() {
-		if (ptr != 0) { bindings.FailureCode_free(ptr); }
+		if (ptr != 0) { Bindings.FailureCodeFree(ptr); }
 	}
 
 	internal static FailureCode constr_from_ptr(long ptr) {
-		long raw_ty = bindings.LDKFailureCode_ty_from_ptr(ptr);
+		long raw_ty = Bindings.LDKFailureCodeTyFromPtr(ptr);
 		switch (raw_ty) {
 			case 0: return new FailureCode_TemporaryNodeFailure(ptr);
 			case 1: return new FailureCode_RequiredNodeFeatureMissing(ptr);
@@ -48,14 +48,14 @@ public class FailureCode : CommonBase {
 	public class FailureCode_InvalidOnionPayload : FailureCode {
 		public Option_C2Tuple_u64u16ZZ invalid_onion_payload;
 		internal FailureCode_InvalidOnionPayload(long ptr) : base(null, ptr) {
-			long invalid_onion_payload = bindings.LDKFailureCode_InvalidOnionPayload_get_invalid_onion_payload(ptr);
+			long invalid_onion_payload = Bindings.LDKFailureCodeInvalidOnionPayloadGetInvalidOnionPayload(ptr);
 			org.ldk.structs.Option_C2Tuple_u64u16ZZ invalid_onion_payload_hu_conv = org.ldk.structs.Option_C2Tuple_u64u16ZZ.constr_from_ptr(invalid_onion_payload);
 			if (invalid_onion_payload_hu_conv != null) { invalid_onion_payload_hu_conv.ptrs_to.AddLast(this); };
 			this.invalid_onion_payload = invalid_onion_payload_hu_conv;
 		}
 	}
 	internal long clone_ptr() {
-		long ret = bindings.FailureCode_clone_ptr(this.ptr);
+		long ret = Bindings.FailureCodeClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -64,7 +64,7 @@ public class FailureCode : CommonBase {
 	 * Creates a copy of the FailureCode
 	 */
 	public FailureCode clone() {
-		long ret = bindings.FailureCode_clone(this.ptr);
+		long ret = Bindings.FailureCodeClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.FailureCode ret_hu_conv = org.ldk.structs.FailureCode.constr_from_ptr(ret);
@@ -76,7 +76,7 @@ public class FailureCode : CommonBase {
 	 * Utility method to constructs a new TemporaryNodeFailure-variant FailureCode
 	 */
 	public static FailureCode temporary_node_failure() {
-		long ret = bindings.FailureCode_temporary_node_failure();
+		long ret = Bindings.FailureCodeTemporaryNodeFailure();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.FailureCode ret_hu_conv = org.ldk.structs.FailureCode.constr_from_ptr(ret);
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -87,7 +87,7 @@ public class FailureCode : CommonBase {
 	 * Utility method to constructs a new RequiredNodeFeatureMissing-variant FailureCode
 	 */
 	public static FailureCode required_node_feature_missing() {
-		long ret = bindings.FailureCode_required_node_feature_missing();
+		long ret = Bindings.FailureCodeRequiredNodeFeatureMissing();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.FailureCode ret_hu_conv = org.ldk.structs.FailureCode.constr_from_ptr(ret);
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -98,7 +98,7 @@ public class FailureCode : CommonBase {
 	 * Utility method to constructs a new IncorrectOrUnknownPaymentDetails-variant FailureCode
 	 */
 	public static FailureCode incorrect_or_unknown_payment_details() {
-		long ret = bindings.FailureCode_incorrect_or_unknown_payment_details();
+		long ret = Bindings.FailureCodeIncorrectOrUnknownPaymentDetails();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.FailureCode ret_hu_conv = org.ldk.structs.FailureCode.constr_from_ptr(ret);
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -109,7 +109,7 @@ public class FailureCode : CommonBase {
 	 * Utility method to constructs a new InvalidOnionPayload-variant FailureCode
 	 */
 	public static FailureCode invalid_onion_payload(org.ldk.structs.Option_C2Tuple_u64u16ZZ a) {
-		long ret = bindings.FailureCode_invalid_onion_payload(a.ptr);
+		long ret = Bindings.FailureCodeInvalidOnionPayload(a.ptr);
 		GC.KeepAlive(a);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.FailureCode ret_hu_conv = org.ldk.structs.FailureCode.constr_from_ptr(ret);

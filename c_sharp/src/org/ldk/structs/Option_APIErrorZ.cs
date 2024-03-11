@@ -11,11 +11,11 @@ namespace org { namespace ldk { namespace structs {
 public class Option_APIErrorZ : CommonBase {
 	protected Option_APIErrorZ(object _dummy, long ptr) : base(ptr) { }
 	~Option_APIErrorZ() {
-		if (ptr != 0) { bindings.COption_APIErrorZ_free(ptr); }
+		if (ptr != 0) { Bindings.COptionAPIErrorZFree(ptr); }
 	}
 
 	internal static Option_APIErrorZ constr_from_ptr(long ptr) {
-		long raw_ty = bindings.LDKCOption_APIErrorZ_ty_from_ptr(ptr);
+		long raw_ty = Bindings.LDKCOptionAPIErrorZTyFromPtr(ptr);
 		switch (raw_ty) {
 			case 0: return new Option_APIErrorZ_Some(ptr);
 			case 1: return new Option_APIErrorZ_None(ptr);
@@ -28,7 +28,7 @@ public class Option_APIErrorZ : CommonBase {
 	public class Option_APIErrorZ_Some : Option_APIErrorZ {
 		public APIError some;
 		internal Option_APIErrorZ_Some(long ptr) : base(null, ptr) {
-			long some = bindings.LDKCOption_APIErrorZ_Some_get_some(ptr);
+			long some = Bindings.LDKCOptionAPIErrorZSomeGetSome(ptr);
 			org.ldk.structs.APIError some_hu_conv = org.ldk.structs.APIError.constr_from_ptr(some);
 			if (some_hu_conv != null) { some_hu_conv.ptrs_to.AddLast(this); };
 			this.some = some_hu_conv;
@@ -43,7 +43,7 @@ public class Option_APIErrorZ : CommonBase {
 	 * Constructs a new COption_APIErrorZ containing a crate::lightning::util::errors::APIError
 	 */
 	public static Option_APIErrorZ some(org.ldk.structs.APIError o) {
-		long ret = bindings.COption_APIErrorZ_some(o.ptr);
+		long ret = Bindings.COptionAPIErrorZSome(o.ptr);
 		GC.KeepAlive(o);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_APIErrorZ ret_hu_conv = org.ldk.structs.Option_APIErrorZ.constr_from_ptr(ret);
@@ -56,7 +56,7 @@ public class Option_APIErrorZ : CommonBase {
 	 * Constructs a new COption_APIErrorZ containing nothing
 	 */
 	public static Option_APIErrorZ none() {
-		long ret = bindings.COption_APIErrorZ_none();
+		long ret = Bindings.COptionAPIErrorZNone();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_APIErrorZ ret_hu_conv = org.ldk.structs.Option_APIErrorZ.constr_from_ptr(ret);
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -64,7 +64,7 @@ public class Option_APIErrorZ : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.COption_APIErrorZ_clone_ptr(this.ptr);
+		long ret = Bindings.COptionAPIErrorZClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -74,7 +74,7 @@ public class Option_APIErrorZ : CommonBase {
 	 * but with all dynamically-allocated buffers duplicated in new buffers.
 	 */
 	public Option_APIErrorZ clone() {
-		long ret = bindings.COption_APIErrorZ_clone(this.ptr);
+		long ret = Bindings.COptionAPIErrorZClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_APIErrorZ ret_hu_conv = org.ldk.structs.Option_APIErrorZ.constr_from_ptr(ret);

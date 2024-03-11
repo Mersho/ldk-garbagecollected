@@ -17,14 +17,14 @@ namespace org { namespace ldk { namespace structs {
 public class TrustedCommitmentTransaction : CommonBase {
 	internal TrustedCommitmentTransaction(object _dummy, long ptr) : base(ptr) { }
 	~TrustedCommitmentTransaction() {
-		if (ptr != 0) { bindings.TrustedCommitmentTransaction_free(ptr); }
+		if (ptr != 0) { Bindings.TrustedCommitmentTransactionFree(ptr); }
 	}
 
 	/**
 	 * The transaction ID of the built Bitcoin transaction
 	 */
 	public byte[] txid() {
-		long ret = bindings.TrustedCommitmentTransaction_txid(this.ptr);
+		long ret = Bindings.TrustedCommitmentTransactionTxid(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -35,7 +35,7 @@ public class TrustedCommitmentTransaction : CommonBase {
 	 * The pre-built Bitcoin commitment transaction
 	 */
 	public BuiltCommitmentTransaction built_transaction() {
-		long ret = bindings.TrustedCommitmentTransaction_built_transaction(this.ptr);
+		long ret = Bindings.TrustedCommitmentTransactionBuiltTransaction(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.BuiltCommitmentTransaction ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.BuiltCommitmentTransaction(null, ret); }
@@ -47,7 +47,7 @@ public class TrustedCommitmentTransaction : CommonBase {
 	 * The pre-calculated transaction creation public keys.
 	 */
 	public TxCreationKeys keys() {
-		long ret = bindings.TrustedCommitmentTransaction_keys(this.ptr);
+		long ret = Bindings.TrustedCommitmentTransactionKeys(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.TxCreationKeys ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.TxCreationKeys(null, ret); }
@@ -59,7 +59,7 @@ public class TrustedCommitmentTransaction : CommonBase {
 	 * Should anchors be used.
 	 */
 	public ChannelTypeFeatures channel_type_features() {
-		long ret = bindings.TrustedCommitmentTransaction_channel_type_features(this.ptr);
+		long ret = Bindings.TrustedCommitmentTransactionChannelTypeFeatures(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChannelTypeFeatures ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChannelTypeFeatures(null, ret); }
@@ -76,7 +76,7 @@ public class TrustedCommitmentTransaction : CommonBase {
 	 * This function is only valid in the holder commitment context, it always uses EcdsaSighashType::All.
 	 */
 	public Result_CVec_ECDSASignatureZNoneZ get_htlc_sigs(byte[] htlc_base_key, org.ldk.structs.DirectedChannelTransactionParameters channel_parameters, org.ldk.structs.EntropySource entropy_source) {
-		long ret = bindings.TrustedCommitmentTransaction_get_htlc_sigs(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(htlc_base_key, 32)), channel_parameters == null ? 0 : channel_parameters.ptr, entropy_source.ptr);
+		long ret = Bindings.TrustedCommitmentTransactionGetHtlcSigs(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(htlc_base_key, 32)), channel_parameters == null ? 0 : channel_parameters.ptr, entropy_source.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(htlc_base_key);
 		GC.KeepAlive(channel_parameters);
@@ -100,7 +100,7 @@ public class TrustedCommitmentTransaction : CommonBase {
 	 * revokeable output.
 	 */
 	public Option_usizeZ revokeable_output_index() {
-		long ret = bindings.TrustedCommitmentTransaction_revokeable_output_index(this.ptr);
+		long ret = Bindings.TrustedCommitmentTransactionRevokeableOutputIndex(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_usizeZ ret_hu_conv = org.ldk.structs.Option_usizeZ.constr_from_ptr(ret);
@@ -122,7 +122,7 @@ public class TrustedCommitmentTransaction : CommonBase {
 	 * fee rates may be built.
 	 */
 	public Result_TransactionNoneZ build_to_local_justice_tx(long feerate_per_kw, byte[] destination_script) {
-		long ret = bindings.TrustedCommitmentTransaction_build_to_local_justice_tx(this.ptr, feerate_per_kw, InternalUtils.encodeUint8Array(destination_script));
+		long ret = Bindings.TrustedCommitmentTransactionBuildToLocalJusticeTx(this.ptr, feerate_per_kw, InternalUtils.encodeUint8Array(destination_script));
 		GC.KeepAlive(this);
 		GC.KeepAlive(feerate_per_kw);
 		GC.KeepAlive(destination_script);

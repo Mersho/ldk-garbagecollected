@@ -9,7 +9,7 @@ namespace org { namespace ldk { namespace structs {
 
 
 /** An implementation of ScoreLookUp */
-public interface ScoreLookUpInterface {
+public interface IScoreLookUp {
 	/**Returns the fee in msats willing to be paid to avoid routing `send_amt_msat` through the
 	 * given channel in the direction from `source` to `target`.
 	 * 
@@ -30,20 +30,20 @@ public interface ScoreLookUpInterface {
  * Scoring is in terms of fees willing to be paid in order to avoid routing through a channel.
  */
 public class ScoreLookUp : CommonBase {
-	internal bindings.LDKScoreLookUp bindings_instance;
+	internal Bindings.LDKScoreLookUp bindings_instance;
 	internal long instance_idx;
 
 	internal ScoreLookUp(object _dummy, long ptr) : base(ptr) { bindings_instance = null; }
 	~ScoreLookUp() {
-		if (ptr != 0) { bindings.ScoreLookUp_free(ptr); }
+		if (ptr != 0) { Bindings.ScoreLookUpFree(ptr); }
 	}
 
 	private class LDKScoreLookUpHolder { internal ScoreLookUp held; }
-	private class LDKScoreLookUpImpl : bindings.LDKScoreLookUp {
-		internal LDKScoreLookUpImpl(ScoreLookUpInterface arg, LDKScoreLookUpHolder impl_holder) { this.arg = arg; this.impl_holder = impl_holder; }
-		private ScoreLookUpInterface arg;
+	private class LDKScoreLookUpImpl : Bindings.LDKScoreLookUp {
+		internal LDKScoreLookUpImpl(IScoreLookUp arg, LDKScoreLookUpHolder impl_holder) { this.arg = arg; this.impl_holder = impl_holder; }
+		private IScoreLookUp arg;
 		private LDKScoreLookUpHolder impl_holder;
-		public long channel_penalty_msat(long _candidate, long _usage, long _score_params) {
+		public long ChannelPenaltyMsat(long _candidate, long _usage, long _score_params) {
 			CandidateRouteHop _candidate_hu_conv = CandidateRouteHop.constr_from_ptr(_candidate);
 			org.ldk.structs.ChannelUsage _usage_hu_conv = null; if (_usage < 0 || _usage > 4096) { _usage_hu_conv = new org.ldk.structs.ChannelUsage(null, _usage); }
 			if (_usage_hu_conv != null) { _usage_hu_conv.ptrs_to.AddLast(this); };
@@ -55,10 +55,10 @@ public class ScoreLookUp : CommonBase {
 	}
 
 	/** Creates a new instance of ScoreLookUp from a given implementation */
-	public static ScoreLookUp new_impl(ScoreLookUpInterface arg) {
+	public static ScoreLookUp new_impl(IScoreLookUp arg) {
 		LDKScoreLookUpHolder impl_holder = new LDKScoreLookUpHolder();
 		LDKScoreLookUpImpl impl = new LDKScoreLookUpImpl(arg, impl_holder);
-		long[] ptr_idx = bindings.LDKScoreLookUp_new(impl);
+		long[] ptr_idx = Bindings.LDKScoreLookUpNew(impl);
 
 		impl_holder.held = new ScoreLookUp(null, ptr_idx[0]);
 		impl_holder.held.instance_idx = ptr_idx[1];
@@ -77,7 +77,7 @@ public class ScoreLookUp : CommonBase {
 	 * Thus, implementations should be overflow-safe.
 	 */
 	public long channel_penalty_msat(org.ldk.structs.CandidateRouteHop candidate, org.ldk.structs.ChannelUsage usage, org.ldk.structs.ProbabilisticScoringFeeParameters score_params) {
-		long ret = bindings.ScoreLookUp_channel_penalty_msat(this.ptr, candidate == null ? 0 : candidate.ptr, usage == null ? 0 : usage.ptr, score_params == null ? 0 : score_params.ptr);
+		long ret = Bindings.ScoreLookUpChannelPenaltyMsat(this.ptr, candidate == null ? 0 : candidate.ptr, usage == null ? 0 : usage.ptr, score_params == null ? 0 : score_params.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(candidate);
 		GC.KeepAlive(usage);

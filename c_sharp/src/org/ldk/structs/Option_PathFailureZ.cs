@@ -11,11 +11,11 @@ namespace org { namespace ldk { namespace structs {
 public class Option_PathFailureZ : CommonBase {
 	protected Option_PathFailureZ(object _dummy, long ptr) : base(ptr) { }
 	~Option_PathFailureZ() {
-		if (ptr != 0) { bindings.COption_PathFailureZ_free(ptr); }
+		if (ptr != 0) { Bindings.COptionPathFailureZFree(ptr); }
 	}
 
 	internal static Option_PathFailureZ constr_from_ptr(long ptr) {
-		long raw_ty = bindings.LDKCOption_PathFailureZ_ty_from_ptr(ptr);
+		long raw_ty = Bindings.LDKCOptionPathFailureZTyFromPtr(ptr);
 		switch (raw_ty) {
 			case 0: return new Option_PathFailureZ_Some(ptr);
 			case 1: return new Option_PathFailureZ_None(ptr);
@@ -28,7 +28,7 @@ public class Option_PathFailureZ : CommonBase {
 	public class Option_PathFailureZ_Some : Option_PathFailureZ {
 		public PathFailure some;
 		internal Option_PathFailureZ_Some(long ptr) : base(null, ptr) {
-			long some = bindings.LDKCOption_PathFailureZ_Some_get_some(ptr);
+			long some = Bindings.LDKCOptionPathFailureZSomeGetSome(ptr);
 			org.ldk.structs.PathFailure some_hu_conv = org.ldk.structs.PathFailure.constr_from_ptr(some);
 			if (some_hu_conv != null) { some_hu_conv.ptrs_to.AddLast(this); };
 			this.some = some_hu_conv;
@@ -43,7 +43,7 @@ public class Option_PathFailureZ : CommonBase {
 	 * Constructs a new COption_PathFailureZ containing a crate::lightning::events::PathFailure
 	 */
 	public static Option_PathFailureZ some(org.ldk.structs.PathFailure o) {
-		long ret = bindings.COption_PathFailureZ_some(o.ptr);
+		long ret = Bindings.COptionPathFailureZSome(o.ptr);
 		GC.KeepAlive(o);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_PathFailureZ ret_hu_conv = org.ldk.structs.Option_PathFailureZ.constr_from_ptr(ret);
@@ -56,7 +56,7 @@ public class Option_PathFailureZ : CommonBase {
 	 * Constructs a new COption_PathFailureZ containing nothing
 	 */
 	public static Option_PathFailureZ none() {
-		long ret = bindings.COption_PathFailureZ_none();
+		long ret = Bindings.COptionPathFailureZNone();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_PathFailureZ ret_hu_conv = org.ldk.structs.Option_PathFailureZ.constr_from_ptr(ret);
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -64,7 +64,7 @@ public class Option_PathFailureZ : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.COption_PathFailureZ_clone_ptr(this.ptr);
+		long ret = Bindings.COptionPathFailureZClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -74,7 +74,7 @@ public class Option_PathFailureZ : CommonBase {
 	 * but with all dynamically-allocated buffers duplicated in new buffers.
 	 */
 	public Option_PathFailureZ clone() {
-		long ret = bindings.COption_PathFailureZ_clone(this.ptr);
+		long ret = Bindings.COptionPathFailureZClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_PathFailureZ ret_hu_conv = org.ldk.structs.Option_PathFailureZ.constr_from_ptr(ret);

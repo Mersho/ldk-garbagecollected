@@ -13,11 +13,11 @@ namespace org { namespace ldk { namespace structs {
 public class UtxoResult : CommonBase {
 	protected UtxoResult(object _dummy, long ptr) : base(ptr) { }
 	~UtxoResult() {
-		if (ptr != 0) { bindings.UtxoResult_free(ptr); }
+		if (ptr != 0) { Bindings.UtxoResultFree(ptr); }
 	}
 
 	internal static UtxoResult constr_from_ptr(long ptr) {
-		long raw_ty = bindings.LDKUtxoResult_ty_from_ptr(ptr);
+		long raw_ty = Bindings.LDKUtxoResultTyFromPtr(ptr);
 		switch (raw_ty) {
 			case 0: return new UtxoResult_Sync(ptr);
 			case 1: return new UtxoResult_Async(ptr);
@@ -30,7 +30,7 @@ public class UtxoResult : CommonBase {
 	public class UtxoResult_Sync : UtxoResult {
 		public Result_TxOutUtxoLookupErrorZ sync;
 		internal UtxoResult_Sync(long ptr) : base(null, ptr) {
-			long sync = bindings.LDKUtxoResult_Sync_get_sync(ptr);
+			long sync = Bindings.LDKUtxoResultSyncGetSync(ptr);
 			Result_TxOutUtxoLookupErrorZ sync_hu_conv = Result_TxOutUtxoLookupErrorZ.constr_from_ptr(sync);
 			this.sync = sync_hu_conv;
 		}
@@ -39,14 +39,14 @@ public class UtxoResult : CommonBase {
 	public class UtxoResult_Async : UtxoResult {
 		public UtxoFuture async;
 		internal UtxoResult_Async(long ptr) : base(null, ptr) {
-			long async = bindings.LDKUtxoResult_Async_get_async(ptr);
+			long async = Bindings.LDKUtxoResultAsyncGetAsync(ptr);
 			org.ldk.structs.UtxoFuture async_hu_conv = null; if (async < 0 || async > 4096) { async_hu_conv = new org.ldk.structs.UtxoFuture(null, async); }
 			if (async_hu_conv != null) { async_hu_conv.ptrs_to.AddLast(this); };
 			this.async = async_hu_conv;
 		}
 	}
 	internal long clone_ptr() {
-		long ret = bindings.UtxoResult_clone_ptr(this.ptr);
+		long ret = Bindings.UtxoResultClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -55,7 +55,7 @@ public class UtxoResult : CommonBase {
 	 * Creates a copy of the UtxoResult
 	 */
 	public UtxoResult clone() {
-		long ret = bindings.UtxoResult_clone(this.ptr);
+		long ret = Bindings.UtxoResultClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.UtxoResult ret_hu_conv = org.ldk.structs.UtxoResult.constr_from_ptr(ret);
@@ -67,7 +67,7 @@ public class UtxoResult : CommonBase {
 	 * Utility method to constructs a new Sync-variant UtxoResult
 	 */
 	public static UtxoResult sync(org.ldk.structs.Result_TxOutUtxoLookupErrorZ a) {
-		long ret = bindings.UtxoResult_sync(a != null ? a.ptr : 0);
+		long ret = Bindings.UtxoResultSync(a != null ? a.ptr : 0);
 		GC.KeepAlive(a);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.UtxoResult ret_hu_conv = org.ldk.structs.UtxoResult.constr_from_ptr(ret);
@@ -79,7 +79,7 @@ public class UtxoResult : CommonBase {
 	 * Utility method to constructs a new Async-variant UtxoResult
 	 */
 	public static UtxoResult async(org.ldk.structs.UtxoFuture a) {
-		long ret = bindings.UtxoResult_async(a == null ? 0 : a.ptr);
+		long ret = Bindings.UtxoResultAsync(a == null ? 0 : a.ptr);
 		GC.KeepAlive(a);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.UtxoResult ret_hu_conv = org.ldk.structs.UtxoResult.constr_from_ptr(ret);

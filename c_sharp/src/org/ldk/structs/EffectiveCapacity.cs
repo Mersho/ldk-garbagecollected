@@ -14,11 +14,11 @@ namespace org { namespace ldk { namespace structs {
 public class EffectiveCapacity : CommonBase {
 	protected EffectiveCapacity(object _dummy, long ptr) : base(ptr) { }
 	~EffectiveCapacity() {
-		if (ptr != 0) { bindings.EffectiveCapacity_free(ptr); }
+		if (ptr != 0) { Bindings.EffectiveCapacityFree(ptr); }
 	}
 
 	internal static EffectiveCapacity constr_from_ptr(long ptr) {
-		long raw_ty = bindings.LDKEffectiveCapacity_ty_from_ptr(ptr);
+		long raw_ty = Bindings.LDKEffectiveCapacityTyFromPtr(ptr);
 		switch (raw_ty) {
 			case 0: return new EffectiveCapacity_ExactLiquidity(ptr);
 			case 1: return new EffectiveCapacity_AdvertisedMaxHTLC(ptr);
@@ -39,7 +39,7 @@ public class EffectiveCapacity : CommonBase {
 		 */
 		public long liquidity_msat;
 		internal EffectiveCapacity_ExactLiquidity(long ptr) : base(null, ptr) {
-			this.liquidity_msat = bindings.LDKEffectiveCapacity_ExactLiquidity_get_liquidity_msat(ptr);
+			this.liquidity_msat = Bindings.LDKEffectiveCapacityExactLiquidityGetLiquidityMsat(ptr);
 		}
 	}
 	/** A EffectiveCapacity of type AdvertisedMaxHTLC */
@@ -49,7 +49,7 @@ public class EffectiveCapacity : CommonBase {
 		 */
 		public long amount_msat;
 		internal EffectiveCapacity_AdvertisedMaxHTLC(long ptr) : base(null, ptr) {
-			this.amount_msat = bindings.LDKEffectiveCapacity_AdvertisedMaxHTLC_get_amount_msat(ptr);
+			this.amount_msat = Bindings.LDKEffectiveCapacityAdvertisedMaxHTLCGetAmountMsat(ptr);
 		}
 	}
 	/** A EffectiveCapacity of type Total */
@@ -63,8 +63,8 @@ public class EffectiveCapacity : CommonBase {
 		 */
 		public long htlc_maximum_msat;
 		internal EffectiveCapacity_Total(long ptr) : base(null, ptr) {
-			this.capacity_msat = bindings.LDKEffectiveCapacity_Total_get_capacity_msat(ptr);
-			this.htlc_maximum_msat = bindings.LDKEffectiveCapacity_Total_get_htlc_maximum_msat(ptr);
+			this.capacity_msat = Bindings.LDKEffectiveCapacityTotalGetCapacityMsat(ptr);
+			this.htlc_maximum_msat = Bindings.LDKEffectiveCapacityTotalGetHtlcMaximumMsat(ptr);
 		}
 	}
 	/** A EffectiveCapacity of type Infinite */
@@ -79,7 +79,7 @@ public class EffectiveCapacity : CommonBase {
 		 */
 		public long amount_msat;
 		internal EffectiveCapacity_HintMaxHTLC(long ptr) : base(null, ptr) {
-			this.amount_msat = bindings.LDKEffectiveCapacity_HintMaxHTLC_get_amount_msat(ptr);
+			this.amount_msat = Bindings.LDKEffectiveCapacityHintMaxHTLCGetAmountMsat(ptr);
 		}
 	}
 	/** A EffectiveCapacity of type Unknown */
@@ -88,7 +88,7 @@ public class EffectiveCapacity : CommonBase {
 		}
 	}
 	internal long clone_ptr() {
-		long ret = bindings.EffectiveCapacity_clone_ptr(this.ptr);
+		long ret = Bindings.EffectiveCapacityClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -97,7 +97,7 @@ public class EffectiveCapacity : CommonBase {
 	 * Creates a copy of the EffectiveCapacity
 	 */
 	public EffectiveCapacity clone() {
-		long ret = bindings.EffectiveCapacity_clone(this.ptr);
+		long ret = Bindings.EffectiveCapacityClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.EffectiveCapacity ret_hu_conv = org.ldk.structs.EffectiveCapacity.constr_from_ptr(ret);
@@ -109,7 +109,7 @@ public class EffectiveCapacity : CommonBase {
 	 * Utility method to constructs a new ExactLiquidity-variant EffectiveCapacity
 	 */
 	public static EffectiveCapacity exact_liquidity(long liquidity_msat) {
-		long ret = bindings.EffectiveCapacity_exact_liquidity(liquidity_msat);
+		long ret = Bindings.EffectiveCapacityExactLiquidity(liquidity_msat);
 		GC.KeepAlive(liquidity_msat);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.EffectiveCapacity ret_hu_conv = org.ldk.structs.EffectiveCapacity.constr_from_ptr(ret);
@@ -121,7 +121,7 @@ public class EffectiveCapacity : CommonBase {
 	 * Utility method to constructs a new AdvertisedMaxHTLC-variant EffectiveCapacity
 	 */
 	public static EffectiveCapacity advertised_max_htlc(long amount_msat) {
-		long ret = bindings.EffectiveCapacity_advertised_max_htlc(amount_msat);
+		long ret = Bindings.EffectiveCapacityAdvertisedMaxHtlc(amount_msat);
 		GC.KeepAlive(amount_msat);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.EffectiveCapacity ret_hu_conv = org.ldk.structs.EffectiveCapacity.constr_from_ptr(ret);
@@ -133,7 +133,7 @@ public class EffectiveCapacity : CommonBase {
 	 * Utility method to constructs a new Total-variant EffectiveCapacity
 	 */
 	public static EffectiveCapacity total(long capacity_msat, long htlc_maximum_msat) {
-		long ret = bindings.EffectiveCapacity_total(capacity_msat, htlc_maximum_msat);
+		long ret = Bindings.EffectiveCapacityTotal(capacity_msat, htlc_maximum_msat);
 		GC.KeepAlive(capacity_msat);
 		GC.KeepAlive(htlc_maximum_msat);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -146,7 +146,7 @@ public class EffectiveCapacity : CommonBase {
 	 * Utility method to constructs a new Infinite-variant EffectiveCapacity
 	 */
 	public static EffectiveCapacity infinite() {
-		long ret = bindings.EffectiveCapacity_infinite();
+		long ret = Bindings.EffectiveCapacityInfinite();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.EffectiveCapacity ret_hu_conv = org.ldk.structs.EffectiveCapacity.constr_from_ptr(ret);
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -157,7 +157,7 @@ public class EffectiveCapacity : CommonBase {
 	 * Utility method to constructs a new HintMaxHTLC-variant EffectiveCapacity
 	 */
 	public static EffectiveCapacity hint_max_htlc(long amount_msat) {
-		long ret = bindings.EffectiveCapacity_hint_max_htlc(amount_msat);
+		long ret = Bindings.EffectiveCapacityHintMaxHtlc(amount_msat);
 		GC.KeepAlive(amount_msat);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.EffectiveCapacity ret_hu_conv = org.ldk.structs.EffectiveCapacity.constr_from_ptr(ret);
@@ -169,7 +169,7 @@ public class EffectiveCapacity : CommonBase {
 	 * Utility method to constructs a new Unknown-variant EffectiveCapacity
 	 */
 	public static EffectiveCapacity unknown() {
-		long ret = bindings.EffectiveCapacity_unknown();
+		long ret = Bindings.EffectiveCapacityUnknown();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.EffectiveCapacity ret_hu_conv = org.ldk.structs.EffectiveCapacity.constr_from_ptr(ret);
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -180,7 +180,7 @@ public class EffectiveCapacity : CommonBase {
 	 * Returns the effective capacity denominated in millisatoshi.
 	 */
 	public long as_msat() {
-		long ret = bindings.EffectiveCapacity_as_msat(this.ptr);
+		long ret = Bindings.EffectiveCapacityAsMsat(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}

@@ -22,14 +22,14 @@ namespace org { namespace ldk { namespace structs {
 public class WatchedOutput : CommonBase {
 	internal WatchedOutput(object _dummy, long ptr) : base(ptr) { }
 	~WatchedOutput() {
-		if (ptr != 0) { bindings.WatchedOutput_free(ptr); }
+		if (ptr != 0) { Bindings.WatchedOutputFree(ptr); }
 	}
 
 	/**
 	 * First block where the transaction output may have been spent.
 	 */
 	public Option_ThirtyTwoBytesZ get_block_hash() {
-		long ret = bindings.WatchedOutput_get_block_hash(this.ptr);
+		long ret = Bindings.WatchedOutputGetBlockHash(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_ThirtyTwoBytesZ ret_hu_conv = org.ldk.structs.Option_ThirtyTwoBytesZ.constr_from_ptr(ret);
@@ -41,7 +41,7 @@ public class WatchedOutput : CommonBase {
 	 * First block where the transaction output may have been spent.
 	 */
 	public void set_block_hash(org.ldk.structs.Option_ThirtyTwoBytesZ val) {
-		bindings.WatchedOutput_set_block_hash(this.ptr, val.ptr);
+		Bindings.WatchedOutputSetBlockHash(this.ptr, val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -51,7 +51,7 @@ public class WatchedOutput : CommonBase {
 	 * Outpoint identifying the transaction output.
 	 */
 	public OutPoint get_outpoint() {
-		long ret = bindings.WatchedOutput_get_outpoint(this.ptr);
+		long ret = Bindings.WatchedOutputGetOutpoint(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.OutPoint ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.OutPoint(null, ret); }
@@ -63,7 +63,7 @@ public class WatchedOutput : CommonBase {
 	 * Outpoint identifying the transaction output.
 	 */
 	public void set_outpoint(org.ldk.structs.OutPoint val) {
-		bindings.WatchedOutput_set_outpoint(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.WatchedOutputSetOutpoint(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -73,7 +73,7 @@ public class WatchedOutput : CommonBase {
 	 * Spending condition of the transaction output.
 	 */
 	public byte[] get_script_pubkey() {
-		long ret = bindings.WatchedOutput_get_script_pubkey(this.ptr);
+		long ret = Bindings.WatchedOutputGetScriptPubkey(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -84,7 +84,7 @@ public class WatchedOutput : CommonBase {
 	 * Spending condition of the transaction output.
 	 */
 	public void set_script_pubkey(byte[] val) {
-		bindings.WatchedOutput_set_script_pubkey(this.ptr, InternalUtils.encodeUint8Array(val));
+		Bindings.WatchedOutputSetScriptPubkey(this.ptr, InternalUtils.encodeUint8Array(val));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -93,7 +93,7 @@ public class WatchedOutput : CommonBase {
 	 * Constructs a new WatchedOutput given each field
 	 */
 	public static WatchedOutput of(org.ldk.structs.Option_ThirtyTwoBytesZ block_hash_arg, org.ldk.structs.OutPoint outpoint_arg, byte[] script_pubkey_arg) {
-		long ret = bindings.WatchedOutput_new(block_hash_arg.ptr, outpoint_arg == null ? 0 : outpoint_arg.ptr, InternalUtils.encodeUint8Array(script_pubkey_arg));
+		long ret = Bindings.WatchedOutputNew(block_hash_arg.ptr, outpoint_arg == null ? 0 : outpoint_arg.ptr, InternalUtils.encodeUint8Array(script_pubkey_arg));
 		GC.KeepAlive(block_hash_arg);
 		GC.KeepAlive(outpoint_arg);
 		GC.KeepAlive(script_pubkey_arg);
@@ -106,7 +106,7 @@ public class WatchedOutput : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.WatchedOutput_clone_ptr(this.ptr);
+		long ret = Bindings.WatchedOutputClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -115,7 +115,7 @@ public class WatchedOutput : CommonBase {
 	 * Creates a copy of the WatchedOutput
 	 */
 	public WatchedOutput clone() {
-		long ret = bindings.WatchedOutput_clone(this.ptr);
+		long ret = Bindings.WatchedOutputClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.WatchedOutput ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.WatchedOutput(null, ret); }
@@ -129,7 +129,7 @@ public class WatchedOutput : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.WatchedOutput b) {
-		bool ret = bindings.WatchedOutput_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.WatchedOutputEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -144,7 +144,7 @@ public class WatchedOutput : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the WatchedOutput.
 	 */
 	public long hash() {
-		long ret = bindings.WatchedOutput_hash(this.ptr);
+		long ret = Bindings.WatchedOutputHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}

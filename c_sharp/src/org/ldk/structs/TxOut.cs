@@ -12,12 +12,12 @@ public class TxOut : CommonBase {
 	public readonly long value;
 
     internal TxOut(object _dummy, long ptr) : base(ptr) {
-		this.script_pubkey = InternalUtils.decodeUint8Array(bindings.TxOut_get_script_pubkey(ptr));
-		this.value = bindings.TxOut_get_value(ptr);
+		this.script_pubkey = InternalUtils.decodeUint8Array(Bindings.TxOutGetScriptPubkey(ptr));
+		this.value = Bindings.TxOutGetValue(ptr);
 	}
-    public TxOut(long value, byte[] script_pubkey) : this(null, bindings.TxOut_new(InternalUtils.encodeUint8Array(script_pubkey), value)) {}
+    public TxOut(long value, byte[] script_pubkey) : this(null, Bindings.TxOutNew(InternalUtils.encodeUint8Array(script_pubkey), value)) {}
 
 	~TxOut() {
-		if (ptr != 0) { bindings.TxOut_free(ptr); }
+		if (ptr != 0) { Bindings.TxOutFree(ptr); }
 	}
 }} } }

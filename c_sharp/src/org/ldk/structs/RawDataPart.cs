@@ -12,14 +12,14 @@ namespace org { namespace ldk { namespace structs {
 public class RawDataPart : CommonBase {
 	internal RawDataPart(object _dummy, long ptr) : base(ptr) { }
 	~RawDataPart() {
-		if (ptr != 0) { bindings.RawDataPart_free(ptr); }
+		if (ptr != 0) { Bindings.RawDataPartFree(ptr); }
 	}
 
 	/**
 	 * generation time of the invoice
 	 */
 	public PositiveTimestamp get_timestamp() {
-		long ret = bindings.RawDataPart_get_timestamp(this.ptr);
+		long ret = Bindings.RawDataPartGetTimestamp(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.PositiveTimestamp ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.PositiveTimestamp(null, ret); }
@@ -31,7 +31,7 @@ public class RawDataPart : CommonBase {
 	 * generation time of the invoice
 	 */
 	public void set_timestamp(org.ldk.structs.PositiveTimestamp val) {
-		bindings.RawDataPart_set_timestamp(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.RawDataPartSetTimestamp(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -43,7 +43,7 @@ public class RawDataPart : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.RawDataPart b) {
-		bool ret = bindings.RawDataPart_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.RawDataPartEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -55,7 +55,7 @@ public class RawDataPart : CommonBase {
 		return this.eq((RawDataPart)o);
 	}
 	internal long clone_ptr() {
-		long ret = bindings.RawDataPart_clone_ptr(this.ptr);
+		long ret = Bindings.RawDataPartClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -64,7 +64,7 @@ public class RawDataPart : CommonBase {
 	 * Creates a copy of the RawDataPart
 	 */
 	public RawDataPart clone() {
-		long ret = bindings.RawDataPart_clone(this.ptr);
+		long ret = Bindings.RawDataPartClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.RawDataPart ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.RawDataPart(null, ret); }
@@ -76,7 +76,7 @@ public class RawDataPart : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the RawDataPart.
 	 */
 	public long hash() {
-		long ret = bindings.RawDataPart_hash(this.ptr);
+		long ret = Bindings.RawDataPartHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}

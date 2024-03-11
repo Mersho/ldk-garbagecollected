@@ -12,14 +12,14 @@ namespace org { namespace ldk { namespace structs {
 public class ChannelDerivationParameters : CommonBase {
 	internal ChannelDerivationParameters(object _dummy, long ptr) : base(ptr) { }
 	~ChannelDerivationParameters() {
-		if (ptr != 0) { bindings.ChannelDerivationParameters_free(ptr); }
+		if (ptr != 0) { Bindings.ChannelDerivationParametersFree(ptr); }
 	}
 
 	/**
 	 * The value in satoshis of the channel we're attempting to spend the anchor output of.
 	 */
 	public long get_value_satoshis() {
-		long ret = bindings.ChannelDerivationParameters_get_value_satoshis(this.ptr);
+		long ret = Bindings.ChannelDerivationParametersGetValueSatoshis(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -28,7 +28,7 @@ public class ChannelDerivationParameters : CommonBase {
 	 * The value in satoshis of the channel we're attempting to spend the anchor output of.
 	 */
 	public void set_value_satoshis(long val) {
-		bindings.ChannelDerivationParameters_set_value_satoshis(this.ptr, val);
+		Bindings.ChannelDerivationParametersSetValueSatoshis(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -37,7 +37,7 @@ public class ChannelDerivationParameters : CommonBase {
 	 * The unique identifier to re-derive the signer for the associated channel.
 	 */
 	public byte[] get_keys_id() {
-		long ret = bindings.ChannelDerivationParameters_get_keys_id(this.ptr);
+		long ret = Bindings.ChannelDerivationParametersGetKeysId(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -48,7 +48,7 @@ public class ChannelDerivationParameters : CommonBase {
 	 * The unique identifier to re-derive the signer for the associated channel.
 	 */
 	public void set_keys_id(byte[] val) {
-		bindings.ChannelDerivationParameters_set_keys_id(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
+		Bindings.ChannelDerivationParametersSetKeysId(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -58,7 +58,7 @@ public class ChannelDerivationParameters : CommonBase {
 	 * [`ChannelSigner::provide_channel_parameters`].
 	 */
 	public ChannelTransactionParameters get_transaction_parameters() {
-		long ret = bindings.ChannelDerivationParameters_get_transaction_parameters(this.ptr);
+		long ret = Bindings.ChannelDerivationParametersGetTransactionParameters(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChannelTransactionParameters ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChannelTransactionParameters(null, ret); }
@@ -71,7 +71,7 @@ public class ChannelDerivationParameters : CommonBase {
 	 * [`ChannelSigner::provide_channel_parameters`].
 	 */
 	public void set_transaction_parameters(org.ldk.structs.ChannelTransactionParameters val) {
-		bindings.ChannelDerivationParameters_set_transaction_parameters(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.ChannelDerivationParametersSetTransactionParameters(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -81,7 +81,7 @@ public class ChannelDerivationParameters : CommonBase {
 	 * Constructs a new ChannelDerivationParameters given each field
 	 */
 	public static ChannelDerivationParameters of(long value_satoshis_arg, byte[] keys_id_arg, org.ldk.structs.ChannelTransactionParameters transaction_parameters_arg) {
-		long ret = bindings.ChannelDerivationParameters_new(value_satoshis_arg, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(keys_id_arg, 32)), transaction_parameters_arg == null ? 0 : transaction_parameters_arg.ptr);
+		long ret = Bindings.ChannelDerivationParametersNew(value_satoshis_arg, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(keys_id_arg, 32)), transaction_parameters_arg == null ? 0 : transaction_parameters_arg.ptr);
 		GC.KeepAlive(value_satoshis_arg);
 		GC.KeepAlive(keys_id_arg);
 		GC.KeepAlive(transaction_parameters_arg);
@@ -93,7 +93,7 @@ public class ChannelDerivationParameters : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.ChannelDerivationParameters_clone_ptr(this.ptr);
+		long ret = Bindings.ChannelDerivationParametersClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -102,7 +102,7 @@ public class ChannelDerivationParameters : CommonBase {
 	 * Creates a copy of the ChannelDerivationParameters
 	 */
 	public ChannelDerivationParameters clone() {
-		long ret = bindings.ChannelDerivationParameters_clone(this.ptr);
+		long ret = Bindings.ChannelDerivationParametersClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChannelDerivationParameters ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChannelDerivationParameters(null, ret); }
@@ -116,7 +116,7 @@ public class ChannelDerivationParameters : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.ChannelDerivationParameters b) {
-		bool ret = bindings.ChannelDerivationParameters_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.ChannelDerivationParametersEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -131,7 +131,7 @@ public class ChannelDerivationParameters : CommonBase {
 	 * Serialize the ChannelDerivationParameters object into a byte array which can be read by ChannelDerivationParameters_read
 	 */
 	public byte[] write() {
-		long ret = bindings.ChannelDerivationParameters_write(this.ptr);
+		long ret = Bindings.ChannelDerivationParametersWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -142,7 +142,7 @@ public class ChannelDerivationParameters : CommonBase {
 	 * Read a ChannelDerivationParameters from a byte array, created by ChannelDerivationParameters_write
 	 */
 	public static Result_ChannelDerivationParametersDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.ChannelDerivationParameters_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.ChannelDerivationParametersRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_ChannelDerivationParametersDecodeErrorZ ret_hu_conv = Result_ChannelDerivationParametersDecodeErrorZ.constr_from_ptr(ret);

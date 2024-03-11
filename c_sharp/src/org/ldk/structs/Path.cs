@@ -13,14 +13,14 @@ namespace org { namespace ldk { namespace structs {
 public class Path : CommonBase {
 	internal Path(object _dummy, long ptr) : base(ptr) { }
 	~Path() {
-		if (ptr != 0) { bindings.Path_free(ptr); }
+		if (ptr != 0) { Bindings.PathFree(ptr); }
 	}
 
 	/**
 	 * The list of unblinded hops in this [`Path`]. Must be at least length one.
 	 */
 	public RouteHop[] get_hops() {
-		long ret = bindings.Path_get_hops(this.ptr);
+		long ret = Bindings.PathGetHops(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		int ret_conv_10_len = InternalUtils.getArrayLength(ret);
@@ -31,7 +31,7 @@ public class Path : CommonBase {
 			if (ret_conv_10_hu_conv != null) { ret_conv_10_hu_conv.ptrs_to.AddLast(this); };
 			ret_conv_10_arr[k] = ret_conv_10_hu_conv;
 		}
-		bindings.free_buffer(ret);
+		Bindings.FreeBuffer(ret);
 		return ret_conv_10_arr;
 	}
 
@@ -39,7 +39,7 @@ public class Path : CommonBase {
 	 * The list of unblinded hops in this [`Path`]. Must be at least length one.
 	 */
 	public void set_hops(RouteHop[] val) {
-		bindings.Path_set_hops(this.ptr, InternalUtils.encodeUint64Array(InternalUtils.mapArray(val, val_conv_10 => val_conv_10 == null ? 0 : val_conv_10.ptr)));
+		Bindings.PathSetHops(this.ptr, InternalUtils.encodeUint64Array(InternalUtils.mapArray(val, val_conv_10 => val_conv_10 == null ? 0 : val_conv_10.ptr)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		foreach (RouteHop val_conv_10 in val) { if (this != null) { this.ptrs_to.AddLast(val_conv_10); }; };
@@ -51,7 +51,7 @@ public class Path : CommonBase {
 	 * Note that the return value (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public BlindedTail get_blinded_tail() {
-		long ret = bindings.Path_get_blinded_tail(this.ptr);
+		long ret = Bindings.PathGetBlindedTail(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.BlindedTail ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.BlindedTail(null, ret); }
@@ -65,7 +65,7 @@ public class Path : CommonBase {
 	 * Note that val (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public void set_blinded_tail(org.ldk.structs.BlindedTail val) {
-		bindings.Path_set_blinded_tail(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.PathSetBlindedTail(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -77,7 +77,7 @@ public class Path : CommonBase {
 	 * Note that blinded_tail_arg (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public static Path of(RouteHop[] hops_arg, org.ldk.structs.BlindedTail blinded_tail_arg) {
-		long ret = bindings.Path_new(InternalUtils.encodeUint64Array(InternalUtils.mapArray(hops_arg, hops_arg_conv_10 => hops_arg_conv_10 == null ? 0 : hops_arg_conv_10.ptr)), blinded_tail_arg == null ? 0 : blinded_tail_arg.ptr);
+		long ret = Bindings.PathNew(InternalUtils.encodeUint64Array(InternalUtils.mapArray(hops_arg, hops_arg_conv_10 => hops_arg_conv_10 == null ? 0 : hops_arg_conv_10.ptr)), blinded_tail_arg == null ? 0 : blinded_tail_arg.ptr);
 		GC.KeepAlive(hops_arg);
 		GC.KeepAlive(blinded_tail_arg);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -89,7 +89,7 @@ public class Path : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.Path_clone_ptr(this.ptr);
+		long ret = Bindings.PathClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -98,7 +98,7 @@ public class Path : CommonBase {
 	 * Creates a copy of the Path
 	 */
 	public Path clone() {
-		long ret = bindings.Path_clone(this.ptr);
+		long ret = Bindings.PathClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Path ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.Path(null, ret); }
@@ -110,7 +110,7 @@ public class Path : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the Path.
 	 */
 	public long hash() {
-		long ret = bindings.Path_hash(this.ptr);
+		long ret = Bindings.PathHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -124,7 +124,7 @@ public class Path : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.Path b) {
-		bool ret = bindings.Path_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.PathEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -139,7 +139,7 @@ public class Path : CommonBase {
 	 * Gets the fees for a given path, excluding any excess paid to the recipient.
 	 */
 	public long fee_msat() {
-		long ret = bindings.Path_fee_msat(this.ptr);
+		long ret = Bindings.PathFeeMsat(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -148,7 +148,7 @@ public class Path : CommonBase {
 	 * Gets the total amount paid on this [`Path`], excluding the fees.
 	 */
 	public long final_value_msat() {
-		long ret = bindings.Path_final_value_msat(this.ptr);
+		long ret = Bindings.PathFinalValueMsat(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -157,7 +157,7 @@ public class Path : CommonBase {
 	 * Gets the final hop's CLTV expiry delta.
 	 */
 	public Option_u32Z final_cltv_expiry_delta() {
-		long ret = bindings.Path_final_cltv_expiry_delta(this.ptr);
+		long ret = Bindings.PathFinalCltvExpiryDelta(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_u32Z ret_hu_conv = org.ldk.structs.Option_u32Z.constr_from_ptr(ret);

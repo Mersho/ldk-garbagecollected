@@ -14,7 +14,7 @@ namespace org { namespace ldk { namespace structs {
 public class ChannelHandshakeConfig : CommonBase {
 	internal ChannelHandshakeConfig(object _dummy, long ptr) : base(ptr) { }
 	~ChannelHandshakeConfig() {
-		if (ptr != 0) { bindings.ChannelHandshakeConfig_free(ptr); }
+		if (ptr != 0) { Bindings.ChannelHandshakeConfigFree(ptr); }
 	}
 
 	/**
@@ -33,7 +33,7 @@ public class ChannelHandshakeConfig : CommonBase {
 	 * [`ChannelManager::accept_inbound_channel_from_trusted_peer_0conf`]: crate::ln::channelmanager::ChannelManager::accept_inbound_channel_from_trusted_peer_0conf
 	 */
 	public int get_minimum_depth() {
-		int ret = bindings.ChannelHandshakeConfig_get_minimum_depth(this.ptr);
+		int ret = Bindings.ChannelHandshakeConfigGetMinimumDepth(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -54,7 +54,7 @@ public class ChannelHandshakeConfig : CommonBase {
 	 * [`ChannelManager::accept_inbound_channel_from_trusted_peer_0conf`]: crate::ln::channelmanager::ChannelManager::accept_inbound_channel_from_trusted_peer_0conf
 	 */
 	public void set_minimum_depth(int val) {
-		bindings.ChannelHandshakeConfig_set_minimum_depth(this.ptr, val);
+		Bindings.ChannelHandshakeConfigSetMinimumDepth(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -77,7 +77,7 @@ public class ChannelHandshakeConfig : CommonBase {
 	 * can tweak config to ask for more security, not less.
 	 */
 	public short get_our_to_self_delay() {
-		short ret = bindings.ChannelHandshakeConfig_get_our_to_self_delay(this.ptr);
+		short ret = Bindings.ChannelHandshakeConfigGetOurToSelfDelay(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -100,7 +100,7 @@ public class ChannelHandshakeConfig : CommonBase {
 	 * can tweak config to ask for more security, not less.
 	 */
 	public void set_our_to_self_delay(short val) {
-		bindings.ChannelHandshakeConfig_set_our_to_self_delay(this.ptr, val);
+		Bindings.ChannelHandshakeConfigSetOurToSelfDelay(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -115,7 +115,7 @@ public class ChannelHandshakeConfig : CommonBase {
 	 * by the protocol.
 	 */
 	public long get_our_htlc_minimum_msat() {
-		long ret = bindings.ChannelHandshakeConfig_get_our_htlc_minimum_msat(this.ptr);
+		long ret = Bindings.ChannelHandshakeConfigGetOurHtlcMinimumMsat(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -130,7 +130,7 @@ public class ChannelHandshakeConfig : CommonBase {
 	 * by the protocol.
 	 */
 	public void set_our_htlc_minimum_msat(long val) {
-		bindings.ChannelHandshakeConfig_set_our_htlc_minimum_msat(this.ptr, val);
+		Bindings.ChannelHandshakeConfigSetOurHtlcMinimumMsat(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -161,7 +161,7 @@ public class ChannelHandshakeConfig : CommonBase {
 	 * Maximum value: 100, any values larger than 100 will be treated as 100 instead.
 	 */
 	public byte get_max_inbound_htlc_value_in_flight_percent_of_channel() {
-		byte ret = bindings.ChannelHandshakeConfig_get_max_inbound_htlc_value_in_flight_percent_of_channel(this.ptr);
+		byte ret = Bindings.ChannelHandshakeConfigGetMaxInboundHtlcValueInFlightPercentOfChannel(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -192,7 +192,7 @@ public class ChannelHandshakeConfig : CommonBase {
 	 * Maximum value: 100, any values larger than 100 will be treated as 100 instead.
 	 */
 	public void set_max_inbound_htlc_value_in_flight_percent_of_channel(byte val) {
-		bindings.ChannelHandshakeConfig_set_max_inbound_htlc_value_in_flight_percent_of_channel(this.ptr, val);
+		Bindings.ChannelHandshakeConfigSetMaxInboundHtlcValueInFlightPercentOfChannel(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -221,7 +221,7 @@ public class ChannelHandshakeConfig : CommonBase {
 	 * [`DecodeError::InvalidValue`]: crate::ln::msgs::DecodeError::InvalidValue
 	 */
 	public bool get_negotiate_scid_privacy() {
-		bool ret = bindings.ChannelHandshakeConfig_get_negotiate_scid_privacy(this.ptr);
+		bool ret = Bindings.ChannelHandshakeConfigGetNegotiateScidPrivacy(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -250,7 +250,7 @@ public class ChannelHandshakeConfig : CommonBase {
 	 * [`DecodeError::InvalidValue`]: crate::ln::msgs::DecodeError::InvalidValue
 	 */
 	public void set_negotiate_scid_privacy(bool val) {
-		bindings.ChannelHandshakeConfig_set_negotiate_scid_privacy(this.ptr, val);
+		Bindings.ChannelHandshakeConfigSetNegotiateScidPrivacy(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -267,7 +267,7 @@ public class ChannelHandshakeConfig : CommonBase {
 	 * Default value: false.
 	 */
 	public bool get_announced_channel() {
-		bool ret = bindings.ChannelHandshakeConfig_get_announced_channel(this.ptr);
+		bool ret = Bindings.ChannelHandshakeConfigGetAnnouncedChannel(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -284,7 +284,7 @@ public class ChannelHandshakeConfig : CommonBase {
 	 * Default value: false.
 	 */
 	public void set_announced_channel(bool val) {
-		bindings.ChannelHandshakeConfig_set_announced_channel(this.ptr, val);
+		Bindings.ChannelHandshakeConfigSetAnnouncedChannel(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -305,7 +305,7 @@ public class ChannelHandshakeConfig : CommonBase {
 	 * [`SignerProvider::get_shutdown_scriptpubkey`]: crate::sign::SignerProvider::get_shutdown_scriptpubkey
 	 */
 	public bool get_commit_upfront_shutdown_pubkey() {
-		bool ret = bindings.ChannelHandshakeConfig_get_commit_upfront_shutdown_pubkey(this.ptr);
+		bool ret = Bindings.ChannelHandshakeConfigGetCommitUpfrontShutdownPubkey(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -326,7 +326,7 @@ public class ChannelHandshakeConfig : CommonBase {
 	 * [`SignerProvider::get_shutdown_scriptpubkey`]: crate::sign::SignerProvider::get_shutdown_scriptpubkey
 	 */
 	public void set_commit_upfront_shutdown_pubkey(bool val) {
-		bindings.ChannelHandshakeConfig_set_commit_upfront_shutdown_pubkey(this.ptr, val);
+		Bindings.ChannelHandshakeConfigSetCommitUpfrontShutdownPubkey(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -356,7 +356,7 @@ public class ChannelHandshakeConfig : CommonBase {
 	 * instead, although channel negotiations will fail in that case.
 	 */
 	public int get_their_channel_reserve_proportional_millionths() {
-		int ret = bindings.ChannelHandshakeConfig_get_their_channel_reserve_proportional_millionths(this.ptr);
+		int ret = Bindings.ChannelHandshakeConfigGetTheirChannelReserveProportionalMillionths(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -386,7 +386,7 @@ public class ChannelHandshakeConfig : CommonBase {
 	 * instead, although channel negotiations will fail in that case.
 	 */
 	public void set_their_channel_reserve_proportional_millionths(int val) {
-		bindings.ChannelHandshakeConfig_set_their_channel_reserve_proportional_millionths(this.ptr, val);
+		Bindings.ChannelHandshakeConfigSetTheirChannelReserveProportionalMillionths(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -422,7 +422,7 @@ public class ChannelHandshakeConfig : CommonBase {
 	 * [`SIGHASH_SINGLE + update_fee Considered Harmful`]: https://lists.linuxfoundation.org/pipermail/lightning-dev/2020-September/002796.html
 	 */
 	public bool get_negotiate_anchors_zero_fee_htlc_tx() {
-		bool ret = bindings.ChannelHandshakeConfig_get_negotiate_anchors_zero_fee_htlc_tx(this.ptr);
+		bool ret = Bindings.ChannelHandshakeConfigGetNegotiateAnchorsZeroFeeHtlcTx(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -458,7 +458,7 @@ public class ChannelHandshakeConfig : CommonBase {
 	 * [`SIGHASH_SINGLE + update_fee Considered Harmful`]: https://lists.linuxfoundation.org/pipermail/lightning-dev/2020-September/002796.html
 	 */
 	public void set_negotiate_anchors_zero_fee_htlc_tx(bool val) {
-		bindings.ChannelHandshakeConfig_set_negotiate_anchors_zero_fee_htlc_tx(this.ptr, val);
+		Bindings.ChannelHandshakeConfigSetNegotiateAnchorsZeroFeeHtlcTx(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -477,7 +477,7 @@ public class ChannelHandshakeConfig : CommonBase {
 	 * This is the BOLT #2 spec limit on `max_accepted_htlcs`.
 	 */
 	public short get_our_max_accepted_htlcs() {
-		short ret = bindings.ChannelHandshakeConfig_get_our_max_accepted_htlcs(this.ptr);
+		short ret = Bindings.ChannelHandshakeConfigGetOurMaxAcceptedHtlcs(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -496,7 +496,7 @@ public class ChannelHandshakeConfig : CommonBase {
 	 * This is the BOLT #2 spec limit on `max_accepted_htlcs`.
 	 */
 	public void set_our_max_accepted_htlcs(short val) {
-		bindings.ChannelHandshakeConfig_set_our_max_accepted_htlcs(this.ptr, val);
+		Bindings.ChannelHandshakeConfigSetOurMaxAcceptedHtlcs(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -505,7 +505,7 @@ public class ChannelHandshakeConfig : CommonBase {
 	 * Constructs a new ChannelHandshakeConfig given each field
 	 */
 	public static ChannelHandshakeConfig of(int minimum_depth_arg, short our_to_self_delay_arg, long our_htlc_minimum_msat_arg, byte max_inbound_htlc_value_in_flight_percent_of_channel_arg, bool negotiate_scid_privacy_arg, bool announced_channel_arg, bool commit_upfront_shutdown_pubkey_arg, int their_channel_reserve_proportional_millionths_arg, bool negotiate_anchors_zero_fee_htlc_tx_arg, short our_max_accepted_htlcs_arg) {
-		long ret = bindings.ChannelHandshakeConfig_new(minimum_depth_arg, our_to_self_delay_arg, our_htlc_minimum_msat_arg, max_inbound_htlc_value_in_flight_percent_of_channel_arg, negotiate_scid_privacy_arg, announced_channel_arg, commit_upfront_shutdown_pubkey_arg, their_channel_reserve_proportional_millionths_arg, negotiate_anchors_zero_fee_htlc_tx_arg, our_max_accepted_htlcs_arg);
+		long ret = Bindings.ChannelHandshakeConfigNew(minimum_depth_arg, our_to_self_delay_arg, our_htlc_minimum_msat_arg, max_inbound_htlc_value_in_flight_percent_of_channel_arg, negotiate_scid_privacy_arg, announced_channel_arg, commit_upfront_shutdown_pubkey_arg, their_channel_reserve_proportional_millionths_arg, negotiate_anchors_zero_fee_htlc_tx_arg, our_max_accepted_htlcs_arg);
 		GC.KeepAlive(minimum_depth_arg);
 		GC.KeepAlive(our_to_self_delay_arg);
 		GC.KeepAlive(our_htlc_minimum_msat_arg);
@@ -523,7 +523,7 @@ public class ChannelHandshakeConfig : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.ChannelHandshakeConfig_clone_ptr(this.ptr);
+		long ret = Bindings.ChannelHandshakeConfigClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -532,7 +532,7 @@ public class ChannelHandshakeConfig : CommonBase {
 	 * Creates a copy of the ChannelHandshakeConfig
 	 */
 	public ChannelHandshakeConfig clone() {
-		long ret = bindings.ChannelHandshakeConfig_clone(this.ptr);
+		long ret = Bindings.ChannelHandshakeConfigClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChannelHandshakeConfig ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChannelHandshakeConfig(null, ret); }
@@ -544,7 +544,7 @@ public class ChannelHandshakeConfig : CommonBase {
 	 * Creates a "default" ChannelHandshakeConfig. See struct and individual field documentaiton for details on which values are used.
 	 */
 	public static ChannelHandshakeConfig with_default() {
-		long ret = bindings.ChannelHandshakeConfig_default();
+		long ret = Bindings.ChannelHandshakeConfigDefault();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChannelHandshakeConfig ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChannelHandshakeConfig(null, ret); }
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };

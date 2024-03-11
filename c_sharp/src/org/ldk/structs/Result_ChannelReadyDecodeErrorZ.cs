@@ -8,11 +8,11 @@ namespace org { namespace ldk { namespace structs {
 public class Result_ChannelReadyDecodeErrorZ : CommonBase {
 	Result_ChannelReadyDecodeErrorZ(object _dummy, long ptr) : base(ptr) { }
 	~Result_ChannelReadyDecodeErrorZ() {
-		if (ptr != 0) { bindings.CResult_ChannelReadyDecodeErrorZ_free(ptr); }
+		if (ptr != 0) { Bindings.CResultChannelReadyDecodeErrorZFree(ptr); }
 	}
 
 	internal static Result_ChannelReadyDecodeErrorZ constr_from_ptr(long ptr) {
-		if (bindings.CResult_ChannelReadyDecodeErrorZ_is_ok(ptr)) {
+		if (Bindings.CResultChannelReadyDecodeErrorZIsOk(ptr)) {
 			return new Result_ChannelReadyDecodeErrorZ_OK(null, ptr);
 		} else {
 			return new Result_ChannelReadyDecodeErrorZ_Err(null, ptr);
@@ -21,7 +21,7 @@ public class Result_ChannelReadyDecodeErrorZ : CommonBase {
 	public class Result_ChannelReadyDecodeErrorZ_OK : Result_ChannelReadyDecodeErrorZ {
 		public readonly ChannelReady res;
 		internal Result_ChannelReadyDecodeErrorZ_OK(object _dummy, long ptr) : base(_dummy, ptr) {
-			long res = bindings.CResult_ChannelReadyDecodeErrorZ_get_ok(ptr);
+			long res = Bindings.CResultChannelReadyDecodeErrorZGetOk(ptr);
 			org.ldk.structs.ChannelReady res_hu_conv = null; if (res < 0 || res > 4096) { res_hu_conv = new org.ldk.structs.ChannelReady(null, res); }
 			if (res_hu_conv != null) { res_hu_conv.ptrs_to.AddLast(this); };
 			this.res = res_hu_conv;
@@ -31,7 +31,7 @@ public class Result_ChannelReadyDecodeErrorZ : CommonBase {
 	public class Result_ChannelReadyDecodeErrorZ_Err : Result_ChannelReadyDecodeErrorZ {
 		public readonly DecodeError err;
 		internal Result_ChannelReadyDecodeErrorZ_Err(object _dummy, long ptr) : base(_dummy, ptr) {
-			long err = bindings.CResult_ChannelReadyDecodeErrorZ_get_err(ptr);
+			long err = Bindings.CResultChannelReadyDecodeErrorZGetErr(ptr);
 			org.ldk.structs.DecodeError err_hu_conv = org.ldk.structs.DecodeError.constr_from_ptr(err);
 			if (err_hu_conv != null) { err_hu_conv.ptrs_to.AddLast(this); };
 			this.err = err_hu_conv;
@@ -42,7 +42,7 @@ public class Result_ChannelReadyDecodeErrorZ : CommonBase {
 	 * Creates a new CResult_ChannelReadyDecodeErrorZ in the success state.
 	 */
 	public static Result_ChannelReadyDecodeErrorZ ok(org.ldk.structs.ChannelReady o) {
-		long ret = bindings.CResult_ChannelReadyDecodeErrorZ_ok(o == null ? 0 : o.ptr);
+		long ret = Bindings.CResultChannelReadyDecodeErrorZOk(o == null ? 0 : o.ptr);
 		GC.KeepAlive(o);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_ChannelReadyDecodeErrorZ ret_hu_conv = Result_ChannelReadyDecodeErrorZ.constr_from_ptr(ret);
@@ -54,7 +54,7 @@ public class Result_ChannelReadyDecodeErrorZ : CommonBase {
 	 * Creates a new CResult_ChannelReadyDecodeErrorZ in the error state.
 	 */
 	public static Result_ChannelReadyDecodeErrorZ err(org.ldk.structs.DecodeError e) {
-		long ret = bindings.CResult_ChannelReadyDecodeErrorZ_err(e.ptr);
+		long ret = Bindings.CResultChannelReadyDecodeErrorZErr(e.ptr);
 		GC.KeepAlive(e);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_ChannelReadyDecodeErrorZ ret_hu_conv = Result_ChannelReadyDecodeErrorZ.constr_from_ptr(ret);
@@ -66,13 +66,13 @@ public class Result_ChannelReadyDecodeErrorZ : CommonBase {
 	 * Checks if the given object is currently in the success state
 	 */
 	public bool is_ok() {
-		bool ret = bindings.CResult_ChannelReadyDecodeErrorZ_is_ok(this.ptr);
+		bool ret = Bindings.CResultChannelReadyDecodeErrorZIsOk(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.CResult_ChannelReadyDecodeErrorZ_clone_ptr(this.ptr);
+		long ret = Bindings.CResultChannelReadyDecodeErrorZClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -82,7 +82,7 @@ public class Result_ChannelReadyDecodeErrorZ : CommonBase {
 	 * but with all dynamically-allocated buffers duplicated in new buffers.
 	 */
 	public Result_ChannelReadyDecodeErrorZ clone() {
-		long ret = bindings.CResult_ChannelReadyDecodeErrorZ_clone(this.ptr);
+		long ret = Bindings.CResultChannelReadyDecodeErrorZClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_ChannelReadyDecodeErrorZ ret_hu_conv = Result_ChannelReadyDecodeErrorZ.constr_from_ptr(ret);

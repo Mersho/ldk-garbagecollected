@@ -16,11 +16,11 @@ namespace org { namespace ldk { namespace structs {
 public class ClosingTransaction : CommonBase {
 	internal ClosingTransaction(object _dummy, long ptr) : base(ptr) { }
 	~ClosingTransaction() {
-		if (ptr != 0) { bindings.ClosingTransaction_free(ptr); }
+		if (ptr != 0) { Bindings.ClosingTransactionFree(ptr); }
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.ClosingTransaction_clone_ptr(this.ptr);
+		long ret = Bindings.ClosingTransactionClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -29,7 +29,7 @@ public class ClosingTransaction : CommonBase {
 	 * Creates a copy of the ClosingTransaction
 	 */
 	public ClosingTransaction clone() {
-		long ret = bindings.ClosingTransaction_clone(this.ptr);
+		long ret = Bindings.ClosingTransactionClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ClosingTransaction ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ClosingTransaction(null, ret); }
@@ -41,7 +41,7 @@ public class ClosingTransaction : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the ClosingTransaction.
 	 */
 	public long hash() {
-		long ret = bindings.ClosingTransaction_hash(this.ptr);
+		long ret = Bindings.ClosingTransactionHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -55,7 +55,7 @@ public class ClosingTransaction : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.ClosingTransaction b) {
-		bool ret = bindings.ClosingTransaction_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.ClosingTransactionEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -70,7 +70,7 @@ public class ClosingTransaction : CommonBase {
 	 * Construct an object of the class
 	 */
 	public static ClosingTransaction of(long to_holder_value_sat, long to_counterparty_value_sat, byte[] to_holder_script, byte[] to_counterparty_script, org.ldk.structs.OutPoint funding_outpoint) {
-		long ret = bindings.ClosingTransaction_new(to_holder_value_sat, to_counterparty_value_sat, InternalUtils.encodeUint8Array(to_holder_script), InternalUtils.encodeUint8Array(to_counterparty_script), funding_outpoint == null ? 0 : funding_outpoint.ptr);
+		long ret = Bindings.ClosingTransactionNew(to_holder_value_sat, to_counterparty_value_sat, InternalUtils.encodeUint8Array(to_holder_script), InternalUtils.encodeUint8Array(to_counterparty_script), funding_outpoint == null ? 0 : funding_outpoint.ptr);
 		GC.KeepAlive(to_holder_value_sat);
 		GC.KeepAlive(to_counterparty_value_sat);
 		GC.KeepAlive(to_holder_script);
@@ -92,7 +92,7 @@ public class ClosingTransaction : CommonBase {
 	 * be used by an external signer - instead use the verify function.
 	 */
 	public TrustedClosingTransaction trust() {
-		long ret = bindings.ClosingTransaction_trust(this.ptr);
+		long ret = Bindings.ClosingTransactionTrust(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.TrustedClosingTransaction ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.TrustedClosingTransaction(null, ret); }
@@ -109,7 +109,7 @@ public class ClosingTransaction : CommonBase {
 	 * or using the built transaction.
 	 */
 	public Result_TrustedClosingTransactionNoneZ verify(org.ldk.structs.OutPoint funding_outpoint) {
-		long ret = bindings.ClosingTransaction_verify(this.ptr, funding_outpoint == null ? 0 : funding_outpoint.ptr);
+		long ret = Bindings.ClosingTransactionVerify(this.ptr, funding_outpoint == null ? 0 : funding_outpoint.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(funding_outpoint);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -122,7 +122,7 @@ public class ClosingTransaction : CommonBase {
 	 * The value to be sent to the holder, or zero if the output will be omitted
 	 */
 	public long to_holder_value_sat() {
-		long ret = bindings.ClosingTransaction_to_holder_value_sat(this.ptr);
+		long ret = Bindings.ClosingTransactionToHolderValueSat(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -131,7 +131,7 @@ public class ClosingTransaction : CommonBase {
 	 * The value to be sent to the counterparty, or zero if the output will be omitted
 	 */
 	public long to_counterparty_value_sat() {
-		long ret = bindings.ClosingTransaction_to_counterparty_value_sat(this.ptr);
+		long ret = Bindings.ClosingTransactionToCounterpartyValueSat(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -140,7 +140,7 @@ public class ClosingTransaction : CommonBase {
 	 * The destination of the holder's output
 	 */
 	public byte[] to_holder_script() {
-		long ret = bindings.ClosingTransaction_to_holder_script(this.ptr);
+		long ret = Bindings.ClosingTransactionToHolderScript(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -151,7 +151,7 @@ public class ClosingTransaction : CommonBase {
 	 * The destination of the counterparty's output
 	 */
 	public byte[] to_counterparty_script() {
-		long ret = bindings.ClosingTransaction_to_counterparty_script(this.ptr);
+		long ret = Bindings.ClosingTransactionToCounterpartyScript(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);

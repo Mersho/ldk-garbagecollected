@@ -12,7 +12,7 @@ namespace org { namespace ldk { namespace structs {
 public class NodeFeatures : CommonBase {
 	internal NodeFeatures(object _dummy, long ptr) : base(ptr) { }
 	~NodeFeatures() {
-		if (ptr != 0) { bindings.NodeFeatures_free(ptr); }
+		if (ptr != 0) { Bindings.NodeFeaturesFree(ptr); }
 	}
 
 	/**
@@ -21,7 +21,7 @@ public class NodeFeatures : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.NodeFeatures b) {
-		bool ret = bindings.NodeFeatures_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.NodeFeaturesEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -33,7 +33,7 @@ public class NodeFeatures : CommonBase {
 		return this.eq((NodeFeatures)o);
 	}
 	internal long clone_ptr() {
-		long ret = bindings.NodeFeatures_clone_ptr(this.ptr);
+		long ret = Bindings.NodeFeaturesClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -42,7 +42,7 @@ public class NodeFeatures : CommonBase {
 	 * Creates a copy of the NodeFeatures
 	 */
 	public NodeFeatures clone() {
-		long ret = bindings.NodeFeatures_clone(this.ptr);
+		long ret = Bindings.NodeFeaturesClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.NodeFeatures ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.NodeFeatures(null, ret); }
@@ -54,7 +54,7 @@ public class NodeFeatures : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the NodeFeatures.
 	 */
 	public long hash() {
-		long ret = bindings.NodeFeatures_hash(this.ptr);
+		long ret = Bindings.NodeFeaturesHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -66,7 +66,7 @@ public class NodeFeatures : CommonBase {
 	 * Create a blank Features with no features set
 	 */
 	public static NodeFeatures empty() {
-		long ret = bindings.NodeFeatures_empty();
+		long ret = Bindings.NodeFeaturesEmpty();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.NodeFeatures ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.NodeFeatures(null, ret); }
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -77,7 +77,7 @@ public class NodeFeatures : CommonBase {
 	 * Returns true if this `Features` object contains required features unknown by `other`.
 	 */
 	public bool requires_unknown_bits_from(org.ldk.structs.NodeFeatures other) {
-		bool ret = bindings.NodeFeatures_requires_unknown_bits_from(this.ptr, other == null ? 0 : other.ptr);
+		bool ret = Bindings.NodeFeaturesRequiresUnknownBitsFrom(this.ptr, other == null ? 0 : other.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(other);
 		if (this != null) { this.ptrs_to.AddLast(other); };
@@ -89,7 +89,7 @@ public class NodeFeatures : CommonBase {
 	 * \"required\".
 	 */
 	public bool requires_unknown_bits() {
-		bool ret = bindings.NodeFeatures_requires_unknown_bits(this.ptr);
+		bool ret = Bindings.NodeFeaturesRequiresUnknownBits(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -104,7 +104,7 @@ public class NodeFeatures : CommonBase {
 	 * [BOLT 9]: https://github.com/lightning/bolts/blob/master/09-features.md
 	 */
 	public Result_NoneNoneZ set_required_feature_bit(long bit) {
-		long ret = bindings.NodeFeatures_set_required_feature_bit(this.ptr, bit);
+		long ret = Bindings.NodeFeaturesSetRequiredFeatureBit(this.ptr, bit);
 		GC.KeepAlive(this);
 		GC.KeepAlive(bit);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -122,7 +122,7 @@ public class NodeFeatures : CommonBase {
 	 * [BOLT 9]: https://github.com/lightning/bolts/blob/master/09-features.md
 	 */
 	public Result_NoneNoneZ set_optional_feature_bit(long bit) {
-		long ret = bindings.NodeFeatures_set_optional_feature_bit(this.ptr, bit);
+		long ret = Bindings.NodeFeaturesSetOptionalFeatureBit(this.ptr, bit);
 		GC.KeepAlive(this);
 		GC.KeepAlive(bit);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -140,7 +140,7 @@ public class NodeFeatures : CommonBase {
 	 * [bLIP 2]: https://github.com/lightning/blips/blob/master/blip-0002.md#feature-bits
 	 */
 	public Result_NoneNoneZ set_required_custom_bit(long bit) {
-		long ret = bindings.NodeFeatures_set_required_custom_bit(this.ptr, bit);
+		long ret = Bindings.NodeFeaturesSetRequiredCustomBit(this.ptr, bit);
 		GC.KeepAlive(this);
 		GC.KeepAlive(bit);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -158,7 +158,7 @@ public class NodeFeatures : CommonBase {
 	 * [bLIP 2]: https://github.com/lightning/blips/blob/master/blip-0002.md#feature-bits
 	 */
 	public Result_NoneNoneZ set_optional_custom_bit(long bit) {
-		long ret = bindings.NodeFeatures_set_optional_custom_bit(this.ptr, bit);
+		long ret = Bindings.NodeFeaturesSetOptionalCustomBit(this.ptr, bit);
 		GC.KeepAlive(this);
 		GC.KeepAlive(bit);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -170,7 +170,7 @@ public class NodeFeatures : CommonBase {
 	 * Serialize the NodeFeatures object into a byte array which can be read by NodeFeatures_read
 	 */
 	public byte[] write() {
-		long ret = bindings.NodeFeatures_write(this.ptr);
+		long ret = Bindings.NodeFeaturesWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -181,7 +181,7 @@ public class NodeFeatures : CommonBase {
 	 * Read a NodeFeatures from a byte array, created by NodeFeatures_write
 	 */
 	public static Result_NodeFeaturesDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.NodeFeatures_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.NodeFeaturesRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_NodeFeaturesDecodeErrorZ ret_hu_conv = Result_NodeFeaturesDecodeErrorZ.constr_from_ptr(ret);
@@ -192,7 +192,7 @@ public class NodeFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_data_loss_protect_optional() {
-		bindings.NodeFeatures_set_data_loss_protect_optional(this.ptr);
+		Bindings.NodeFeaturesSetDataLossProtectOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -200,7 +200,7 @@ public class NodeFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_data_loss_protect_required() {
-		bindings.NodeFeatures_set_data_loss_protect_required(this.ptr);
+		Bindings.NodeFeaturesSetDataLossProtectRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -208,7 +208,7 @@ public class NodeFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_data_loss_protect() {
-		bool ret = bindings.NodeFeatures_supports_data_loss_protect(this.ptr);
+		bool ret = Bindings.NodeFeaturesSupportsDataLossProtect(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -217,7 +217,7 @@ public class NodeFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_data_loss_protect() {
-		bool ret = bindings.NodeFeatures_requires_data_loss_protect(this.ptr);
+		bool ret = Bindings.NodeFeaturesRequiresDataLossProtect(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -226,7 +226,7 @@ public class NodeFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_upfront_shutdown_script_optional() {
-		bindings.NodeFeatures_set_upfront_shutdown_script_optional(this.ptr);
+		Bindings.NodeFeaturesSetUpfrontShutdownScriptOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -234,7 +234,7 @@ public class NodeFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_upfront_shutdown_script_required() {
-		bindings.NodeFeatures_set_upfront_shutdown_script_required(this.ptr);
+		Bindings.NodeFeaturesSetUpfrontShutdownScriptRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -242,7 +242,7 @@ public class NodeFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_upfront_shutdown_script() {
-		bool ret = bindings.NodeFeatures_supports_upfront_shutdown_script(this.ptr);
+		bool ret = Bindings.NodeFeaturesSupportsUpfrontShutdownScript(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -251,7 +251,7 @@ public class NodeFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_upfront_shutdown_script() {
-		bool ret = bindings.NodeFeatures_requires_upfront_shutdown_script(this.ptr);
+		bool ret = Bindings.NodeFeaturesRequiresUpfrontShutdownScript(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -260,7 +260,7 @@ public class NodeFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_gossip_queries_optional() {
-		bindings.NodeFeatures_set_gossip_queries_optional(this.ptr);
+		Bindings.NodeFeaturesSetGossipQueriesOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -268,7 +268,7 @@ public class NodeFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_gossip_queries_required() {
-		bindings.NodeFeatures_set_gossip_queries_required(this.ptr);
+		Bindings.NodeFeaturesSetGossipQueriesRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -276,7 +276,7 @@ public class NodeFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_gossip_queries() {
-		bool ret = bindings.NodeFeatures_supports_gossip_queries(this.ptr);
+		bool ret = Bindings.NodeFeaturesSupportsGossipQueries(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -285,7 +285,7 @@ public class NodeFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_gossip_queries() {
-		bool ret = bindings.NodeFeatures_requires_gossip_queries(this.ptr);
+		bool ret = Bindings.NodeFeaturesRequiresGossipQueries(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -294,7 +294,7 @@ public class NodeFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_variable_length_onion_optional() {
-		bindings.NodeFeatures_set_variable_length_onion_optional(this.ptr);
+		Bindings.NodeFeaturesSetVariableLengthOnionOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -302,7 +302,7 @@ public class NodeFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_variable_length_onion_required() {
-		bindings.NodeFeatures_set_variable_length_onion_required(this.ptr);
+		Bindings.NodeFeaturesSetVariableLengthOnionRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -310,7 +310,7 @@ public class NodeFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_variable_length_onion() {
-		bool ret = bindings.NodeFeatures_supports_variable_length_onion(this.ptr);
+		bool ret = Bindings.NodeFeaturesSupportsVariableLengthOnion(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -319,7 +319,7 @@ public class NodeFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_variable_length_onion() {
-		bool ret = bindings.NodeFeatures_requires_variable_length_onion(this.ptr);
+		bool ret = Bindings.NodeFeaturesRequiresVariableLengthOnion(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -328,7 +328,7 @@ public class NodeFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_static_remote_key_optional() {
-		bindings.NodeFeatures_set_static_remote_key_optional(this.ptr);
+		Bindings.NodeFeaturesSetStaticRemoteKeyOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -336,7 +336,7 @@ public class NodeFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_static_remote_key_required() {
-		bindings.NodeFeatures_set_static_remote_key_required(this.ptr);
+		Bindings.NodeFeaturesSetStaticRemoteKeyRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -344,7 +344,7 @@ public class NodeFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_static_remote_key() {
-		bool ret = bindings.NodeFeatures_supports_static_remote_key(this.ptr);
+		bool ret = Bindings.NodeFeaturesSupportsStaticRemoteKey(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -353,7 +353,7 @@ public class NodeFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_static_remote_key() {
-		bool ret = bindings.NodeFeatures_requires_static_remote_key(this.ptr);
+		bool ret = Bindings.NodeFeaturesRequiresStaticRemoteKey(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -362,7 +362,7 @@ public class NodeFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_payment_secret_optional() {
-		bindings.NodeFeatures_set_payment_secret_optional(this.ptr);
+		Bindings.NodeFeaturesSetPaymentSecretOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -370,7 +370,7 @@ public class NodeFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_payment_secret_required() {
-		bindings.NodeFeatures_set_payment_secret_required(this.ptr);
+		Bindings.NodeFeaturesSetPaymentSecretRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -378,7 +378,7 @@ public class NodeFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_payment_secret() {
-		bool ret = bindings.NodeFeatures_supports_payment_secret(this.ptr);
+		bool ret = Bindings.NodeFeaturesSupportsPaymentSecret(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -387,7 +387,7 @@ public class NodeFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_payment_secret() {
-		bool ret = bindings.NodeFeatures_requires_payment_secret(this.ptr);
+		bool ret = Bindings.NodeFeaturesRequiresPaymentSecret(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -396,7 +396,7 @@ public class NodeFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_basic_mpp_optional() {
-		bindings.NodeFeatures_set_basic_mpp_optional(this.ptr);
+		Bindings.NodeFeaturesSetBasicMppOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -404,7 +404,7 @@ public class NodeFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_basic_mpp_required() {
-		bindings.NodeFeatures_set_basic_mpp_required(this.ptr);
+		Bindings.NodeFeaturesSetBasicMppRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -412,7 +412,7 @@ public class NodeFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_basic_mpp() {
-		bool ret = bindings.NodeFeatures_supports_basic_mpp(this.ptr);
+		bool ret = Bindings.NodeFeaturesSupportsBasicMpp(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -421,7 +421,7 @@ public class NodeFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_basic_mpp() {
-		bool ret = bindings.NodeFeatures_requires_basic_mpp(this.ptr);
+		bool ret = Bindings.NodeFeaturesRequiresBasicMpp(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -430,7 +430,7 @@ public class NodeFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_wumbo_optional() {
-		bindings.NodeFeatures_set_wumbo_optional(this.ptr);
+		Bindings.NodeFeaturesSetWumboOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -438,7 +438,7 @@ public class NodeFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_wumbo_required() {
-		bindings.NodeFeatures_set_wumbo_required(this.ptr);
+		Bindings.NodeFeaturesSetWumboRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -446,7 +446,7 @@ public class NodeFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_wumbo() {
-		bool ret = bindings.NodeFeatures_supports_wumbo(this.ptr);
+		bool ret = Bindings.NodeFeaturesSupportsWumbo(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -455,7 +455,7 @@ public class NodeFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_wumbo() {
-		bool ret = bindings.NodeFeatures_requires_wumbo(this.ptr);
+		bool ret = Bindings.NodeFeaturesRequiresWumbo(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -464,7 +464,7 @@ public class NodeFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_anchors_nonzero_fee_htlc_tx_optional() {
-		bindings.NodeFeatures_set_anchors_nonzero_fee_htlc_tx_optional(this.ptr);
+		Bindings.NodeFeaturesSetAnchorsNonzeroFeeHtlcTxOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -472,7 +472,7 @@ public class NodeFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_anchors_nonzero_fee_htlc_tx_required() {
-		bindings.NodeFeatures_set_anchors_nonzero_fee_htlc_tx_required(this.ptr);
+		Bindings.NodeFeaturesSetAnchorsNonzeroFeeHtlcTxRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -480,7 +480,7 @@ public class NodeFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_anchors_nonzero_fee_htlc_tx() {
-		bool ret = bindings.NodeFeatures_supports_anchors_nonzero_fee_htlc_tx(this.ptr);
+		bool ret = Bindings.NodeFeaturesSupportsAnchorsNonzeroFeeHtlcTx(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -489,7 +489,7 @@ public class NodeFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_anchors_nonzero_fee_htlc_tx() {
-		bool ret = bindings.NodeFeatures_requires_anchors_nonzero_fee_htlc_tx(this.ptr);
+		bool ret = Bindings.NodeFeaturesRequiresAnchorsNonzeroFeeHtlcTx(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -498,7 +498,7 @@ public class NodeFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_anchors_zero_fee_htlc_tx_optional() {
-		bindings.NodeFeatures_set_anchors_zero_fee_htlc_tx_optional(this.ptr);
+		Bindings.NodeFeaturesSetAnchorsZeroFeeHtlcTxOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -506,7 +506,7 @@ public class NodeFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_anchors_zero_fee_htlc_tx_required() {
-		bindings.NodeFeatures_set_anchors_zero_fee_htlc_tx_required(this.ptr);
+		Bindings.NodeFeaturesSetAnchorsZeroFeeHtlcTxRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -514,7 +514,7 @@ public class NodeFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_anchors_zero_fee_htlc_tx() {
-		bool ret = bindings.NodeFeatures_supports_anchors_zero_fee_htlc_tx(this.ptr);
+		bool ret = Bindings.NodeFeaturesSupportsAnchorsZeroFeeHtlcTx(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -523,7 +523,7 @@ public class NodeFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_anchors_zero_fee_htlc_tx() {
-		bool ret = bindings.NodeFeatures_requires_anchors_zero_fee_htlc_tx(this.ptr);
+		bool ret = Bindings.NodeFeaturesRequiresAnchorsZeroFeeHtlcTx(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -532,7 +532,7 @@ public class NodeFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_route_blinding_optional() {
-		bindings.NodeFeatures_set_route_blinding_optional(this.ptr);
+		Bindings.NodeFeaturesSetRouteBlindingOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -540,7 +540,7 @@ public class NodeFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_route_blinding_required() {
-		bindings.NodeFeatures_set_route_blinding_required(this.ptr);
+		Bindings.NodeFeaturesSetRouteBlindingRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -548,7 +548,7 @@ public class NodeFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_route_blinding() {
-		bool ret = bindings.NodeFeatures_supports_route_blinding(this.ptr);
+		bool ret = Bindings.NodeFeaturesSupportsRouteBlinding(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -557,7 +557,7 @@ public class NodeFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_route_blinding() {
-		bool ret = bindings.NodeFeatures_requires_route_blinding(this.ptr);
+		bool ret = Bindings.NodeFeaturesRequiresRouteBlinding(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -566,7 +566,7 @@ public class NodeFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_shutdown_any_segwit_optional() {
-		bindings.NodeFeatures_set_shutdown_any_segwit_optional(this.ptr);
+		Bindings.NodeFeaturesSetShutdownAnySegwitOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -574,7 +574,7 @@ public class NodeFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_shutdown_any_segwit_required() {
-		bindings.NodeFeatures_set_shutdown_any_segwit_required(this.ptr);
+		Bindings.NodeFeaturesSetShutdownAnySegwitRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -582,7 +582,7 @@ public class NodeFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_shutdown_anysegwit() {
-		bool ret = bindings.NodeFeatures_supports_shutdown_anysegwit(this.ptr);
+		bool ret = Bindings.NodeFeaturesSupportsShutdownAnysegwit(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -591,7 +591,7 @@ public class NodeFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_shutdown_anysegwit() {
-		bool ret = bindings.NodeFeatures_requires_shutdown_anysegwit(this.ptr);
+		bool ret = Bindings.NodeFeaturesRequiresShutdownAnysegwit(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -600,7 +600,7 @@ public class NodeFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_taproot_optional() {
-		bindings.NodeFeatures_set_taproot_optional(this.ptr);
+		Bindings.NodeFeaturesSetTaprootOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -608,7 +608,7 @@ public class NodeFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_taproot_required() {
-		bindings.NodeFeatures_set_taproot_required(this.ptr);
+		Bindings.NodeFeaturesSetTaprootRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -616,7 +616,7 @@ public class NodeFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_taproot() {
-		bool ret = bindings.NodeFeatures_supports_taproot(this.ptr);
+		bool ret = Bindings.NodeFeaturesSupportsTaproot(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -625,7 +625,7 @@ public class NodeFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_taproot() {
-		bool ret = bindings.NodeFeatures_requires_taproot(this.ptr);
+		bool ret = Bindings.NodeFeaturesRequiresTaproot(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -634,7 +634,7 @@ public class NodeFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_onion_messages_optional() {
-		bindings.NodeFeatures_set_onion_messages_optional(this.ptr);
+		Bindings.NodeFeaturesSetOnionMessagesOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -642,7 +642,7 @@ public class NodeFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_onion_messages_required() {
-		bindings.NodeFeatures_set_onion_messages_required(this.ptr);
+		Bindings.NodeFeaturesSetOnionMessagesRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -650,7 +650,7 @@ public class NodeFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_onion_messages() {
-		bool ret = bindings.NodeFeatures_supports_onion_messages(this.ptr);
+		bool ret = Bindings.NodeFeaturesSupportsOnionMessages(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -659,7 +659,7 @@ public class NodeFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_onion_messages() {
-		bool ret = bindings.NodeFeatures_requires_onion_messages(this.ptr);
+		bool ret = Bindings.NodeFeaturesRequiresOnionMessages(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -668,7 +668,7 @@ public class NodeFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_channel_type_optional() {
-		bindings.NodeFeatures_set_channel_type_optional(this.ptr);
+		Bindings.NodeFeaturesSetChannelTypeOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -676,7 +676,7 @@ public class NodeFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_channel_type_required() {
-		bindings.NodeFeatures_set_channel_type_required(this.ptr);
+		Bindings.NodeFeaturesSetChannelTypeRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -684,7 +684,7 @@ public class NodeFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_channel_type() {
-		bool ret = bindings.NodeFeatures_supports_channel_type(this.ptr);
+		bool ret = Bindings.NodeFeaturesSupportsChannelType(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -693,7 +693,7 @@ public class NodeFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_channel_type() {
-		bool ret = bindings.NodeFeatures_requires_channel_type(this.ptr);
+		bool ret = Bindings.NodeFeaturesRequiresChannelType(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -702,7 +702,7 @@ public class NodeFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_scid_privacy_optional() {
-		bindings.NodeFeatures_set_scid_privacy_optional(this.ptr);
+		Bindings.NodeFeaturesSetScidPrivacyOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -710,7 +710,7 @@ public class NodeFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_scid_privacy_required() {
-		bindings.NodeFeatures_set_scid_privacy_required(this.ptr);
+		Bindings.NodeFeaturesSetScidPrivacyRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -718,7 +718,7 @@ public class NodeFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_scid_privacy() {
-		bool ret = bindings.NodeFeatures_supports_scid_privacy(this.ptr);
+		bool ret = Bindings.NodeFeaturesSupportsScidPrivacy(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -727,7 +727,7 @@ public class NodeFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_scid_privacy() {
-		bool ret = bindings.NodeFeatures_requires_scid_privacy(this.ptr);
+		bool ret = Bindings.NodeFeaturesRequiresScidPrivacy(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -736,7 +736,7 @@ public class NodeFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_zero_conf_optional() {
-		bindings.NodeFeatures_set_zero_conf_optional(this.ptr);
+		Bindings.NodeFeaturesSetZeroConfOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -744,7 +744,7 @@ public class NodeFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_zero_conf_required() {
-		bindings.NodeFeatures_set_zero_conf_required(this.ptr);
+		Bindings.NodeFeaturesSetZeroConfRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -752,7 +752,7 @@ public class NodeFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_zero_conf() {
-		bool ret = bindings.NodeFeatures_supports_zero_conf(this.ptr);
+		bool ret = Bindings.NodeFeaturesSupportsZeroConf(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -761,7 +761,7 @@ public class NodeFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_zero_conf() {
-		bool ret = bindings.NodeFeatures_requires_zero_conf(this.ptr);
+		bool ret = Bindings.NodeFeaturesRequiresZeroConf(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -770,7 +770,7 @@ public class NodeFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_keysend_optional() {
-		bindings.NodeFeatures_set_keysend_optional(this.ptr);
+		Bindings.NodeFeaturesSetKeysendOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -778,7 +778,7 @@ public class NodeFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_keysend_required() {
-		bindings.NodeFeatures_set_keysend_required(this.ptr);
+		Bindings.NodeFeaturesSetKeysendRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -786,7 +786,7 @@ public class NodeFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_keysend() {
-		bool ret = bindings.NodeFeatures_supports_keysend(this.ptr);
+		bool ret = Bindings.NodeFeaturesSupportsKeysend(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -795,7 +795,7 @@ public class NodeFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_keysend() {
-		bool ret = bindings.NodeFeatures_requires_keysend(this.ptr);
+		bool ret = Bindings.NodeFeaturesRequiresKeysend(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}

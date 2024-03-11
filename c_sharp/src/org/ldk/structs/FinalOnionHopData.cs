@@ -13,7 +13,7 @@ namespace org { namespace ldk { namespace structs {
 public class FinalOnionHopData : CommonBase {
 	internal FinalOnionHopData(object _dummy, long ptr) : base(ptr) { }
 	~FinalOnionHopData() {
-		if (ptr != 0) { bindings.FinalOnionHopData_free(ptr); }
+		if (ptr != 0) { Bindings.FinalOnionHopDataFree(ptr); }
 	}
 
 	/**
@@ -22,7 +22,7 @@ public class FinalOnionHopData : CommonBase {
 	 * proof to the recipient that the payment was sent by someone with the generated invoice.
 	 */
 	public byte[] get_payment_secret() {
-		long ret = bindings.FinalOnionHopData_get_payment_secret(this.ptr);
+		long ret = Bindings.FinalOnionHopDataGetPaymentSecret(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -35,7 +35,7 @@ public class FinalOnionHopData : CommonBase {
 	 * proof to the recipient that the payment was sent by someone with the generated invoice.
 	 */
 	public void set_payment_secret(byte[] val) {
-		bindings.FinalOnionHopData_set_payment_secret(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
+		Bindings.FinalOnionHopDataSetPaymentSecret(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -46,7 +46,7 @@ public class FinalOnionHopData : CommonBase {
 	 * Message serialization may panic if this value is more than 21 million Bitcoin.
 	 */
 	public long get_total_msat() {
-		long ret = bindings.FinalOnionHopData_get_total_msat(this.ptr);
+		long ret = Bindings.FinalOnionHopDataGetTotalMsat(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -57,7 +57,7 @@ public class FinalOnionHopData : CommonBase {
 	 * Message serialization may panic if this value is more than 21 million Bitcoin.
 	 */
 	public void set_total_msat(long val) {
-		bindings.FinalOnionHopData_set_total_msat(this.ptr, val);
+		Bindings.FinalOnionHopDataSetTotalMsat(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -66,7 +66,7 @@ public class FinalOnionHopData : CommonBase {
 	 * Constructs a new FinalOnionHopData given each field
 	 */
 	public static FinalOnionHopData of(byte[] payment_secret_arg, long total_msat_arg) {
-		long ret = bindings.FinalOnionHopData_new(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_secret_arg, 32)), total_msat_arg);
+		long ret = Bindings.FinalOnionHopDataNew(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_secret_arg, 32)), total_msat_arg);
 		GC.KeepAlive(payment_secret_arg);
 		GC.KeepAlive(total_msat_arg);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -76,7 +76,7 @@ public class FinalOnionHopData : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.FinalOnionHopData_clone_ptr(this.ptr);
+		long ret = Bindings.FinalOnionHopDataClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -85,7 +85,7 @@ public class FinalOnionHopData : CommonBase {
 	 * Creates a copy of the FinalOnionHopData
 	 */
 	public FinalOnionHopData clone() {
-		long ret = bindings.FinalOnionHopData_clone(this.ptr);
+		long ret = Bindings.FinalOnionHopDataClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.FinalOnionHopData ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.FinalOnionHopData(null, ret); }
@@ -97,7 +97,7 @@ public class FinalOnionHopData : CommonBase {
 	 * Serialize the FinalOnionHopData object into a byte array which can be read by FinalOnionHopData_read
 	 */
 	public byte[] write() {
-		long ret = bindings.FinalOnionHopData_write(this.ptr);
+		long ret = Bindings.FinalOnionHopDataWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -108,7 +108,7 @@ public class FinalOnionHopData : CommonBase {
 	 * Read a FinalOnionHopData from a byte array, created by FinalOnionHopData_write
 	 */
 	public static Result_FinalOnionHopDataDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.FinalOnionHopData_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.FinalOnionHopDataRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_FinalOnionHopDataDecodeErrorZ ret_hu_conv = Result_FinalOnionHopDataDecodeErrorZ.constr_from_ptr(ret);

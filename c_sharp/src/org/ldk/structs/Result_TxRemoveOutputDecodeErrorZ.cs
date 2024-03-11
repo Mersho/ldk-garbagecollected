@@ -8,11 +8,11 @@ namespace org { namespace ldk { namespace structs {
 public class Result_TxRemoveOutputDecodeErrorZ : CommonBase {
 	Result_TxRemoveOutputDecodeErrorZ(object _dummy, long ptr) : base(ptr) { }
 	~Result_TxRemoveOutputDecodeErrorZ() {
-		if (ptr != 0) { bindings.CResult_TxRemoveOutputDecodeErrorZ_free(ptr); }
+		if (ptr != 0) { Bindings.CResultTxRemoveOutputDecodeErrorZFree(ptr); }
 	}
 
 	internal static Result_TxRemoveOutputDecodeErrorZ constr_from_ptr(long ptr) {
-		if (bindings.CResult_TxRemoveOutputDecodeErrorZ_is_ok(ptr)) {
+		if (Bindings.CResultTxRemoveOutputDecodeErrorZIsOk(ptr)) {
 			return new Result_TxRemoveOutputDecodeErrorZ_OK(null, ptr);
 		} else {
 			return new Result_TxRemoveOutputDecodeErrorZ_Err(null, ptr);
@@ -21,7 +21,7 @@ public class Result_TxRemoveOutputDecodeErrorZ : CommonBase {
 	public class Result_TxRemoveOutputDecodeErrorZ_OK : Result_TxRemoveOutputDecodeErrorZ {
 		public readonly TxRemoveOutput res;
 		internal Result_TxRemoveOutputDecodeErrorZ_OK(object _dummy, long ptr) : base(_dummy, ptr) {
-			long res = bindings.CResult_TxRemoveOutputDecodeErrorZ_get_ok(ptr);
+			long res = Bindings.CResultTxRemoveOutputDecodeErrorZGetOk(ptr);
 			org.ldk.structs.TxRemoveOutput res_hu_conv = null; if (res < 0 || res > 4096) { res_hu_conv = new org.ldk.structs.TxRemoveOutput(null, res); }
 			if (res_hu_conv != null) { res_hu_conv.ptrs_to.AddLast(this); };
 			this.res = res_hu_conv;
@@ -31,7 +31,7 @@ public class Result_TxRemoveOutputDecodeErrorZ : CommonBase {
 	public class Result_TxRemoveOutputDecodeErrorZ_Err : Result_TxRemoveOutputDecodeErrorZ {
 		public readonly DecodeError err;
 		internal Result_TxRemoveOutputDecodeErrorZ_Err(object _dummy, long ptr) : base(_dummy, ptr) {
-			long err = bindings.CResult_TxRemoveOutputDecodeErrorZ_get_err(ptr);
+			long err = Bindings.CResultTxRemoveOutputDecodeErrorZGetErr(ptr);
 			org.ldk.structs.DecodeError err_hu_conv = org.ldk.structs.DecodeError.constr_from_ptr(err);
 			if (err_hu_conv != null) { err_hu_conv.ptrs_to.AddLast(this); };
 			this.err = err_hu_conv;
@@ -42,7 +42,7 @@ public class Result_TxRemoveOutputDecodeErrorZ : CommonBase {
 	 * Creates a new CResult_TxRemoveOutputDecodeErrorZ in the success state.
 	 */
 	public static Result_TxRemoveOutputDecodeErrorZ ok(org.ldk.structs.TxRemoveOutput o) {
-		long ret = bindings.CResult_TxRemoveOutputDecodeErrorZ_ok(o == null ? 0 : o.ptr);
+		long ret = Bindings.CResultTxRemoveOutputDecodeErrorZOk(o == null ? 0 : o.ptr);
 		GC.KeepAlive(o);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_TxRemoveOutputDecodeErrorZ ret_hu_conv = Result_TxRemoveOutputDecodeErrorZ.constr_from_ptr(ret);
@@ -54,7 +54,7 @@ public class Result_TxRemoveOutputDecodeErrorZ : CommonBase {
 	 * Creates a new CResult_TxRemoveOutputDecodeErrorZ in the error state.
 	 */
 	public static Result_TxRemoveOutputDecodeErrorZ err(org.ldk.structs.DecodeError e) {
-		long ret = bindings.CResult_TxRemoveOutputDecodeErrorZ_err(e.ptr);
+		long ret = Bindings.CResultTxRemoveOutputDecodeErrorZErr(e.ptr);
 		GC.KeepAlive(e);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_TxRemoveOutputDecodeErrorZ ret_hu_conv = Result_TxRemoveOutputDecodeErrorZ.constr_from_ptr(ret);
@@ -66,13 +66,13 @@ public class Result_TxRemoveOutputDecodeErrorZ : CommonBase {
 	 * Checks if the given object is currently in the success state
 	 */
 	public bool is_ok() {
-		bool ret = bindings.CResult_TxRemoveOutputDecodeErrorZ_is_ok(this.ptr);
+		bool ret = Bindings.CResultTxRemoveOutputDecodeErrorZIsOk(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.CResult_TxRemoveOutputDecodeErrorZ_clone_ptr(this.ptr);
+		long ret = Bindings.CResultTxRemoveOutputDecodeErrorZClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -82,7 +82,7 @@ public class Result_TxRemoveOutputDecodeErrorZ : CommonBase {
 	 * but with all dynamically-allocated buffers duplicated in new buffers.
 	 */
 	public Result_TxRemoveOutputDecodeErrorZ clone() {
-		long ret = bindings.CResult_TxRemoveOutputDecodeErrorZ_clone(this.ptr);
+		long ret = Bindings.CResultTxRemoveOutputDecodeErrorZClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_TxRemoveOutputDecodeErrorZ ret_hu_conv = Result_TxRemoveOutputDecodeErrorZ.constr_from_ptr(ret);

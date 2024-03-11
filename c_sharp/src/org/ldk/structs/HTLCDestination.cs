@@ -11,11 +11,11 @@ namespace org { namespace ldk { namespace structs {
 public class HTLCDestination : CommonBase {
 	protected HTLCDestination(object _dummy, long ptr) : base(ptr) { }
 	~HTLCDestination() {
-		if (ptr != 0) { bindings.HTLCDestination_free(ptr); }
+		if (ptr != 0) { Bindings.HTLCDestinationFree(ptr); }
 	}
 
 	internal static HTLCDestination constr_from_ptr(long ptr) {
-		long raw_ty = bindings.LDKHTLCDestination_ty_from_ptr(ptr);
+		long raw_ty = Bindings.LDKHTLCDestinationTyFromPtr(ptr);
 		switch (raw_ty) {
 			case 0: return new HTLCDestination_NextHopChannel(ptr);
 			case 1: return new HTLCDestination_UnknownNextHop(ptr);
@@ -41,10 +41,10 @@ public class HTLCDestination : CommonBase {
 		 */
 		public byte[] channel_id;
 		internal HTLCDestination_NextHopChannel(long ptr) : base(null, ptr) {
-			long node_id = bindings.LDKHTLCDestination_NextHopChannel_get_node_id(ptr);
+			long node_id = Bindings.LDKHTLCDestinationNextHopChannelGetNodeId(ptr);
 			byte[] node_id_conv = InternalUtils.decodeUint8Array(node_id);
 			this.node_id = node_id_conv;
-			long channel_id = bindings.LDKHTLCDestination_NextHopChannel_get_channel_id(ptr);
+			long channel_id = Bindings.LDKHTLCDestinationNextHopChannelGetChannelId(ptr);
 			byte[] channel_id_conv = InternalUtils.decodeUint8Array(channel_id);
 			this.channel_id = channel_id_conv;
 		}
@@ -56,7 +56,7 @@ public class HTLCDestination : CommonBase {
 		 */
 		public long requested_forward_scid;
 		internal HTLCDestination_UnknownNextHop(long ptr) : base(null, ptr) {
-			this.requested_forward_scid = bindings.LDKHTLCDestination_UnknownNextHop_get_requested_forward_scid(ptr);
+			this.requested_forward_scid = Bindings.LDKHTLCDestinationUnknownNextHopGetRequestedForwardScid(ptr);
 		}
 	}
 	/** A HTLCDestination of type InvalidForward */
@@ -66,7 +66,7 @@ public class HTLCDestination : CommonBase {
 		 */
 		public long requested_forward_scid;
 		internal HTLCDestination_InvalidForward(long ptr) : base(null, ptr) {
-			this.requested_forward_scid = bindings.LDKHTLCDestination_InvalidForward_get_requested_forward_scid(ptr);
+			this.requested_forward_scid = Bindings.LDKHTLCDestinationInvalidForwardGetRequestedForwardScid(ptr);
 		}
 	}
 	/** A HTLCDestination of type FailedPayment */
@@ -76,13 +76,13 @@ public class HTLCDestination : CommonBase {
 		 */
 		public byte[] payment_hash;
 		internal HTLCDestination_FailedPayment(long ptr) : base(null, ptr) {
-			long payment_hash = bindings.LDKHTLCDestination_FailedPayment_get_payment_hash(ptr);
+			long payment_hash = Bindings.LDKHTLCDestinationFailedPaymentGetPaymentHash(ptr);
 			byte[] payment_hash_conv = InternalUtils.decodeUint8Array(payment_hash);
 			this.payment_hash = payment_hash_conv;
 		}
 	}
 	internal long clone_ptr() {
-		long ret = bindings.HTLCDestination_clone_ptr(this.ptr);
+		long ret = Bindings.HTLCDestinationClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -91,7 +91,7 @@ public class HTLCDestination : CommonBase {
 	 * Creates a copy of the HTLCDestination
 	 */
 	public HTLCDestination clone() {
-		long ret = bindings.HTLCDestination_clone(this.ptr);
+		long ret = Bindings.HTLCDestinationClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.HTLCDestination ret_hu_conv = org.ldk.structs.HTLCDestination.constr_from_ptr(ret);
@@ -103,7 +103,7 @@ public class HTLCDestination : CommonBase {
 	 * Utility method to constructs a new NextHopChannel-variant HTLCDestination
 	 */
 	public static HTLCDestination next_hop_channel(byte[] node_id, byte[] channel_id) {
-		long ret = bindings.HTLCDestination_next_hop_channel(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(node_id, 33)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(channel_id, 32)));
+		long ret = Bindings.HTLCDestinationNextHopChannel(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(node_id, 33)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(channel_id, 32)));
 		GC.KeepAlive(node_id);
 		GC.KeepAlive(channel_id);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -116,7 +116,7 @@ public class HTLCDestination : CommonBase {
 	 * Utility method to constructs a new UnknownNextHop-variant HTLCDestination
 	 */
 	public static HTLCDestination unknown_next_hop(long requested_forward_scid) {
-		long ret = bindings.HTLCDestination_unknown_next_hop(requested_forward_scid);
+		long ret = Bindings.HTLCDestinationUnknownNextHop(requested_forward_scid);
 		GC.KeepAlive(requested_forward_scid);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.HTLCDestination ret_hu_conv = org.ldk.structs.HTLCDestination.constr_from_ptr(ret);
@@ -128,7 +128,7 @@ public class HTLCDestination : CommonBase {
 	 * Utility method to constructs a new InvalidForward-variant HTLCDestination
 	 */
 	public static HTLCDestination invalid_forward(long requested_forward_scid) {
-		long ret = bindings.HTLCDestination_invalid_forward(requested_forward_scid);
+		long ret = Bindings.HTLCDestinationInvalidForward(requested_forward_scid);
 		GC.KeepAlive(requested_forward_scid);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.HTLCDestination ret_hu_conv = org.ldk.structs.HTLCDestination.constr_from_ptr(ret);
@@ -140,7 +140,7 @@ public class HTLCDestination : CommonBase {
 	 * Utility method to constructs a new FailedPayment-variant HTLCDestination
 	 */
 	public static HTLCDestination failed_payment(byte[] payment_hash) {
-		long ret = bindings.HTLCDestination_failed_payment(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_hash, 32)));
+		long ret = Bindings.HTLCDestinationFailedPayment(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_hash, 32)));
 		GC.KeepAlive(payment_hash);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.HTLCDestination ret_hu_conv = org.ldk.structs.HTLCDestination.constr_from_ptr(ret);
@@ -153,7 +153,7 @@ public class HTLCDestination : CommonBase {
 	 * This ignores pointers and is_owned flags and looks at the values in fields.
 	 */
 	public bool eq(org.ldk.structs.HTLCDestination b) {
-		bool ret = bindings.HTLCDestination_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.HTLCDestinationEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		return ret;
@@ -167,7 +167,7 @@ public class HTLCDestination : CommonBase {
 	 * Serialize the HTLCDestination object into a byte array which can be read by HTLCDestination_read
 	 */
 	public byte[] write() {
-		long ret = bindings.HTLCDestination_write(this.ptr);
+		long ret = Bindings.HTLCDestinationWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);

@@ -8,11 +8,11 @@ namespace org { namespace ldk { namespace structs {
 public class Result_u32GraphSyncErrorZ : CommonBase {
 	Result_u32GraphSyncErrorZ(object _dummy, long ptr) : base(ptr) { }
 	~Result_u32GraphSyncErrorZ() {
-		if (ptr != 0) { bindings.CResult_u32GraphSyncErrorZ_free(ptr); }
+		if (ptr != 0) { Bindings.CResultU32GraphsyncerrorzFree(ptr); }
 	}
 
 	internal static Result_u32GraphSyncErrorZ constr_from_ptr(long ptr) {
-		if (bindings.CResult_u32GraphSyncErrorZ_is_ok(ptr)) {
+		if (Bindings.CResultU32GraphsyncerrorzIsOk(ptr)) {
 			return new Result_u32GraphSyncErrorZ_OK(null, ptr);
 		} else {
 			return new Result_u32GraphSyncErrorZ_Err(null, ptr);
@@ -21,14 +21,14 @@ public class Result_u32GraphSyncErrorZ : CommonBase {
 	public class Result_u32GraphSyncErrorZ_OK : Result_u32GraphSyncErrorZ {
 		public readonly int res;
 		internal Result_u32GraphSyncErrorZ_OK(object _dummy, long ptr) : base(_dummy, ptr) {
-			this.res = bindings.CResult_u32GraphSyncErrorZ_get_ok(ptr);
+			this.res = Bindings.CResultU32GraphsyncerrorzGetOk(ptr);
 		}
 	}
 
 	public class Result_u32GraphSyncErrorZ_Err : Result_u32GraphSyncErrorZ {
 		public readonly GraphSyncError err;
 		internal Result_u32GraphSyncErrorZ_Err(object _dummy, long ptr) : base(_dummy, ptr) {
-			long err = bindings.CResult_u32GraphSyncErrorZ_get_err(ptr);
+			long err = Bindings.CResultU32GraphsyncerrorzGetErr(ptr);
 			org.ldk.structs.GraphSyncError err_hu_conv = org.ldk.structs.GraphSyncError.constr_from_ptr(err);
 			if (err_hu_conv != null) { err_hu_conv.ptrs_to.AddLast(this); };
 			this.err = err_hu_conv;
@@ -39,7 +39,7 @@ public class Result_u32GraphSyncErrorZ : CommonBase {
 	 * Creates a new CResult_u32GraphSyncErrorZ in the success state.
 	 */
 	public static Result_u32GraphSyncErrorZ ok(int o) {
-		long ret = bindings.CResult_u32GraphSyncErrorZ_ok(o);
+		long ret = Bindings.CResultU32GraphsyncerrorzOk(o);
 		GC.KeepAlive(o);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_u32GraphSyncErrorZ ret_hu_conv = Result_u32GraphSyncErrorZ.constr_from_ptr(ret);
@@ -50,7 +50,7 @@ public class Result_u32GraphSyncErrorZ : CommonBase {
 	 * Creates a new CResult_u32GraphSyncErrorZ in the error state.
 	 */
 	public static Result_u32GraphSyncErrorZ err(org.ldk.structs.GraphSyncError e) {
-		long ret = bindings.CResult_u32GraphSyncErrorZ_err(e.ptr);
+		long ret = Bindings.CResultU32GraphsyncerrorzErr(e.ptr);
 		GC.KeepAlive(e);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_u32GraphSyncErrorZ ret_hu_conv = Result_u32GraphSyncErrorZ.constr_from_ptr(ret);
@@ -62,7 +62,7 @@ public class Result_u32GraphSyncErrorZ : CommonBase {
 	 * Checks if the given object is currently in the success state
 	 */
 	public bool is_ok() {
-		bool ret = bindings.CResult_u32GraphSyncErrorZ_is_ok(this.ptr);
+		bool ret = Bindings.CResultU32GraphsyncerrorzIsOk(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}

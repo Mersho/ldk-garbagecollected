@@ -8,11 +8,11 @@ namespace org { namespace ldk { namespace structs {
 public class Result_PublicKeySecp256k1ErrorZ : CommonBase {
 	Result_PublicKeySecp256k1ErrorZ(object _dummy, long ptr) : base(ptr) { }
 	~Result_PublicKeySecp256k1ErrorZ() {
-		if (ptr != 0) { bindings.CResult_PublicKeySecp256k1ErrorZ_free(ptr); }
+		if (ptr != 0) { Bindings.CResultPublicKeySecp256k1ErrorZFree(ptr); }
 	}
 
 	internal static Result_PublicKeySecp256k1ErrorZ constr_from_ptr(long ptr) {
-		if (bindings.CResult_PublicKeySecp256k1ErrorZ_is_ok(ptr)) {
+		if (Bindings.CResultPublicKeySecp256k1ErrorZIsOk(ptr)) {
 			return new Result_PublicKeySecp256k1ErrorZ_OK(null, ptr);
 		} else {
 			return new Result_PublicKeySecp256k1ErrorZ_Err(null, ptr);
@@ -21,7 +21,7 @@ public class Result_PublicKeySecp256k1ErrorZ : CommonBase {
 	public class Result_PublicKeySecp256k1ErrorZ_OK : Result_PublicKeySecp256k1ErrorZ {
 		public readonly byte[] res;
 		internal Result_PublicKeySecp256k1ErrorZ_OK(object _dummy, long ptr) : base(_dummy, ptr) {
-			long res = bindings.CResult_PublicKeySecp256k1ErrorZ_get_ok(ptr);
+			long res = Bindings.CResultPublicKeySecp256k1ErrorZGetOk(ptr);
 			byte[] res_conv = InternalUtils.decodeUint8Array(res);
 			this.res = res_conv;
 		}
@@ -30,7 +30,7 @@ public class Result_PublicKeySecp256k1ErrorZ : CommonBase {
 	public class Result_PublicKeySecp256k1ErrorZ_Err : Result_PublicKeySecp256k1ErrorZ {
 		public readonly Secp256k1Error err;
 		internal Result_PublicKeySecp256k1ErrorZ_Err(object _dummy, long ptr) : base(_dummy, ptr) {
-			this.err = bindings.CResult_PublicKeySecp256k1ErrorZ_get_err(ptr);
+			this.err = Bindings.CResultPublicKeySecp256k1ErrorZGetErr(ptr);
 		}
 	}
 
@@ -38,7 +38,7 @@ public class Result_PublicKeySecp256k1ErrorZ : CommonBase {
 	 * Creates a new CResult_PublicKeySecp256k1ErrorZ in the success state.
 	 */
 	public static Result_PublicKeySecp256k1ErrorZ ok(byte[] o) {
-		long ret = bindings.CResult_PublicKeySecp256k1ErrorZ_ok(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(o, 33)));
+		long ret = Bindings.CResultPublicKeySecp256k1ErrorZOk(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(o, 33)));
 		GC.KeepAlive(o);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_PublicKeySecp256k1ErrorZ ret_hu_conv = Result_PublicKeySecp256k1ErrorZ.constr_from_ptr(ret);
@@ -49,7 +49,7 @@ public class Result_PublicKeySecp256k1ErrorZ : CommonBase {
 	 * Creates a new CResult_PublicKeySecp256k1ErrorZ in the error state.
 	 */
 	public static Result_PublicKeySecp256k1ErrorZ err(Secp256k1Error e) {
-		long ret = bindings.CResult_PublicKeySecp256k1ErrorZ_err(e);
+		long ret = Bindings.CResultPublicKeySecp256k1ErrorZErr(e);
 		GC.KeepAlive(e);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_PublicKeySecp256k1ErrorZ ret_hu_conv = Result_PublicKeySecp256k1ErrorZ.constr_from_ptr(ret);
@@ -60,13 +60,13 @@ public class Result_PublicKeySecp256k1ErrorZ : CommonBase {
 	 * Checks if the given object is currently in the success state
 	 */
 	public bool is_ok() {
-		bool ret = bindings.CResult_PublicKeySecp256k1ErrorZ_is_ok(this.ptr);
+		bool ret = Bindings.CResultPublicKeySecp256k1ErrorZIsOk(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.CResult_PublicKeySecp256k1ErrorZ_clone_ptr(this.ptr);
+		long ret = Bindings.CResultPublicKeySecp256k1ErrorZClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -76,7 +76,7 @@ public class Result_PublicKeySecp256k1ErrorZ : CommonBase {
 	 * but with all dynamically-allocated buffers duplicated in new buffers.
 	 */
 	public Result_PublicKeySecp256k1ErrorZ clone() {
-		long ret = bindings.CResult_PublicKeySecp256k1ErrorZ_clone(this.ptr);
+		long ret = Bindings.CResultPublicKeySecp256k1ErrorZClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_PublicKeySecp256k1ErrorZ ret_hu_conv = Result_PublicKeySecp256k1ErrorZ.constr_from_ptr(ret);

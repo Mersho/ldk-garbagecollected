@@ -21,7 +21,7 @@ namespace org { namespace ldk { namespace structs {
 public class ChannelTypeFeatures : CommonBase {
 	internal ChannelTypeFeatures(object _dummy, long ptr) : base(ptr) { }
 	~ChannelTypeFeatures() {
-		if (ptr != 0) { bindings.ChannelTypeFeatures_free(ptr); }
+		if (ptr != 0) { Bindings.ChannelTypeFeaturesFree(ptr); }
 	}
 
 	/**
@@ -30,7 +30,7 @@ public class ChannelTypeFeatures : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.ChannelTypeFeatures b) {
-		bool ret = bindings.ChannelTypeFeatures_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.ChannelTypeFeaturesEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -42,7 +42,7 @@ public class ChannelTypeFeatures : CommonBase {
 		return this.eq((ChannelTypeFeatures)o);
 	}
 	internal long clone_ptr() {
-		long ret = bindings.ChannelTypeFeatures_clone_ptr(this.ptr);
+		long ret = Bindings.ChannelTypeFeaturesClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -51,7 +51,7 @@ public class ChannelTypeFeatures : CommonBase {
 	 * Creates a copy of the ChannelTypeFeatures
 	 */
 	public ChannelTypeFeatures clone() {
-		long ret = bindings.ChannelTypeFeatures_clone(this.ptr);
+		long ret = Bindings.ChannelTypeFeaturesClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChannelTypeFeatures ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChannelTypeFeatures(null, ret); }
@@ -63,7 +63,7 @@ public class ChannelTypeFeatures : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the ChannelTypeFeatures.
 	 */
 	public long hash() {
-		long ret = bindings.ChannelTypeFeatures_hash(this.ptr);
+		long ret = Bindings.ChannelTypeFeaturesHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -75,7 +75,7 @@ public class ChannelTypeFeatures : CommonBase {
 	 * Create a blank Features with no features set
 	 */
 	public static ChannelTypeFeatures empty() {
-		long ret = bindings.ChannelTypeFeatures_empty();
+		long ret = Bindings.ChannelTypeFeaturesEmpty();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChannelTypeFeatures ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChannelTypeFeatures(null, ret); }
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -86,7 +86,7 @@ public class ChannelTypeFeatures : CommonBase {
 	 * Returns true if this `Features` object contains required features unknown by `other`.
 	 */
 	public bool requires_unknown_bits_from(org.ldk.structs.ChannelTypeFeatures other) {
-		bool ret = bindings.ChannelTypeFeatures_requires_unknown_bits_from(this.ptr, other == null ? 0 : other.ptr);
+		bool ret = Bindings.ChannelTypeFeaturesRequiresUnknownBitsFrom(this.ptr, other == null ? 0 : other.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(other);
 		if (this != null) { this.ptrs_to.AddLast(other); };
@@ -98,7 +98,7 @@ public class ChannelTypeFeatures : CommonBase {
 	 * \"required\".
 	 */
 	public bool requires_unknown_bits() {
-		bool ret = bindings.ChannelTypeFeatures_requires_unknown_bits(this.ptr);
+		bool ret = Bindings.ChannelTypeFeaturesRequiresUnknownBits(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -113,7 +113,7 @@ public class ChannelTypeFeatures : CommonBase {
 	 * [BOLT 9]: https://github.com/lightning/bolts/blob/master/09-features.md
 	 */
 	public Result_NoneNoneZ set_required_feature_bit(long bit) {
-		long ret = bindings.ChannelTypeFeatures_set_required_feature_bit(this.ptr, bit);
+		long ret = Bindings.ChannelTypeFeaturesSetRequiredFeatureBit(this.ptr, bit);
 		GC.KeepAlive(this);
 		GC.KeepAlive(bit);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -131,7 +131,7 @@ public class ChannelTypeFeatures : CommonBase {
 	 * [BOLT 9]: https://github.com/lightning/bolts/blob/master/09-features.md
 	 */
 	public Result_NoneNoneZ set_optional_feature_bit(long bit) {
-		long ret = bindings.ChannelTypeFeatures_set_optional_feature_bit(this.ptr, bit);
+		long ret = Bindings.ChannelTypeFeaturesSetOptionalFeatureBit(this.ptr, bit);
 		GC.KeepAlive(this);
 		GC.KeepAlive(bit);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -149,7 +149,7 @@ public class ChannelTypeFeatures : CommonBase {
 	 * [bLIP 2]: https://github.com/lightning/blips/blob/master/blip-0002.md#feature-bits
 	 */
 	public Result_NoneNoneZ set_required_custom_bit(long bit) {
-		long ret = bindings.ChannelTypeFeatures_set_required_custom_bit(this.ptr, bit);
+		long ret = Bindings.ChannelTypeFeaturesSetRequiredCustomBit(this.ptr, bit);
 		GC.KeepAlive(this);
 		GC.KeepAlive(bit);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -167,7 +167,7 @@ public class ChannelTypeFeatures : CommonBase {
 	 * [bLIP 2]: https://github.com/lightning/blips/blob/master/blip-0002.md#feature-bits
 	 */
 	public Result_NoneNoneZ set_optional_custom_bit(long bit) {
-		long ret = bindings.ChannelTypeFeatures_set_optional_custom_bit(this.ptr, bit);
+		long ret = Bindings.ChannelTypeFeaturesSetOptionalCustomBit(this.ptr, bit);
 		GC.KeepAlive(this);
 		GC.KeepAlive(bit);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -179,7 +179,7 @@ public class ChannelTypeFeatures : CommonBase {
 	 * Serialize the ChannelTypeFeatures object into a byte array which can be read by ChannelTypeFeatures_read
 	 */
 	public byte[] write() {
-		long ret = bindings.ChannelTypeFeatures_write(this.ptr);
+		long ret = Bindings.ChannelTypeFeaturesWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -190,7 +190,7 @@ public class ChannelTypeFeatures : CommonBase {
 	 * Read a ChannelTypeFeatures from a byte array, created by ChannelTypeFeatures_write
 	 */
 	public static Result_ChannelTypeFeaturesDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.ChannelTypeFeatures_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.ChannelTypeFeaturesRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_ChannelTypeFeaturesDecodeErrorZ ret_hu_conv = Result_ChannelTypeFeaturesDecodeErrorZ.constr_from_ptr(ret);
@@ -201,7 +201,7 @@ public class ChannelTypeFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_static_remote_key_optional() {
-		bindings.ChannelTypeFeatures_set_static_remote_key_optional(this.ptr);
+		Bindings.ChannelTypeFeaturesSetStaticRemoteKeyOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -209,7 +209,7 @@ public class ChannelTypeFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_static_remote_key_required() {
-		bindings.ChannelTypeFeatures_set_static_remote_key_required(this.ptr);
+		Bindings.ChannelTypeFeaturesSetStaticRemoteKeyRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -217,7 +217,7 @@ public class ChannelTypeFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_static_remote_key() {
-		bool ret = bindings.ChannelTypeFeatures_supports_static_remote_key(this.ptr);
+		bool ret = Bindings.ChannelTypeFeaturesSupportsStaticRemoteKey(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -226,7 +226,7 @@ public class ChannelTypeFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_static_remote_key() {
-		bool ret = bindings.ChannelTypeFeatures_requires_static_remote_key(this.ptr);
+		bool ret = Bindings.ChannelTypeFeaturesRequiresStaticRemoteKey(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -235,7 +235,7 @@ public class ChannelTypeFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_anchors_nonzero_fee_htlc_tx_optional() {
-		bindings.ChannelTypeFeatures_set_anchors_nonzero_fee_htlc_tx_optional(this.ptr);
+		Bindings.ChannelTypeFeaturesSetAnchorsNonzeroFeeHtlcTxOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -243,7 +243,7 @@ public class ChannelTypeFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_anchors_nonzero_fee_htlc_tx_required() {
-		bindings.ChannelTypeFeatures_set_anchors_nonzero_fee_htlc_tx_required(this.ptr);
+		Bindings.ChannelTypeFeaturesSetAnchorsNonzeroFeeHtlcTxRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -251,7 +251,7 @@ public class ChannelTypeFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_anchors_nonzero_fee_htlc_tx() {
-		bool ret = bindings.ChannelTypeFeatures_supports_anchors_nonzero_fee_htlc_tx(this.ptr);
+		bool ret = Bindings.ChannelTypeFeaturesSupportsAnchorsNonzeroFeeHtlcTx(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -260,7 +260,7 @@ public class ChannelTypeFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_anchors_nonzero_fee_htlc_tx() {
-		bool ret = bindings.ChannelTypeFeatures_requires_anchors_nonzero_fee_htlc_tx(this.ptr);
+		bool ret = Bindings.ChannelTypeFeaturesRequiresAnchorsNonzeroFeeHtlcTx(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -269,7 +269,7 @@ public class ChannelTypeFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_anchors_zero_fee_htlc_tx_optional() {
-		bindings.ChannelTypeFeatures_set_anchors_zero_fee_htlc_tx_optional(this.ptr);
+		Bindings.ChannelTypeFeaturesSetAnchorsZeroFeeHtlcTxOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -277,7 +277,7 @@ public class ChannelTypeFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_anchors_zero_fee_htlc_tx_required() {
-		bindings.ChannelTypeFeatures_set_anchors_zero_fee_htlc_tx_required(this.ptr);
+		Bindings.ChannelTypeFeaturesSetAnchorsZeroFeeHtlcTxRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -285,7 +285,7 @@ public class ChannelTypeFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_anchors_zero_fee_htlc_tx() {
-		bool ret = bindings.ChannelTypeFeatures_supports_anchors_zero_fee_htlc_tx(this.ptr);
+		bool ret = Bindings.ChannelTypeFeaturesSupportsAnchorsZeroFeeHtlcTx(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -294,7 +294,7 @@ public class ChannelTypeFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_anchors_zero_fee_htlc_tx() {
-		bool ret = bindings.ChannelTypeFeatures_requires_anchors_zero_fee_htlc_tx(this.ptr);
+		bool ret = Bindings.ChannelTypeFeaturesRequiresAnchorsZeroFeeHtlcTx(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -303,7 +303,7 @@ public class ChannelTypeFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_taproot_optional() {
-		bindings.ChannelTypeFeatures_set_taproot_optional(this.ptr);
+		Bindings.ChannelTypeFeaturesSetTaprootOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -311,7 +311,7 @@ public class ChannelTypeFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_taproot_required() {
-		bindings.ChannelTypeFeatures_set_taproot_required(this.ptr);
+		Bindings.ChannelTypeFeaturesSetTaprootRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -319,7 +319,7 @@ public class ChannelTypeFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_taproot() {
-		bool ret = bindings.ChannelTypeFeatures_supports_taproot(this.ptr);
+		bool ret = Bindings.ChannelTypeFeaturesSupportsTaproot(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -328,7 +328,7 @@ public class ChannelTypeFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_taproot() {
-		bool ret = bindings.ChannelTypeFeatures_requires_taproot(this.ptr);
+		bool ret = Bindings.ChannelTypeFeaturesRequiresTaproot(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -337,7 +337,7 @@ public class ChannelTypeFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_scid_privacy_optional() {
-		bindings.ChannelTypeFeatures_set_scid_privacy_optional(this.ptr);
+		Bindings.ChannelTypeFeaturesSetScidPrivacyOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -345,7 +345,7 @@ public class ChannelTypeFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_scid_privacy_required() {
-		bindings.ChannelTypeFeatures_set_scid_privacy_required(this.ptr);
+		Bindings.ChannelTypeFeaturesSetScidPrivacyRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -353,7 +353,7 @@ public class ChannelTypeFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_scid_privacy() {
-		bool ret = bindings.ChannelTypeFeatures_supports_scid_privacy(this.ptr);
+		bool ret = Bindings.ChannelTypeFeaturesSupportsScidPrivacy(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -362,7 +362,7 @@ public class ChannelTypeFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_scid_privacy() {
-		bool ret = bindings.ChannelTypeFeatures_requires_scid_privacy(this.ptr);
+		bool ret = Bindings.ChannelTypeFeaturesRequiresScidPrivacy(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -371,7 +371,7 @@ public class ChannelTypeFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_zero_conf_optional() {
-		bindings.ChannelTypeFeatures_set_zero_conf_optional(this.ptr);
+		Bindings.ChannelTypeFeaturesSetZeroConfOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -379,7 +379,7 @@ public class ChannelTypeFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_zero_conf_required() {
-		bindings.ChannelTypeFeatures_set_zero_conf_required(this.ptr);
+		Bindings.ChannelTypeFeaturesSetZeroConfRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -387,7 +387,7 @@ public class ChannelTypeFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_zero_conf() {
-		bool ret = bindings.ChannelTypeFeatures_supports_zero_conf(this.ptr);
+		bool ret = Bindings.ChannelTypeFeaturesSupportsZeroConf(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -396,7 +396,7 @@ public class ChannelTypeFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_zero_conf() {
-		bool ret = bindings.ChannelTypeFeatures_requires_zero_conf(this.ptr);
+		bool ret = Bindings.ChannelTypeFeaturesRequiresZeroConf(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}

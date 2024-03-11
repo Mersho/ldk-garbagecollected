@@ -11,11 +11,11 @@ namespace org { namespace ldk { namespace structs {
 public class ErrorAction : CommonBase {
 	protected ErrorAction(object _dummy, long ptr) : base(ptr) { }
 	~ErrorAction() {
-		if (ptr != 0) { bindings.ErrorAction_free(ptr); }
+		if (ptr != 0) { Bindings.ErrorActionFree(ptr); }
 	}
 
 	internal static ErrorAction constr_from_ptr(long ptr) {
-		long raw_ty = bindings.LDKErrorAction_ty_from_ptr(ptr);
+		long raw_ty = Bindings.LDKErrorActionTyFromPtr(ptr);
 		switch (raw_ty) {
 			case 0: return new ErrorAction_DisconnectPeer(ptr);
 			case 1: return new ErrorAction_DisconnectPeerWithWarning(ptr);
@@ -38,7 +38,7 @@ public class ErrorAction : CommonBase {
 		 */
 		public ErrorMessage msg;
 		internal ErrorAction_DisconnectPeer(long ptr) : base(null, ptr) {
-			long msg = bindings.LDKErrorAction_DisconnectPeer_get_msg(ptr);
+			long msg = Bindings.LDKErrorActionDisconnectPeerGetMsg(ptr);
 			org.ldk.structs.ErrorMessage msg_hu_conv = null; if (msg < 0 || msg > 4096) { msg_hu_conv = new org.ldk.structs.ErrorMessage(null, msg); }
 			if (msg_hu_conv != null) { msg_hu_conv.ptrs_to.AddLast(this); };
 			this.msg = msg_hu_conv;
@@ -51,7 +51,7 @@ public class ErrorAction : CommonBase {
 		 */
 		public WarningMessage msg;
 		internal ErrorAction_DisconnectPeerWithWarning(long ptr) : base(null, ptr) {
-			long msg = bindings.LDKErrorAction_DisconnectPeerWithWarning_get_msg(ptr);
+			long msg = Bindings.LDKErrorActionDisconnectPeerWithWarningGetMsg(ptr);
 			org.ldk.structs.WarningMessage msg_hu_conv = null; if (msg < 0 || msg > 4096) { msg_hu_conv = new org.ldk.structs.WarningMessage(null, msg); }
 			if (msg_hu_conv != null) { msg_hu_conv.ptrs_to.AddLast(this); };
 			this.msg = msg_hu_conv;
@@ -66,7 +66,7 @@ public class ErrorAction : CommonBase {
 	public class ErrorAction_IgnoreAndLog : ErrorAction {
 		public Level ignore_and_log;
 		internal ErrorAction_IgnoreAndLog(long ptr) : base(null, ptr) {
-			this.ignore_and_log = bindings.LDKErrorAction_IgnoreAndLog_get_ignore_and_log(ptr);
+			this.ignore_and_log = Bindings.LDKErrorActionIgnoreAndLogGetIgnoreAndLog(ptr);
 		}
 	}
 	/** A ErrorAction of type IgnoreDuplicateGossip */
@@ -81,7 +81,7 @@ public class ErrorAction : CommonBase {
 		 */
 		public ErrorMessage msg;
 		internal ErrorAction_SendErrorMessage(long ptr) : base(null, ptr) {
-			long msg = bindings.LDKErrorAction_SendErrorMessage_get_msg(ptr);
+			long msg = Bindings.LDKErrorActionSendErrorMessageGetMsg(ptr);
 			org.ldk.structs.ErrorMessage msg_hu_conv = null; if (msg < 0 || msg > 4096) { msg_hu_conv = new org.ldk.structs.ErrorMessage(null, msg); }
 			if (msg_hu_conv != null) { msg_hu_conv.ptrs_to.AddLast(this); };
 			this.msg = msg_hu_conv;
@@ -100,15 +100,15 @@ public class ErrorAction : CommonBase {
 		 */
 		public Level log_level;
 		internal ErrorAction_SendWarningMessage(long ptr) : base(null, ptr) {
-			long msg = bindings.LDKErrorAction_SendWarningMessage_get_msg(ptr);
+			long msg = Bindings.LDKErrorActionSendWarningMessageGetMsg(ptr);
 			org.ldk.structs.WarningMessage msg_hu_conv = null; if (msg < 0 || msg > 4096) { msg_hu_conv = new org.ldk.structs.WarningMessage(null, msg); }
 			if (msg_hu_conv != null) { msg_hu_conv.ptrs_to.AddLast(this); };
 			this.msg = msg_hu_conv;
-			this.log_level = bindings.LDKErrorAction_SendWarningMessage_get_log_level(ptr);
+			this.log_level = Bindings.LDKErrorActionSendWarningMessageGetLogLevel(ptr);
 		}
 	}
 	internal long clone_ptr() {
-		long ret = bindings.ErrorAction_clone_ptr(this.ptr);
+		long ret = Bindings.ErrorActionClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -117,7 +117,7 @@ public class ErrorAction : CommonBase {
 	 * Creates a copy of the ErrorAction
 	 */
 	public ErrorAction clone() {
-		long ret = bindings.ErrorAction_clone(this.ptr);
+		long ret = Bindings.ErrorActionClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ErrorAction ret_hu_conv = org.ldk.structs.ErrorAction.constr_from_ptr(ret);
@@ -129,7 +129,7 @@ public class ErrorAction : CommonBase {
 	 * Utility method to constructs a new DisconnectPeer-variant ErrorAction
 	 */
 	public static ErrorAction disconnect_peer(org.ldk.structs.ErrorMessage msg) {
-		long ret = bindings.ErrorAction_disconnect_peer(msg == null ? 0 : msg.ptr);
+		long ret = Bindings.ErrorActionDisconnectPeer(msg == null ? 0 : msg.ptr);
 		GC.KeepAlive(msg);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ErrorAction ret_hu_conv = org.ldk.structs.ErrorAction.constr_from_ptr(ret);
@@ -142,7 +142,7 @@ public class ErrorAction : CommonBase {
 	 * Utility method to constructs a new DisconnectPeerWithWarning-variant ErrorAction
 	 */
 	public static ErrorAction disconnect_peer_with_warning(org.ldk.structs.WarningMessage msg) {
-		long ret = bindings.ErrorAction_disconnect_peer_with_warning(msg == null ? 0 : msg.ptr);
+		long ret = Bindings.ErrorActionDisconnectPeerWithWarning(msg == null ? 0 : msg.ptr);
 		GC.KeepAlive(msg);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ErrorAction ret_hu_conv = org.ldk.structs.ErrorAction.constr_from_ptr(ret);
@@ -155,7 +155,7 @@ public class ErrorAction : CommonBase {
 	 * Utility method to constructs a new IgnoreError-variant ErrorAction
 	 */
 	public static ErrorAction ignore_error() {
-		long ret = bindings.ErrorAction_ignore_error();
+		long ret = Bindings.ErrorActionIgnoreError();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ErrorAction ret_hu_conv = org.ldk.structs.ErrorAction.constr_from_ptr(ret);
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -166,7 +166,7 @@ public class ErrorAction : CommonBase {
 	 * Utility method to constructs a new IgnoreAndLog-variant ErrorAction
 	 */
 	public static ErrorAction ignore_and_log(Level a) {
-		long ret = bindings.ErrorAction_ignore_and_log(a);
+		long ret = Bindings.ErrorActionIgnoreAndLog(a);
 		GC.KeepAlive(a);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ErrorAction ret_hu_conv = org.ldk.structs.ErrorAction.constr_from_ptr(ret);
@@ -178,7 +178,7 @@ public class ErrorAction : CommonBase {
 	 * Utility method to constructs a new IgnoreDuplicateGossip-variant ErrorAction
 	 */
 	public static ErrorAction ignore_duplicate_gossip() {
-		long ret = bindings.ErrorAction_ignore_duplicate_gossip();
+		long ret = Bindings.ErrorActionIgnoreDuplicateGossip();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ErrorAction ret_hu_conv = org.ldk.structs.ErrorAction.constr_from_ptr(ret);
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -189,7 +189,7 @@ public class ErrorAction : CommonBase {
 	 * Utility method to constructs a new SendErrorMessage-variant ErrorAction
 	 */
 	public static ErrorAction send_error_message(org.ldk.structs.ErrorMessage msg) {
-		long ret = bindings.ErrorAction_send_error_message(msg == null ? 0 : msg.ptr);
+		long ret = Bindings.ErrorActionSendErrorMessage(msg == null ? 0 : msg.ptr);
 		GC.KeepAlive(msg);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ErrorAction ret_hu_conv = org.ldk.structs.ErrorAction.constr_from_ptr(ret);
@@ -202,7 +202,7 @@ public class ErrorAction : CommonBase {
 	 * Utility method to constructs a new SendWarningMessage-variant ErrorAction
 	 */
 	public static ErrorAction send_warning_message(org.ldk.structs.WarningMessage msg, Level log_level) {
-		long ret = bindings.ErrorAction_send_warning_message(msg == null ? 0 : msg.ptr, log_level);
+		long ret = Bindings.ErrorActionSendWarningMessage(msg == null ? 0 : msg.ptr, log_level);
 		GC.KeepAlive(msg);
 		GC.KeepAlive(log_level);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -216,7 +216,7 @@ public class ErrorAction : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the ErrorAction.
 	 */
 	public long hash() {
-		long ret = bindings.ErrorAction_hash(this.ptr);
+		long ret = Bindings.ErrorActionHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}

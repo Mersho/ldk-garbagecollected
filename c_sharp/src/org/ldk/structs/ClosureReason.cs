@@ -11,11 +11,11 @@ namespace org { namespace ldk { namespace structs {
 public class ClosureReason : CommonBase {
 	protected ClosureReason(object _dummy, long ptr) : base(ptr) { }
 	~ClosureReason() {
-		if (ptr != 0) { bindings.ClosureReason_free(ptr); }
+		if (ptr != 0) { Bindings.ClosureReasonFree(ptr); }
 	}
 
 	internal static ClosureReason constr_from_ptr(long ptr) {
-		long raw_ty = bindings.LDKClosureReason_ty_from_ptr(ptr);
+		long raw_ty = Bindings.LDKClosureReasonTyFromPtr(ptr);
 		switch (raw_ty) {
 			case 0: return new ClosureReason_CounterpartyForceClosed(ptr);
 			case 1: return new ClosureReason_HolderForceClosed(ptr);
@@ -45,7 +45,7 @@ public class ClosureReason : CommonBase {
 		 */
 		public UntrustedString peer_msg;
 		internal ClosureReason_CounterpartyForceClosed(long ptr) : base(null, ptr) {
-			long peer_msg = bindings.LDKClosureReason_CounterpartyForceClosed_get_peer_msg(ptr);
+			long peer_msg = Bindings.LDKClosureReasonCounterpartyForceClosedGetPeerMsg(ptr);
 			org.ldk.structs.UntrustedString peer_msg_hu_conv = null; if (peer_msg < 0 || peer_msg > 4096) { peer_msg_hu_conv = new org.ldk.structs.UntrustedString(null, peer_msg); }
 			if (peer_msg_hu_conv != null) { peer_msg_hu_conv.ptrs_to.AddLast(this); };
 			this.peer_msg = peer_msg_hu_conv;
@@ -78,7 +78,7 @@ public class ClosureReason : CommonBase {
 		 */
 		public string err;
 		internal ClosureReason_ProcessingError(long ptr) : base(null, ptr) {
-			long err = bindings.LDKClosureReason_ProcessingError_get_err(ptr);
+			long err = Bindings.LDKClosureReasonProcessingErrorGetErr(ptr);
 			string err_conv = InternalUtils.decodeString(err);
 			this.err = err_conv;
 		}
@@ -104,7 +104,7 @@ public class ClosureReason : CommonBase {
 		}
 	}
 	internal long clone_ptr() {
-		long ret = bindings.ClosureReason_clone_ptr(this.ptr);
+		long ret = Bindings.ClosureReasonClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -113,7 +113,7 @@ public class ClosureReason : CommonBase {
 	 * Creates a copy of the ClosureReason
 	 */
 	public ClosureReason clone() {
-		long ret = bindings.ClosureReason_clone(this.ptr);
+		long ret = Bindings.ClosureReasonClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ClosureReason ret_hu_conv = org.ldk.structs.ClosureReason.constr_from_ptr(ret);
@@ -125,7 +125,7 @@ public class ClosureReason : CommonBase {
 	 * Utility method to constructs a new CounterpartyForceClosed-variant ClosureReason
 	 */
 	public static ClosureReason counterparty_force_closed(org.ldk.structs.UntrustedString peer_msg) {
-		long ret = bindings.ClosureReason_counterparty_force_closed(peer_msg == null ? 0 : peer_msg.ptr);
+		long ret = Bindings.ClosureReasonCounterpartyForceClosed(peer_msg == null ? 0 : peer_msg.ptr);
 		GC.KeepAlive(peer_msg);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ClosureReason ret_hu_conv = org.ldk.structs.ClosureReason.constr_from_ptr(ret);
@@ -138,7 +138,7 @@ public class ClosureReason : CommonBase {
 	 * Utility method to constructs a new HolderForceClosed-variant ClosureReason
 	 */
 	public static ClosureReason holder_force_closed() {
-		long ret = bindings.ClosureReason_holder_force_closed();
+		long ret = Bindings.ClosureReasonHolderForceClosed();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ClosureReason ret_hu_conv = org.ldk.structs.ClosureReason.constr_from_ptr(ret);
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -149,7 +149,7 @@ public class ClosureReason : CommonBase {
 	 * Utility method to constructs a new CooperativeClosure-variant ClosureReason
 	 */
 	public static ClosureReason cooperative_closure() {
-		long ret = bindings.ClosureReason_cooperative_closure();
+		long ret = Bindings.ClosureReasonCooperativeClosure();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ClosureReason ret_hu_conv = org.ldk.structs.ClosureReason.constr_from_ptr(ret);
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -160,7 +160,7 @@ public class ClosureReason : CommonBase {
 	 * Utility method to constructs a new CommitmentTxConfirmed-variant ClosureReason
 	 */
 	public static ClosureReason commitment_tx_confirmed() {
-		long ret = bindings.ClosureReason_commitment_tx_confirmed();
+		long ret = Bindings.ClosureReasonCommitmentTxConfirmed();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ClosureReason ret_hu_conv = org.ldk.structs.ClosureReason.constr_from_ptr(ret);
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -171,7 +171,7 @@ public class ClosureReason : CommonBase {
 	 * Utility method to constructs a new FundingTimedOut-variant ClosureReason
 	 */
 	public static ClosureReason funding_timed_out() {
-		long ret = bindings.ClosureReason_funding_timed_out();
+		long ret = Bindings.ClosureReasonFundingTimedOut();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ClosureReason ret_hu_conv = org.ldk.structs.ClosureReason.constr_from_ptr(ret);
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -182,7 +182,7 @@ public class ClosureReason : CommonBase {
 	 * Utility method to constructs a new ProcessingError-variant ClosureReason
 	 */
 	public static ClosureReason processing_error(string err) {
-		long ret = bindings.ClosureReason_processing_error(InternalUtils.encodeString(err));
+		long ret = Bindings.ClosureReasonProcessingError(InternalUtils.encodeString(err));
 		GC.KeepAlive(err);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ClosureReason ret_hu_conv = org.ldk.structs.ClosureReason.constr_from_ptr(ret);
@@ -194,7 +194,7 @@ public class ClosureReason : CommonBase {
 	 * Utility method to constructs a new DisconnectedPeer-variant ClosureReason
 	 */
 	public static ClosureReason disconnected_peer() {
-		long ret = bindings.ClosureReason_disconnected_peer();
+		long ret = Bindings.ClosureReasonDisconnectedPeer();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ClosureReason ret_hu_conv = org.ldk.structs.ClosureReason.constr_from_ptr(ret);
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -205,7 +205,7 @@ public class ClosureReason : CommonBase {
 	 * Utility method to constructs a new OutdatedChannelManager-variant ClosureReason
 	 */
 	public static ClosureReason outdated_channel_manager() {
-		long ret = bindings.ClosureReason_outdated_channel_manager();
+		long ret = Bindings.ClosureReasonOutdatedChannelManager();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ClosureReason ret_hu_conv = org.ldk.structs.ClosureReason.constr_from_ptr(ret);
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -216,7 +216,7 @@ public class ClosureReason : CommonBase {
 	 * Utility method to constructs a new CounterpartyCoopClosedUnfundedChannel-variant ClosureReason
 	 */
 	public static ClosureReason counterparty_coop_closed_unfunded_channel() {
-		long ret = bindings.ClosureReason_counterparty_coop_closed_unfunded_channel();
+		long ret = Bindings.ClosureReasonCounterpartyCoopClosedUnfundedChannel();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ClosureReason ret_hu_conv = org.ldk.structs.ClosureReason.constr_from_ptr(ret);
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -227,7 +227,7 @@ public class ClosureReason : CommonBase {
 	 * Utility method to constructs a new FundingBatchClosure-variant ClosureReason
 	 */
 	public static ClosureReason funding_batch_closure() {
-		long ret = bindings.ClosureReason_funding_batch_closure();
+		long ret = Bindings.ClosureReasonFundingBatchClosure();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ClosureReason ret_hu_conv = org.ldk.structs.ClosureReason.constr_from_ptr(ret);
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -239,7 +239,7 @@ public class ClosureReason : CommonBase {
 	 * This ignores pointers and is_owned flags and looks at the values in fields.
 	 */
 	public bool eq(org.ldk.structs.ClosureReason b) {
-		bool ret = bindings.ClosureReason_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.ClosureReasonEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		return ret;
@@ -253,7 +253,7 @@ public class ClosureReason : CommonBase {
 	 * Serialize the ClosureReason object into a byte array which can be read by ClosureReason_read
 	 */
 	public byte[] write() {
-		long ret = bindings.ClosureReason_write(this.ptr);
+		long ret = Bindings.ClosureReasonWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);

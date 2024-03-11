@@ -13,14 +13,14 @@ namespace org { namespace ldk { namespace structs {
 public class TxInitRbf : CommonBase {
 	internal TxInitRbf(object _dummy, long ptr) : base(ptr) { }
 	~TxInitRbf() {
-		if (ptr != 0) { bindings.TxInitRbf_free(ptr); }
+		if (ptr != 0) { Bindings.TxInitRbfFree(ptr); }
 	}
 
 	/**
 	 * The channel ID
 	 */
 	public byte[] get_channel_id() {
-		long ret = bindings.TxInitRbf_get_channel_id(this.ptr);
+		long ret = Bindings.TxInitRbfGetChannelId(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -31,7 +31,7 @@ public class TxInitRbf : CommonBase {
 	 * The channel ID
 	 */
 	public void set_channel_id(byte[] val) {
-		bindings.TxInitRbf_set_channel_id(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
+		Bindings.TxInitRbfSetChannelId(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -40,7 +40,7 @@ public class TxInitRbf : CommonBase {
 	 * The locktime of the transaction
 	 */
 	public int get_locktime() {
-		int ret = bindings.TxInitRbf_get_locktime(this.ptr);
+		int ret = Bindings.TxInitRbfGetLocktime(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -49,7 +49,7 @@ public class TxInitRbf : CommonBase {
 	 * The locktime of the transaction
 	 */
 	public void set_locktime(int val) {
-		bindings.TxInitRbf_set_locktime(this.ptr, val);
+		Bindings.TxInitRbfSetLocktime(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -58,7 +58,7 @@ public class TxInitRbf : CommonBase {
 	 * The feerate of the transaction
 	 */
 	public int get_feerate_sat_per_1000_weight() {
-		int ret = bindings.TxInitRbf_get_feerate_sat_per_1000_weight(this.ptr);
+		int ret = Bindings.TxInitRbfGetFeerateSatPer1000Weight(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -67,7 +67,7 @@ public class TxInitRbf : CommonBase {
 	 * The feerate of the transaction
 	 */
 	public void set_feerate_sat_per_1000_weight(int val) {
-		bindings.TxInitRbf_set_feerate_sat_per_1000_weight(this.ptr, val);
+		Bindings.TxInitRbfSetFeerateSatPer1000Weight(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -77,7 +77,7 @@ public class TxInitRbf : CommonBase {
 	 * (e.g. splice-out) the funding output of the transaction
 	 */
 	public Option_i64Z get_funding_output_contribution() {
-		long ret = bindings.TxInitRbf_get_funding_output_contribution(this.ptr);
+		long ret = Bindings.TxInitRbfGetFundingOutputContribution(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_i64Z ret_hu_conv = org.ldk.structs.Option_i64Z.constr_from_ptr(ret);
@@ -90,7 +90,7 @@ public class TxInitRbf : CommonBase {
 	 * (e.g. splice-out) the funding output of the transaction
 	 */
 	public void set_funding_output_contribution(org.ldk.structs.Option_i64Z val) {
-		bindings.TxInitRbf_set_funding_output_contribution(this.ptr, val.ptr);
+		Bindings.TxInitRbfSetFundingOutputContribution(this.ptr, val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -100,7 +100,7 @@ public class TxInitRbf : CommonBase {
 	 * Constructs a new TxInitRbf given each field
 	 */
 	public static TxInitRbf of(byte[] channel_id_arg, int locktime_arg, int feerate_sat_per_1000_weight_arg, org.ldk.structs.Option_i64Z funding_output_contribution_arg) {
-		long ret = bindings.TxInitRbf_new(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(channel_id_arg, 32)), locktime_arg, feerate_sat_per_1000_weight_arg, funding_output_contribution_arg.ptr);
+		long ret = Bindings.TxInitRbfNew(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(channel_id_arg, 32)), locktime_arg, feerate_sat_per_1000_weight_arg, funding_output_contribution_arg.ptr);
 		GC.KeepAlive(channel_id_arg);
 		GC.KeepAlive(locktime_arg);
 		GC.KeepAlive(feerate_sat_per_1000_weight_arg);
@@ -113,7 +113,7 @@ public class TxInitRbf : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.TxInitRbf_clone_ptr(this.ptr);
+		long ret = Bindings.TxInitRbfClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -122,7 +122,7 @@ public class TxInitRbf : CommonBase {
 	 * Creates a copy of the TxInitRbf
 	 */
 	public TxInitRbf clone() {
-		long ret = bindings.TxInitRbf_clone(this.ptr);
+		long ret = Bindings.TxInitRbfClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.TxInitRbf ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.TxInitRbf(null, ret); }
@@ -134,7 +134,7 @@ public class TxInitRbf : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the TxInitRbf.
 	 */
 	public long hash() {
-		long ret = bindings.TxInitRbf_hash(this.ptr);
+		long ret = Bindings.TxInitRbfHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -148,7 +148,7 @@ public class TxInitRbf : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.TxInitRbf b) {
-		bool ret = bindings.TxInitRbf_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.TxInitRbfEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -163,7 +163,7 @@ public class TxInitRbf : CommonBase {
 	 * Serialize the TxInitRbf object into a byte array which can be read by TxInitRbf_read
 	 */
 	public byte[] write() {
-		long ret = bindings.TxInitRbf_write(this.ptr);
+		long ret = Bindings.TxInitRbfWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -174,7 +174,7 @@ public class TxInitRbf : CommonBase {
 	 * Read a TxInitRbf from a byte array, created by TxInitRbf_write
 	 */
 	public static Result_TxInitRbfDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.TxInitRbf_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.TxInitRbfRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_TxInitRbfDecodeErrorZ ret_hu_conv = Result_TxInitRbfDecodeErrorZ.constr_from_ptr(ret);

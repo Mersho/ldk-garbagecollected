@@ -9,7 +9,7 @@ namespace org { namespace ldk { namespace structs {
 
 
 /** An implementation of Watch */
-public interface WatchInterface {
+public interface IWatch {
 	/**Watches a channel identified by `funding_txo` using `monitor`.
 	 * 
 	 * Implementations are responsible for watching the chain for the funding transaction along
@@ -70,20 +70,20 @@ public interface WatchInterface {
  * See method documentation and [`ChannelMonitorUpdateStatus`] for specific requirements.
  */
 public class Watch : CommonBase {
-	internal bindings.LDKWatch bindings_instance;
+	internal Bindings.LDKWatch bindings_instance;
 	internal long instance_idx;
 
 	internal Watch(object _dummy, long ptr) : base(ptr) { bindings_instance = null; }
 	~Watch() {
-		if (ptr != 0) { bindings.Watch_free(ptr); }
+		if (ptr != 0) { Bindings.WatchFree(ptr); }
 	}
 
 	private class LDKWatchHolder { internal Watch held; }
-	private class LDKWatchImpl : bindings.LDKWatch {
-		internal LDKWatchImpl(WatchInterface arg, LDKWatchHolder impl_holder) { this.arg = arg; this.impl_holder = impl_holder; }
-		private WatchInterface arg;
+	private class LDKWatchImpl : Bindings.LDKWatch {
+		internal LDKWatchImpl(IWatch arg, LDKWatchHolder impl_holder) { this.arg = arg; this.impl_holder = impl_holder; }
+		private IWatch arg;
 		private LDKWatchHolder impl_holder;
-		public long watch_channel(long _funding_txo, long _monitor) {
+		public long WatchChannel(long _funding_txo, long _monitor) {
 			org.ldk.structs.OutPoint _funding_txo_hu_conv = null; if (_funding_txo < 0 || _funding_txo > 4096) { _funding_txo_hu_conv = new org.ldk.structs.OutPoint(null, _funding_txo); }
 			if (_funding_txo_hu_conv != null) { _funding_txo_hu_conv.ptrs_to.AddLast(this); };
 			org.ldk.structs.ChannelMonitor _monitor_hu_conv = null; if (_monitor < 0 || _monitor > 4096) { _monitor_hu_conv = new org.ldk.structs.ChannelMonitor(null, _monitor); }
@@ -93,7 +93,7 @@ public class Watch : CommonBase {
 			long result = ret == null ? 0 : ret.clone_ptr();
 			return result;
 		}
-		public ChannelMonitorUpdateStatus update_channel(long _funding_txo, long _update) {
+		public ChannelMonitorUpdateStatus UpdateChannel(long _funding_txo, long _update) {
 			org.ldk.structs.OutPoint _funding_txo_hu_conv = null; if (_funding_txo < 0 || _funding_txo > 4096) { _funding_txo_hu_conv = new org.ldk.structs.OutPoint(null, _funding_txo); }
 			if (_funding_txo_hu_conv != null) { _funding_txo_hu_conv.ptrs_to.AddLast(this); };
 			org.ldk.structs.ChannelMonitorUpdate _update_hu_conv = null; if (_update < 0 || _update > 4096) { _update_hu_conv = new org.ldk.structs.ChannelMonitorUpdate(null, _update); }
@@ -101,7 +101,7 @@ public class Watch : CommonBase {
 				GC.KeepAlive(arg);
 			return ret;
 		}
-		public long release_pending_monitor_events() {
+		public long ReleasePendingMonitorEvents() {
 			ThreeTuple_OutPointCVec_MonitorEventZPublicKeyZ[] ret = arg.release_pending_monitor_events();
 				GC.KeepAlive(arg);
 			long result = InternalUtils.encodeUint64Array(InternalUtils.mapArray(ret, ret_conv_49 => ret_conv_49 == null ? 0 : ret_conv_49.clone_ptr()));
@@ -110,10 +110,10 @@ public class Watch : CommonBase {
 	}
 
 	/** Creates a new instance of Watch from a given implementation */
-	public static Watch new_impl(WatchInterface arg) {
+	public static Watch new_impl(IWatch arg) {
 		LDKWatchHolder impl_holder = new LDKWatchHolder();
 		LDKWatchImpl impl = new LDKWatchImpl(arg, impl_holder);
-		long[] ptr_idx = bindings.LDKWatch_new(impl);
+		long[] ptr_idx = Bindings.LDKWatchNew(impl);
 
 		impl_holder.held = new Watch(null, ptr_idx[0]);
 		impl_holder.held.instance_idx = ptr_idx[1];
@@ -139,7 +139,7 @@ public class Watch : CommonBase {
 	 * [`block_disconnected`]: channelmonitor::ChannelMonitor::block_disconnected
 	 */
 	public Result_ChannelMonitorUpdateStatusNoneZ watch_channel(org.ldk.structs.OutPoint funding_txo, org.ldk.structs.ChannelMonitor monitor) {
-		long ret = bindings.Watch_watch_channel(this.ptr, funding_txo == null ? 0 : funding_txo.ptr, monitor == null ? 0 : monitor.ptr);
+		long ret = Bindings.WatchWatchChannel(this.ptr, funding_txo == null ? 0 : funding_txo.ptr, monitor == null ? 0 : monitor.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(funding_txo);
 		GC.KeepAlive(monitor);
@@ -168,7 +168,7 @@ public class Watch : CommonBase {
 	 * [`ChannelManager`]: crate::ln::channelmanager::ChannelManager
 	 */
 	public ChannelMonitorUpdateStatus update_channel(org.ldk.structs.OutPoint funding_txo, org.ldk.structs.ChannelMonitorUpdate update) {
-		ChannelMonitorUpdateStatus ret = bindings.Watch_update_channel(this.ptr, funding_txo == null ? 0 : funding_txo.ptr, update == null ? 0 : update.ptr);
+		ChannelMonitorUpdateStatus ret = Bindings.WatchUpdateChannel(this.ptr, funding_txo == null ? 0 : funding_txo.ptr, update == null ? 0 : update.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(funding_txo);
 		GC.KeepAlive(update);
@@ -189,7 +189,7 @@ public class Watch : CommonBase {
 	 * [`MonitorEvent::Completed`] here, see [`ChannelMonitorUpdateStatus::InProgress`].
 	 */
 	public ThreeTuple_OutPointCVec_MonitorEventZPublicKeyZ[] release_pending_monitor_events() {
-		long ret = bindings.Watch_release_pending_monitor_events(this.ptr);
+		long ret = Bindings.WatchReleasePendingMonitorEvents(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		int ret_conv_49_len = InternalUtils.getArrayLength(ret);
@@ -200,7 +200,7 @@ public class Watch : CommonBase {
 			if (ret_conv_49_hu_conv != null) { ret_conv_49_hu_conv.ptrs_to.AddLast(this); };
 			ret_conv_49_arr[x] = ret_conv_49_hu_conv;
 		}
-		bindings.free_buffer(ret);
+		Bindings.FreeBuffer(ret);
 		return ret_conv_49_arr;
 	}
 

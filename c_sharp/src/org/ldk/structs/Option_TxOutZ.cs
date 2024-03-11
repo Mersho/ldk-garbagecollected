@@ -11,11 +11,11 @@ namespace org { namespace ldk { namespace structs {
 public class Option_TxOutZ : CommonBase {
 	protected Option_TxOutZ(object _dummy, long ptr) : base(ptr) { }
 	~Option_TxOutZ() {
-		if (ptr != 0) { bindings.COption_TxOutZ_free(ptr); }
+		if (ptr != 0) { Bindings.COptionTxOutZFree(ptr); }
 	}
 
 	internal static Option_TxOutZ constr_from_ptr(long ptr) {
-		long raw_ty = bindings.LDKCOption_TxOutZ_ty_from_ptr(ptr);
+		long raw_ty = Bindings.LDKCOptionTxOutZTyFromPtr(ptr);
 		switch (raw_ty) {
 			case 0: return new Option_TxOutZ_Some(ptr);
 			case 1: return new Option_TxOutZ_None(ptr);
@@ -28,7 +28,7 @@ public class Option_TxOutZ : CommonBase {
 	public class Option_TxOutZ_Some : Option_TxOutZ {
 		public TxOut some;
 		internal Option_TxOutZ_Some(long ptr) : base(null, ptr) {
-			long some = bindings.LDKCOption_TxOutZ_Some_get_some(ptr);
+			long some = Bindings.LDKCOptionTxOutZSomeGetSome(ptr);
 			TxOut some_conv = new TxOut(null, some);
 			this.some = some_conv;
 		}
@@ -42,7 +42,7 @@ public class Option_TxOutZ : CommonBase {
 	 * Constructs a new COption_TxOutZ containing a crate::c_types::TxOut
 	 */
 	public static Option_TxOutZ some(org.ldk.structs.TxOut o) {
-		long ret = bindings.COption_TxOutZ_some(o.ptr);
+		long ret = Bindings.COptionTxOutZSome(o.ptr);
 		GC.KeepAlive(o);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_TxOutZ ret_hu_conv = org.ldk.structs.Option_TxOutZ.constr_from_ptr(ret);
@@ -54,7 +54,7 @@ public class Option_TxOutZ : CommonBase {
 	 * Constructs a new COption_TxOutZ containing nothing
 	 */
 	public static Option_TxOutZ none() {
-		long ret = bindings.COption_TxOutZ_none();
+		long ret = Bindings.COptionTxOutZNone();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_TxOutZ ret_hu_conv = org.ldk.structs.Option_TxOutZ.constr_from_ptr(ret);
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -62,7 +62,7 @@ public class Option_TxOutZ : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.COption_TxOutZ_clone_ptr(this.ptr);
+		long ret = Bindings.COptionTxOutZClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -72,7 +72,7 @@ public class Option_TxOutZ : CommonBase {
 	 * but with all dynamically-allocated buffers duplicated in new buffers.
 	 */
 	public Option_TxOutZ clone() {
-		long ret = bindings.COption_TxOutZ_clone(this.ptr);
+		long ret = Bindings.COptionTxOutZClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_TxOutZ ret_hu_conv = org.ldk.structs.Option_TxOutZ.constr_from_ptr(ret);

@@ -8,11 +8,11 @@ namespace org { namespace ldk { namespace structs {
 public class Result_WriteableEcdsaChannelSignerDecodeErrorZ : CommonBase {
 	Result_WriteableEcdsaChannelSignerDecodeErrorZ(object _dummy, long ptr) : base(ptr) { }
 	~Result_WriteableEcdsaChannelSignerDecodeErrorZ() {
-		if (ptr != 0) { bindings.CResult_WriteableEcdsaChannelSignerDecodeErrorZ_free(ptr); }
+		if (ptr != 0) { Bindings.CResultWriteableEcdsaChannelSignerDecodeErrorZFree(ptr); }
 	}
 
 	internal static Result_WriteableEcdsaChannelSignerDecodeErrorZ constr_from_ptr(long ptr) {
-		if (bindings.CResult_WriteableEcdsaChannelSignerDecodeErrorZ_is_ok(ptr)) {
+		if (Bindings.CResultWriteableEcdsaChannelSignerDecodeErrorZIsOk(ptr)) {
 			return new Result_WriteableEcdsaChannelSignerDecodeErrorZ_OK(null, ptr);
 		} else {
 			return new Result_WriteableEcdsaChannelSignerDecodeErrorZ_Err(null, ptr);
@@ -21,7 +21,7 @@ public class Result_WriteableEcdsaChannelSignerDecodeErrorZ : CommonBase {
 	public class Result_WriteableEcdsaChannelSignerDecodeErrorZ_OK : Result_WriteableEcdsaChannelSignerDecodeErrorZ {
 		public readonly WriteableEcdsaChannelSigner res;
 		internal Result_WriteableEcdsaChannelSignerDecodeErrorZ_OK(object _dummy, long ptr) : base(_dummy, ptr) {
-			long res = bindings.CResult_WriteableEcdsaChannelSignerDecodeErrorZ_get_ok(ptr);
+			long res = Bindings.CResultWriteableEcdsaChannelSignerDecodeErrorZGetOk(ptr);
 			WriteableEcdsaChannelSigner ret_hu_conv = new WriteableEcdsaChannelSigner(null, res);
 			if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(this); };
 			this.res = ret_hu_conv;
@@ -31,7 +31,7 @@ public class Result_WriteableEcdsaChannelSignerDecodeErrorZ : CommonBase {
 	public class Result_WriteableEcdsaChannelSignerDecodeErrorZ_Err : Result_WriteableEcdsaChannelSignerDecodeErrorZ {
 		public readonly DecodeError err;
 		internal Result_WriteableEcdsaChannelSignerDecodeErrorZ_Err(object _dummy, long ptr) : base(_dummy, ptr) {
-			long err = bindings.CResult_WriteableEcdsaChannelSignerDecodeErrorZ_get_err(ptr);
+			long err = Bindings.CResultWriteableEcdsaChannelSignerDecodeErrorZGetErr(ptr);
 			org.ldk.structs.DecodeError err_hu_conv = org.ldk.structs.DecodeError.constr_from_ptr(err);
 			if (err_hu_conv != null) { err_hu_conv.ptrs_to.AddLast(this); };
 			this.err = err_hu_conv;
@@ -42,7 +42,7 @@ public class Result_WriteableEcdsaChannelSignerDecodeErrorZ : CommonBase {
 	 * Creates a new CResult_WriteableEcdsaChannelSignerDecodeErrorZ in the success state.
 	 */
 	public static Result_WriteableEcdsaChannelSignerDecodeErrorZ ok(org.ldk.structs.WriteableEcdsaChannelSigner o) {
-		long ret = bindings.CResult_WriteableEcdsaChannelSignerDecodeErrorZ_ok(o.ptr);
+		long ret = Bindings.CResultWriteableEcdsaChannelSignerDecodeErrorZOk(o.ptr);
 		GC.KeepAlive(o);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_WriteableEcdsaChannelSignerDecodeErrorZ ret_hu_conv = Result_WriteableEcdsaChannelSignerDecodeErrorZ.constr_from_ptr(ret);
@@ -54,7 +54,7 @@ public class Result_WriteableEcdsaChannelSignerDecodeErrorZ : CommonBase {
 	 * Creates a new CResult_WriteableEcdsaChannelSignerDecodeErrorZ in the error state.
 	 */
 	public static Result_WriteableEcdsaChannelSignerDecodeErrorZ err(org.ldk.structs.DecodeError e) {
-		long ret = bindings.CResult_WriteableEcdsaChannelSignerDecodeErrorZ_err(e.ptr);
+		long ret = Bindings.CResultWriteableEcdsaChannelSignerDecodeErrorZErr(e.ptr);
 		GC.KeepAlive(e);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_WriteableEcdsaChannelSignerDecodeErrorZ ret_hu_conv = Result_WriteableEcdsaChannelSignerDecodeErrorZ.constr_from_ptr(ret);
@@ -66,13 +66,13 @@ public class Result_WriteableEcdsaChannelSignerDecodeErrorZ : CommonBase {
 	 * Checks if the given object is currently in the success state
 	 */
 	public bool is_ok() {
-		bool ret = bindings.CResult_WriteableEcdsaChannelSignerDecodeErrorZ_is_ok(this.ptr);
+		bool ret = Bindings.CResultWriteableEcdsaChannelSignerDecodeErrorZIsOk(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.CResult_WriteableEcdsaChannelSignerDecodeErrorZ_clone_ptr(this.ptr);
+		long ret = Bindings.CResultWriteableEcdsaChannelSignerDecodeErrorZClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -82,7 +82,7 @@ public class Result_WriteableEcdsaChannelSignerDecodeErrorZ : CommonBase {
 	 * but with all dynamically-allocated buffers duplicated in new buffers.
 	 */
 	public Result_WriteableEcdsaChannelSignerDecodeErrorZ clone() {
-		long ret = bindings.CResult_WriteableEcdsaChannelSignerDecodeErrorZ_clone(this.ptr);
+		long ret = Bindings.CResultWriteableEcdsaChannelSignerDecodeErrorZClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_WriteableEcdsaChannelSignerDecodeErrorZ ret_hu_conv = Result_WriteableEcdsaChannelSignerDecodeErrorZ.constr_from_ptr(ret);

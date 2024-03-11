@@ -8,11 +8,11 @@ namespace org { namespace ldk { namespace structs {
 public class Result_ChannelDerivationParametersDecodeErrorZ : CommonBase {
 	Result_ChannelDerivationParametersDecodeErrorZ(object _dummy, long ptr) : base(ptr) { }
 	~Result_ChannelDerivationParametersDecodeErrorZ() {
-		if (ptr != 0) { bindings.CResult_ChannelDerivationParametersDecodeErrorZ_free(ptr); }
+		if (ptr != 0) { Bindings.CResultChannelDerivationParametersDecodeErrorZFree(ptr); }
 	}
 
 	internal static Result_ChannelDerivationParametersDecodeErrorZ constr_from_ptr(long ptr) {
-		if (bindings.CResult_ChannelDerivationParametersDecodeErrorZ_is_ok(ptr)) {
+		if (Bindings.CResultChannelDerivationParametersDecodeErrorZIsOk(ptr)) {
 			return new Result_ChannelDerivationParametersDecodeErrorZ_OK(null, ptr);
 		} else {
 			return new Result_ChannelDerivationParametersDecodeErrorZ_Err(null, ptr);
@@ -21,7 +21,7 @@ public class Result_ChannelDerivationParametersDecodeErrorZ : CommonBase {
 	public class Result_ChannelDerivationParametersDecodeErrorZ_OK : Result_ChannelDerivationParametersDecodeErrorZ {
 		public readonly ChannelDerivationParameters res;
 		internal Result_ChannelDerivationParametersDecodeErrorZ_OK(object _dummy, long ptr) : base(_dummy, ptr) {
-			long res = bindings.CResult_ChannelDerivationParametersDecodeErrorZ_get_ok(ptr);
+			long res = Bindings.CResultChannelDerivationParametersDecodeErrorZGetOk(ptr);
 			org.ldk.structs.ChannelDerivationParameters res_hu_conv = null; if (res < 0 || res > 4096) { res_hu_conv = new org.ldk.structs.ChannelDerivationParameters(null, res); }
 			if (res_hu_conv != null) { res_hu_conv.ptrs_to.AddLast(this); };
 			this.res = res_hu_conv;
@@ -31,7 +31,7 @@ public class Result_ChannelDerivationParametersDecodeErrorZ : CommonBase {
 	public class Result_ChannelDerivationParametersDecodeErrorZ_Err : Result_ChannelDerivationParametersDecodeErrorZ {
 		public readonly DecodeError err;
 		internal Result_ChannelDerivationParametersDecodeErrorZ_Err(object _dummy, long ptr) : base(_dummy, ptr) {
-			long err = bindings.CResult_ChannelDerivationParametersDecodeErrorZ_get_err(ptr);
+			long err = Bindings.CResultChannelDerivationParametersDecodeErrorZGetErr(ptr);
 			org.ldk.structs.DecodeError err_hu_conv = org.ldk.structs.DecodeError.constr_from_ptr(err);
 			if (err_hu_conv != null) { err_hu_conv.ptrs_to.AddLast(this); };
 			this.err = err_hu_conv;
@@ -42,7 +42,7 @@ public class Result_ChannelDerivationParametersDecodeErrorZ : CommonBase {
 	 * Creates a new CResult_ChannelDerivationParametersDecodeErrorZ in the success state.
 	 */
 	public static Result_ChannelDerivationParametersDecodeErrorZ ok(org.ldk.structs.ChannelDerivationParameters o) {
-		long ret = bindings.CResult_ChannelDerivationParametersDecodeErrorZ_ok(o == null ? 0 : o.ptr);
+		long ret = Bindings.CResultChannelDerivationParametersDecodeErrorZOk(o == null ? 0 : o.ptr);
 		GC.KeepAlive(o);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_ChannelDerivationParametersDecodeErrorZ ret_hu_conv = Result_ChannelDerivationParametersDecodeErrorZ.constr_from_ptr(ret);
@@ -54,7 +54,7 @@ public class Result_ChannelDerivationParametersDecodeErrorZ : CommonBase {
 	 * Creates a new CResult_ChannelDerivationParametersDecodeErrorZ in the error state.
 	 */
 	public static Result_ChannelDerivationParametersDecodeErrorZ err(org.ldk.structs.DecodeError e) {
-		long ret = bindings.CResult_ChannelDerivationParametersDecodeErrorZ_err(e.ptr);
+		long ret = Bindings.CResultChannelDerivationParametersDecodeErrorZErr(e.ptr);
 		GC.KeepAlive(e);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_ChannelDerivationParametersDecodeErrorZ ret_hu_conv = Result_ChannelDerivationParametersDecodeErrorZ.constr_from_ptr(ret);
@@ -66,13 +66,13 @@ public class Result_ChannelDerivationParametersDecodeErrorZ : CommonBase {
 	 * Checks if the given object is currently in the success state
 	 */
 	public bool is_ok() {
-		bool ret = bindings.CResult_ChannelDerivationParametersDecodeErrorZ_is_ok(this.ptr);
+		bool ret = Bindings.CResultChannelDerivationParametersDecodeErrorZIsOk(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.CResult_ChannelDerivationParametersDecodeErrorZ_clone_ptr(this.ptr);
+		long ret = Bindings.CResultChannelDerivationParametersDecodeErrorZClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -82,7 +82,7 @@ public class Result_ChannelDerivationParametersDecodeErrorZ : CommonBase {
 	 * but with all dynamically-allocated buffers duplicated in new buffers.
 	 */
 	public Result_ChannelDerivationParametersDecodeErrorZ clone() {
-		long ret = bindings.CResult_ChannelDerivationParametersDecodeErrorZ_clone(this.ptr);
+		long ret = Bindings.CResultChannelDerivationParametersDecodeErrorZClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_ChannelDerivationParametersDecodeErrorZ ret_hu_conv = Result_ChannelDerivationParametersDecodeErrorZ.constr_from_ptr(ret);

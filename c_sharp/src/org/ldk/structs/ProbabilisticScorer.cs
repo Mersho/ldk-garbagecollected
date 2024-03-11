@@ -42,7 +42,7 @@ namespace org { namespace ldk { namespace structs {
 public class ProbabilisticScorer : CommonBase {
 	internal ProbabilisticScorer(object _dummy, long ptr) : base(ptr) { }
 	~ProbabilisticScorer() {
-		if (ptr != 0) { bindings.ProbabilisticScorer_free(ptr); }
+		if (ptr != 0) { Bindings.ProbabilisticScorerFree(ptr); }
 	}
 
 	/**
@@ -50,7 +50,7 @@ public class ProbabilisticScorer : CommonBase {
 	 * through a network graph.
 	 */
 	public static ProbabilisticScorer of(org.ldk.structs.ProbabilisticScoringDecayParameters decay_params, org.ldk.structs.NetworkGraph network_graph, org.ldk.structs.Logger logger) {
-		long ret = bindings.ProbabilisticScorer_new(decay_params == null ? 0 : decay_params.ptr, network_graph == null ? 0 : network_graph.ptr, logger.ptr);
+		long ret = Bindings.ProbabilisticScorerNew(decay_params == null ? 0 : decay_params.ptr, network_graph == null ? 0 : network_graph.ptr, logger.ptr);
 		GC.KeepAlive(decay_params);
 		GC.KeepAlive(network_graph);
 		GC.KeepAlive(logger);
@@ -70,7 +70,7 @@ public class ProbabilisticScorer : CommonBase {
 	 * which may be a substantial amount of log output.
 	 */
 	public void debug_log_liquidity_stats() {
-		bindings.ProbabilisticScorer_debug_log_liquidity_stats(this.ptr);
+		Bindings.ProbabilisticScorerDebugLogLiquidityStats(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -79,7 +79,7 @@ public class ProbabilisticScorer : CommonBase {
 	 * channel with `scid` towards the given `target` node.
 	 */
 	public Option_C2Tuple_u64u64ZZ estimated_channel_liquidity_range(long scid, org.ldk.structs.NodeId target) {
-		long ret = bindings.ProbabilisticScorer_estimated_channel_liquidity_range(this.ptr, scid, target == null ? 0 : target.ptr);
+		long ret = Bindings.ProbabilisticScorerEstimatedChannelLiquidityRange(this.ptr, scid, target == null ? 0 : target.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(scid);
 		GC.KeepAlive(target);
@@ -119,7 +119,7 @@ public class ProbabilisticScorer : CommonBase {
 	 * the scoring model, see [`Self::historical_estimated_payment_success_probability`].
 	 */
 	public Option_C2Tuple_ThirtyTwoU16sThirtyTwoU16sZZ historical_estimated_channel_liquidity_probabilities(long scid, org.ldk.structs.NodeId target) {
-		long ret = bindings.ProbabilisticScorer_historical_estimated_channel_liquidity_probabilities(this.ptr, scid, target == null ? 0 : target.ptr);
+		long ret = Bindings.ProbabilisticScorerHistoricalEstimatedChannelLiquidityProbabilities(this.ptr, scid, target == null ? 0 : target.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(scid);
 		GC.KeepAlive(target);
@@ -140,7 +140,7 @@ public class ProbabilisticScorer : CommonBase {
 	 * [`Self::estimated_channel_liquidity_range`]).
 	 */
 	public Option_f64Z historical_estimated_payment_success_probability(long scid, org.ldk.structs.NodeId target, long amount_msat, org.ldk.structs.ProbabilisticScoringFeeParameters _params) {
-		long ret = bindings.ProbabilisticScorer_historical_estimated_payment_success_probability(this.ptr, scid, target == null ? 0 : target.ptr, amount_msat, _params == null ? 0 : _params.ptr);
+		long ret = Bindings.ProbabilisticScorerHistoricalEstimatedPaymentSuccessProbability(this.ptr, scid, target == null ? 0 : target.ptr, amount_msat, _params == null ? 0 : _params.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(scid);
 		GC.KeepAlive(target);
@@ -159,7 +159,7 @@ public class ProbabilisticScorer : CommonBase {
 	 * This copies the `inner` pointer in this_arg and thus the returned ScoreLookUp must be freed before this_arg is
 	 */
 	public ScoreLookUp as_ScoreLookUp() {
-		long ret = bindings.ProbabilisticScorer_as_ScoreLookUp(this.ptr);
+		long ret = Bindings.ProbabilisticScorerAsScoreLookUp(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		ScoreLookUp ret_hu_conv = new ScoreLookUp(null, ret);
@@ -172,7 +172,7 @@ public class ProbabilisticScorer : CommonBase {
 	 * This copies the `inner` pointer in this_arg and thus the returned ScoreUpdate must be freed before this_arg is
 	 */
 	public ScoreUpdate as_ScoreUpdate() {
-		long ret = bindings.ProbabilisticScorer_as_ScoreUpdate(this.ptr);
+		long ret = Bindings.ProbabilisticScorerAsScoreUpdate(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		ScoreUpdate ret_hu_conv = new ScoreUpdate(null, ret);
@@ -185,7 +185,7 @@ public class ProbabilisticScorer : CommonBase {
 	 * This copies the `inner` pointer in this_arg and thus the returned Score must be freed before this_arg is
 	 */
 	public Score as_Score() {
-		long ret = bindings.ProbabilisticScorer_as_Score(this.ptr);
+		long ret = Bindings.ProbabilisticScorerAsScore(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Score ret_hu_conv = new Score(null, ret);
@@ -197,7 +197,7 @@ public class ProbabilisticScorer : CommonBase {
 	 * Serialize the ProbabilisticScorer object into a byte array which can be read by ProbabilisticScorer_read
 	 */
 	public byte[] write() {
-		long ret = bindings.ProbabilisticScorer_write(this.ptr);
+		long ret = Bindings.ProbabilisticScorerWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -208,7 +208,7 @@ public class ProbabilisticScorer : CommonBase {
 	 * Read a ProbabilisticScorer from a byte array, created by ProbabilisticScorer_write
 	 */
 	public static Result_ProbabilisticScorerDecodeErrorZ read(byte[] ser, org.ldk.structs.ProbabilisticScoringDecayParameters arg_a, org.ldk.structs.NetworkGraph arg_b, org.ldk.structs.Logger arg_c) {
-		long ret = bindings.ProbabilisticScorer_read(InternalUtils.encodeUint8Array(ser), arg_a == null ? 0 : arg_a.ptr, arg_b == null ? 0 : arg_b.ptr, arg_c.ptr);
+		long ret = Bindings.ProbabilisticScorerRead(InternalUtils.encodeUint8Array(ser), arg_a == null ? 0 : arg_a.ptr, arg_b == null ? 0 : arg_b.ptr, arg_c.ptr);
 		GC.KeepAlive(ser);
 		GC.KeepAlive(arg_a);
 		GC.KeepAlive(arg_b);

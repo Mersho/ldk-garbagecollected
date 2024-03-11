@@ -12,7 +12,7 @@ namespace org { namespace ldk { namespace structs {
 public class NodeInfo : CommonBase {
 	internal NodeInfo(object _dummy, long ptr) : base(ptr) { }
 	~NodeInfo() {
-		if (ptr != 0) { bindings.NodeInfo_free(ptr); }
+		if (ptr != 0) { Bindings.NodeInfoFree(ptr); }
 	}
 
 	/**
@@ -21,7 +21,7 @@ public class NodeInfo : CommonBase {
 	 * Returns a copy of the field.
 	 */
 	public long[] get_channels() {
-		long ret = bindings.NodeInfo_get_channels(this.ptr);
+		long ret = Bindings.NodeInfoGetChannels(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		long[] ret_conv = InternalUtils.decodeUint64Array(ret);
@@ -32,7 +32,7 @@ public class NodeInfo : CommonBase {
 	 * All valid channels a node has announced
 	 */
 	public void set_channels(long[] val) {
-		bindings.NodeInfo_set_channels(this.ptr, InternalUtils.encodeUint64Array(val));
+		Bindings.NodeInfoSetChannels(this.ptr, InternalUtils.encodeUint64Array(val));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -45,7 +45,7 @@ public class NodeInfo : CommonBase {
 	 * Note that the return value (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public NodeAnnouncementInfo get_announcement_info() {
-		long ret = bindings.NodeInfo_get_announcement_info(this.ptr);
+		long ret = Bindings.NodeInfoGetAnnouncementInfo(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.NodeAnnouncementInfo ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.NodeAnnouncementInfo(null, ret); }
@@ -61,7 +61,7 @@ public class NodeInfo : CommonBase {
 	 * Note that val (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public void set_announcement_info(org.ldk.structs.NodeAnnouncementInfo val) {
-		bindings.NodeInfo_set_announcement_info(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.NodeInfoSetAnnouncementInfo(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -73,7 +73,7 @@ public class NodeInfo : CommonBase {
 	 * Note that announcement_info_arg (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public static NodeInfo of(long[] channels_arg, org.ldk.structs.NodeAnnouncementInfo announcement_info_arg) {
-		long ret = bindings.NodeInfo_new(InternalUtils.encodeUint64Array(channels_arg), announcement_info_arg == null ? 0 : announcement_info_arg.ptr);
+		long ret = Bindings.NodeInfoNew(InternalUtils.encodeUint64Array(channels_arg), announcement_info_arg == null ? 0 : announcement_info_arg.ptr);
 		GC.KeepAlive(channels_arg);
 		GC.KeepAlive(announcement_info_arg);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -84,7 +84,7 @@ public class NodeInfo : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.NodeInfo_clone_ptr(this.ptr);
+		long ret = Bindings.NodeInfoClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -93,7 +93,7 @@ public class NodeInfo : CommonBase {
 	 * Creates a copy of the NodeInfo
 	 */
 	public NodeInfo clone() {
-		long ret = bindings.NodeInfo_clone(this.ptr);
+		long ret = Bindings.NodeInfoClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.NodeInfo ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.NodeInfo(null, ret); }
@@ -107,7 +107,7 @@ public class NodeInfo : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.NodeInfo b) {
-		bool ret = bindings.NodeInfo_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.NodeInfoEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -122,7 +122,7 @@ public class NodeInfo : CommonBase {
 	 * Serialize the NodeInfo object into a byte array which can be read by NodeInfo_read
 	 */
 	public byte[] write() {
-		long ret = bindings.NodeInfo_write(this.ptr);
+		long ret = Bindings.NodeInfoWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -133,7 +133,7 @@ public class NodeInfo : CommonBase {
 	 * Read a NodeInfo from a byte array, created by NodeInfo_write
 	 */
 	public static Result_NodeInfoDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.NodeInfo_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.NodeInfoRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_NodeInfoDecodeErrorZ ret_hu_conv = Result_NodeInfoDecodeErrorZ.constr_from_ptr(ret);

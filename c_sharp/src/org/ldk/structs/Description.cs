@@ -15,11 +15,11 @@ namespace org { namespace ldk { namespace structs {
 public class Description : CommonBase {
 	internal Description(object _dummy, long ptr) : base(ptr) { }
 	~Description() {
-		if (ptr != 0) { bindings.Description_free(ptr); }
+		if (ptr != 0) { Bindings.DescriptionFree(ptr); }
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.Description_clone_ptr(this.ptr);
+		long ret = Bindings.DescriptionClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -28,7 +28,7 @@ public class Description : CommonBase {
 	 * Creates a copy of the Description
 	 */
 	public Description clone() {
-		long ret = bindings.Description_clone(this.ptr);
+		long ret = Bindings.DescriptionClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Description ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.Description(null, ret); }
@@ -40,7 +40,7 @@ public class Description : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the Description.
 	 */
 	public long hash() {
-		long ret = bindings.Description_hash(this.ptr);
+		long ret = Bindings.DescriptionHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -54,7 +54,7 @@ public class Description : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.Description b) {
-		bool ret = bindings.Description_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.DescriptionEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -72,7 +72,7 @@ public class Description : CommonBase {
 	 * Please note that single characters may use more than one byte due to UTF8 encoding.
 	 */
 	public static Result_DescriptionCreationErrorZ of(string description) {
-		long ret = bindings.Description_new(InternalUtils.encodeString(description));
+		long ret = Bindings.DescriptionNew(InternalUtils.encodeString(description));
 		GC.KeepAlive(description);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_DescriptionCreationErrorZ ret_hu_conv = Result_DescriptionCreationErrorZ.constr_from_ptr(ret);
@@ -83,7 +83,7 @@ public class Description : CommonBase {
 	 * Returns the underlying description [`UntrustedString`]
 	 */
 	public UntrustedString into_inner() {
-		long ret = bindings.Description_into_inner(this.ptr);
+		long ret = Bindings.DescriptionIntoInner(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.UntrustedString ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.UntrustedString(null, ret); }
@@ -96,7 +96,7 @@ public class Description : CommonBase {
 	 * Get the string representation of a Description object
 	 */
 	public string to_str() {
-		long ret = bindings.Description_to_str(this.ptr);
+		long ret = Bindings.DescriptionToStr(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		string ret_conv = InternalUtils.decodeString(ret);

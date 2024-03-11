@@ -9,7 +9,7 @@ namespace org { namespace ldk { namespace structs {
 
 
 /** An implementation of Persist */
-public interface PersistInterface {
+public interface IPersist {
 	/**Persist a new channel's data in response to a [`chain::Watch::watch_channel`] call. This is
 	 * called by [`ChannelManager`] for new channels, or may be called directly, e.g. on startup.
 	 * 
@@ -124,20 +124,20 @@ public interface PersistInterface {
  * [`TrustedCommitmentTransaction::build_to_local_justice_tx`]: crate::ln::chan_utils::TrustedCommitmentTransaction::build_to_local_justice_tx
  */
 public class Persist : CommonBase {
-	internal bindings.LDKPersist bindings_instance;
+	internal Bindings.LDKPersist bindings_instance;
 	internal long instance_idx;
 
 	internal Persist(object _dummy, long ptr) : base(ptr) { bindings_instance = null; }
 	~Persist() {
-		if (ptr != 0) { bindings.Persist_free(ptr); }
+		if (ptr != 0) { Bindings.PersistFree(ptr); }
 	}
 
 	private class LDKPersistHolder { internal Persist held; }
-	private class LDKPersistImpl : bindings.LDKPersist {
-		internal LDKPersistImpl(PersistInterface arg, LDKPersistHolder impl_holder) { this.arg = arg; this.impl_holder = impl_holder; }
-		private PersistInterface arg;
+	private class LDKPersistImpl : Bindings.LDKPersist {
+		internal LDKPersistImpl(IPersist arg, LDKPersistHolder impl_holder) { this.arg = arg; this.impl_holder = impl_holder; }
+		private IPersist arg;
 		private LDKPersistHolder impl_holder;
-		public ChannelMonitorUpdateStatus persist_new_channel(long _channel_id, long _data, long _update_id) {
+		public ChannelMonitorUpdateStatus PersistNewChannel(long _channel_id, long _data, long _update_id) {
 			org.ldk.structs.OutPoint _channel_id_hu_conv = null; if (_channel_id < 0 || _channel_id > 4096) { _channel_id_hu_conv = new org.ldk.structs.OutPoint(null, _channel_id); }
 			if (_channel_id_hu_conv != null) { _channel_id_hu_conv.ptrs_to.AddLast(this); };
 			org.ldk.structs.ChannelMonitor _data_hu_conv = null; if (_data < 0 || _data > 4096) { _data_hu_conv = new org.ldk.structs.ChannelMonitor(null, _data); }
@@ -147,7 +147,7 @@ public class Persist : CommonBase {
 				GC.KeepAlive(arg);
 			return ret;
 		}
-		public ChannelMonitorUpdateStatus update_persisted_channel(long _channel_id, long _update, long _data, long _update_id) {
+		public ChannelMonitorUpdateStatus UpdatePersistedChannel(long _channel_id, long _update, long _data, long _update_id) {
 			org.ldk.structs.OutPoint _channel_id_hu_conv = null; if (_channel_id < 0 || _channel_id > 4096) { _channel_id_hu_conv = new org.ldk.structs.OutPoint(null, _channel_id); }
 			if (_channel_id_hu_conv != null) { _channel_id_hu_conv.ptrs_to.AddLast(this); };
 			org.ldk.structs.ChannelMonitorUpdate _update_hu_conv = null; if (_update < 0 || _update > 4096) { _update_hu_conv = new org.ldk.structs.ChannelMonitorUpdate(null, _update); }
@@ -162,10 +162,10 @@ public class Persist : CommonBase {
 	}
 
 	/** Creates a new instance of Persist from a given implementation */
-	public static Persist new_impl(PersistInterface arg) {
+	public static Persist new_impl(IPersist arg) {
 		LDKPersistHolder impl_holder = new LDKPersistHolder();
 		LDKPersistImpl impl = new LDKPersistImpl(arg, impl_holder);
-		long[] ptr_idx = bindings.LDKPersist_new(impl);
+		long[] ptr_idx = Bindings.LDKPersistNew(impl);
 
 		impl_holder.held = new Persist(null, ptr_idx[0]);
 		impl_holder.held.instance_idx = ptr_idx[1];
@@ -191,7 +191,7 @@ public class Persist : CommonBase {
 	 * [`Writeable::write`]: crate::util::ser::Writeable::write
 	 */
 	public ChannelMonitorUpdateStatus persist_new_channel(org.ldk.structs.OutPoint channel_id, org.ldk.structs.ChannelMonitor data, org.ldk.structs.MonitorUpdateId update_id) {
-		ChannelMonitorUpdateStatus ret = bindings.Persist_persist_new_channel(this.ptr, channel_id == null ? 0 : channel_id.ptr, data == null ? 0 : data.ptr, update_id == null ? 0 : update_id.ptr);
+		ChannelMonitorUpdateStatus ret = Bindings.PersistPersistNewChannel(this.ptr, channel_id == null ? 0 : channel_id.ptr, data == null ? 0 : data.ptr, update_id == null ? 0 : update_id.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(channel_id);
 		GC.KeepAlive(data);
@@ -240,7 +240,7 @@ public class Persist : CommonBase {
 	 * Note that update (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public ChannelMonitorUpdateStatus update_persisted_channel(org.ldk.structs.OutPoint channel_id, org.ldk.structs.ChannelMonitorUpdate update, org.ldk.structs.ChannelMonitor data, org.ldk.structs.MonitorUpdateId update_id) {
-		ChannelMonitorUpdateStatus ret = bindings.Persist_update_persisted_channel(this.ptr, channel_id == null ? 0 : channel_id.ptr, update == null ? 0 : update.ptr, data == null ? 0 : data.ptr, update_id == null ? 0 : update_id.ptr);
+		ChannelMonitorUpdateStatus ret = Bindings.PersistUpdatePersistedChannel(this.ptr, channel_id == null ? 0 : channel_id.ptr, update == null ? 0 : update.ptr, data == null ? 0 : data.ptr, update_id == null ? 0 : update_id.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(channel_id);
 		GC.KeepAlive(update);

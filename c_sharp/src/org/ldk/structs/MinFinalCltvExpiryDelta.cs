@@ -12,17 +12,17 @@ namespace org { namespace ldk { namespace structs {
 public class MinFinalCltvExpiryDelta : CommonBase {
 	internal MinFinalCltvExpiryDelta(object _dummy, long ptr) : base(ptr) { }
 	~MinFinalCltvExpiryDelta() {
-		if (ptr != 0) { bindings.MinFinalCltvExpiryDelta_free(ptr); }
+		if (ptr != 0) { Bindings.MinFinalCltvExpiryDeltaFree(ptr); }
 	}
 
 	public long get_a() {
-		long ret = bindings.MinFinalCltvExpiryDelta_get_a(this.ptr);
+		long ret = Bindings.MinFinalCltvExpiryDeltaGetA(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
 
 	public void set_a(long val) {
-		bindings.MinFinalCltvExpiryDelta_set_a(this.ptr, val);
+		Bindings.MinFinalCltvExpiryDeltaSetA(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -31,7 +31,7 @@ public class MinFinalCltvExpiryDelta : CommonBase {
 	 * Constructs a new MinFinalCltvExpiryDelta given each field
 	 */
 	public static MinFinalCltvExpiryDelta of(long a_arg) {
-		long ret = bindings.MinFinalCltvExpiryDelta_new(a_arg);
+		long ret = Bindings.MinFinalCltvExpiryDeltaNew(a_arg);
 		GC.KeepAlive(a_arg);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.MinFinalCltvExpiryDelta ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.MinFinalCltvExpiryDelta(null, ret); }
@@ -40,7 +40,7 @@ public class MinFinalCltvExpiryDelta : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.MinFinalCltvExpiryDelta_clone_ptr(this.ptr);
+		long ret = Bindings.MinFinalCltvExpiryDeltaClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -49,7 +49,7 @@ public class MinFinalCltvExpiryDelta : CommonBase {
 	 * Creates a copy of the MinFinalCltvExpiryDelta
 	 */
 	public MinFinalCltvExpiryDelta clone() {
-		long ret = bindings.MinFinalCltvExpiryDelta_clone(this.ptr);
+		long ret = Bindings.MinFinalCltvExpiryDeltaClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.MinFinalCltvExpiryDelta ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.MinFinalCltvExpiryDelta(null, ret); }
@@ -61,7 +61,7 @@ public class MinFinalCltvExpiryDelta : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the MinFinalCltvExpiryDelta.
 	 */
 	public long hash() {
-		long ret = bindings.MinFinalCltvExpiryDelta_hash(this.ptr);
+		long ret = Bindings.MinFinalCltvExpiryDeltaHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -75,7 +75,7 @@ public class MinFinalCltvExpiryDelta : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.MinFinalCltvExpiryDelta b) {
-		bool ret = bindings.MinFinalCltvExpiryDelta_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.MinFinalCltvExpiryDeltaEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };

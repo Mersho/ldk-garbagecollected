@@ -16,14 +16,14 @@ namespace org { namespace ldk { namespace structs {
 public class ChainParameters : CommonBase {
 	internal ChainParameters(object _dummy, long ptr) : base(ptr) { }
 	~ChainParameters() {
-		if (ptr != 0) { bindings.ChainParameters_free(ptr); }
+		if (ptr != 0) { Bindings.ChainParametersFree(ptr); }
 	}
 
 	/**
 	 * The network for determining the `chain_hash` in Lightning messages.
 	 */
 	public Network get_network() {
-		Network ret = bindings.ChainParameters_get_network(this.ptr);
+		Network ret = Bindings.ChainParametersGetNetwork(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -32,7 +32,7 @@ public class ChainParameters : CommonBase {
 	 * The network for determining the `chain_hash` in Lightning messages.
 	 */
 	public void set_network(Network val) {
-		bindings.ChainParameters_set_network(this.ptr, val);
+		Bindings.ChainParametersSetNetwork(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -43,7 +43,7 @@ public class ChainParameters : CommonBase {
 	 * Used to track on-chain channel funding outputs and send payments with reliable timelocks.
 	 */
 	public BestBlock get_best_block() {
-		long ret = bindings.ChainParameters_get_best_block(this.ptr);
+		long ret = Bindings.ChainParametersGetBestBlock(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.BestBlock ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.BestBlock(null, ret); }
@@ -57,7 +57,7 @@ public class ChainParameters : CommonBase {
 	 * Used to track on-chain channel funding outputs and send payments with reliable timelocks.
 	 */
 	public void set_best_block(org.ldk.structs.BestBlock val) {
-		bindings.ChainParameters_set_best_block(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.ChainParametersSetBestBlock(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -67,7 +67,7 @@ public class ChainParameters : CommonBase {
 	 * Constructs a new ChainParameters given each field
 	 */
 	public static ChainParameters of(Network network_arg, org.ldk.structs.BestBlock best_block_arg) {
-		long ret = bindings.ChainParameters_new(network_arg, best_block_arg == null ? 0 : best_block_arg.ptr);
+		long ret = Bindings.ChainParametersNew(network_arg, best_block_arg == null ? 0 : best_block_arg.ptr);
 		GC.KeepAlive(network_arg);
 		GC.KeepAlive(best_block_arg);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -78,7 +78,7 @@ public class ChainParameters : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.ChainParameters_clone_ptr(this.ptr);
+		long ret = Bindings.ChainParametersClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -87,7 +87,7 @@ public class ChainParameters : CommonBase {
 	 * Creates a copy of the ChainParameters
 	 */
 	public ChainParameters clone() {
-		long ret = bindings.ChainParameters_clone(this.ptr);
+		long ret = Bindings.ChainParametersClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChainParameters ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChainParameters(null, ret); }

@@ -13,11 +13,11 @@ namespace org { namespace ldk { namespace structs {
 public class DirectedChannelInfo : CommonBase {
 	internal DirectedChannelInfo(object _dummy, long ptr) : base(ptr) { }
 	~DirectedChannelInfo() {
-		if (ptr != 0) { bindings.DirectedChannelInfo_free(ptr); }
+		if (ptr != 0) { Bindings.DirectedChannelInfoFree(ptr); }
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.DirectedChannelInfo_clone_ptr(this.ptr);
+		long ret = Bindings.DirectedChannelInfoClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -26,7 +26,7 @@ public class DirectedChannelInfo : CommonBase {
 	 * Creates a copy of the DirectedChannelInfo
 	 */
 	public DirectedChannelInfo clone() {
-		long ret = bindings.DirectedChannelInfo_clone(this.ptr);
+		long ret = Bindings.DirectedChannelInfoClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.DirectedChannelInfo ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.DirectedChannelInfo(null, ret); }
@@ -38,7 +38,7 @@ public class DirectedChannelInfo : CommonBase {
 	 * Returns information for the channel.
 	 */
 	public ChannelInfo channel() {
-		long ret = bindings.DirectedChannelInfo_channel(this.ptr);
+		long ret = Bindings.DirectedChannelInfoChannel(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChannelInfo ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChannelInfo(null, ret); }
@@ -54,7 +54,7 @@ public class DirectedChannelInfo : CommonBase {
 	 * otherwise.
 	 */
 	public EffectiveCapacity effective_capacity() {
-		long ret = bindings.DirectedChannelInfo_effective_capacity(this.ptr);
+		long ret = Bindings.DirectedChannelInfoEffectiveCapacity(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.EffectiveCapacity ret_hu_conv = org.ldk.structs.EffectiveCapacity.constr_from_ptr(ret);

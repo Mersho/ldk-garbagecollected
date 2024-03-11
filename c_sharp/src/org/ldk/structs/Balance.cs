@@ -14,11 +14,11 @@ namespace org { namespace ldk { namespace structs {
 public class Balance : CommonBase {
 	protected Balance(object _dummy, long ptr) : base(ptr) { }
 	~Balance() {
-		if (ptr != 0) { bindings.Balance_free(ptr); }
+		if (ptr != 0) { Bindings.BalanceFree(ptr); }
 	}
 
 	internal static Balance constr_from_ptr(long ptr) {
-		long raw_ty = bindings.LDKBalance_ty_from_ptr(ptr);
+		long raw_ty = Bindings.LDKBalanceTyFromPtr(ptr);
 		switch (raw_ty) {
 			case 0: return new Balance_ClaimableOnChannelClose(ptr);
 			case 1: return new Balance_ClaimableAwaitingConfirmations(ptr);
@@ -39,7 +39,7 @@ public class Balance : CommonBase {
 		 */
 		public long amount_satoshis;
 		internal Balance_ClaimableOnChannelClose(long ptr) : base(null, ptr) {
-			this.amount_satoshis = bindings.LDKBalance_ClaimableOnChannelClose_get_amount_satoshis(ptr);
+			this.amount_satoshis = Bindings.LDKBalanceClaimableOnChannelCloseGetAmountSatoshis(ptr);
 		}
 	}
 	/** A Balance of type ClaimableAwaitingConfirmations */
@@ -55,8 +55,8 @@ public class Balance : CommonBase {
 		 */
 		public int confirmation_height;
 		internal Balance_ClaimableAwaitingConfirmations(long ptr) : base(null, ptr) {
-			this.amount_satoshis = bindings.LDKBalance_ClaimableAwaitingConfirmations_get_amount_satoshis(ptr);
-			this.confirmation_height = bindings.LDKBalance_ClaimableAwaitingConfirmations_get_confirmation_height(ptr);
+			this.amount_satoshis = Bindings.LDKBalanceClaimableAwaitingConfirmationsGetAmountSatoshis(ptr);
+			this.confirmation_height = Bindings.LDKBalanceClaimableAwaitingConfirmationsGetConfirmationHeight(ptr);
 		}
 	}
 	/** A Balance of type ContentiousClaimable */
@@ -80,12 +80,12 @@ public class Balance : CommonBase {
 		 */
 		public byte[] payment_preimage;
 		internal Balance_ContentiousClaimable(long ptr) : base(null, ptr) {
-			this.amount_satoshis = bindings.LDKBalance_ContentiousClaimable_get_amount_satoshis(ptr);
-			this.timeout_height = bindings.LDKBalance_ContentiousClaimable_get_timeout_height(ptr);
-			long payment_hash = bindings.LDKBalance_ContentiousClaimable_get_payment_hash(ptr);
+			this.amount_satoshis = Bindings.LDKBalanceContentiousClaimableGetAmountSatoshis(ptr);
+			this.timeout_height = Bindings.LDKBalanceContentiousClaimableGetTimeoutHeight(ptr);
+			long payment_hash = Bindings.LDKBalanceContentiousClaimableGetPaymentHash(ptr);
 			byte[] payment_hash_conv = InternalUtils.decodeUint8Array(payment_hash);
 			this.payment_hash = payment_hash_conv;
-			long payment_preimage = bindings.LDKBalance_ContentiousClaimable_get_payment_preimage(ptr);
+			long payment_preimage = Bindings.LDKBalanceContentiousClaimableGetPaymentPreimage(ptr);
 			byte[] payment_preimage_conv = InternalUtils.decodeUint8Array(payment_preimage);
 			this.payment_preimage = payment_preimage_conv;
 		}
@@ -107,9 +107,9 @@ public class Balance : CommonBase {
 		 */
 		public byte[] payment_hash;
 		internal Balance_MaybeTimeoutClaimableHTLC(long ptr) : base(null, ptr) {
-			this.amount_satoshis = bindings.LDKBalance_MaybeTimeoutClaimableHTLC_get_amount_satoshis(ptr);
-			this.claimable_height = bindings.LDKBalance_MaybeTimeoutClaimableHTLC_get_claimable_height(ptr);
-			long payment_hash = bindings.LDKBalance_MaybeTimeoutClaimableHTLC_get_payment_hash(ptr);
+			this.amount_satoshis = Bindings.LDKBalanceMaybeTimeoutClaimableHTLCGetAmountSatoshis(ptr);
+			this.claimable_height = Bindings.LDKBalanceMaybeTimeoutClaimableHTLCGetClaimableHeight(ptr);
+			long payment_hash = Bindings.LDKBalanceMaybeTimeoutClaimableHTLCGetPaymentHash(ptr);
 			byte[] payment_hash_conv = InternalUtils.decodeUint8Array(payment_hash);
 			this.payment_hash = payment_hash_conv;
 		}
@@ -131,9 +131,9 @@ public class Balance : CommonBase {
 		 */
 		public byte[] payment_hash;
 		internal Balance_MaybePreimageClaimableHTLC(long ptr) : base(null, ptr) {
-			this.amount_satoshis = bindings.LDKBalance_MaybePreimageClaimableHTLC_get_amount_satoshis(ptr);
-			this.expiry_height = bindings.LDKBalance_MaybePreimageClaimableHTLC_get_expiry_height(ptr);
-			long payment_hash = bindings.LDKBalance_MaybePreimageClaimableHTLC_get_payment_hash(ptr);
+			this.amount_satoshis = Bindings.LDKBalanceMaybePreimageClaimableHTLCGetAmountSatoshis(ptr);
+			this.expiry_height = Bindings.LDKBalanceMaybePreimageClaimableHTLCGetExpiryHeight(ptr);
+			long payment_hash = Bindings.LDKBalanceMaybePreimageClaimableHTLCGetPaymentHash(ptr);
 			byte[] payment_hash_conv = InternalUtils.decodeUint8Array(payment_hash);
 			this.payment_hash = payment_hash_conv;
 		}
@@ -148,11 +148,11 @@ public class Balance : CommonBase {
 		 */
 		public long amount_satoshis;
 		internal Balance_CounterpartyRevokedOutputClaimable(long ptr) : base(null, ptr) {
-			this.amount_satoshis = bindings.LDKBalance_CounterpartyRevokedOutputClaimable_get_amount_satoshis(ptr);
+			this.amount_satoshis = Bindings.LDKBalanceCounterpartyRevokedOutputClaimableGetAmountSatoshis(ptr);
 		}
 	}
 	internal long clone_ptr() {
-		long ret = bindings.Balance_clone_ptr(this.ptr);
+		long ret = Bindings.BalanceClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -161,7 +161,7 @@ public class Balance : CommonBase {
 	 * Creates a copy of the Balance
 	 */
 	public Balance clone() {
-		long ret = bindings.Balance_clone(this.ptr);
+		long ret = Bindings.BalanceClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Balance ret_hu_conv = org.ldk.structs.Balance.constr_from_ptr(ret);
@@ -173,7 +173,7 @@ public class Balance : CommonBase {
 	 * Utility method to constructs a new ClaimableOnChannelClose-variant Balance
 	 */
 	public static Balance claimable_on_channel_close(long amount_satoshis) {
-		long ret = bindings.Balance_claimable_on_channel_close(amount_satoshis);
+		long ret = Bindings.BalanceClaimableOnChannelClose(amount_satoshis);
 		GC.KeepAlive(amount_satoshis);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Balance ret_hu_conv = org.ldk.structs.Balance.constr_from_ptr(ret);
@@ -185,7 +185,7 @@ public class Balance : CommonBase {
 	 * Utility method to constructs a new ClaimableAwaitingConfirmations-variant Balance
 	 */
 	public static Balance claimable_awaiting_confirmations(long amount_satoshis, int confirmation_height) {
-		long ret = bindings.Balance_claimable_awaiting_confirmations(amount_satoshis, confirmation_height);
+		long ret = Bindings.BalanceClaimableAwaitingConfirmations(amount_satoshis, confirmation_height);
 		GC.KeepAlive(amount_satoshis);
 		GC.KeepAlive(confirmation_height);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -198,7 +198,7 @@ public class Balance : CommonBase {
 	 * Utility method to constructs a new ContentiousClaimable-variant Balance
 	 */
 	public static Balance contentious_claimable(long amount_satoshis, int timeout_height, byte[] payment_hash, byte[] payment_preimage) {
-		long ret = bindings.Balance_contentious_claimable(amount_satoshis, timeout_height, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_hash, 32)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_preimage, 32)));
+		long ret = Bindings.BalanceContentiousClaimable(amount_satoshis, timeout_height, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_hash, 32)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_preimage, 32)));
 		GC.KeepAlive(amount_satoshis);
 		GC.KeepAlive(timeout_height);
 		GC.KeepAlive(payment_hash);
@@ -213,7 +213,7 @@ public class Balance : CommonBase {
 	 * Utility method to constructs a new MaybeTimeoutClaimableHTLC-variant Balance
 	 */
 	public static Balance maybe_timeout_claimable_htlc(long amount_satoshis, int claimable_height, byte[] payment_hash) {
-		long ret = bindings.Balance_maybe_timeout_claimable_htlc(amount_satoshis, claimable_height, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_hash, 32)));
+		long ret = Bindings.BalanceMaybeTimeoutClaimableHtlc(amount_satoshis, claimable_height, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_hash, 32)));
 		GC.KeepAlive(amount_satoshis);
 		GC.KeepAlive(claimable_height);
 		GC.KeepAlive(payment_hash);
@@ -227,7 +227,7 @@ public class Balance : CommonBase {
 	 * Utility method to constructs a new MaybePreimageClaimableHTLC-variant Balance
 	 */
 	public static Balance maybe_preimage_claimable_htlc(long amount_satoshis, int expiry_height, byte[] payment_hash) {
-		long ret = bindings.Balance_maybe_preimage_claimable_htlc(amount_satoshis, expiry_height, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_hash, 32)));
+		long ret = Bindings.BalanceMaybePreimageClaimableHtlc(amount_satoshis, expiry_height, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_hash, 32)));
 		GC.KeepAlive(amount_satoshis);
 		GC.KeepAlive(expiry_height);
 		GC.KeepAlive(payment_hash);
@@ -241,7 +241,7 @@ public class Balance : CommonBase {
 	 * Utility method to constructs a new CounterpartyRevokedOutputClaimable-variant Balance
 	 */
 	public static Balance counterparty_revoked_output_claimable(long amount_satoshis) {
-		long ret = bindings.Balance_counterparty_revoked_output_claimable(amount_satoshis);
+		long ret = Bindings.BalanceCounterpartyRevokedOutputClaimable(amount_satoshis);
 		GC.KeepAlive(amount_satoshis);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Balance ret_hu_conv = org.ldk.structs.Balance.constr_from_ptr(ret);
@@ -254,7 +254,7 @@ public class Balance : CommonBase {
 	 * This ignores pointers and is_owned flags and looks at the values in fields.
 	 */
 	public bool eq(org.ldk.structs.Balance b) {
-		bool ret = bindings.Balance_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.BalanceEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		return ret;
@@ -273,7 +273,7 @@ public class Balance : CommonBase {
 	 * On-chain fees required to claim the balance are not included in this amount.
 	 */
 	public long claimable_amount_satoshis() {
-		long ret = bindings.Balance_claimable_amount_satoshis(this.ptr);
+		long ret = Bindings.BalanceClaimableAmountSatoshis(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}

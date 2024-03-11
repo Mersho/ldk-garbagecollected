@@ -16,11 +16,11 @@ namespace org { namespace ldk { namespace structs {
 public class TaggedHash : CommonBase {
 	internal TaggedHash(object _dummy, long ptr) : base(ptr) { }
 	~TaggedHash() {
-		if (ptr != 0) { bindings.TaggedHash_free(ptr); }
+		if (ptr != 0) { Bindings.TaggedHashFree(ptr); }
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.TaggedHash_clone_ptr(this.ptr);
+		long ret = Bindings.TaggedHashClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -29,7 +29,7 @@ public class TaggedHash : CommonBase {
 	 * Creates a copy of the TaggedHash
 	 */
 	public TaggedHash clone() {
-		long ret = bindings.TaggedHash_clone(this.ptr);
+		long ret = Bindings.TaggedHashClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.TaggedHash ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.TaggedHash(null, ret); }
@@ -41,7 +41,7 @@ public class TaggedHash : CommonBase {
 	 * Returns the digest to sign.
 	 */
 	public byte[] as_digest() {
-		long ret = bindings.TaggedHash_as_digest(this.ptr);
+		long ret = Bindings.TaggedHashAsDigest(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -52,7 +52,7 @@ public class TaggedHash : CommonBase {
 	 * Returns the tag used in the tagged hash.
 	 */
 	public string tag() {
-		long ret = bindings.TaggedHash_tag(this.ptr);
+		long ret = Bindings.TaggedHashTag(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		string ret_conv = InternalUtils.decodeString(ret);
@@ -63,7 +63,7 @@ public class TaggedHash : CommonBase {
 	 * Returns the merkle root used in the tagged hash.
 	 */
 	public byte[] merkle_root() {
-		long ret = bindings.TaggedHash_merkle_root(this.ptr);
+		long ret = Bindings.TaggedHashMerkleRoot(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);

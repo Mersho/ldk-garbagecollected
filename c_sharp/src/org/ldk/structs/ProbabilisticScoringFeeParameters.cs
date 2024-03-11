@@ -18,7 +18,7 @@ namespace org { namespace ldk { namespace structs {
 public class ProbabilisticScoringFeeParameters : CommonBase {
 	internal ProbabilisticScoringFeeParameters(object _dummy, long ptr) : base(ptr) { }
 	~ProbabilisticScoringFeeParameters() {
-		if (ptr != 0) { bindings.ProbabilisticScoringFeeParameters_free(ptr); }
+		if (ptr != 0) { Bindings.ProbabilisticScoringFeeParametersFree(ptr); }
 	}
 
 	/**
@@ -27,7 +27,7 @@ public class ProbabilisticScoringFeeParameters : CommonBase {
 	 * Default value: 500 msat
 	 */
 	public long get_base_penalty_msat() {
-		long ret = bindings.ProbabilisticScoringFeeParameters_get_base_penalty_msat(this.ptr);
+		long ret = Bindings.ProbabilisticScoringFeeParametersGetBasePenaltyMsat(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -38,7 +38,7 @@ public class ProbabilisticScoringFeeParameters : CommonBase {
 	 * Default value: 500 msat
 	 */
 	public void set_base_penalty_msat(long val) {
-		bindings.ProbabilisticScoringFeeParameters_set_base_penalty_msat(this.ptr, val);
+		Bindings.ProbabilisticScoringFeeParametersSetBasePenaltyMsat(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -59,7 +59,7 @@ public class ProbabilisticScoringFeeParameters : CommonBase {
 	 * [`base_penalty_msat`]: Self::base_penalty_msat
 	 */
 	public long get_base_penalty_amount_multiplier_msat() {
-		long ret = bindings.ProbabilisticScoringFeeParameters_get_base_penalty_amount_multiplier_msat(this.ptr);
+		long ret = Bindings.ProbabilisticScoringFeeParametersGetBasePenaltyAmountMultiplierMsat(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -80,7 +80,7 @@ public class ProbabilisticScoringFeeParameters : CommonBase {
 	 * [`base_penalty_msat`]: Self::base_penalty_msat
 	 */
 	public void set_base_penalty_amount_multiplier_msat(long val) {
-		bindings.ProbabilisticScoringFeeParameters_set_base_penalty_amount_multiplier_msat(this.ptr, val);
+		Bindings.ProbabilisticScoringFeeParametersSetBasePenaltyAmountMultiplierMsat(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -104,7 +104,7 @@ public class ProbabilisticScoringFeeParameters : CommonBase {
 	 * [`liquidity_offset_half_life`]: ProbabilisticScoringDecayParameters::liquidity_offset_half_life
 	 */
 	public long get_liquidity_penalty_multiplier_msat() {
-		long ret = bindings.ProbabilisticScoringFeeParameters_get_liquidity_penalty_multiplier_msat(this.ptr);
+		long ret = Bindings.ProbabilisticScoringFeeParametersGetLiquidityPenaltyMultiplierMsat(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -128,7 +128,7 @@ public class ProbabilisticScoringFeeParameters : CommonBase {
 	 * [`liquidity_offset_half_life`]: ProbabilisticScoringDecayParameters::liquidity_offset_half_life
 	 */
 	public void set_liquidity_penalty_multiplier_msat(long val) {
-		bindings.ProbabilisticScoringFeeParameters_set_liquidity_penalty_multiplier_msat(this.ptr, val);
+		Bindings.ProbabilisticScoringFeeParametersSetLiquidityPenaltyMultiplierMsat(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -154,7 +154,7 @@ public class ProbabilisticScoringFeeParameters : CommonBase {
 	 * Default value: 192 msat
 	 */
 	public long get_liquidity_penalty_amount_multiplier_msat() {
-		long ret = bindings.ProbabilisticScoringFeeParameters_get_liquidity_penalty_amount_multiplier_msat(this.ptr);
+		long ret = Bindings.ProbabilisticScoringFeeParametersGetLiquidityPenaltyAmountMultiplierMsat(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -180,7 +180,7 @@ public class ProbabilisticScoringFeeParameters : CommonBase {
 	 * Default value: 192 msat
 	 */
 	public void set_liquidity_penalty_amount_multiplier_msat(long val) {
-		bindings.ProbabilisticScoringFeeParameters_set_liquidity_penalty_amount_multiplier_msat(this.ptr, val);
+		Bindings.ProbabilisticScoringFeeParametersSetLiquidityPenaltyAmountMultiplierMsat(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -202,7 +202,7 @@ public class ProbabilisticScoringFeeParameters : CommonBase {
 	 * [`liquidity_penalty_multiplier_msat`]: Self::liquidity_penalty_multiplier_msat
 	 */
 	public long get_historical_liquidity_penalty_multiplier_msat() {
-		long ret = bindings.ProbabilisticScoringFeeParameters_get_historical_liquidity_penalty_multiplier_msat(this.ptr);
+		long ret = Bindings.ProbabilisticScoringFeeParametersGetHistoricalLiquidityPenaltyMultiplierMsat(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -224,7 +224,7 @@ public class ProbabilisticScoringFeeParameters : CommonBase {
 	 * [`liquidity_penalty_multiplier_msat`]: Self::liquidity_penalty_multiplier_msat
 	 */
 	public void set_historical_liquidity_penalty_multiplier_msat(long val) {
-		bindings.ProbabilisticScoringFeeParameters_set_historical_liquidity_penalty_multiplier_msat(this.ptr, val);
+		Bindings.ProbabilisticScoringFeeParametersSetHistoricalLiquidityPenaltyMultiplierMsat(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -252,7 +252,7 @@ public class ProbabilisticScoringFeeParameters : CommonBase {
 	 * [`liquidity_penalty_amount_multiplier_msat`]: Self::liquidity_penalty_amount_multiplier_msat
 	 */
 	public long get_historical_liquidity_penalty_amount_multiplier_msat() {
-		long ret = bindings.ProbabilisticScoringFeeParameters_get_historical_liquidity_penalty_amount_multiplier_msat(this.ptr);
+		long ret = Bindings.ProbabilisticScoringFeeParametersGetHistoricalLiquidityPenaltyAmountMultiplierMsat(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -280,7 +280,7 @@ public class ProbabilisticScoringFeeParameters : CommonBase {
 	 * [`liquidity_penalty_amount_multiplier_msat`]: Self::liquidity_penalty_amount_multiplier_msat
 	 */
 	public void set_historical_liquidity_penalty_amount_multiplier_msat(long val) {
-		bindings.ProbabilisticScoringFeeParameters_set_historical_liquidity_penalty_amount_multiplier_msat(this.ptr, val);
+		Bindings.ProbabilisticScoringFeeParametersSetHistoricalLiquidityPenaltyAmountMultiplierMsat(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -295,7 +295,7 @@ public class ProbabilisticScoringFeeParameters : CommonBase {
 	 * Default value: 250 msat
 	 */
 	public long get_anti_probing_penalty_msat() {
-		long ret = bindings.ProbabilisticScoringFeeParameters_get_anti_probing_penalty_msat(this.ptr);
+		long ret = Bindings.ProbabilisticScoringFeeParametersGetAntiProbingPenaltyMsat(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -310,7 +310,7 @@ public class ProbabilisticScoringFeeParameters : CommonBase {
 	 * Default value: 250 msat
 	 */
 	public void set_anti_probing_penalty_msat(long val) {
-		bindings.ProbabilisticScoringFeeParameters_set_anti_probing_penalty_msat(this.ptr, val);
+		Bindings.ProbabilisticScoringFeeParametersSetAntiProbingPenaltyMsat(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -336,7 +336,7 @@ public class ProbabilisticScoringFeeParameters : CommonBase {
 	 * [`anti_probing_penalty_msat`]: Self::anti_probing_penalty_msat
 	 */
 	public long get_considered_impossible_penalty_msat() {
-		long ret = bindings.ProbabilisticScoringFeeParameters_get_considered_impossible_penalty_msat(this.ptr);
+		long ret = Bindings.ProbabilisticScoringFeeParametersGetConsideredImpossiblePenaltyMsat(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -362,7 +362,7 @@ public class ProbabilisticScoringFeeParameters : CommonBase {
 	 * [`anti_probing_penalty_msat`]: Self::anti_probing_penalty_msat
 	 */
 	public void set_considered_impossible_penalty_msat(long val) {
-		bindings.ProbabilisticScoringFeeParameters_set_considered_impossible_penalty_msat(this.ptr, val);
+		Bindings.ProbabilisticScoringFeeParametersSetConsideredImpossiblePenaltyMsat(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -390,7 +390,7 @@ public class ProbabilisticScoringFeeParameters : CommonBase {
 	 * Default value: false
 	 */
 	public bool get_linear_success_probability() {
-		bool ret = bindings.ProbabilisticScoringFeeParameters_get_linear_success_probability(this.ptr);
+		bool ret = Bindings.ProbabilisticScoringFeeParametersGetLinearSuccessProbability(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -418,13 +418,13 @@ public class ProbabilisticScoringFeeParameters : CommonBase {
 	 * Default value: false
 	 */
 	public void set_linear_success_probability(bool val) {
-		bindings.ProbabilisticScoringFeeParameters_set_linear_success_probability(this.ptr, val);
+		Bindings.ProbabilisticScoringFeeParametersSetLinearSuccessProbability(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.ProbabilisticScoringFeeParameters_clone_ptr(this.ptr);
+		long ret = Bindings.ProbabilisticScoringFeeParametersClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -433,7 +433,7 @@ public class ProbabilisticScoringFeeParameters : CommonBase {
 	 * Creates a copy of the ProbabilisticScoringFeeParameters
 	 */
 	public ProbabilisticScoringFeeParameters clone() {
-		long ret = bindings.ProbabilisticScoringFeeParameters_clone(this.ptr);
+		long ret = Bindings.ProbabilisticScoringFeeParametersClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ProbabilisticScoringFeeParameters ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ProbabilisticScoringFeeParameters(null, ret); }
@@ -445,7 +445,7 @@ public class ProbabilisticScoringFeeParameters : CommonBase {
 	 * Creates a "default" ProbabilisticScoringFeeParameters. See struct and individual field documentaiton for details on which values are used.
 	 */
 	public static ProbabilisticScoringFeeParameters with_default() {
-		long ret = bindings.ProbabilisticScoringFeeParameters_default();
+		long ret = Bindings.ProbabilisticScoringFeeParametersDefault();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ProbabilisticScoringFeeParameters ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ProbabilisticScoringFeeParameters(null, ret); }
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -457,7 +457,7 @@ public class ProbabilisticScoringFeeParameters : CommonBase {
 	 * i.e it will be avoided during path finding.
 	 */
 	public void add_banned(org.ldk.structs.NodeId node_id) {
-		bindings.ProbabilisticScoringFeeParameters_add_banned(this.ptr, node_id == null ? 0 : node_id.ptr);
+		Bindings.ProbabilisticScoringFeeParametersAddBanned(this.ptr, node_id == null ? 0 : node_id.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(node_id);
 		if (this != null) { this.ptrs_to.AddLast(node_id); };
@@ -468,7 +468,7 @@ public class ProbabilisticScoringFeeParameters : CommonBase {
 	 * they will be avoided during path finding.
 	 */
 	public void add_banned_from_list(NodeId[] node_ids) {
-		bindings.ProbabilisticScoringFeeParameters_add_banned_from_list(this.ptr, InternalUtils.encodeUint64Array(InternalUtils.mapArray(node_ids, node_ids_conv_8 => node_ids_conv_8 == null ? 0 : node_ids_conv_8.ptr)));
+		Bindings.ProbabilisticScoringFeeParametersAddBannedFromList(this.ptr, InternalUtils.encodeUint64Array(InternalUtils.mapArray(node_ids, node_ids_conv_8 => node_ids_conv_8 == null ? 0 : node_ids_conv_8.ptr)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(node_ids);
 		foreach (NodeId node_ids_conv_8 in node_ids) { if (this != null) { this.ptrs_to.AddLast(node_ids_conv_8); }; };
@@ -478,7 +478,7 @@ public class ProbabilisticScoringFeeParameters : CommonBase {
 	 * Removes the node with the given `node_id` from the list of nodes to avoid.
 	 */
 	public void remove_banned(org.ldk.structs.NodeId node_id) {
-		bindings.ProbabilisticScoringFeeParameters_remove_banned(this.ptr, node_id == null ? 0 : node_id.ptr);
+		Bindings.ProbabilisticScoringFeeParametersRemoveBanned(this.ptr, node_id == null ? 0 : node_id.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(node_id);
 		if (this != null) { this.ptrs_to.AddLast(node_id); };
@@ -488,7 +488,7 @@ public class ProbabilisticScoringFeeParameters : CommonBase {
 	 * Sets a manual penalty for the given node.
 	 */
 	public void set_manual_penalty(org.ldk.structs.NodeId node_id, long penalty) {
-		bindings.ProbabilisticScoringFeeParameters_set_manual_penalty(this.ptr, node_id == null ? 0 : node_id.ptr, penalty);
+		Bindings.ProbabilisticScoringFeeParametersSetManualPenalty(this.ptr, node_id == null ? 0 : node_id.ptr, penalty);
 		GC.KeepAlive(this);
 		GC.KeepAlive(node_id);
 		GC.KeepAlive(penalty);
@@ -499,7 +499,7 @@ public class ProbabilisticScoringFeeParameters : CommonBase {
 	 * Removes the node with the given `node_id` from the list of manual penalties.
 	 */
 	public void remove_manual_penalty(org.ldk.structs.NodeId node_id) {
-		bindings.ProbabilisticScoringFeeParameters_remove_manual_penalty(this.ptr, node_id == null ? 0 : node_id.ptr);
+		Bindings.ProbabilisticScoringFeeParametersRemoveManualPenalty(this.ptr, node_id == null ? 0 : node_id.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(node_id);
 		if (this != null) { this.ptrs_to.AddLast(node_id); };
@@ -509,7 +509,7 @@ public class ProbabilisticScoringFeeParameters : CommonBase {
 	 * Clears the list of manual penalties that are applied during path finding.
 	 */
 	public void clear_manual_penalties() {
-		bindings.ProbabilisticScoringFeeParameters_clear_manual_penalties(this.ptr);
+		Bindings.ProbabilisticScoringFeeParametersClearManualPenalties(this.ptr);
 		GC.KeepAlive(this);
 	}
 

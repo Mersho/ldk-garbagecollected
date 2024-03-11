@@ -13,11 +13,11 @@ namespace org { namespace ldk { namespace structs {
 public class Amount : CommonBase {
 	internal Amount(object _dummy, long ptr) : base(ptr) { }
 	~Amount() {
-		if (ptr != 0) { bindings.Amount_free(ptr); }
+		if (ptr != 0) { Bindings.AmountFree(ptr); }
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.Amount_clone_ptr(this.ptr);
+		long ret = Bindings.AmountClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -26,7 +26,7 @@ public class Amount : CommonBase {
 	 * Creates a copy of the Amount
 	 */
 	public Amount clone() {
-		long ret = bindings.Amount_clone(this.ptr);
+		long ret = Bindings.AmountClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Amount ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.Amount(null, ret); }

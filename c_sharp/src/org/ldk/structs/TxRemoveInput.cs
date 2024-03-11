@@ -12,14 +12,14 @@ namespace org { namespace ldk { namespace structs {
 public class TxRemoveInput : CommonBase {
 	internal TxRemoveInput(object _dummy, long ptr) : base(ptr) { }
 	~TxRemoveInput() {
-		if (ptr != 0) { bindings.TxRemoveInput_free(ptr); }
+		if (ptr != 0) { Bindings.TxRemoveInputFree(ptr); }
 	}
 
 	/**
 	 * The channel ID
 	 */
 	public byte[] get_channel_id() {
-		long ret = bindings.TxRemoveInput_get_channel_id(this.ptr);
+		long ret = Bindings.TxRemoveInputGetChannelId(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -30,7 +30,7 @@ public class TxRemoveInput : CommonBase {
 	 * The channel ID
 	 */
 	public void set_channel_id(byte[] val) {
-		bindings.TxRemoveInput_set_channel_id(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
+		Bindings.TxRemoveInputSetChannelId(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -39,7 +39,7 @@ public class TxRemoveInput : CommonBase {
 	 * The serial ID of the input to be removed
 	 */
 	public long get_serial_id() {
-		long ret = bindings.TxRemoveInput_get_serial_id(this.ptr);
+		long ret = Bindings.TxRemoveInputGetSerialId(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -48,7 +48,7 @@ public class TxRemoveInput : CommonBase {
 	 * The serial ID of the input to be removed
 	 */
 	public void set_serial_id(long val) {
-		bindings.TxRemoveInput_set_serial_id(this.ptr, val);
+		Bindings.TxRemoveInputSetSerialId(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -57,7 +57,7 @@ public class TxRemoveInput : CommonBase {
 	 * Constructs a new TxRemoveInput given each field
 	 */
 	public static TxRemoveInput of(byte[] channel_id_arg, long serial_id_arg) {
-		long ret = bindings.TxRemoveInput_new(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(channel_id_arg, 32)), serial_id_arg);
+		long ret = Bindings.TxRemoveInputNew(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(channel_id_arg, 32)), serial_id_arg);
 		GC.KeepAlive(channel_id_arg);
 		GC.KeepAlive(serial_id_arg);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -67,7 +67,7 @@ public class TxRemoveInput : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.TxRemoveInput_clone_ptr(this.ptr);
+		long ret = Bindings.TxRemoveInputClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -76,7 +76,7 @@ public class TxRemoveInput : CommonBase {
 	 * Creates a copy of the TxRemoveInput
 	 */
 	public TxRemoveInput clone() {
-		long ret = bindings.TxRemoveInput_clone(this.ptr);
+		long ret = Bindings.TxRemoveInputClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.TxRemoveInput ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.TxRemoveInput(null, ret); }
@@ -88,7 +88,7 @@ public class TxRemoveInput : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the TxRemoveInput.
 	 */
 	public long hash() {
-		long ret = bindings.TxRemoveInput_hash(this.ptr);
+		long ret = Bindings.TxRemoveInputHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -102,7 +102,7 @@ public class TxRemoveInput : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.TxRemoveInput b) {
-		bool ret = bindings.TxRemoveInput_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.TxRemoveInputEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -117,7 +117,7 @@ public class TxRemoveInput : CommonBase {
 	 * Serialize the TxRemoveInput object into a byte array which can be read by TxRemoveInput_read
 	 */
 	public byte[] write() {
-		long ret = bindings.TxRemoveInput_write(this.ptr);
+		long ret = Bindings.TxRemoveInputWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -128,7 +128,7 @@ public class TxRemoveInput : CommonBase {
 	 * Read a TxRemoveInput from a byte array, created by TxRemoveInput_write
 	 */
 	public static Result_TxRemoveInputDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.TxRemoveInput_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.TxRemoveInputRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_TxRemoveInputDecodeErrorZ ret_hu_conv = Result_TxRemoveInputDecodeErrorZ.constr_from_ptr(ret);

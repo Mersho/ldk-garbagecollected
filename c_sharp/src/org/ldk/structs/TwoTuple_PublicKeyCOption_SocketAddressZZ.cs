@@ -12,14 +12,14 @@ namespace org { namespace ldk { namespace structs {
 public class TwoTuple_PublicKeyCOption_SocketAddressZZ : CommonBase {
 	internal TwoTuple_PublicKeyCOption_SocketAddressZZ(object _dummy, long ptr) : base(ptr) { }
 	~TwoTuple_PublicKeyCOption_SocketAddressZZ() {
-		if (ptr != 0) { bindings.C2Tuple_PublicKeyCOption_SocketAddressZZ_free(ptr); }
+		if (ptr != 0) { Bindings.C2TuplePublicKeyCOptionSocketAddressZZFree(ptr); }
 	}
 
 	/**
 	 * 
 	 */
 	public byte[] get_a() {
-		long ret = bindings.C2Tuple_PublicKeyCOption_SocketAddressZZ_get_a(this.ptr);
+		long ret = Bindings.C2TuplePublicKeyCOptionSocketAddressZZGetA(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -30,7 +30,7 @@ public class TwoTuple_PublicKeyCOption_SocketAddressZZ : CommonBase {
 	 * 
 	 */
 	public Option_SocketAddressZ get_b() {
-		long ret = bindings.C2Tuple_PublicKeyCOption_SocketAddressZZ_get_b(this.ptr);
+		long ret = Bindings.C2TuplePublicKeyCOptionSocketAddressZZGetB(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_SocketAddressZ ret_hu_conv = org.ldk.structs.Option_SocketAddressZ.constr_from_ptr(ret);
@@ -39,7 +39,7 @@ public class TwoTuple_PublicKeyCOption_SocketAddressZZ : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.C2Tuple_PublicKeyCOption_SocketAddressZZ_clone_ptr(this.ptr);
+		long ret = Bindings.C2TuplePublicKeyCOptionSocketAddressZZClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -49,7 +49,7 @@ public class TwoTuple_PublicKeyCOption_SocketAddressZZ : CommonBase {
 	 * but with all dynamically-allocated buffers duplicated in new buffers.
 	 */
 	public TwoTuple_PublicKeyCOption_SocketAddressZZ clone() {
-		long ret = bindings.C2Tuple_PublicKeyCOption_SocketAddressZZ_clone(this.ptr);
+		long ret = Bindings.C2TuplePublicKeyCOptionSocketAddressZZClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		TwoTuple_PublicKeyCOption_SocketAddressZZ ret_hu_conv = new TwoTuple_PublicKeyCOption_SocketAddressZZ(null, ret);
@@ -61,7 +61,7 @@ public class TwoTuple_PublicKeyCOption_SocketAddressZZ : CommonBase {
 	 * Creates a new C2Tuple_PublicKeyCOption_SocketAddressZZ from the contained elements.
 	 */
 	public static TwoTuple_PublicKeyCOption_SocketAddressZZ of(byte[] a, org.ldk.structs.Option_SocketAddressZ b) {
-		long ret = bindings.C2Tuple_PublicKeyCOption_SocketAddressZZ_new(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(a, 33)), b.ptr);
+		long ret = Bindings.C2TuplePublicKeyCOptionSocketAddressZZNew(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(a, 33)), b.ptr);
 		GC.KeepAlive(a);
 		GC.KeepAlive(b);
 		if (ret >= 0 && ret <= 4096) { return null; }

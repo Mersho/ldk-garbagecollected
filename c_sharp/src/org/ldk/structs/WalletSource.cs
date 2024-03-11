@@ -9,7 +9,7 @@ namespace org { namespace ldk { namespace structs {
 
 
 /** An implementation of WalletSource */
-public interface WalletSourceInterface {
+public interface IWalletSource {
 	/**Returns all UTXOs, with at least 1 confirmation each, that are available to spend.
 	 */
 	Result_CVec_UtxoZNoneZ list_confirmed_utxos();
@@ -32,32 +32,32 @@ public interface WalletSourceInterface {
  * provide a default implementation to [`CoinSelectionSource`].
  */
 public class WalletSource : CommonBase {
-	internal bindings.LDKWalletSource bindings_instance;
+	internal Bindings.LDKWalletSource bindings_instance;
 	internal long instance_idx;
 
 	internal WalletSource(object _dummy, long ptr) : base(ptr) { bindings_instance = null; }
 	~WalletSource() {
-		if (ptr != 0) { bindings.WalletSource_free(ptr); }
+		if (ptr != 0) { Bindings.WalletSourceFree(ptr); }
 	}
 
 	private class LDKWalletSourceHolder { internal WalletSource held; }
-	private class LDKWalletSourceImpl : bindings.LDKWalletSource {
-		internal LDKWalletSourceImpl(WalletSourceInterface arg, LDKWalletSourceHolder impl_holder) { this.arg = arg; this.impl_holder = impl_holder; }
-		private WalletSourceInterface arg;
+	private class LDKWalletSourceImpl : Bindings.LDKWalletSource {
+		internal LDKWalletSourceImpl(IWalletSource arg, LDKWalletSourceHolder impl_holder) { this.arg = arg; this.impl_holder = impl_holder; }
+		private IWalletSource arg;
 		private LDKWalletSourceHolder impl_holder;
-		public long list_confirmed_utxos() {
+		public long ListConfirmedUtxos() {
 			Result_CVec_UtxoZNoneZ ret = arg.list_confirmed_utxos();
 				GC.KeepAlive(arg);
 			long result = ret == null ? 0 : ret.clone_ptr();
 			return result;
 		}
-		public long get_change_script() {
+		public long GetChangeScript() {
 			Result_CVec_u8ZNoneZ ret = arg.get_change_script();
 				GC.KeepAlive(arg);
 			long result = ret == null ? 0 : ret.clone_ptr();
 			return result;
 		}
-		public long sign_psbt(long _psbt) {
+		public long SignPsbt(long _psbt) {
 			byte[] _psbt_conv = InternalUtils.decodeUint8Array(_psbt);
 			Result_TransactionNoneZ ret = arg.sign_psbt(_psbt_conv);
 				GC.KeepAlive(arg);
@@ -67,10 +67,10 @@ public class WalletSource : CommonBase {
 	}
 
 	/** Creates a new instance of WalletSource from a given implementation */
-	public static WalletSource new_impl(WalletSourceInterface arg) {
+	public static WalletSource new_impl(IWalletSource arg) {
 		LDKWalletSourceHolder impl_holder = new LDKWalletSourceHolder();
 		LDKWalletSourceImpl impl = new LDKWalletSourceImpl(arg, impl_holder);
-		long[] ptr_idx = bindings.LDKWalletSource_new(impl);
+		long[] ptr_idx = Bindings.LDKWalletSourceNew(impl);
 
 		impl_holder.held = new WalletSource(null, ptr_idx[0]);
 		impl_holder.held.instance_idx = ptr_idx[1];
@@ -82,7 +82,7 @@ public class WalletSource : CommonBase {
 	 * Returns all UTXOs, with at least 1 confirmation each, that are available to spend.
 	 */
 	public Result_CVec_UtxoZNoneZ list_confirmed_utxos() {
-		long ret = bindings.WalletSource_list_confirmed_utxos(this.ptr);
+		long ret = Bindings.WalletSourceListConfirmedUtxos(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_CVec_UtxoZNoneZ ret_hu_conv = Result_CVec_UtxoZNoneZ.constr_from_ptr(ret);
@@ -94,7 +94,7 @@ public class WalletSource : CommonBase {
 	 * attempt.
 	 */
 	public Result_CVec_u8ZNoneZ get_change_script() {
-		long ret = bindings.WalletSource_get_change_script(this.ptr);
+		long ret = Bindings.WalletSourceGetChangeScript(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_CVec_u8ZNoneZ ret_hu_conv = Result_CVec_u8ZNoneZ.constr_from_ptr(ret);
@@ -110,7 +110,7 @@ public class WalletSource : CommonBase {
 	 * unsigned transaction and then sign it with your wallet.
 	 */
 	public Result_TransactionNoneZ sign_psbt(byte[] psbt) {
-		long ret = bindings.WalletSource_sign_psbt(this.ptr, InternalUtils.encodeUint8Array(psbt));
+		long ret = Bindings.WalletSourceSignPsbt(this.ptr, InternalUtils.encodeUint8Array(psbt));
 		GC.KeepAlive(this);
 		GC.KeepAlive(psbt);
 		if (ret >= 0 && ret <= 4096) { return null; }

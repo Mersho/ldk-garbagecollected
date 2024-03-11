@@ -15,11 +15,11 @@ namespace org { namespace ldk { namespace structs {
 public class NodeAlias : CommonBase {
 	internal NodeAlias(object _dummy, long ptr) : base(ptr) { }
 	~NodeAlias() {
-		if (ptr != 0) { bindings.NodeAlias_free(ptr); }
+		if (ptr != 0) { Bindings.NodeAliasFree(ptr); }
 	}
 
 	public byte[] get_a() {
-		long ret = bindings.NodeAlias_get_a(this.ptr);
+		long ret = Bindings.NodeAliasGetA(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -27,7 +27,7 @@ public class NodeAlias : CommonBase {
 	}
 
 	public void set_a(byte[] val) {
-		bindings.NodeAlias_set_a(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
+		Bindings.NodeAliasSetA(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -36,7 +36,7 @@ public class NodeAlias : CommonBase {
 	 * Constructs a new NodeAlias given each field
 	 */
 	public static NodeAlias of(byte[] a_arg) {
-		long ret = bindings.NodeAlias_new(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(a_arg, 32)));
+		long ret = Bindings.NodeAliasNew(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(a_arg, 32)));
 		GC.KeepAlive(a_arg);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.NodeAlias ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.NodeAlias(null, ret); }
@@ -45,7 +45,7 @@ public class NodeAlias : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.NodeAlias_clone_ptr(this.ptr);
+		long ret = Bindings.NodeAliasClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -54,7 +54,7 @@ public class NodeAlias : CommonBase {
 	 * Creates a copy of the NodeAlias
 	 */
 	public NodeAlias clone() {
-		long ret = bindings.NodeAlias_clone(this.ptr);
+		long ret = Bindings.NodeAliasClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.NodeAlias ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.NodeAlias(null, ret); }
@@ -66,7 +66,7 @@ public class NodeAlias : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the NodeAlias.
 	 */
 	public long hash() {
-		long ret = bindings.NodeAlias_hash(this.ptr);
+		long ret = Bindings.NodeAliasHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -80,7 +80,7 @@ public class NodeAlias : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.NodeAlias b) {
-		bool ret = bindings.NodeAlias_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.NodeAliasEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -95,7 +95,7 @@ public class NodeAlias : CommonBase {
 	 * Serialize the NodeAlias object into a byte array which can be read by NodeAlias_read
 	 */
 	public byte[] write() {
-		long ret = bindings.NodeAlias_write(this.ptr);
+		long ret = Bindings.NodeAliasWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -106,7 +106,7 @@ public class NodeAlias : CommonBase {
 	 * Read a NodeAlias from a byte array, created by NodeAlias_write
 	 */
 	public static Result_NodeAliasDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.NodeAlias_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.NodeAliasRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_NodeAliasDecodeErrorZ ret_hu_conv = Result_NodeAliasDecodeErrorZ.constr_from_ptr(ret);

@@ -14,14 +14,14 @@ namespace org { namespace ldk { namespace structs {
 public class UnsignedChannelUpdate : CommonBase {
 	internal UnsignedChannelUpdate(object _dummy, long ptr) : base(ptr) { }
 	~UnsignedChannelUpdate() {
-		if (ptr != 0) { bindings.UnsignedChannelUpdate_free(ptr); }
+		if (ptr != 0) { Bindings.UnsignedChannelUpdateFree(ptr); }
 	}
 
 	/**
 	 * The genesis hash of the blockchain where the channel is to be opened
 	 */
 	public byte[] get_chain_hash() {
-		long ret = bindings.UnsignedChannelUpdate_get_chain_hash(this.ptr);
+		long ret = Bindings.UnsignedChannelUpdateGetChainHash(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -32,7 +32,7 @@ public class UnsignedChannelUpdate : CommonBase {
 	 * The genesis hash of the blockchain where the channel is to be opened
 	 */
 	public void set_chain_hash(byte[] val) {
-		bindings.UnsignedChannelUpdate_set_chain_hash(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
+		Bindings.UnsignedChannelUpdateSetChainHash(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -41,7 +41,7 @@ public class UnsignedChannelUpdate : CommonBase {
 	 * The short channel ID
 	 */
 	public long get_short_channel_id() {
-		long ret = bindings.UnsignedChannelUpdate_get_short_channel_id(this.ptr);
+		long ret = Bindings.UnsignedChannelUpdateGetShortChannelId(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -50,7 +50,7 @@ public class UnsignedChannelUpdate : CommonBase {
 	 * The short channel ID
 	 */
 	public void set_short_channel_id(long val) {
-		bindings.UnsignedChannelUpdate_set_short_channel_id(this.ptr, val);
+		Bindings.UnsignedChannelUpdateSetShortChannelId(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -59,7 +59,7 @@ public class UnsignedChannelUpdate : CommonBase {
 	 * A strictly monotonic announcement counter, with gaps allowed, specific to this channel
 	 */
 	public int get_timestamp() {
-		int ret = bindings.UnsignedChannelUpdate_get_timestamp(this.ptr);
+		int ret = Bindings.UnsignedChannelUpdateGetTimestamp(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -68,7 +68,7 @@ public class UnsignedChannelUpdate : CommonBase {
 	 * A strictly monotonic announcement counter, with gaps allowed, specific to this channel
 	 */
 	public void set_timestamp(int val) {
-		bindings.UnsignedChannelUpdate_set_timestamp(this.ptr, val);
+		Bindings.UnsignedChannelUpdateSetTimestamp(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -77,7 +77,7 @@ public class UnsignedChannelUpdate : CommonBase {
 	 * Channel flags
 	 */
 	public byte get_flags() {
-		byte ret = bindings.UnsignedChannelUpdate_get_flags(this.ptr);
+		byte ret = Bindings.UnsignedChannelUpdateGetFlags(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -86,7 +86,7 @@ public class UnsignedChannelUpdate : CommonBase {
 	 * Channel flags
 	 */
 	public void set_flags(byte val) {
-		bindings.UnsignedChannelUpdate_set_flags(this.ptr, val);
+		Bindings.UnsignedChannelUpdateSetFlags(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -102,7 +102,7 @@ public class UnsignedChannelUpdate : CommonBase {
 	 * constructing the route.
 	 */
 	public short get_cltv_expiry_delta() {
-		short ret = bindings.UnsignedChannelUpdate_get_cltv_expiry_delta(this.ptr);
+		short ret = Bindings.UnsignedChannelUpdateGetCltvExpiryDelta(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -118,7 +118,7 @@ public class UnsignedChannelUpdate : CommonBase {
 	 * constructing the route.
 	 */
 	public void set_cltv_expiry_delta(short val) {
-		bindings.UnsignedChannelUpdate_set_cltv_expiry_delta(this.ptr, val);
+		Bindings.UnsignedChannelUpdateSetCltvExpiryDelta(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -127,7 +127,7 @@ public class UnsignedChannelUpdate : CommonBase {
 	 * The minimum HTLC size incoming to sender, in milli-satoshi
 	 */
 	public long get_htlc_minimum_msat() {
-		long ret = bindings.UnsignedChannelUpdate_get_htlc_minimum_msat(this.ptr);
+		long ret = Bindings.UnsignedChannelUpdateGetHtlcMinimumMsat(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -136,7 +136,7 @@ public class UnsignedChannelUpdate : CommonBase {
 	 * The minimum HTLC size incoming to sender, in milli-satoshi
 	 */
 	public void set_htlc_minimum_msat(long val) {
-		bindings.UnsignedChannelUpdate_set_htlc_minimum_msat(this.ptr, val);
+		Bindings.UnsignedChannelUpdateSetHtlcMinimumMsat(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -147,7 +147,7 @@ public class UnsignedChannelUpdate : CommonBase {
 	 * This used to be optional.
 	 */
 	public long get_htlc_maximum_msat() {
-		long ret = bindings.UnsignedChannelUpdate_get_htlc_maximum_msat(this.ptr);
+		long ret = Bindings.UnsignedChannelUpdateGetHtlcMaximumMsat(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -158,7 +158,7 @@ public class UnsignedChannelUpdate : CommonBase {
 	 * This used to be optional.
 	 */
 	public void set_htlc_maximum_msat(long val) {
-		bindings.UnsignedChannelUpdate_set_htlc_maximum_msat(this.ptr, val);
+		Bindings.UnsignedChannelUpdateSetHtlcMaximumMsat(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -167,7 +167,7 @@ public class UnsignedChannelUpdate : CommonBase {
 	 * The base HTLC fee charged by sender, in milli-satoshi
 	 */
 	public int get_fee_base_msat() {
-		int ret = bindings.UnsignedChannelUpdate_get_fee_base_msat(this.ptr);
+		int ret = Bindings.UnsignedChannelUpdateGetFeeBaseMsat(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -176,7 +176,7 @@ public class UnsignedChannelUpdate : CommonBase {
 	 * The base HTLC fee charged by sender, in milli-satoshi
 	 */
 	public void set_fee_base_msat(int val) {
-		bindings.UnsignedChannelUpdate_set_fee_base_msat(this.ptr, val);
+		Bindings.UnsignedChannelUpdateSetFeeBaseMsat(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -185,7 +185,7 @@ public class UnsignedChannelUpdate : CommonBase {
 	 * The amount to fee multiplier, in micro-satoshi
 	 */
 	public int get_fee_proportional_millionths() {
-		int ret = bindings.UnsignedChannelUpdate_get_fee_proportional_millionths(this.ptr);
+		int ret = Bindings.UnsignedChannelUpdateGetFeeProportionalMillionths(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -194,7 +194,7 @@ public class UnsignedChannelUpdate : CommonBase {
 	 * The amount to fee multiplier, in micro-satoshi
 	 */
 	public void set_fee_proportional_millionths(int val) {
-		bindings.UnsignedChannelUpdate_set_fee_proportional_millionths(this.ptr, val);
+		Bindings.UnsignedChannelUpdateSetFeeProportionalMillionths(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -208,7 +208,7 @@ public class UnsignedChannelUpdate : CommonBase {
 	 * Returns a copy of the field.
 	 */
 	public byte[] get_excess_data() {
-		long ret = bindings.UnsignedChannelUpdate_get_excess_data(this.ptr);
+		long ret = Bindings.UnsignedChannelUpdateGetExcessData(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -222,7 +222,7 @@ public class UnsignedChannelUpdate : CommonBase {
 	 * This is stored to ensure forward-compatibility as new fields are added to the lightning gossip protocol.
 	 */
 	public void set_excess_data(byte[] val) {
-		bindings.UnsignedChannelUpdate_set_excess_data(this.ptr, InternalUtils.encodeUint8Array(val));
+		Bindings.UnsignedChannelUpdateSetExcessData(this.ptr, InternalUtils.encodeUint8Array(val));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -231,7 +231,7 @@ public class UnsignedChannelUpdate : CommonBase {
 	 * Constructs a new UnsignedChannelUpdate given each field
 	 */
 	public static UnsignedChannelUpdate of(byte[] chain_hash_arg, long short_channel_id_arg, int timestamp_arg, byte flags_arg, short cltv_expiry_delta_arg, long htlc_minimum_msat_arg, long htlc_maximum_msat_arg, int fee_base_msat_arg, int fee_proportional_millionths_arg, byte[] excess_data_arg) {
-		long ret = bindings.UnsignedChannelUpdate_new(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(chain_hash_arg, 32)), short_channel_id_arg, timestamp_arg, flags_arg, cltv_expiry_delta_arg, htlc_minimum_msat_arg, htlc_maximum_msat_arg, fee_base_msat_arg, fee_proportional_millionths_arg, InternalUtils.encodeUint8Array(excess_data_arg));
+		long ret = Bindings.UnsignedChannelUpdateNew(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(chain_hash_arg, 32)), short_channel_id_arg, timestamp_arg, flags_arg, cltv_expiry_delta_arg, htlc_minimum_msat_arg, htlc_maximum_msat_arg, fee_base_msat_arg, fee_proportional_millionths_arg, InternalUtils.encodeUint8Array(excess_data_arg));
 		GC.KeepAlive(chain_hash_arg);
 		GC.KeepAlive(short_channel_id_arg);
 		GC.KeepAlive(timestamp_arg);
@@ -249,7 +249,7 @@ public class UnsignedChannelUpdate : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.UnsignedChannelUpdate_clone_ptr(this.ptr);
+		long ret = Bindings.UnsignedChannelUpdateClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -258,7 +258,7 @@ public class UnsignedChannelUpdate : CommonBase {
 	 * Creates a copy of the UnsignedChannelUpdate
 	 */
 	public UnsignedChannelUpdate clone() {
-		long ret = bindings.UnsignedChannelUpdate_clone(this.ptr);
+		long ret = Bindings.UnsignedChannelUpdateClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.UnsignedChannelUpdate ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.UnsignedChannelUpdate(null, ret); }
@@ -270,7 +270,7 @@ public class UnsignedChannelUpdate : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the UnsignedChannelUpdate.
 	 */
 	public long hash() {
-		long ret = bindings.UnsignedChannelUpdate_hash(this.ptr);
+		long ret = Bindings.UnsignedChannelUpdateHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -284,7 +284,7 @@ public class UnsignedChannelUpdate : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.UnsignedChannelUpdate b) {
-		bool ret = bindings.UnsignedChannelUpdate_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.UnsignedChannelUpdateEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -299,7 +299,7 @@ public class UnsignedChannelUpdate : CommonBase {
 	 * Serialize the UnsignedChannelUpdate object into a byte array which can be read by UnsignedChannelUpdate_read
 	 */
 	public byte[] write() {
-		long ret = bindings.UnsignedChannelUpdate_write(this.ptr);
+		long ret = Bindings.UnsignedChannelUpdateWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -310,7 +310,7 @@ public class UnsignedChannelUpdate : CommonBase {
 	 * Read a UnsignedChannelUpdate from a byte array, created by UnsignedChannelUpdate_write
 	 */
 	public static Result_UnsignedChannelUpdateDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.UnsignedChannelUpdate_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.UnsignedChannelUpdateRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_UnsignedChannelUpdateDecodeErrorZ ret_hu_conv = Result_UnsignedChannelUpdateDecodeErrorZ.constr_from_ptr(ret);

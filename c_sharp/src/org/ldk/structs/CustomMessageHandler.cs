@@ -9,7 +9,7 @@ namespace org { namespace ldk { namespace structs {
 
 
 /** An implementation of CustomMessageHandler */
-public interface CustomMessageHandlerInterface {
+public interface ICustomMessageHandler {
 	/**Handles the given message sent from `sender_node_id`, possibly producing messages for
 	 * [`CustomMessageHandler::get_and_clear_pending_msg`] to return and thus for [`PeerManager`]
 	 * to send.
@@ -47,20 +47,20 @@ public interface CustomMessageHandlerInterface {
  * [`lightning_custom_message`]: https://docs.rs/lightning_custom_message/latest/lightning_custom_message
  */
 public class CustomMessageHandler : CommonBase {
-	internal bindings.LDKCustomMessageHandler bindings_instance;
+	internal Bindings.LDKCustomMessageHandler bindings_instance;
 	internal long instance_idx;
 
 	internal CustomMessageHandler(object _dummy, long ptr) : base(ptr) { bindings_instance = null; }
 	~CustomMessageHandler() {
-		if (ptr != 0) { bindings.CustomMessageHandler_free(ptr); }
+		if (ptr != 0) { Bindings.CustomMessageHandlerFree(ptr); }
 	}
 
 	private class LDKCustomMessageHandlerHolder { internal CustomMessageHandler held; }
-	private class LDKCustomMessageHandlerImpl : bindings.LDKCustomMessageHandler {
-		internal LDKCustomMessageHandlerImpl(CustomMessageHandlerInterface arg, LDKCustomMessageHandlerHolder impl_holder) { this.arg = arg; this.impl_holder = impl_holder; }
-		private CustomMessageHandlerInterface arg;
+	private class LDKCustomMessageHandlerImpl : Bindings.LDKCustomMessageHandler {
+		internal LDKCustomMessageHandlerImpl(ICustomMessageHandler arg, LDKCustomMessageHandlerHolder impl_holder) { this.arg = arg; this.impl_holder = impl_holder; }
+		private ICustomMessageHandler arg;
 		private LDKCustomMessageHandlerHolder impl_holder;
-		public long handle_custom_message(long _msg, long _sender_node_id) {
+		public long HandleCustomMessage(long _msg, long _sender_node_id) {
 			Type ret_hu_conv = new Type(null, _msg);
 			if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(this); };
 			byte[] _sender_node_id_conv = InternalUtils.decodeUint8Array(_sender_node_id);
@@ -69,19 +69,19 @@ public class CustomMessageHandler : CommonBase {
 			long result = ret == null ? 0 : ret.clone_ptr();
 			return result;
 		}
-		public long get_and_clear_pending_msg() {
+		public long GetAndClearPendingMsg() {
 			TwoTuple_PublicKeyTypeZ[] ret = arg.get_and_clear_pending_msg();
 				GC.KeepAlive(arg);
 			long result = InternalUtils.encodeUint64Array(InternalUtils.mapArray(ret, ret_conv_25 => ret_conv_25 == null ? 0 : ret_conv_25.clone_ptr()));
 			return result;
 		}
-		public long provided_node_features() {
+		public long ProvidedNodeFeatures() {
 			NodeFeatures ret = arg.provided_node_features();
 				GC.KeepAlive(arg);
 			long result = ret == null ? 0 : ret.clone_ptr();
 			return result;
 		}
-		public long provided_init_features(long _their_node_id) {
+		public long ProvidedInitFeatures(long _their_node_id) {
 			byte[] _their_node_id_conv = InternalUtils.decodeUint8Array(_their_node_id);
 			InitFeatures ret = arg.provided_init_features(_their_node_id_conv);
 				GC.KeepAlive(arg);
@@ -91,11 +91,11 @@ public class CustomMessageHandler : CommonBase {
 	}
 
 	/** Creates a new instance of CustomMessageHandler from a given implementation */
-	public static CustomMessageHandler new_impl(CustomMessageHandlerInterface arg, CustomMessageReaderInterface customMessageReader_impl) {
+	public static CustomMessageHandler new_impl(ICustomMessageHandler arg, ICustomMessageReader customMessageReader_impl) {
 		LDKCustomMessageHandlerHolder impl_holder = new LDKCustomMessageHandlerHolder();
 		LDKCustomMessageHandlerImpl impl = new LDKCustomMessageHandlerImpl(arg, impl_holder);
 		CustomMessageReader customMessageReader = CustomMessageReader.new_impl(customMessageReader_impl);
-		long[] ptr_idx = bindings.LDKCustomMessageHandler_new(impl, customMessageReader.instance_idx);
+		long[] ptr_idx = Bindings.LDKCustomMessageHandlerNew(impl, customMessageReader.instance_idx);
 
 		impl_holder.held = new CustomMessageHandler(null, ptr_idx[0]);
 		impl_holder.held.instance_idx = ptr_idx[1];
@@ -110,7 +110,7 @@ public class CustomMessageHandler : CommonBase {
 	 * to send.
 	 */
 	public Result_NoneLightningErrorZ handle_custom_message(org.ldk.structs.Type msg, byte[] sender_node_id) {
-		long ret = bindings.CustomMessageHandler_handle_custom_message(this.ptr, msg.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(sender_node_id, 33)));
+		long ret = Bindings.CustomMessageHandlerHandleCustomMessage(this.ptr, msg.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(sender_node_id, 33)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(msg);
 		GC.KeepAlive(sender_node_id);
@@ -126,7 +126,7 @@ public class CustomMessageHandler : CommonBase {
 	 * connection to the node exists, then the message is simply not sent.
 	 */
 	public TwoTuple_PublicKeyTypeZ[] get_and_clear_pending_msg() {
-		long ret = bindings.CustomMessageHandler_get_and_clear_pending_msg(this.ptr);
+		long ret = Bindings.CustomMessageHandlerGetAndClearPendingMsg(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		int ret_conv_25_len = InternalUtils.getArrayLength(ret);
@@ -137,7 +137,7 @@ public class CustomMessageHandler : CommonBase {
 			if (ret_conv_25_hu_conv != null) { ret_conv_25_hu_conv.ptrs_to.AddLast(this); };
 			ret_conv_25_arr[z] = ret_conv_25_hu_conv;
 		}
-		bindings.free_buffer(ret);
+		Bindings.FreeBuffer(ret);
 		return ret_conv_25_arr;
 	}
 
@@ -149,7 +149,7 @@ public class CustomMessageHandler : CommonBase {
 	 * [`NodeAnnouncement`]: crate::ln::msgs::NodeAnnouncement
 	 */
 	public NodeFeatures provided_node_features() {
-		long ret = bindings.CustomMessageHandler_provided_node_features(this.ptr);
+		long ret = Bindings.CustomMessageHandlerProvidedNodeFeatures(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.NodeFeatures ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.NodeFeatures(null, ret); }
@@ -165,7 +165,7 @@ public class CustomMessageHandler : CommonBase {
 	 * [`Init`]: crate::ln::msgs::Init
 	 */
 	public InitFeatures provided_init_features(byte[] their_node_id) {
-		long ret = bindings.CustomMessageHandler_provided_init_features(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(their_node_id, 33)));
+		long ret = Bindings.CustomMessageHandlerProvidedInitFeatures(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(their_node_id, 33)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(their_node_id);
 		if (ret >= 0 && ret <= 4096) { return null; }

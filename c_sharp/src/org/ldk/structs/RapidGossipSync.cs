@@ -16,14 +16,14 @@ namespace org { namespace ldk { namespace structs {
 public class RapidGossipSync : CommonBase {
 	internal RapidGossipSync(object _dummy, long ptr) : base(ptr) { }
 	~RapidGossipSync() {
-		if (ptr != 0) { bindings.RapidGossipSync_free(ptr); }
+		if (ptr != 0) { Bindings.RapidGossipSyncFree(ptr); }
 	}
 
 	/**
 	 * Instantiate a new [`RapidGossipSync`] instance.
 	 */
 	public static RapidGossipSync of(org.ldk.structs.NetworkGraph network_graph, org.ldk.structs.Logger logger) {
-		long ret = bindings.RapidGossipSync_new(network_graph == null ? 0 : network_graph.ptr, logger.ptr);
+		long ret = Bindings.RapidGossipSyncNew(network_graph == null ? 0 : network_graph.ptr, logger.ptr);
 		GC.KeepAlive(network_graph);
 		GC.KeepAlive(logger);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -43,7 +43,7 @@ public class RapidGossipSync : CommonBase {
 	 * `sync_path`: Path to the file where the gossip update data is located
 	 */
 	public Result_u32GraphSyncErrorZ sync_network_graph_with_file_path(string sync_path) {
-		long ret = bindings.RapidGossipSync_sync_network_graph_with_file_path(this.ptr, InternalUtils.encodeString(sync_path));
+		long ret = Bindings.RapidGossipSyncSyncNetworkGraphWithFilePath(this.ptr, InternalUtils.encodeString(sync_path));
 		GC.KeepAlive(this);
 		GC.KeepAlive(sync_path);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -58,7 +58,7 @@ public class RapidGossipSync : CommonBase {
 	 * `update_data`: `&[u8]` binary stream that comprises the update data
 	 */
 	public Result_u32GraphSyncErrorZ update_network_graph(byte[] update_data) {
-		long ret = bindings.RapidGossipSync_update_network_graph(this.ptr, InternalUtils.encodeUint8Array(update_data));
+		long ret = Bindings.RapidGossipSyncUpdateNetworkGraph(this.ptr, InternalUtils.encodeUint8Array(update_data));
 		GC.KeepAlive(this);
 		GC.KeepAlive(update_data);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -74,7 +74,7 @@ public class RapidGossipSync : CommonBase {
 	 * `current_time_unix`: `Option<u64>` optional current timestamp to verify data age
 	 */
 	public Result_u32GraphSyncErrorZ update_network_graph_no_std(byte[] update_data, org.ldk.structs.Option_u64Z current_time_unix) {
-		long ret = bindings.RapidGossipSync_update_network_graph_no_std(this.ptr, InternalUtils.encodeUint8Array(update_data), current_time_unix.ptr);
+		long ret = Bindings.RapidGossipSyncUpdateNetworkGraphNoStd(this.ptr, InternalUtils.encodeUint8Array(update_data), current_time_unix.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(update_data);
 		GC.KeepAlive(current_time_unix);
@@ -88,7 +88,7 @@ public class RapidGossipSync : CommonBase {
 	 * Returns whether a rapid gossip sync has completed at least once.
 	 */
 	public bool is_initial_sync_complete() {
-		bool ret = bindings.RapidGossipSync_is_initial_sync_complete(this.ptr);
+		bool ret = Bindings.RapidGossipSyncIsInitialSyncComplete(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}

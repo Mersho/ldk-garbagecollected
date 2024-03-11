@@ -11,11 +11,11 @@ namespace org { namespace ldk { namespace structs {
 public class Option_OffersMessageZ : CommonBase {
 	protected Option_OffersMessageZ(object _dummy, long ptr) : base(ptr) { }
 	~Option_OffersMessageZ() {
-		if (ptr != 0) { bindings.COption_OffersMessageZ_free(ptr); }
+		if (ptr != 0) { Bindings.COptionOffersMessageZFree(ptr); }
 	}
 
 	internal static Option_OffersMessageZ constr_from_ptr(long ptr) {
-		long raw_ty = bindings.LDKCOption_OffersMessageZ_ty_from_ptr(ptr);
+		long raw_ty = Bindings.LDKCOptionOffersMessageZTyFromPtr(ptr);
 		switch (raw_ty) {
 			case 0: return new Option_OffersMessageZ_Some(ptr);
 			case 1: return new Option_OffersMessageZ_None(ptr);
@@ -28,7 +28,7 @@ public class Option_OffersMessageZ : CommonBase {
 	public class Option_OffersMessageZ_Some : Option_OffersMessageZ {
 		public OffersMessage some;
 		internal Option_OffersMessageZ_Some(long ptr) : base(null, ptr) {
-			long some = bindings.LDKCOption_OffersMessageZ_Some_get_some(ptr);
+			long some = Bindings.LDKCOptionOffersMessageZSomeGetSome(ptr);
 			org.ldk.structs.OffersMessage some_hu_conv = org.ldk.structs.OffersMessage.constr_from_ptr(some);
 			if (some_hu_conv != null) { some_hu_conv.ptrs_to.AddLast(this); };
 			this.some = some_hu_conv;
@@ -43,7 +43,7 @@ public class Option_OffersMessageZ : CommonBase {
 	 * Constructs a new COption_OffersMessageZ containing a crate::lightning::onion_message::offers::OffersMessage
 	 */
 	public static Option_OffersMessageZ some(org.ldk.structs.OffersMessage o) {
-		long ret = bindings.COption_OffersMessageZ_some(o.ptr);
+		long ret = Bindings.COptionOffersMessageZSome(o.ptr);
 		GC.KeepAlive(o);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_OffersMessageZ ret_hu_conv = org.ldk.structs.Option_OffersMessageZ.constr_from_ptr(ret);
@@ -56,7 +56,7 @@ public class Option_OffersMessageZ : CommonBase {
 	 * Constructs a new COption_OffersMessageZ containing nothing
 	 */
 	public static Option_OffersMessageZ none() {
-		long ret = bindings.COption_OffersMessageZ_none();
+		long ret = Bindings.COptionOffersMessageZNone();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_OffersMessageZ ret_hu_conv = org.ldk.structs.Option_OffersMessageZ.constr_from_ptr(ret);
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -64,7 +64,7 @@ public class Option_OffersMessageZ : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.COption_OffersMessageZ_clone_ptr(this.ptr);
+		long ret = Bindings.COptionOffersMessageZClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -74,7 +74,7 @@ public class Option_OffersMessageZ : CommonBase {
 	 * but with all dynamically-allocated buffers duplicated in new buffers.
 	 */
 	public Option_OffersMessageZ clone() {
-		long ret = bindings.COption_OffersMessageZ_clone(this.ptr);
+		long ret = Bindings.COptionOffersMessageZClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_OffersMessageZ ret_hu_conv = org.ldk.structs.Option_OffersMessageZ.constr_from_ptr(ret);

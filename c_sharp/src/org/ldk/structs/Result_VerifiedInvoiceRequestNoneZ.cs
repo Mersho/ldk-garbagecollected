@@ -8,11 +8,11 @@ namespace org { namespace ldk { namespace structs {
 public class Result_VerifiedInvoiceRequestNoneZ : CommonBase {
 	Result_VerifiedInvoiceRequestNoneZ(object _dummy, long ptr) : base(ptr) { }
 	~Result_VerifiedInvoiceRequestNoneZ() {
-		if (ptr != 0) { bindings.CResult_VerifiedInvoiceRequestNoneZ_free(ptr); }
+		if (ptr != 0) { Bindings.CResultVerifiedInvoiceRequestNoneZFree(ptr); }
 	}
 
 	internal static Result_VerifiedInvoiceRequestNoneZ constr_from_ptr(long ptr) {
-		if (bindings.CResult_VerifiedInvoiceRequestNoneZ_is_ok(ptr)) {
+		if (Bindings.CResultVerifiedInvoiceRequestNoneZIsOk(ptr)) {
 			return new Result_VerifiedInvoiceRequestNoneZ_OK(null, ptr);
 		} else {
 			return new Result_VerifiedInvoiceRequestNoneZ_Err(null, ptr);
@@ -21,7 +21,7 @@ public class Result_VerifiedInvoiceRequestNoneZ : CommonBase {
 	public class Result_VerifiedInvoiceRequestNoneZ_OK : Result_VerifiedInvoiceRequestNoneZ {
 		public readonly VerifiedInvoiceRequest res;
 		internal Result_VerifiedInvoiceRequestNoneZ_OK(object _dummy, long ptr) : base(_dummy, ptr) {
-			long res = bindings.CResult_VerifiedInvoiceRequestNoneZ_get_ok(ptr);
+			long res = Bindings.CResultVerifiedInvoiceRequestNoneZGetOk(ptr);
 			org.ldk.structs.VerifiedInvoiceRequest res_hu_conv = null; if (res < 0 || res > 4096) { res_hu_conv = new org.ldk.structs.VerifiedInvoiceRequest(null, res); }
 			if (res_hu_conv != null) { res_hu_conv.ptrs_to.AddLast(this); };
 			this.res = res_hu_conv;
@@ -37,7 +37,7 @@ public class Result_VerifiedInvoiceRequestNoneZ : CommonBase {
 	 * Creates a new CResult_VerifiedInvoiceRequestNoneZ in the success state.
 	 */
 	public static Result_VerifiedInvoiceRequestNoneZ ok(org.ldk.structs.VerifiedInvoiceRequest o) {
-		long ret = bindings.CResult_VerifiedInvoiceRequestNoneZ_ok(o == null ? 0 : o.ptr);
+		long ret = Bindings.CResultVerifiedInvoiceRequestNoneZOk(o == null ? 0 : o.ptr);
 		GC.KeepAlive(o);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_VerifiedInvoiceRequestNoneZ ret_hu_conv = Result_VerifiedInvoiceRequestNoneZ.constr_from_ptr(ret);
@@ -49,7 +49,7 @@ public class Result_VerifiedInvoiceRequestNoneZ : CommonBase {
 	 * Creates a new CResult_VerifiedInvoiceRequestNoneZ in the error state.
 	 */
 	public static Result_VerifiedInvoiceRequestNoneZ err() {
-		long ret = bindings.CResult_VerifiedInvoiceRequestNoneZ_err();
+		long ret = Bindings.CResultVerifiedInvoiceRequestNoneZErr();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_VerifiedInvoiceRequestNoneZ ret_hu_conv = Result_VerifiedInvoiceRequestNoneZ.constr_from_ptr(ret);
 		return ret_hu_conv;
@@ -59,13 +59,13 @@ public class Result_VerifiedInvoiceRequestNoneZ : CommonBase {
 	 * Checks if the given object is currently in the success state
 	 */
 	public bool is_ok() {
-		bool ret = bindings.CResult_VerifiedInvoiceRequestNoneZ_is_ok(this.ptr);
+		bool ret = Bindings.CResultVerifiedInvoiceRequestNoneZIsOk(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.CResult_VerifiedInvoiceRequestNoneZ_clone_ptr(this.ptr);
+		long ret = Bindings.CResultVerifiedInvoiceRequestNoneZClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -75,7 +75,7 @@ public class Result_VerifiedInvoiceRequestNoneZ : CommonBase {
 	 * but with all dynamically-allocated buffers duplicated in new buffers.
 	 */
 	public Result_VerifiedInvoiceRequestNoneZ clone() {
-		long ret = bindings.CResult_VerifiedInvoiceRequestNoneZ_clone(this.ptr);
+		long ret = Bindings.CResultVerifiedInvoiceRequestNoneZClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_VerifiedInvoiceRequestNoneZ ret_hu_conv = Result_VerifiedInvoiceRequestNoneZ.constr_from_ptr(ret);

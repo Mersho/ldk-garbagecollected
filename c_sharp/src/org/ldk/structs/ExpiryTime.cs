@@ -13,11 +13,11 @@ namespace org { namespace ldk { namespace structs {
 public class ExpiryTime : CommonBase {
 	internal ExpiryTime(object _dummy, long ptr) : base(ptr) { }
 	~ExpiryTime() {
-		if (ptr != 0) { bindings.ExpiryTime_free(ptr); }
+		if (ptr != 0) { Bindings.ExpiryTimeFree(ptr); }
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.ExpiryTime_clone_ptr(this.ptr);
+		long ret = Bindings.ExpiryTimeClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -26,7 +26,7 @@ public class ExpiryTime : CommonBase {
 	 * Creates a copy of the ExpiryTime
 	 */
 	public ExpiryTime clone() {
-		long ret = bindings.ExpiryTime_clone(this.ptr);
+		long ret = Bindings.ExpiryTimeClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ExpiryTime ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ExpiryTime(null, ret); }
@@ -38,7 +38,7 @@ public class ExpiryTime : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the ExpiryTime.
 	 */
 	public long hash() {
-		long ret = bindings.ExpiryTime_hash(this.ptr);
+		long ret = Bindings.ExpiryTimeHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -52,7 +52,7 @@ public class ExpiryTime : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.ExpiryTime b) {
-		bool ret = bindings.ExpiryTime_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.ExpiryTimeEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -67,7 +67,7 @@ public class ExpiryTime : CommonBase {
 	 * Construct an `ExpiryTime` from seconds.
 	 */
 	public static ExpiryTime from_seconds(long seconds) {
-		long ret = bindings.ExpiryTime_from_seconds(seconds);
+		long ret = Bindings.ExpiryTimeFromSeconds(seconds);
 		GC.KeepAlive(seconds);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ExpiryTime ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ExpiryTime(null, ret); }
@@ -79,7 +79,7 @@ public class ExpiryTime : CommonBase {
 	 * Construct an `ExpiryTime` from a [`Duration`], dropping the sub-second part.
 	 */
 	public static ExpiryTime from_duration(long duration) {
-		long ret = bindings.ExpiryTime_from_duration(duration);
+		long ret = Bindings.ExpiryTimeFromDuration(duration);
 		GC.KeepAlive(duration);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ExpiryTime ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ExpiryTime(null, ret); }
@@ -91,7 +91,7 @@ public class ExpiryTime : CommonBase {
 	 * Returns the expiry time in seconds
 	 */
 	public long as_seconds() {
-		long ret = bindings.ExpiryTime_as_seconds(this.ptr);
+		long ret = Bindings.ExpiryTimeAsSeconds(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -100,7 +100,7 @@ public class ExpiryTime : CommonBase {
 	 * Returns a reference to the underlying [`Duration`] (=expiry time)
 	 */
 	public long as_duration() {
-		long ret = bindings.ExpiryTime_as_duration(this.ptr);
+		long ret = Bindings.ExpiryTimeAsDuration(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}

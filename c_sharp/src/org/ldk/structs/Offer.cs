@@ -24,11 +24,11 @@ namespace org { namespace ldk { namespace structs {
 public class Offer : CommonBase {
 	internal Offer(object _dummy, long ptr) : base(ptr) { }
 	~Offer() {
-		if (ptr != 0) { bindings.Offer_free(ptr); }
+		if (ptr != 0) { Bindings.OfferFree(ptr); }
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.Offer_clone_ptr(this.ptr);
+		long ret = Bindings.OfferClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -37,7 +37,7 @@ public class Offer : CommonBase {
 	 * Creates a copy of the Offer
 	 */
 	public Offer clone() {
-		long ret = bindings.Offer_clone(this.ptr);
+		long ret = Bindings.OfferClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Offer ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.Offer(null, ret); }
@@ -51,7 +51,7 @@ public class Offer : CommonBase {
 	 * for the selected chain.
 	 */
 	public byte[][] chains() {
-		long ret = bindings.Offer_chains(this.ptr);
+		long ret = Bindings.OfferChains(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		int ret_conv_8_len = InternalUtils.getArrayLength(ret);
@@ -61,7 +61,7 @@ public class Offer : CommonBase {
 			byte[] ret_conv_8_conv = InternalUtils.decodeUint8Array(ret_conv_8);
 			ret_conv_8_arr[i] = ret_conv_8_conv;
 		}
-		bindings.free_buffer(ret);
+		Bindings.FreeBuffer(ret);
 		return ret_conv_8_arr;
 	}
 
@@ -70,7 +70,7 @@ public class Offer : CommonBase {
 	 * is reflected in `invoice_request` messages along with all the other fields from the `offer`.
 	 */
 	public Option_CVec_u8ZZ metadata() {
-		long ret = bindings.Offer_metadata(this.ptr);
+		long ret = Bindings.OfferMetadata(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_CVec_u8ZZ ret_hu_conv = org.ldk.structs.Option_CVec_u8ZZ.constr_from_ptr(ret);
@@ -84,7 +84,7 @@ public class Offer : CommonBase {
 	 * Note that the return value (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public Amount amount() {
-		long ret = bindings.Offer_amount(this.ptr);
+		long ret = Bindings.OfferAmount(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Amount ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.Amount(null, ret); }
@@ -97,7 +97,7 @@ public class Offer : CommonBase {
 	 * but with the caveat that it has not been verified in any way.
 	 */
 	public PrintableString description() {
-		long ret = bindings.Offer_description(this.ptr);
+		long ret = Bindings.OfferDescription(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.PrintableString ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.PrintableString(null, ret); }
@@ -109,7 +109,7 @@ public class Offer : CommonBase {
 	 * Features pertaining to the offer.
 	 */
 	public OfferFeatures offer_features() {
-		long ret = bindings.Offer_offer_features(this.ptr);
+		long ret = Bindings.OfferOfferFeatures(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.OfferFeatures ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.OfferFeatures(null, ret); }
@@ -123,7 +123,7 @@ public class Offer : CommonBase {
 	 * If `None`, the offer does not expire.
 	 */
 	public Option_u64Z absolute_expiry() {
-		long ret = bindings.Offer_absolute_expiry(this.ptr);
+		long ret = Bindings.OfferAbsoluteExpiry(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_u64Z ret_hu_conv = org.ldk.structs.Option_u64Z.constr_from_ptr(ret);
@@ -138,7 +138,7 @@ public class Offer : CommonBase {
 	 * Note that the return value (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public PrintableString issuer() {
-		long ret = bindings.Offer_issuer(this.ptr);
+		long ret = Bindings.OfferIssuer(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.PrintableString ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.PrintableString(null, ret); }
@@ -151,7 +151,7 @@ public class Offer : CommonBase {
 	 * recipient privacy by obfuscating its node id.
 	 */
 	public BlindedPath[] paths() {
-		long ret = bindings.Offer_paths(this.ptr);
+		long ret = Bindings.OfferPaths(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		int ret_conv_13_len = InternalUtils.getArrayLength(ret);
@@ -162,7 +162,7 @@ public class Offer : CommonBase {
 			if (ret_conv_13_hu_conv != null) { ret_conv_13_hu_conv.ptrs_to.AddLast(this); };
 			ret_conv_13_arr[n] = ret_conv_13_hu_conv;
 		}
-		bindings.free_buffer(ret);
+		Bindings.FreeBuffer(ret);
 		return ret_conv_13_arr;
 	}
 
@@ -170,7 +170,7 @@ public class Offer : CommonBase {
 	 * The quantity of items supported.
 	 */
 	public Quantity supported_quantity() {
-		long ret = bindings.Offer_supported_quantity(this.ptr);
+		long ret = Bindings.OfferSupportedQuantity(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Quantity ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.Quantity(null, ret); }
@@ -182,7 +182,7 @@ public class Offer : CommonBase {
 	 * The public key used by the recipient to sign invoices.
 	 */
 	public byte[] signing_pubkey() {
-		long ret = bindings.Offer_signing_pubkey(this.ptr);
+		long ret = Bindings.OfferSigningPubkey(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -193,7 +193,7 @@ public class Offer : CommonBase {
 	 * Returns whether the given chain is supported by the offer.
 	 */
 	public bool supports_chain(byte[] chain) {
-		bool ret = bindings.Offer_supports_chain(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(chain, 32)));
+		bool ret = Bindings.OfferSupportsChain(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(chain, 32)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(chain);
 		return ret;
@@ -203,7 +203,7 @@ public class Offer : CommonBase {
 	 * Whether the offer has expired.
 	 */
 	public bool is_expired() {
-		bool ret = bindings.Offer_is_expired(this.ptr);
+		bool ret = Bindings.OfferIsExpired(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -212,7 +212,7 @@ public class Offer : CommonBase {
 	 * Whether the offer has expired given the duration since the Unix epoch.
 	 */
 	public bool is_expired_no_std(long duration_since_epoch) {
-		bool ret = bindings.Offer_is_expired_no_std(this.ptr, duration_since_epoch);
+		bool ret = Bindings.OfferIsExpiredNoStd(this.ptr, duration_since_epoch);
 		GC.KeepAlive(this);
 		GC.KeepAlive(duration_since_epoch);
 		return ret;
@@ -222,7 +222,7 @@ public class Offer : CommonBase {
 	 * Returns whether the given quantity is valid for the offer.
 	 */
 	public bool is_valid_quantity(long quantity) {
-		bool ret = bindings.Offer_is_valid_quantity(this.ptr, quantity);
+		bool ret = Bindings.OfferIsValidQuantity(this.ptr, quantity);
 		GC.KeepAlive(this);
 		GC.KeepAlive(quantity);
 		return ret;
@@ -234,7 +234,7 @@ public class Offer : CommonBase {
 	 * [`InvoiceRequest`]: crate::offers::invoice_request::InvoiceRequest
 	 */
 	public bool expects_quantity() {
-		bool ret = bindings.Offer_expects_quantity(this.ptr);
+		bool ret = Bindings.OfferExpectsQuantity(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -243,7 +243,7 @@ public class Offer : CommonBase {
 	 * Serialize the Offer object into a byte array which can be read by Offer_read
 	 */
 	public byte[] write() {
-		long ret = bindings.Offer_write(this.ptr);
+		long ret = Bindings.OfferWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -254,7 +254,7 @@ public class Offer : CommonBase {
 	 * Read a Offer object from a string
 	 */
 	public static Result_OfferBolt12ParseErrorZ from_str(string s) {
-		long ret = bindings.Offer_from_str(InternalUtils.encodeString(s));
+		long ret = Bindings.OfferFromStr(InternalUtils.encodeString(s));
 		GC.KeepAlive(s);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_OfferBolt12ParseErrorZ ret_hu_conv = Result_OfferBolt12ParseErrorZ.constr_from_ptr(ret);

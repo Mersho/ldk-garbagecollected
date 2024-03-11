@@ -12,7 +12,7 @@ namespace org { namespace ldk { namespace structs {
 public class HTLCOutputInCommitment : CommonBase {
 	internal HTLCOutputInCommitment(object _dummy, long ptr) : base(ptr) { }
 	~HTLCOutputInCommitment() {
-		if (ptr != 0) { bindings.HTLCOutputInCommitment_free(ptr); }
+		if (ptr != 0) { Bindings.HTLCOutputInCommitmentFree(ptr); }
 	}
 
 	/**
@@ -22,7 +22,7 @@ public class HTLCOutputInCommitment : CommonBase {
 	 * the counterparty or our own.
 	 */
 	public bool get_offered() {
-		bool ret = bindings.HTLCOutputInCommitment_get_offered(this.ptr);
+		bool ret = Bindings.HTLCOutputInCommitmentGetOffered(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -34,7 +34,7 @@ public class HTLCOutputInCommitment : CommonBase {
 	 * the counterparty or our own.
 	 */
 	public void set_offered(bool val) {
-		bindings.HTLCOutputInCommitment_set_offered(this.ptr, val);
+		Bindings.HTLCOutputInCommitmentSetOffered(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -44,7 +44,7 @@ public class HTLCOutputInCommitment : CommonBase {
 	 * this divided by 1000.
 	 */
 	public long get_amount_msat() {
-		long ret = bindings.HTLCOutputInCommitment_get_amount_msat(this.ptr);
+		long ret = Bindings.HTLCOutputInCommitmentGetAmountMsat(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -54,7 +54,7 @@ public class HTLCOutputInCommitment : CommonBase {
 	 * this divided by 1000.
 	 */
 	public void set_amount_msat(long val) {
-		bindings.HTLCOutputInCommitment_set_amount_msat(this.ptr, val);
+		Bindings.HTLCOutputInCommitmentSetAmountMsat(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -63,7 +63,7 @@ public class HTLCOutputInCommitment : CommonBase {
 	 * The CLTV lock-time at which this HTLC expires.
 	 */
 	public int get_cltv_expiry() {
-		int ret = bindings.HTLCOutputInCommitment_get_cltv_expiry(this.ptr);
+		int ret = Bindings.HTLCOutputInCommitmentGetCltvExpiry(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -72,7 +72,7 @@ public class HTLCOutputInCommitment : CommonBase {
 	 * The CLTV lock-time at which this HTLC expires.
 	 */
 	public void set_cltv_expiry(int val) {
-		bindings.HTLCOutputInCommitment_set_cltv_expiry(this.ptr, val);
+		Bindings.HTLCOutputInCommitmentSetCltvExpiry(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -81,7 +81,7 @@ public class HTLCOutputInCommitment : CommonBase {
 	 * The hash of the preimage which unlocks this HTLC.
 	 */
 	public byte[] get_payment_hash() {
-		long ret = bindings.HTLCOutputInCommitment_get_payment_hash(this.ptr);
+		long ret = Bindings.HTLCOutputInCommitmentGetPaymentHash(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -92,7 +92,7 @@ public class HTLCOutputInCommitment : CommonBase {
 	 * The hash of the preimage which unlocks this HTLC.
 	 */
 	public void set_payment_hash(byte[] val) {
-		bindings.HTLCOutputInCommitment_set_payment_hash(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
+		Bindings.HTLCOutputInCommitmentSetPaymentHash(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -103,7 +103,7 @@ public class HTLCOutputInCommitment : CommonBase {
 	 * value is spent to additional transaction fees).
 	 */
 	public Option_u32Z get_transaction_output_index() {
-		long ret = bindings.HTLCOutputInCommitment_get_transaction_output_index(this.ptr);
+		long ret = Bindings.HTLCOutputInCommitmentGetTransactionOutputIndex(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_u32Z ret_hu_conv = org.ldk.structs.Option_u32Z.constr_from_ptr(ret);
@@ -117,7 +117,7 @@ public class HTLCOutputInCommitment : CommonBase {
 	 * value is spent to additional transaction fees).
 	 */
 	public void set_transaction_output_index(org.ldk.structs.Option_u32Z val) {
-		bindings.HTLCOutputInCommitment_set_transaction_output_index(this.ptr, val.ptr);
+		Bindings.HTLCOutputInCommitmentSetTransactionOutputIndex(this.ptr, val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -127,7 +127,7 @@ public class HTLCOutputInCommitment : CommonBase {
 	 * Constructs a new HTLCOutputInCommitment given each field
 	 */
 	public static HTLCOutputInCommitment of(bool offered_arg, long amount_msat_arg, int cltv_expiry_arg, byte[] payment_hash_arg, org.ldk.structs.Option_u32Z transaction_output_index_arg) {
-		long ret = bindings.HTLCOutputInCommitment_new(offered_arg, amount_msat_arg, cltv_expiry_arg, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_hash_arg, 32)), transaction_output_index_arg.ptr);
+		long ret = Bindings.HTLCOutputInCommitmentNew(offered_arg, amount_msat_arg, cltv_expiry_arg, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_hash_arg, 32)), transaction_output_index_arg.ptr);
 		GC.KeepAlive(offered_arg);
 		GC.KeepAlive(amount_msat_arg);
 		GC.KeepAlive(cltv_expiry_arg);
@@ -141,7 +141,7 @@ public class HTLCOutputInCommitment : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.HTLCOutputInCommitment_clone_ptr(this.ptr);
+		long ret = Bindings.HTLCOutputInCommitmentClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -150,7 +150,7 @@ public class HTLCOutputInCommitment : CommonBase {
 	 * Creates a copy of the HTLCOutputInCommitment
 	 */
 	public HTLCOutputInCommitment clone() {
-		long ret = bindings.HTLCOutputInCommitment_clone(this.ptr);
+		long ret = Bindings.HTLCOutputInCommitmentClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.HTLCOutputInCommitment ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.HTLCOutputInCommitment(null, ret); }
@@ -164,7 +164,7 @@ public class HTLCOutputInCommitment : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.HTLCOutputInCommitment b) {
-		bool ret = bindings.HTLCOutputInCommitment_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.HTLCOutputInCommitmentEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -179,7 +179,7 @@ public class HTLCOutputInCommitment : CommonBase {
 	 * Serialize the HTLCOutputInCommitment object into a byte array which can be read by HTLCOutputInCommitment_read
 	 */
 	public byte[] write() {
-		long ret = bindings.HTLCOutputInCommitment_write(this.ptr);
+		long ret = Bindings.HTLCOutputInCommitmentWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -190,7 +190,7 @@ public class HTLCOutputInCommitment : CommonBase {
 	 * Read a HTLCOutputInCommitment from a byte array, created by HTLCOutputInCommitment_write
 	 */
 	public static Result_HTLCOutputInCommitmentDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.HTLCOutputInCommitment_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.HTLCOutputInCommitmentRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_HTLCOutputInCommitmentDecodeErrorZ ret_hu_conv = Result_HTLCOutputInCommitmentDecodeErrorZ.constr_from_ptr(ret);

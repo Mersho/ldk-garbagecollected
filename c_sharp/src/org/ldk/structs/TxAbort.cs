@@ -12,14 +12,14 @@ namespace org { namespace ldk { namespace structs {
 public class TxAbort : CommonBase {
 	internal TxAbort(object _dummy, long ptr) : base(ptr) { }
 	~TxAbort() {
-		if (ptr != 0) { bindings.TxAbort_free(ptr); }
+		if (ptr != 0) { Bindings.TxAbortFree(ptr); }
 	}
 
 	/**
 	 * The channel ID
 	 */
 	public byte[] get_channel_id() {
-		long ret = bindings.TxAbort_get_channel_id(this.ptr);
+		long ret = Bindings.TxAbortGetChannelId(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -30,7 +30,7 @@ public class TxAbort : CommonBase {
 	 * The channel ID
 	 */
 	public void set_channel_id(byte[] val) {
-		bindings.TxAbort_set_channel_id(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
+		Bindings.TxAbortSetChannelId(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -41,7 +41,7 @@ public class TxAbort : CommonBase {
 	 * Returns a copy of the field.
 	 */
 	public byte[] get_data() {
-		long ret = bindings.TxAbort_get_data(this.ptr);
+		long ret = Bindings.TxAbortGetData(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -52,7 +52,7 @@ public class TxAbort : CommonBase {
 	 * Message data
 	 */
 	public void set_data(byte[] val) {
-		bindings.TxAbort_set_data(this.ptr, InternalUtils.encodeUint8Array(val));
+		Bindings.TxAbortSetData(this.ptr, InternalUtils.encodeUint8Array(val));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -61,7 +61,7 @@ public class TxAbort : CommonBase {
 	 * Constructs a new TxAbort given each field
 	 */
 	public static TxAbort of(byte[] channel_id_arg, byte[] data_arg) {
-		long ret = bindings.TxAbort_new(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(channel_id_arg, 32)), InternalUtils.encodeUint8Array(data_arg));
+		long ret = Bindings.TxAbortNew(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(channel_id_arg, 32)), InternalUtils.encodeUint8Array(data_arg));
 		GC.KeepAlive(channel_id_arg);
 		GC.KeepAlive(data_arg);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -71,7 +71,7 @@ public class TxAbort : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.TxAbort_clone_ptr(this.ptr);
+		long ret = Bindings.TxAbortClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -80,7 +80,7 @@ public class TxAbort : CommonBase {
 	 * Creates a copy of the TxAbort
 	 */
 	public TxAbort clone() {
-		long ret = bindings.TxAbort_clone(this.ptr);
+		long ret = Bindings.TxAbortClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.TxAbort ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.TxAbort(null, ret); }
@@ -92,7 +92,7 @@ public class TxAbort : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the TxAbort.
 	 */
 	public long hash() {
-		long ret = bindings.TxAbort_hash(this.ptr);
+		long ret = Bindings.TxAbortHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -106,7 +106,7 @@ public class TxAbort : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.TxAbort b) {
-		bool ret = bindings.TxAbort_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.TxAbortEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -121,7 +121,7 @@ public class TxAbort : CommonBase {
 	 * Serialize the TxAbort object into a byte array which can be read by TxAbort_read
 	 */
 	public byte[] write() {
-		long ret = bindings.TxAbort_write(this.ptr);
+		long ret = Bindings.TxAbortWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -132,7 +132,7 @@ public class TxAbort : CommonBase {
 	 * Read a TxAbort from a byte array, created by TxAbort_write
 	 */
 	public static Result_TxAbortDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.TxAbort_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.TxAbortRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_TxAbortDecodeErrorZ ret_hu_conv = Result_TxAbortDecodeErrorZ.constr_from_ptr(ret);

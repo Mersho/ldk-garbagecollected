@@ -13,14 +13,14 @@ namespace org { namespace ldk { namespace structs {
 public class Utxo : CommonBase {
 	internal Utxo(object _dummy, long ptr) : base(ptr) { }
 	~Utxo() {
-		if (ptr != 0) { bindings.Utxo_free(ptr); }
+		if (ptr != 0) { Bindings.UtxoFree(ptr); }
 	}
 
 	/**
 	 * The unique identifier of the output.
 	 */
 	public OutPoint get_outpoint() {
-		long ret = bindings.Utxo_get_outpoint(this.ptr);
+		long ret = Bindings.UtxoGetOutpoint(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.OutPoint ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.OutPoint(null, ret); }
@@ -32,7 +32,7 @@ public class Utxo : CommonBase {
 	 * The unique identifier of the output.
 	 */
 	public void set_outpoint(org.ldk.structs.OutPoint val) {
-		bindings.Utxo_set_outpoint(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.UtxoSetOutpoint(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -42,7 +42,7 @@ public class Utxo : CommonBase {
 	 * The output to spend.
 	 */
 	public TxOut get_output() {
-		long ret = bindings.Utxo_get_output(this.ptr);
+		long ret = Bindings.UtxoGetOutput(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		TxOut ret_conv = new TxOut(null, ret);
@@ -53,7 +53,7 @@ public class Utxo : CommonBase {
 	 * The output to spend.
 	 */
 	public void set_output(org.ldk.structs.TxOut val) {
-		bindings.Utxo_set_output(this.ptr, val.ptr);
+		Bindings.UtxoSetOutput(this.ptr, val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -64,7 +64,7 @@ public class Utxo : CommonBase {
 	 * the input's `script_sig` must account for [`WITNESS_SCALE_FACTOR`].
 	 */
 	public long get_satisfaction_weight() {
-		long ret = bindings.Utxo_get_satisfaction_weight(this.ptr);
+		long ret = Bindings.UtxoGetSatisfactionWeight(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -75,7 +75,7 @@ public class Utxo : CommonBase {
 	 * the input's `script_sig` must account for [`WITNESS_SCALE_FACTOR`].
 	 */
 	public void set_satisfaction_weight(long val) {
-		bindings.Utxo_set_satisfaction_weight(this.ptr, val);
+		Bindings.UtxoSetSatisfactionWeight(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -84,7 +84,7 @@ public class Utxo : CommonBase {
 	 * Constructs a new Utxo given each field
 	 */
 	public static Utxo of(org.ldk.structs.OutPoint outpoint_arg, org.ldk.structs.TxOut output_arg, long satisfaction_weight_arg) {
-		long ret = bindings.Utxo_new(outpoint_arg == null ? 0 : outpoint_arg.ptr, output_arg.ptr, satisfaction_weight_arg);
+		long ret = Bindings.UtxoNew(outpoint_arg == null ? 0 : outpoint_arg.ptr, output_arg.ptr, satisfaction_weight_arg);
 		GC.KeepAlive(outpoint_arg);
 		GC.KeepAlive(output_arg);
 		GC.KeepAlive(satisfaction_weight_arg);
@@ -96,7 +96,7 @@ public class Utxo : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.Utxo_clone_ptr(this.ptr);
+		long ret = Bindings.UtxoClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -105,7 +105,7 @@ public class Utxo : CommonBase {
 	 * Creates a copy of the Utxo
 	 */
 	public Utxo clone() {
-		long ret = bindings.Utxo_clone(this.ptr);
+		long ret = Bindings.UtxoClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Utxo ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.Utxo(null, ret); }
@@ -117,7 +117,7 @@ public class Utxo : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the Utxo.
 	 */
 	public long hash() {
-		long ret = bindings.Utxo_hash(this.ptr);
+		long ret = Bindings.UtxoHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -131,7 +131,7 @@ public class Utxo : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.Utxo b) {
-		bool ret = bindings.Utxo_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.UtxoEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -146,7 +146,7 @@ public class Utxo : CommonBase {
 	 * Returns a `Utxo` with the `satisfaction_weight` estimate for a legacy P2PKH output.
 	 */
 	public static Utxo new_p2pkh(org.ldk.structs.OutPoint outpoint, long value, byte[] pubkey_hash) {
-		long ret = bindings.Utxo_new_p2pkh(outpoint == null ? 0 : outpoint.ptr, value, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(pubkey_hash, 20)));
+		long ret = Bindings.UtxoNewP2Pkh(outpoint == null ? 0 : outpoint.ptr, value, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(pubkey_hash, 20)));
 		GC.KeepAlive(outpoint);
 		GC.KeepAlive(value);
 		GC.KeepAlive(pubkey_hash);

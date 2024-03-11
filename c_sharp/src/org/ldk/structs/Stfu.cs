@@ -12,14 +12,14 @@ namespace org { namespace ldk { namespace structs {
 public class Stfu : CommonBase {
 	internal Stfu(object _dummy, long ptr) : base(ptr) { }
 	~Stfu() {
-		if (ptr != 0) { bindings.Stfu_free(ptr); }
+		if (ptr != 0) { Bindings.StfuFree(ptr); }
 	}
 
 	/**
 	 * The channel ID where quiescence is intended
 	 */
 	public byte[] get_channel_id() {
-		long ret = bindings.Stfu_get_channel_id(this.ptr);
+		long ret = Bindings.StfuGetChannelId(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -30,7 +30,7 @@ public class Stfu : CommonBase {
 	 * The channel ID where quiescence is intended
 	 */
 	public void set_channel_id(byte[] val) {
-		bindings.Stfu_set_channel_id(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
+		Bindings.StfuSetChannelId(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -39,7 +39,7 @@ public class Stfu : CommonBase {
 	 * Initiator flag, 1 if initiating, 0 if replying to an stfu.
 	 */
 	public byte get_initiator() {
-		byte ret = bindings.Stfu_get_initiator(this.ptr);
+		byte ret = Bindings.StfuGetInitiator(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -48,7 +48,7 @@ public class Stfu : CommonBase {
 	 * Initiator flag, 1 if initiating, 0 if replying to an stfu.
 	 */
 	public void set_initiator(byte val) {
-		bindings.Stfu_set_initiator(this.ptr, val);
+		Bindings.StfuSetInitiator(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -57,7 +57,7 @@ public class Stfu : CommonBase {
 	 * Constructs a new Stfu given each field
 	 */
 	public static Stfu of(byte[] channel_id_arg, byte initiator_arg) {
-		long ret = bindings.Stfu_new(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(channel_id_arg, 32)), initiator_arg);
+		long ret = Bindings.StfuNew(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(channel_id_arg, 32)), initiator_arg);
 		GC.KeepAlive(channel_id_arg);
 		GC.KeepAlive(initiator_arg);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -67,7 +67,7 @@ public class Stfu : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.Stfu_clone_ptr(this.ptr);
+		long ret = Bindings.StfuClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -76,7 +76,7 @@ public class Stfu : CommonBase {
 	 * Creates a copy of the Stfu
 	 */
 	public Stfu clone() {
-		long ret = bindings.Stfu_clone(this.ptr);
+		long ret = Bindings.StfuClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Stfu ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.Stfu(null, ret); }
@@ -90,7 +90,7 @@ public class Stfu : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.Stfu b) {
-		bool ret = bindings.Stfu_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.StfuEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -105,7 +105,7 @@ public class Stfu : CommonBase {
 	 * Serialize the Stfu object into a byte array which can be read by Stfu_read
 	 */
 	public byte[] write() {
-		long ret = bindings.Stfu_write(this.ptr);
+		long ret = Bindings.StfuWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -116,7 +116,7 @@ public class Stfu : CommonBase {
 	 * Read a Stfu from a byte array, created by Stfu_write
 	 */
 	public static Result_StfuDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.Stfu_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.StfuRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_StfuDecodeErrorZ ret_hu_conv = Result_StfuDecodeErrorZ.constr_from_ptr(ret);

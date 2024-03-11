@@ -15,14 +15,14 @@ namespace org { namespace ldk { namespace structs {
 public class UserConfig : CommonBase {
 	internal UserConfig(object _dummy, long ptr) : base(ptr) { }
 	~UserConfig() {
-		if (ptr != 0) { bindings.UserConfig_free(ptr); }
+		if (ptr != 0) { Bindings.UserConfigFree(ptr); }
 	}
 
 	/**
 	 * Channel handshake config that we propose to our counterparty.
 	 */
 	public ChannelHandshakeConfig get_channel_handshake_config() {
-		long ret = bindings.UserConfig_get_channel_handshake_config(this.ptr);
+		long ret = Bindings.UserConfigGetChannelHandshakeConfig(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChannelHandshakeConfig ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChannelHandshakeConfig(null, ret); }
@@ -34,7 +34,7 @@ public class UserConfig : CommonBase {
 	 * Channel handshake config that we propose to our counterparty.
 	 */
 	public void set_channel_handshake_config(org.ldk.structs.ChannelHandshakeConfig val) {
-		bindings.UserConfig_set_channel_handshake_config(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.UserConfigSetChannelHandshakeConfig(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -44,7 +44,7 @@ public class UserConfig : CommonBase {
 	 * Limits applied to our counterparty's proposed channel handshake config settings.
 	 */
 	public ChannelHandshakeLimits get_channel_handshake_limits() {
-		long ret = bindings.UserConfig_get_channel_handshake_limits(this.ptr);
+		long ret = Bindings.UserConfigGetChannelHandshakeLimits(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChannelHandshakeLimits ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChannelHandshakeLimits(null, ret); }
@@ -56,7 +56,7 @@ public class UserConfig : CommonBase {
 	 * Limits applied to our counterparty's proposed channel handshake config settings.
 	 */
 	public void set_channel_handshake_limits(org.ldk.structs.ChannelHandshakeLimits val) {
-		bindings.UserConfig_set_channel_handshake_limits(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.UserConfigSetChannelHandshakeLimits(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -66,7 +66,7 @@ public class UserConfig : CommonBase {
 	 * Channel config which affects behavior during channel lifetime.
 	 */
 	public ChannelConfig get_channel_config() {
-		long ret = bindings.UserConfig_get_channel_config(this.ptr);
+		long ret = Bindings.UserConfigGetChannelConfig(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChannelConfig ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChannelConfig(null, ret); }
@@ -78,7 +78,7 @@ public class UserConfig : CommonBase {
 	 * Channel config which affects behavior during channel lifetime.
 	 */
 	public void set_channel_config(org.ldk.structs.ChannelConfig val) {
-		bindings.UserConfig_set_channel_config(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.UserConfigSetChannelConfig(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -103,7 +103,7 @@ public class UserConfig : CommonBase {
 	 * Default value: false.
 	 */
 	public bool get_accept_forwards_to_priv_channels() {
-		bool ret = bindings.UserConfig_get_accept_forwards_to_priv_channels(this.ptr);
+		bool ret = Bindings.UserConfigGetAcceptForwardsToPrivChannels(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -127,7 +127,7 @@ public class UserConfig : CommonBase {
 	 * Default value: false.
 	 */
 	public void set_accept_forwards_to_priv_channels(bool val) {
-		bindings.UserConfig_set_accept_forwards_to_priv_channels(this.ptr, val);
+		Bindings.UserConfigSetAcceptForwardsToPrivChannels(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -137,7 +137,7 @@ public class UserConfig : CommonBase {
 	 * Default value: true.
 	 */
 	public bool get_accept_inbound_channels() {
-		bool ret = bindings.UserConfig_get_accept_inbound_channels(this.ptr);
+		bool ret = Bindings.UserConfigGetAcceptInboundChannels(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -147,7 +147,7 @@ public class UserConfig : CommonBase {
 	 * Default value: true.
 	 */
 	public void set_accept_inbound_channels(bool val) {
-		bindings.UserConfig_set_accept_inbound_channels(this.ptr, val);
+		Bindings.UserConfigSetAcceptInboundChannels(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -168,7 +168,7 @@ public class UserConfig : CommonBase {
 	 * [`msgs::AcceptChannel`]: crate::ln::msgs::AcceptChannel
 	 */
 	public bool get_manually_accept_inbound_channels() {
-		bool ret = bindings.UserConfig_get_manually_accept_inbound_channels(this.ptr);
+		bool ret = Bindings.UserConfigGetManuallyAcceptInboundChannels(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -189,7 +189,7 @@ public class UserConfig : CommonBase {
 	 * [`msgs::AcceptChannel`]: crate::ln::msgs::AcceptChannel
 	 */
 	public void set_manually_accept_inbound_channels(bool val) {
-		bindings.UserConfig_set_manually_accept_inbound_channels(this.ptr, val);
+		Bindings.UserConfigSetManuallyAcceptInboundChannels(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -207,7 +207,7 @@ public class UserConfig : CommonBase {
 	 * [`Event::HTLCIntercepted`]: crate::events::Event::HTLCIntercepted
 	 */
 	public bool get_accept_intercept_htlcs() {
-		bool ret = bindings.UserConfig_get_accept_intercept_htlcs(this.ptr);
+		bool ret = Bindings.UserConfigGetAcceptInterceptHtlcs(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -225,7 +225,7 @@ public class UserConfig : CommonBase {
 	 * [`Event::HTLCIntercepted`]: crate::events::Event::HTLCIntercepted
 	 */
 	public void set_accept_intercept_htlcs(bool val) {
-		bindings.UserConfig_set_accept_intercept_htlcs(this.ptr, val);
+		Bindings.UserConfigSetAcceptInterceptHtlcs(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -243,7 +243,7 @@ public class UserConfig : CommonBase {
 	 * [`ChannelManager`]: crate::ln::channelmanager::ChannelManager
 	 */
 	public bool get_accept_mpp_keysend() {
-		bool ret = bindings.UserConfig_get_accept_mpp_keysend(this.ptr);
+		bool ret = Bindings.UserConfigGetAcceptMppKeysend(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -261,7 +261,7 @@ public class UserConfig : CommonBase {
 	 * [`ChannelManager`]: crate::ln::channelmanager::ChannelManager
 	 */
 	public void set_accept_mpp_keysend(bool val) {
-		bindings.UserConfig_set_accept_mpp_keysend(this.ptr, val);
+		Bindings.UserConfigSetAcceptMppKeysend(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -270,7 +270,7 @@ public class UserConfig : CommonBase {
 	 * Constructs a new UserConfig given each field
 	 */
 	public static UserConfig of(org.ldk.structs.ChannelHandshakeConfig channel_handshake_config_arg, org.ldk.structs.ChannelHandshakeLimits channel_handshake_limits_arg, org.ldk.structs.ChannelConfig channel_config_arg, bool accept_forwards_to_priv_channels_arg, bool accept_inbound_channels_arg, bool manually_accept_inbound_channels_arg, bool accept_intercept_htlcs_arg, bool accept_mpp_keysend_arg) {
-		long ret = bindings.UserConfig_new(channel_handshake_config_arg == null ? 0 : channel_handshake_config_arg.ptr, channel_handshake_limits_arg == null ? 0 : channel_handshake_limits_arg.ptr, channel_config_arg == null ? 0 : channel_config_arg.ptr, accept_forwards_to_priv_channels_arg, accept_inbound_channels_arg, manually_accept_inbound_channels_arg, accept_intercept_htlcs_arg, accept_mpp_keysend_arg);
+		long ret = Bindings.UserConfigNew(channel_handshake_config_arg == null ? 0 : channel_handshake_config_arg.ptr, channel_handshake_limits_arg == null ? 0 : channel_handshake_limits_arg.ptr, channel_config_arg == null ? 0 : channel_config_arg.ptr, accept_forwards_to_priv_channels_arg, accept_inbound_channels_arg, manually_accept_inbound_channels_arg, accept_intercept_htlcs_arg, accept_mpp_keysend_arg);
 		GC.KeepAlive(channel_handshake_config_arg);
 		GC.KeepAlive(channel_handshake_limits_arg);
 		GC.KeepAlive(channel_config_arg);
@@ -289,7 +289,7 @@ public class UserConfig : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.UserConfig_clone_ptr(this.ptr);
+		long ret = Bindings.UserConfigClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -298,7 +298,7 @@ public class UserConfig : CommonBase {
 	 * Creates a copy of the UserConfig
 	 */
 	public UserConfig clone() {
-		long ret = bindings.UserConfig_clone(this.ptr);
+		long ret = Bindings.UserConfigClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.UserConfig ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.UserConfig(null, ret); }
@@ -310,7 +310,7 @@ public class UserConfig : CommonBase {
 	 * Creates a "default" UserConfig. See struct and individual field documentaiton for details on which values are used.
 	 */
 	public static UserConfig with_default() {
-		long ret = bindings.UserConfig_default();
+		long ret = Bindings.UserConfigDefault();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.UserConfig ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.UserConfig(null, ret); }
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };

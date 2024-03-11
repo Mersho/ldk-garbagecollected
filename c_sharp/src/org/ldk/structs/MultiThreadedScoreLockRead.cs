@@ -12,7 +12,7 @@ namespace org { namespace ldk { namespace structs {
 public class MultiThreadedScoreLockRead : CommonBase {
 	internal MultiThreadedScoreLockRead(object _dummy, long ptr) : base(ptr) { }
 	~MultiThreadedScoreLockRead() {
-		if (ptr != 0) { bindings.MultiThreadedScoreLockRead_free(ptr); }
+		if (ptr != 0) { Bindings.MultiThreadedScoreLockReadFree(ptr); }
 	}
 
 	/**
@@ -20,7 +20,7 @@ public class MultiThreadedScoreLockRead : CommonBase {
 	 * This copies the `inner` pointer in this_arg and thus the returned ScoreLookUp must be freed before this_arg is
 	 */
 	public ScoreLookUp as_ScoreLookUp() {
-		long ret = bindings.MultiThreadedScoreLockRead_as_ScoreLookUp(this.ptr);
+		long ret = Bindings.MultiThreadedScoreLockReadAsScoreLookUp(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		ScoreLookUp ret_hu_conv = new ScoreLookUp(null, ret);

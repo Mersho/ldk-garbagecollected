@@ -12,11 +12,11 @@ namespace org { namespace ldk { namespace structs {
 public class Sha256 : CommonBase {
 	internal Sha256(object _dummy, long ptr) : base(ptr) { }
 	~Sha256() {
-		if (ptr != 0) { bindings.Sha256_free(ptr); }
+		if (ptr != 0) { Bindings.Sha256Free(ptr); }
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.Sha256_clone_ptr(this.ptr);
+		long ret = Bindings.Sha256ClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -25,7 +25,7 @@ public class Sha256 : CommonBase {
 	 * Creates a copy of the Sha256
 	 */
 	public Sha256 clone() {
-		long ret = bindings.Sha256_clone(this.ptr);
+		long ret = Bindings.Sha256Clone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Sha256 ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.Sha256(null, ret); }
@@ -37,7 +37,7 @@ public class Sha256 : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the Sha256.
 	 */
 	public long hash() {
-		long ret = bindings.Sha256_hash(this.ptr);
+		long ret = Bindings.Sha256Hash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -51,7 +51,7 @@ public class Sha256 : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.Sha256 b) {
-		bool ret = bindings.Sha256_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.Sha256Eq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -67,7 +67,7 @@ public class Sha256 : CommonBase {
 	 * single sha256 hash.
 	 */
 	public static Sha256 from_bytes(byte[] bytes) {
-		long ret = bindings.Sha256_from_bytes(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(bytes, 32)));
+		long ret = Bindings.Sha256FromBytes(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(bytes, 32)));
 		GC.KeepAlive(bytes);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Sha256 ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.Sha256(null, ret); }

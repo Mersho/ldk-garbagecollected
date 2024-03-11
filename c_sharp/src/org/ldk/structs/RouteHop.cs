@@ -13,14 +13,14 @@ namespace org { namespace ldk { namespace structs {
 public class RouteHop : CommonBase {
 	internal RouteHop(object _dummy, long ptr) : base(ptr) { }
 	~RouteHop() {
-		if (ptr != 0) { bindings.RouteHop_free(ptr); }
+		if (ptr != 0) { Bindings.RouteHopFree(ptr); }
 	}
 
 	/**
 	 * The node_id of the node at this hop.
 	 */
 	public byte[] get_pubkey() {
-		long ret = bindings.RouteHop_get_pubkey(this.ptr);
+		long ret = Bindings.RouteHopGetPubkey(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -31,7 +31,7 @@ public class RouteHop : CommonBase {
 	 * The node_id of the node at this hop.
 	 */
 	public void set_pubkey(byte[] val) {
-		bindings.RouteHop_set_pubkey(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 33)));
+		Bindings.RouteHopSetPubkey(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 33)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -41,7 +41,7 @@ public class RouteHop : CommonBase {
 	 * amended to match the features present in the invoice this node generated.
 	 */
 	public NodeFeatures get_node_features() {
-		long ret = bindings.RouteHop_get_node_features(this.ptr);
+		long ret = Bindings.RouteHopGetNodeFeatures(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.NodeFeatures ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.NodeFeatures(null, ret); }
@@ -54,7 +54,7 @@ public class RouteHop : CommonBase {
 	 * amended to match the features present in the invoice this node generated.
 	 */
 	public void set_node_features(org.ldk.structs.NodeFeatures val) {
-		bindings.RouteHop_set_node_features(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.RouteHopSetNodeFeatures(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -64,7 +64,7 @@ public class RouteHop : CommonBase {
 	 * The channel that should be used from the previous hop to reach this node.
 	 */
 	public long get_short_channel_id() {
-		long ret = bindings.RouteHop_get_short_channel_id(this.ptr);
+		long ret = Bindings.RouteHopGetShortChannelId(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -73,7 +73,7 @@ public class RouteHop : CommonBase {
 	 * The channel that should be used from the previous hop to reach this node.
 	 */
 	public void set_short_channel_id(long val) {
-		bindings.RouteHop_set_short_channel_id(this.ptr, val);
+		Bindings.RouteHopSetShortChannelId(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -83,7 +83,7 @@ public class RouteHop : CommonBase {
 	 * to reach this node.
 	 */
 	public ChannelFeatures get_channel_features() {
-		long ret = bindings.RouteHop_get_channel_features(this.ptr);
+		long ret = Bindings.RouteHopGetChannelFeatures(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChannelFeatures ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChannelFeatures(null, ret); }
@@ -96,7 +96,7 @@ public class RouteHop : CommonBase {
 	 * to reach this node.
 	 */
 	public void set_channel_features(org.ldk.structs.ChannelFeatures val) {
-		bindings.RouteHop_set_channel_features(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.RouteHopSetChannelFeatures(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -111,7 +111,7 @@ public class RouteHop : CommonBase {
 	 * [`BlindedPath`]: crate::blinded_path::BlindedPath
 	 */
 	public long get_fee_msat() {
-		long ret = bindings.RouteHop_get_fee_msat(this.ptr);
+		long ret = Bindings.RouteHopGetFeeMsat(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -125,7 +125,7 @@ public class RouteHop : CommonBase {
 	 * [`BlindedPath`]: crate::blinded_path::BlindedPath
 	 */
 	public void set_fee_msat(long val) {
-		bindings.RouteHop_set_fee_msat(this.ptr, val);
+		Bindings.RouteHopSetFeeMsat(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -139,7 +139,7 @@ public class RouteHop : CommonBase {
 	 * [`BlindedPath`]: crate::blinded_path::BlindedPath
 	 */
 	public int get_cltv_expiry_delta() {
-		int ret = bindings.RouteHop_get_cltv_expiry_delta(this.ptr);
+		int ret = Bindings.RouteHopGetCltvExpiryDelta(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -153,7 +153,7 @@ public class RouteHop : CommonBase {
 	 * [`BlindedPath`]: crate::blinded_path::BlindedPath
 	 */
 	public void set_cltv_expiry_delta(int val) {
-		bindings.RouteHop_set_cltv_expiry_delta(this.ptr, val);
+		Bindings.RouteHopSetCltvExpiryDelta(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -169,7 +169,7 @@ public class RouteHop : CommonBase {
 	 * Will be `true` for objects serialized with LDK version 0.0.116 and before.
 	 */
 	public bool get_maybe_announced_channel() {
-		bool ret = bindings.RouteHop_get_maybe_announced_channel(this.ptr);
+		bool ret = Bindings.RouteHopGetMaybeAnnouncedChannel(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -185,7 +185,7 @@ public class RouteHop : CommonBase {
 	 * Will be `true` for objects serialized with LDK version 0.0.116 and before.
 	 */
 	public void set_maybe_announced_channel(bool val) {
-		bindings.RouteHop_set_maybe_announced_channel(this.ptr, val);
+		Bindings.RouteHopSetMaybeAnnouncedChannel(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -194,7 +194,7 @@ public class RouteHop : CommonBase {
 	 * Constructs a new RouteHop given each field
 	 */
 	public static RouteHop of(byte[] pubkey_arg, org.ldk.structs.NodeFeatures node_features_arg, long short_channel_id_arg, org.ldk.structs.ChannelFeatures channel_features_arg, long fee_msat_arg, int cltv_expiry_delta_arg, bool maybe_announced_channel_arg) {
-		long ret = bindings.RouteHop_new(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(pubkey_arg, 33)), node_features_arg == null ? 0 : node_features_arg.ptr, short_channel_id_arg, channel_features_arg == null ? 0 : channel_features_arg.ptr, fee_msat_arg, cltv_expiry_delta_arg, maybe_announced_channel_arg);
+		long ret = Bindings.RouteHopNew(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(pubkey_arg, 33)), node_features_arg == null ? 0 : node_features_arg.ptr, short_channel_id_arg, channel_features_arg == null ? 0 : channel_features_arg.ptr, fee_msat_arg, cltv_expiry_delta_arg, maybe_announced_channel_arg);
 		GC.KeepAlive(pubkey_arg);
 		GC.KeepAlive(node_features_arg);
 		GC.KeepAlive(short_channel_id_arg);
@@ -211,7 +211,7 @@ public class RouteHop : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.RouteHop_clone_ptr(this.ptr);
+		long ret = Bindings.RouteHopClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -220,7 +220,7 @@ public class RouteHop : CommonBase {
 	 * Creates a copy of the RouteHop
 	 */
 	public RouteHop clone() {
-		long ret = bindings.RouteHop_clone(this.ptr);
+		long ret = Bindings.RouteHopClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.RouteHop ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.RouteHop(null, ret); }
@@ -232,7 +232,7 @@ public class RouteHop : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the RouteHop.
 	 */
 	public long hash() {
-		long ret = bindings.RouteHop_hash(this.ptr);
+		long ret = Bindings.RouteHopHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -246,7 +246,7 @@ public class RouteHop : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.RouteHop b) {
-		bool ret = bindings.RouteHop_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.RouteHopEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -261,7 +261,7 @@ public class RouteHop : CommonBase {
 	 * Serialize the RouteHop object into a byte array which can be read by RouteHop_read
 	 */
 	public byte[] write() {
-		long ret = bindings.RouteHop_write(this.ptr);
+		long ret = Bindings.RouteHopWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -272,7 +272,7 @@ public class RouteHop : CommonBase {
 	 * Read a RouteHop from a byte array, created by RouteHop_write
 	 */
 	public static Result_RouteHopDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.RouteHop_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.RouteHopRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_RouteHopDecodeErrorZ ret_hu_conv = Result_RouteHopDecodeErrorZ.constr_from_ptr(ret);

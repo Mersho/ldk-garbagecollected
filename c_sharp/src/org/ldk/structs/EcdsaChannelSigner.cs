@@ -9,7 +9,7 @@ namespace org { namespace ldk { namespace structs {
 
 
 /** An implementation of EcdsaChannelSigner */
-public interface EcdsaChannelSignerInterface {
+public interface IEcdsaChannelSigner {
 	/**Create a signature for a counterparty's commitment transaction and associated HTLC transactions.
 	 * 
 	 * Note that if signing fails or is rejected, the channel will be force-closed.
@@ -139,20 +139,20 @@ public interface EcdsaChannelSignerInterface {
  * for an example of such policies.
  */
 public class EcdsaChannelSigner : CommonBase {
-	internal bindings.LDKEcdsaChannelSigner bindings_instance;
+	internal Bindings.LDKEcdsaChannelSigner bindings_instance;
 	internal long instance_idx;
 
 	internal EcdsaChannelSigner(object _dummy, long ptr) : base(ptr) { bindings_instance = null; }
 	~EcdsaChannelSigner() {
-		if (ptr != 0) { bindings.EcdsaChannelSigner_free(ptr); }
+		if (ptr != 0) { Bindings.EcdsaChannelSignerFree(ptr); }
 	}
 
 	private class LDKEcdsaChannelSignerHolder { internal EcdsaChannelSigner held; }
-	private class LDKEcdsaChannelSignerImpl : bindings.LDKEcdsaChannelSigner {
-		internal LDKEcdsaChannelSignerImpl(EcdsaChannelSignerInterface arg, LDKEcdsaChannelSignerHolder impl_holder) { this.arg = arg; this.impl_holder = impl_holder; }
-		private EcdsaChannelSignerInterface arg;
+	private class LDKEcdsaChannelSignerImpl : Bindings.LDKEcdsaChannelSigner {
+		internal LDKEcdsaChannelSignerImpl(IEcdsaChannelSigner arg, LDKEcdsaChannelSignerHolder impl_holder) { this.arg = arg; this.impl_holder = impl_holder; }
+		private IEcdsaChannelSigner arg;
 		private LDKEcdsaChannelSignerHolder impl_holder;
-		public long sign_counterparty_commitment(long _commitment_tx, long _inbound_htlc_preimages, long _outbound_htlc_preimages) {
+		public long SignCounterpartyCommitment(long _commitment_tx, long _inbound_htlc_preimages, long _outbound_htlc_preimages) {
 			org.ldk.structs.CommitmentTransaction _commitment_tx_hu_conv = null; if (_commitment_tx < 0 || _commitment_tx > 4096) { _commitment_tx_hu_conv = new org.ldk.structs.CommitmentTransaction(null, _commitment_tx); }
 			int _inbound_htlc_preimages_conv_8_len = InternalUtils.getArrayLength(_inbound_htlc_preimages);
 			byte[][] _inbound_htlc_preimages_conv_8_arr = new byte[_inbound_htlc_preimages_conv_8_len][];
@@ -161,7 +161,7 @@ public class EcdsaChannelSigner : CommonBase {
 				byte[] _inbound_htlc_preimages_conv_8_conv = InternalUtils.decodeUint8Array(_inbound_htlc_preimages_conv_8);
 				_inbound_htlc_preimages_conv_8_arr[i] = _inbound_htlc_preimages_conv_8_conv;
 			}
-			bindings.free_buffer(_inbound_htlc_preimages);
+			Bindings.FreeBuffer(_inbound_htlc_preimages);
 			int _outbound_htlc_preimages_conv_8_len = InternalUtils.getArrayLength(_outbound_htlc_preimages);
 			byte[][] _outbound_htlc_preimages_conv_8_arr = new byte[_outbound_htlc_preimages_conv_8_len][];
 			for (int i = 0; i < _outbound_htlc_preimages_conv_8_len; i++) {
@@ -169,20 +169,20 @@ public class EcdsaChannelSigner : CommonBase {
 				byte[] _outbound_htlc_preimages_conv_8_conv = InternalUtils.decodeUint8Array(_outbound_htlc_preimages_conv_8);
 				_outbound_htlc_preimages_conv_8_arr[i] = _outbound_htlc_preimages_conv_8_conv;
 			}
-			bindings.free_buffer(_outbound_htlc_preimages);
+			Bindings.FreeBuffer(_outbound_htlc_preimages);
 			Result_C2Tuple_ECDSASignatureCVec_ECDSASignatureZZNoneZ ret = arg.sign_counterparty_commitment(_commitment_tx_hu_conv, _inbound_htlc_preimages_conv_8_arr, _outbound_htlc_preimages_conv_8_arr);
 				GC.KeepAlive(arg);
 			long result = ret == null ? 0 : ret.clone_ptr();
 			return result;
 		}
-		public long sign_holder_commitment(long _commitment_tx) {
+		public long SignHolderCommitment(long _commitment_tx) {
 			org.ldk.structs.HolderCommitmentTransaction _commitment_tx_hu_conv = null; if (_commitment_tx < 0 || _commitment_tx > 4096) { _commitment_tx_hu_conv = new org.ldk.structs.HolderCommitmentTransaction(null, _commitment_tx); }
 			Result_ECDSASignatureNoneZ ret = arg.sign_holder_commitment(_commitment_tx_hu_conv);
 				GC.KeepAlive(arg);
 			long result = ret == null ? 0 : ret.clone_ptr();
 			return result;
 		}
-		public long sign_justice_revoked_output(long _justice_tx, long _input, long _amount, long _per_commitment_key) {
+		public long SignJusticeRevokedOutput(long _justice_tx, long _input, long _amount, long _per_commitment_key) {
 			byte[] _justice_tx_conv = InternalUtils.decodeUint8Array(_justice_tx);
 			byte[] _per_commitment_key_conv = InternalUtils.decodeUint8Array(_per_commitment_key);
 			Result_ECDSASignatureNoneZ ret = arg.sign_justice_revoked_output(_justice_tx_conv, _input, _amount, _per_commitment_key_conv);
@@ -190,7 +190,7 @@ public class EcdsaChannelSigner : CommonBase {
 			long result = ret == null ? 0 : ret.clone_ptr();
 			return result;
 		}
-		public long sign_justice_revoked_htlc(long _justice_tx, long _input, long _amount, long _per_commitment_key, long _htlc) {
+		public long SignJusticeRevokedHtlc(long _justice_tx, long _input, long _amount, long _per_commitment_key, long _htlc) {
 			byte[] _justice_tx_conv = InternalUtils.decodeUint8Array(_justice_tx);
 			byte[] _per_commitment_key_conv = InternalUtils.decodeUint8Array(_per_commitment_key);
 			org.ldk.structs.HTLCOutputInCommitment _htlc_hu_conv = null; if (_htlc < 0 || _htlc > 4096) { _htlc_hu_conv = new org.ldk.structs.HTLCOutputInCommitment(null, _htlc); }
@@ -199,7 +199,7 @@ public class EcdsaChannelSigner : CommonBase {
 			long result = ret == null ? 0 : ret.clone_ptr();
 			return result;
 		}
-		public long sign_holder_htlc_transaction(long _htlc_tx, long _input, long _htlc_descriptor) {
+		public long SignHolderHtlcTransaction(long _htlc_tx, long _input, long _htlc_descriptor) {
 			byte[] _htlc_tx_conv = InternalUtils.decodeUint8Array(_htlc_tx);
 			org.ldk.structs.HTLCDescriptor _htlc_descriptor_hu_conv = null; if (_htlc_descriptor < 0 || _htlc_descriptor > 4096) { _htlc_descriptor_hu_conv = new org.ldk.structs.HTLCDescriptor(null, _htlc_descriptor); }
 			Result_ECDSASignatureNoneZ ret = arg.sign_holder_htlc_transaction(_htlc_tx_conv, _input, _htlc_descriptor_hu_conv);
@@ -207,7 +207,7 @@ public class EcdsaChannelSigner : CommonBase {
 			long result = ret == null ? 0 : ret.clone_ptr();
 			return result;
 		}
-		public long sign_counterparty_htlc_transaction(long _htlc_tx, long _input, long _amount, long _per_commitment_point, long _htlc) {
+		public long SignCounterpartyHtlcTransaction(long _htlc_tx, long _input, long _amount, long _per_commitment_point, long _htlc) {
 			byte[] _htlc_tx_conv = InternalUtils.decodeUint8Array(_htlc_tx);
 			byte[] _per_commitment_point_conv = InternalUtils.decodeUint8Array(_per_commitment_point);
 			org.ldk.structs.HTLCOutputInCommitment _htlc_hu_conv = null; if (_htlc < 0 || _htlc > 4096) { _htlc_hu_conv = new org.ldk.structs.HTLCOutputInCommitment(null, _htlc); }
@@ -216,21 +216,21 @@ public class EcdsaChannelSigner : CommonBase {
 			long result = ret == null ? 0 : ret.clone_ptr();
 			return result;
 		}
-		public long sign_closing_transaction(long _closing_tx) {
+		public long SignClosingTransaction(long _closing_tx) {
 			org.ldk.structs.ClosingTransaction _closing_tx_hu_conv = null; if (_closing_tx < 0 || _closing_tx > 4096) { _closing_tx_hu_conv = new org.ldk.structs.ClosingTransaction(null, _closing_tx); }
 			Result_ECDSASignatureNoneZ ret = arg.sign_closing_transaction(_closing_tx_hu_conv);
 				GC.KeepAlive(arg);
 			long result = ret == null ? 0 : ret.clone_ptr();
 			return result;
 		}
-		public long sign_holder_anchor_input(long _anchor_tx, long _input) {
+		public long SignHolderAnchorInput(long _anchor_tx, long _input) {
 			byte[] _anchor_tx_conv = InternalUtils.decodeUint8Array(_anchor_tx);
 			Result_ECDSASignatureNoneZ ret = arg.sign_holder_anchor_input(_anchor_tx_conv, _input);
 				GC.KeepAlive(arg);
 			long result = ret == null ? 0 : ret.clone_ptr();
 			return result;
 		}
-		public long sign_channel_announcement_with_funding_key(long _msg) {
+		public long SignChannelAnnouncementWithFundingKey(long _msg) {
 			org.ldk.structs.UnsignedChannelAnnouncement _msg_hu_conv = null; if (_msg < 0 || _msg > 4096) { _msg_hu_conv = new org.ldk.structs.UnsignedChannelAnnouncement(null, _msg); }
 			Result_ECDSASignatureNoneZ ret = arg.sign_channel_announcement_with_funding_key(_msg_hu_conv);
 				GC.KeepAlive(arg);
@@ -240,11 +240,11 @@ public class EcdsaChannelSigner : CommonBase {
 	}
 
 	/** Creates a new instance of EcdsaChannelSigner from a given implementation */
-	public static EcdsaChannelSigner new_impl(EcdsaChannelSignerInterface arg, ChannelSignerInterface channelSigner_impl, ChannelPublicKeys pubkeys) {
+	public static EcdsaChannelSigner new_impl(IEcdsaChannelSigner arg, IChannelSigner channelSigner_impl, ChannelPublicKeys pubkeys) {
 		LDKEcdsaChannelSignerHolder impl_holder = new LDKEcdsaChannelSignerHolder();
 		LDKEcdsaChannelSignerImpl impl = new LDKEcdsaChannelSignerImpl(arg, impl_holder);
 		ChannelSigner channelSigner = ChannelSigner.new_impl(channelSigner_impl, pubkeys);
-		long[] ptr_idx = bindings.LDKEcdsaChannelSigner_new(impl, channelSigner.instance_idx, pubkeys == null ? 0 : pubkeys.clone_ptr());
+		long[] ptr_idx = Bindings.LDKEcdsaChannelSignerNew(impl, channelSigner.instance_idx, pubkeys == null ? 0 : pubkeys.clone_ptr());
 
 		impl_holder.held = new EcdsaChannelSigner(null, ptr_idx[0]);
 		impl_holder.held.instance_idx = ptr_idx[1];
@@ -270,7 +270,7 @@ public class EcdsaChannelSigner : CommonBase {
 	 * irrelevant or duplicate preimages.
 	 */
 	public Result_C2Tuple_ECDSASignatureCVec_ECDSASignatureZZNoneZ sign_counterparty_commitment(org.ldk.structs.CommitmentTransaction commitment_tx, byte[][] inbound_htlc_preimages, byte[][] outbound_htlc_preimages) {
-		long ret = bindings.EcdsaChannelSigner_sign_counterparty_commitment(this.ptr, commitment_tx == null ? 0 : commitment_tx.ptr, InternalUtils.encodeUint64Array(InternalUtils.mapArray(inbound_htlc_preimages, inbound_htlc_preimages_conv_8 => InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(inbound_htlc_preimages_conv_8, 32)))), InternalUtils.encodeUint64Array(InternalUtils.mapArray(outbound_htlc_preimages, outbound_htlc_preimages_conv_8 => InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(outbound_htlc_preimages_conv_8, 32)))));
+		long ret = Bindings.EcdsaChannelSignerSignCounterpartyCommitment(this.ptr, commitment_tx == null ? 0 : commitment_tx.ptr, InternalUtils.encodeUint64Array(InternalUtils.mapArray(inbound_htlc_preimages, inbound_htlc_preimages_conv_8 => InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(inbound_htlc_preimages_conv_8, 32)))), InternalUtils.encodeUint64Array(InternalUtils.mapArray(outbound_htlc_preimages, outbound_htlc_preimages_conv_8 => InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(outbound_htlc_preimages_conv_8, 32)))));
 		GC.KeepAlive(this);
 		GC.KeepAlive(commitment_tx);
 		GC.KeepAlive(inbound_htlc_preimages);
@@ -293,7 +293,7 @@ public class EcdsaChannelSigner : CommonBase {
 	 * An external signer implementation should check that the commitment has not been revoked.
 	 */
 	public Result_ECDSASignatureNoneZ sign_holder_commitment(org.ldk.structs.HolderCommitmentTransaction commitment_tx) {
-		long ret = bindings.EcdsaChannelSigner_sign_holder_commitment(this.ptr, commitment_tx == null ? 0 : commitment_tx.ptr);
+		long ret = Bindings.EcdsaChannelSignerSignHolderCommitment(this.ptr, commitment_tx == null ? 0 : commitment_tx.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(commitment_tx);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -319,7 +319,7 @@ public class EcdsaChannelSigner : CommonBase {
 	 * so).
 	 */
 	public Result_ECDSASignatureNoneZ sign_justice_revoked_output(byte[] justice_tx, long input, long amount, byte[] per_commitment_key) {
-		long ret = bindings.EcdsaChannelSigner_sign_justice_revoked_output(this.ptr, InternalUtils.encodeUint8Array(justice_tx), input, amount, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(per_commitment_key, 32)));
+		long ret = Bindings.EcdsaChannelSignerSignJusticeRevokedOutput(this.ptr, InternalUtils.encodeUint8Array(justice_tx), input, amount, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(per_commitment_key, 32)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(justice_tx);
 		GC.KeepAlive(input);
@@ -351,7 +351,7 @@ public class EcdsaChannelSigner : CommonBase {
 	 * (which is committed to in the BIP 143 signatures).
 	 */
 	public Result_ECDSASignatureNoneZ sign_justice_revoked_htlc(byte[] justice_tx, long input, long amount, byte[] per_commitment_key, org.ldk.structs.HTLCOutputInCommitment htlc) {
-		long ret = bindings.EcdsaChannelSigner_sign_justice_revoked_htlc(this.ptr, InternalUtils.encodeUint8Array(justice_tx), input, amount, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(per_commitment_key, 32)), htlc == null ? 0 : htlc.ptr);
+		long ret = Bindings.EcdsaChannelSignerSignJusticeRevokedHtlc(this.ptr, InternalUtils.encodeUint8Array(justice_tx), input, amount, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(per_commitment_key, 32)), htlc == null ? 0 : htlc.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(justice_tx);
 		GC.KeepAlive(input);
@@ -377,7 +377,7 @@ public class EcdsaChannelSigner : CommonBase {
 	 * [`ChannelMonitor`]: crate::chain::channelmonitor::ChannelMonitor
 	 */
 	public Result_ECDSASignatureNoneZ sign_holder_htlc_transaction(byte[] htlc_tx, long input, org.ldk.structs.HTLCDescriptor htlc_descriptor) {
-		long ret = bindings.EcdsaChannelSigner_sign_holder_htlc_transaction(this.ptr, InternalUtils.encodeUint8Array(htlc_tx), input, htlc_descriptor == null ? 0 : htlc_descriptor.ptr);
+		long ret = Bindings.EcdsaChannelSignerSignHolderHtlcTransaction(this.ptr, InternalUtils.encodeUint8Array(htlc_tx), input, htlc_descriptor == null ? 0 : htlc_descriptor.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(htlc_tx);
 		GC.KeepAlive(input);
@@ -408,7 +408,7 @@ public class EcdsaChannelSigner : CommonBase {
 	 * BIP 143 signature.
 	 */
 	public Result_ECDSASignatureNoneZ sign_counterparty_htlc_transaction(byte[] htlc_tx, long input, long amount, byte[] per_commitment_point, org.ldk.structs.HTLCOutputInCommitment htlc) {
-		long ret = bindings.EcdsaChannelSigner_sign_counterparty_htlc_transaction(this.ptr, InternalUtils.encodeUint8Array(htlc_tx), input, amount, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(per_commitment_point, 33)), htlc == null ? 0 : htlc.ptr);
+		long ret = Bindings.EcdsaChannelSignerSignCounterpartyHtlcTransaction(this.ptr, InternalUtils.encodeUint8Array(htlc_tx), input, amount, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(per_commitment_point, 33)), htlc == null ? 0 : htlc.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(htlc_tx);
 		GC.KeepAlive(input);
@@ -428,7 +428,7 @@ public class EcdsaChannelSigner : CommonBase {
 	 * chosen to forgo their output as dust.
 	 */
 	public Result_ECDSASignatureNoneZ sign_closing_transaction(org.ldk.structs.ClosingTransaction closing_tx) {
-		long ret = bindings.EcdsaChannelSigner_sign_closing_transaction(this.ptr, closing_tx == null ? 0 : closing_tx.ptr);
+		long ret = Bindings.EcdsaChannelSignerSignClosingTransaction(this.ptr, closing_tx == null ? 0 : closing_tx.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(closing_tx);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -442,7 +442,7 @@ public class EcdsaChannelSigner : CommonBase {
 	 * input within `anchor_tx`, which spends the commitment transaction, at index `input`.
 	 */
 	public Result_ECDSASignatureNoneZ sign_holder_anchor_input(byte[] anchor_tx, long input) {
-		long ret = bindings.EcdsaChannelSigner_sign_holder_anchor_input(this.ptr, InternalUtils.encodeUint8Array(anchor_tx), input);
+		long ret = Bindings.EcdsaChannelSignerSignHolderAnchorInput(this.ptr, InternalUtils.encodeUint8Array(anchor_tx), input);
 		GC.KeepAlive(this);
 		GC.KeepAlive(anchor_tx);
 		GC.KeepAlive(input);
@@ -465,7 +465,7 @@ public class EcdsaChannelSigner : CommonBase {
 	 * [`NodeSigner::sign_gossip_message`]: crate::sign::NodeSigner::sign_gossip_message
 	 */
 	public Result_ECDSASignatureNoneZ sign_channel_announcement_with_funding_key(org.ldk.structs.UnsignedChannelAnnouncement msg) {
-		long ret = bindings.EcdsaChannelSigner_sign_channel_announcement_with_funding_key(this.ptr, msg == null ? 0 : msg.ptr);
+		long ret = Bindings.EcdsaChannelSignerSignChannelAnnouncementWithFundingKey(this.ptr, msg == null ? 0 : msg.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(msg);
 		if (ret >= 0 && ret <= 4096) { return null; }

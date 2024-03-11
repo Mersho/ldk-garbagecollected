@@ -15,11 +15,11 @@ namespace org { namespace ldk { namespace structs {
 public class PathFailure : CommonBase {
 	protected PathFailure(object _dummy, long ptr) : base(ptr) { }
 	~PathFailure() {
-		if (ptr != 0) { bindings.PathFailure_free(ptr); }
+		if (ptr != 0) { Bindings.PathFailureFree(ptr); }
 	}
 
 	internal static PathFailure constr_from_ptr(long ptr) {
-		long raw_ty = bindings.LDKPathFailure_ty_from_ptr(ptr);
+		long raw_ty = Bindings.LDKPathFailureTyFromPtr(ptr);
 		switch (raw_ty) {
 			case 0: return new PathFailure_InitialSend(ptr);
 			case 1: return new PathFailure_OnPath(ptr);
@@ -35,7 +35,7 @@ public class PathFailure : CommonBase {
 		 */
 		public APIError err;
 		internal PathFailure_InitialSend(long ptr) : base(null, ptr) {
-			long err = bindings.LDKPathFailure_InitialSend_get_err(ptr);
+			long err = Bindings.LDKPathFailureInitialSendGetErr(ptr);
 			org.ldk.structs.APIError err_hu_conv = org.ldk.structs.APIError.constr_from_ptr(err);
 			if (err_hu_conv != null) { err_hu_conv.ptrs_to.AddLast(this); };
 			this.err = err_hu_conv;
@@ -52,14 +52,14 @@ public class PathFailure : CommonBase {
 		 */
 		public Option_NetworkUpdateZ network_update;
 		internal PathFailure_OnPath(long ptr) : base(null, ptr) {
-			long network_update = bindings.LDKPathFailure_OnPath_get_network_update(ptr);
+			long network_update = Bindings.LDKPathFailureOnPathGetNetworkUpdate(ptr);
 			org.ldk.structs.Option_NetworkUpdateZ network_update_hu_conv = org.ldk.structs.Option_NetworkUpdateZ.constr_from_ptr(network_update);
 			if (network_update_hu_conv != null) { network_update_hu_conv.ptrs_to.AddLast(this); };
 			this.network_update = network_update_hu_conv;
 		}
 	}
 	internal long clone_ptr() {
-		long ret = bindings.PathFailure_clone_ptr(this.ptr);
+		long ret = Bindings.PathFailureClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -68,7 +68,7 @@ public class PathFailure : CommonBase {
 	 * Creates a copy of the PathFailure
 	 */
 	public PathFailure clone() {
-		long ret = bindings.PathFailure_clone(this.ptr);
+		long ret = Bindings.PathFailureClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.PathFailure ret_hu_conv = org.ldk.structs.PathFailure.constr_from_ptr(ret);
@@ -80,7 +80,7 @@ public class PathFailure : CommonBase {
 	 * Utility method to constructs a new InitialSend-variant PathFailure
 	 */
 	public static PathFailure initial_send(org.ldk.structs.APIError err) {
-		long ret = bindings.PathFailure_initial_send(err.ptr);
+		long ret = Bindings.PathFailureInitialSend(err.ptr);
 		GC.KeepAlive(err);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.PathFailure ret_hu_conv = org.ldk.structs.PathFailure.constr_from_ptr(ret);
@@ -93,7 +93,7 @@ public class PathFailure : CommonBase {
 	 * Utility method to constructs a new OnPath-variant PathFailure
 	 */
 	public static PathFailure on_path(org.ldk.structs.Option_NetworkUpdateZ network_update) {
-		long ret = bindings.PathFailure_on_path(network_update.ptr);
+		long ret = Bindings.PathFailureOnPath(network_update.ptr);
 		GC.KeepAlive(network_update);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.PathFailure ret_hu_conv = org.ldk.structs.PathFailure.constr_from_ptr(ret);
@@ -107,7 +107,7 @@ public class PathFailure : CommonBase {
 	 * This ignores pointers and is_owned flags and looks at the values in fields.
 	 */
 	public bool eq(org.ldk.structs.PathFailure b) {
-		bool ret = bindings.PathFailure_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.PathFailureEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		return ret;
@@ -121,7 +121,7 @@ public class PathFailure : CommonBase {
 	 * Serialize the PathFailure object into a byte array which can be read by PathFailure_read
 	 */
 	public byte[] write() {
-		long ret = bindings.PathFailure_write(this.ptr);
+		long ret = Bindings.PathFailureWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);

@@ -12,11 +12,11 @@ namespace org { namespace ldk { namespace structs {
 public class FixedPenaltyScorer : CommonBase {
 	internal FixedPenaltyScorer(object _dummy, long ptr) : base(ptr) { }
 	~FixedPenaltyScorer() {
-		if (ptr != 0) { bindings.FixedPenaltyScorer_free(ptr); }
+		if (ptr != 0) { Bindings.FixedPenaltyScorerFree(ptr); }
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.FixedPenaltyScorer_clone_ptr(this.ptr);
+		long ret = Bindings.FixedPenaltyScorerClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -25,7 +25,7 @@ public class FixedPenaltyScorer : CommonBase {
 	 * Creates a copy of the FixedPenaltyScorer
 	 */
 	public FixedPenaltyScorer clone() {
-		long ret = bindings.FixedPenaltyScorer_clone(this.ptr);
+		long ret = Bindings.FixedPenaltyScorerClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.FixedPenaltyScorer ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.FixedPenaltyScorer(null, ret); }
@@ -37,7 +37,7 @@ public class FixedPenaltyScorer : CommonBase {
 	 * Creates a new scorer using `penalty_msat`.
 	 */
 	public static FixedPenaltyScorer with_penalty(long penalty_msat) {
-		long ret = bindings.FixedPenaltyScorer_with_penalty(penalty_msat);
+		long ret = Bindings.FixedPenaltyScorerWithPenalty(penalty_msat);
 		GC.KeepAlive(penalty_msat);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.FixedPenaltyScorer ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.FixedPenaltyScorer(null, ret); }
@@ -50,7 +50,7 @@ public class FixedPenaltyScorer : CommonBase {
 	 * This copies the `inner` pointer in this_arg and thus the returned ScoreLookUp must be freed before this_arg is
 	 */
 	public ScoreLookUp as_ScoreLookUp() {
-		long ret = bindings.FixedPenaltyScorer_as_ScoreLookUp(this.ptr);
+		long ret = Bindings.FixedPenaltyScorerAsScoreLookUp(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		ScoreLookUp ret_hu_conv = new ScoreLookUp(null, ret);
@@ -63,7 +63,7 @@ public class FixedPenaltyScorer : CommonBase {
 	 * This copies the `inner` pointer in this_arg and thus the returned ScoreUpdate must be freed before this_arg is
 	 */
 	public ScoreUpdate as_ScoreUpdate() {
-		long ret = bindings.FixedPenaltyScorer_as_ScoreUpdate(this.ptr);
+		long ret = Bindings.FixedPenaltyScorerAsScoreUpdate(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		ScoreUpdate ret_hu_conv = new ScoreUpdate(null, ret);
@@ -75,7 +75,7 @@ public class FixedPenaltyScorer : CommonBase {
 	 * Serialize the FixedPenaltyScorer object into a byte array which can be read by FixedPenaltyScorer_read
 	 */
 	public byte[] write() {
-		long ret = bindings.FixedPenaltyScorer_write(this.ptr);
+		long ret = Bindings.FixedPenaltyScorerWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -86,7 +86,7 @@ public class FixedPenaltyScorer : CommonBase {
 	 * Read a FixedPenaltyScorer from a byte array, created by FixedPenaltyScorer_write
 	 */
 	public static Result_FixedPenaltyScorerDecodeErrorZ read(byte[] ser, long arg) {
-		long ret = bindings.FixedPenaltyScorer_read(InternalUtils.encodeUint8Array(ser), arg);
+		long ret = Bindings.FixedPenaltyScorerRead(InternalUtils.encodeUint8Array(ser), arg);
 		GC.KeepAlive(ser);
 		GC.KeepAlive(arg);
 		if (ret >= 0 && ret <= 4096) { return null; }

@@ -11,11 +11,11 @@ namespace org { namespace ldk { namespace structs {
 public class Option_WriteableScoreZ : CommonBase {
 	protected Option_WriteableScoreZ(object _dummy, long ptr) : base(ptr) { }
 	~Option_WriteableScoreZ() {
-		if (ptr != 0) { bindings.COption_WriteableScoreZ_free(ptr); }
+		if (ptr != 0) { Bindings.COptionWriteableScoreZFree(ptr); }
 	}
 
 	internal static Option_WriteableScoreZ constr_from_ptr(long ptr) {
-		long raw_ty = bindings.LDKCOption_WriteableScoreZ_ty_from_ptr(ptr);
+		long raw_ty = Bindings.LDKCOptionWriteableScoreZTyFromPtr(ptr);
 		switch (raw_ty) {
 			case 0: return new Option_WriteableScoreZ_Some(ptr);
 			case 1: return new Option_WriteableScoreZ_None(ptr);
@@ -28,7 +28,7 @@ public class Option_WriteableScoreZ : CommonBase {
 	public class Option_WriteableScoreZ_Some : Option_WriteableScoreZ {
 		public WriteableScore some;
 		internal Option_WriteableScoreZ_Some(long ptr) : base(null, ptr) {
-			long some = bindings.LDKCOption_WriteableScoreZ_Some_get_some(ptr);
+			long some = Bindings.LDKCOptionWriteableScoreZSomeGetSome(ptr);
 			WriteableScore ret_hu_conv = new WriteableScore(null, some);
 			if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(this); };
 			this.some = ret_hu_conv;
@@ -43,7 +43,7 @@ public class Option_WriteableScoreZ : CommonBase {
 	 * Constructs a new COption_WriteableScoreZ containing a crate::lightning::routing::scoring::WriteableScore
 	 */
 	public static Option_WriteableScoreZ some(org.ldk.structs.WriteableScore o) {
-		long ret = bindings.COption_WriteableScoreZ_some(o.ptr);
+		long ret = Bindings.COptionWriteableScoreZSome(o.ptr);
 		GC.KeepAlive(o);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_WriteableScoreZ ret_hu_conv = org.ldk.structs.Option_WriteableScoreZ.constr_from_ptr(ret);
@@ -56,7 +56,7 @@ public class Option_WriteableScoreZ : CommonBase {
 	 * Constructs a new COption_WriteableScoreZ containing nothing
 	 */
 	public static Option_WriteableScoreZ none() {
-		long ret = bindings.COption_WriteableScoreZ_none();
+		long ret = Bindings.COptionWriteableScoreZNone();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_WriteableScoreZ ret_hu_conv = org.ldk.structs.Option_WriteableScoreZ.constr_from_ptr(ret);
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };

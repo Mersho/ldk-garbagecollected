@@ -15,7 +15,7 @@ namespace org { namespace ldk { namespace structs {
 public class RecipientOnionFields : CommonBase {
 	internal RecipientOnionFields(object _dummy, long ptr) : base(ptr) { }
 	~RecipientOnionFields() {
-		if (ptr != 0) { bindings.RecipientOnionFields_free(ptr); }
+		if (ptr != 0) { Bindings.RecipientOnionFieldsFree(ptr); }
 	}
 
 	/**
@@ -32,7 +32,7 @@ public class RecipientOnionFields : CommonBase {
 	 * recipient will not reject it.
 	 */
 	public Option_ThirtyTwoBytesZ get_payment_secret() {
-		long ret = bindings.RecipientOnionFields_get_payment_secret(this.ptr);
+		long ret = Bindings.RecipientOnionFieldsGetPaymentSecret(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_ThirtyTwoBytesZ ret_hu_conv = org.ldk.structs.Option_ThirtyTwoBytesZ.constr_from_ptr(ret);
@@ -54,7 +54,7 @@ public class RecipientOnionFields : CommonBase {
 	 * recipient will not reject it.
 	 */
 	public void set_payment_secret(org.ldk.structs.Option_ThirtyTwoBytesZ val) {
-		bindings.RecipientOnionFields_set_payment_secret(this.ptr, val.ptr);
+		Bindings.RecipientOnionFieldsSetPaymentSecret(this.ptr, val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -77,7 +77,7 @@ public class RecipientOnionFields : CommonBase {
 	 * Returns a copy of the field.
 	 */
 	public Option_CVec_u8ZZ get_payment_metadata() {
-		long ret = bindings.RecipientOnionFields_get_payment_metadata(this.ptr);
+		long ret = Bindings.RecipientOnionFieldsGetPaymentMetadata(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_CVec_u8ZZ ret_hu_conv = org.ldk.structs.Option_CVec_u8ZZ.constr_from_ptr(ret);
@@ -100,14 +100,14 @@ public class RecipientOnionFields : CommonBase {
 	 * may not be supported as universally.
 	 */
 	public void set_payment_metadata(org.ldk.structs.Option_CVec_u8ZZ val) {
-		bindings.RecipientOnionFields_set_payment_metadata(this.ptr, val.ptr);
+		Bindings.RecipientOnionFieldsSetPaymentMetadata(this.ptr, val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.RecipientOnionFields_clone_ptr(this.ptr);
+		long ret = Bindings.RecipientOnionFieldsClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -116,7 +116,7 @@ public class RecipientOnionFields : CommonBase {
 	 * Creates a copy of the RecipientOnionFields
 	 */
 	public RecipientOnionFields clone() {
-		long ret = bindings.RecipientOnionFields_clone(this.ptr);
+		long ret = Bindings.RecipientOnionFieldsClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.RecipientOnionFields ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.RecipientOnionFields(null, ret); }
@@ -130,7 +130,7 @@ public class RecipientOnionFields : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.RecipientOnionFields b) {
-		bool ret = bindings.RecipientOnionFields_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.RecipientOnionFieldsEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -145,7 +145,7 @@ public class RecipientOnionFields : CommonBase {
 	 * Serialize the RecipientOnionFields object into a byte array which can be read by RecipientOnionFields_read
 	 */
 	public byte[] write() {
-		long ret = bindings.RecipientOnionFields_write(this.ptr);
+		long ret = Bindings.RecipientOnionFieldsWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -156,7 +156,7 @@ public class RecipientOnionFields : CommonBase {
 	 * Read a RecipientOnionFields from a byte array, created by RecipientOnionFields_write
 	 */
 	public static Result_RecipientOnionFieldsDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.RecipientOnionFields_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.RecipientOnionFieldsRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_RecipientOnionFieldsDecodeErrorZ ret_hu_conv = Result_RecipientOnionFieldsDecodeErrorZ.constr_from_ptr(ret);
@@ -169,7 +169,7 @@ public class RecipientOnionFields : CommonBase {
 	 * but do not require or provide any further data.
 	 */
 	public static RecipientOnionFields secret_only(byte[] payment_secret) {
-		long ret = bindings.RecipientOnionFields_secret_only(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_secret, 32)));
+		long ret = Bindings.RecipientOnionFieldsSecretOnly(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_secret, 32)));
 		GC.KeepAlive(payment_secret);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.RecipientOnionFields ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.RecipientOnionFields(null, ret); }
@@ -188,7 +188,7 @@ public class RecipientOnionFields : CommonBase {
 	 * [`RecipientOnionFields::secret_only`]: RecipientOnionFields::secret_only
 	 */
 	public static RecipientOnionFields spontaneous_empty() {
-		long ret = bindings.RecipientOnionFields_spontaneous_empty();
+		long ret = Bindings.RecipientOnionFieldsSpontaneousEmpty();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.RecipientOnionFields ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.RecipientOnionFields(null, ret); }
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -207,7 +207,7 @@ public class RecipientOnionFields : CommonBase {
 	 * See [`Self::custom_tlvs`] for more info.
 	 */
 	public Result_RecipientOnionFieldsNoneZ with_custom_tlvs(TwoTuple_u64CVec_u8ZZ[] custom_tlvs) {
-		long ret = bindings.RecipientOnionFields_with_custom_tlvs(this.ptr, InternalUtils.encodeUint64Array(InternalUtils.mapArray(custom_tlvs, custom_tlvs_conv_23 => custom_tlvs_conv_23 != null ? custom_tlvs_conv_23.ptr : 0)));
+		long ret = Bindings.RecipientOnionFieldsWithCustomTlvs(this.ptr, InternalUtils.encodeUint64Array(InternalUtils.mapArray(custom_tlvs, custom_tlvs_conv_23 => custom_tlvs_conv_23 != null ? custom_tlvs_conv_23.ptr : 0)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(custom_tlvs);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -229,7 +229,7 @@ public class RecipientOnionFields : CommonBase {
 	 * This is validated when setting this field using [`Self::with_custom_tlvs`].
 	 */
 	public TwoTuple_u64CVec_u8ZZ[] custom_tlvs() {
-		long ret = bindings.RecipientOnionFields_custom_tlvs(this.ptr);
+		long ret = Bindings.RecipientOnionFieldsCustomTlvs(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		int ret_conv_23_len = InternalUtils.getArrayLength(ret);
@@ -240,7 +240,7 @@ public class RecipientOnionFields : CommonBase {
 			if (ret_conv_23_hu_conv != null) { ret_conv_23_hu_conv.ptrs_to.AddLast(this); };
 			ret_conv_23_arr[x] = ret_conv_23_hu_conv;
 		}
-		bindings.free_buffer(ret);
+		Bindings.FreeBuffer(ret);
 		return ret_conv_23_arr;
 	}
 

@@ -12,14 +12,14 @@ namespace org { namespace ldk { namespace structs {
 public class TwoTuple_ThirtyTwoBytesChannelMonitorZ : CommonBase {
 	internal TwoTuple_ThirtyTwoBytesChannelMonitorZ(object _dummy, long ptr) : base(ptr) { }
 	~TwoTuple_ThirtyTwoBytesChannelMonitorZ() {
-		if (ptr != 0) { bindings.C2Tuple_ThirtyTwoBytesChannelMonitorZ_free(ptr); }
+		if (ptr != 0) { Bindings.C2TupleThirtyTwoBytesChannelMonitorZFree(ptr); }
 	}
 
 	/**
 	 * 
 	 */
 	public byte[] get_a() {
-		long ret = bindings.C2Tuple_ThirtyTwoBytesChannelMonitorZ_get_a(this.ptr);
+		long ret = Bindings.C2TupleThirtyTwoBytesChannelMonitorZGetA(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -30,7 +30,7 @@ public class TwoTuple_ThirtyTwoBytesChannelMonitorZ : CommonBase {
 	 * 
 	 */
 	public ChannelMonitor get_b() {
-		long ret = bindings.C2Tuple_ThirtyTwoBytesChannelMonitorZ_get_b(this.ptr);
+		long ret = Bindings.C2TupleThirtyTwoBytesChannelMonitorZGetB(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChannelMonitor ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChannelMonitor(null, ret); }
@@ -39,7 +39,7 @@ public class TwoTuple_ThirtyTwoBytesChannelMonitorZ : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.C2Tuple_ThirtyTwoBytesChannelMonitorZ_clone_ptr(this.ptr);
+		long ret = Bindings.C2TupleThirtyTwoBytesChannelMonitorZClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -49,7 +49,7 @@ public class TwoTuple_ThirtyTwoBytesChannelMonitorZ : CommonBase {
 	 * but with all dynamically-allocated buffers duplicated in new buffers.
 	 */
 	public TwoTuple_ThirtyTwoBytesChannelMonitorZ clone() {
-		long ret = bindings.C2Tuple_ThirtyTwoBytesChannelMonitorZ_clone(this.ptr);
+		long ret = Bindings.C2TupleThirtyTwoBytesChannelMonitorZClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		TwoTuple_ThirtyTwoBytesChannelMonitorZ ret_hu_conv = new TwoTuple_ThirtyTwoBytesChannelMonitorZ(null, ret);
@@ -61,7 +61,7 @@ public class TwoTuple_ThirtyTwoBytesChannelMonitorZ : CommonBase {
 	 * Creates a new C2Tuple_ThirtyTwoBytesChannelMonitorZ from the contained elements.
 	 */
 	public static TwoTuple_ThirtyTwoBytesChannelMonitorZ of(byte[] a, org.ldk.structs.ChannelMonitor b) {
-		long ret = bindings.C2Tuple_ThirtyTwoBytesChannelMonitorZ_new(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(a, 32)), b == null ? 0 : b.ptr);
+		long ret = Bindings.C2TupleThirtyTwoBytesChannelMonitorZNew(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(a, 32)), b == null ? 0 : b.ptr);
 		GC.KeepAlive(a);
 		GC.KeepAlive(b);
 		if (ret >= 0 && ret <= 4096) { return null; }

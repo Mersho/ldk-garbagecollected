@@ -12,14 +12,14 @@ namespace org { namespace ldk { namespace structs {
 public class Packet : CommonBase {
 	internal Packet(object _dummy, long ptr) : base(ptr) { }
 	~Packet() {
-		if (ptr != 0) { bindings.Packet_free(ptr); }
+		if (ptr != 0) { Bindings.PacketFree(ptr); }
 	}
 
 	/**
 	 * Bolt 04 version number
 	 */
 	public byte get_version() {
-		byte ret = bindings.Packet_get_version(this.ptr);
+		byte ret = Bindings.PacketGetVersion(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -28,7 +28,7 @@ public class Packet : CommonBase {
 	 * Bolt 04 version number
 	 */
 	public void set_version(byte val) {
-		bindings.Packet_set_version(this.ptr, val);
+		Bindings.PacketSetVersion(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -37,7 +37,7 @@ public class Packet : CommonBase {
 	 * A random sepc256k1 point, used to build the ECDH shared secret to decrypt hop_data
 	 */
 	public byte[] get_public_key() {
-		long ret = bindings.Packet_get_public_key(this.ptr);
+		long ret = Bindings.PacketGetPublicKey(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -48,7 +48,7 @@ public class Packet : CommonBase {
 	 * A random sepc256k1 point, used to build the ECDH shared secret to decrypt hop_data
 	 */
 	public void set_public_key(byte[] val) {
-		bindings.Packet_set_public_key(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 33)));
+		Bindings.PacketSetPublicKey(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 33)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -59,7 +59,7 @@ public class Packet : CommonBase {
 	 * Returns a copy of the field.
 	 */
 	public byte[] get_hop_data() {
-		long ret = bindings.Packet_get_hop_data(this.ptr);
+		long ret = Bindings.PacketGetHopData(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -70,7 +70,7 @@ public class Packet : CommonBase {
 	 * Encrypted payload for the next hop
 	 */
 	public void set_hop_data(byte[] val) {
-		bindings.Packet_set_hop_data(this.ptr, InternalUtils.encodeUint8Array(val));
+		Bindings.PacketSetHopData(this.ptr, InternalUtils.encodeUint8Array(val));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -79,7 +79,7 @@ public class Packet : CommonBase {
 	 * HMAC to verify the integrity of hop_data
 	 */
 	public byte[] get_hmac() {
-		long ret = bindings.Packet_get_hmac(this.ptr);
+		long ret = Bindings.PacketGetHmac(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -90,7 +90,7 @@ public class Packet : CommonBase {
 	 * HMAC to verify the integrity of hop_data
 	 */
 	public void set_hmac(byte[] val) {
-		bindings.Packet_set_hmac(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
+		Bindings.PacketSetHmac(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -99,7 +99,7 @@ public class Packet : CommonBase {
 	 * Constructs a new Packet given each field
 	 */
 	public static Packet of(byte version_arg, byte[] public_key_arg, byte[] hop_data_arg, byte[] hmac_arg) {
-		long ret = bindings.Packet_new(version_arg, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(public_key_arg, 33)), InternalUtils.encodeUint8Array(hop_data_arg), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(hmac_arg, 32)));
+		long ret = Bindings.PacketNew(version_arg, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(public_key_arg, 33)), InternalUtils.encodeUint8Array(hop_data_arg), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(hmac_arg, 32)));
 		GC.KeepAlive(version_arg);
 		GC.KeepAlive(public_key_arg);
 		GC.KeepAlive(hop_data_arg);
@@ -111,7 +111,7 @@ public class Packet : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.Packet_clone_ptr(this.ptr);
+		long ret = Bindings.PacketClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -120,7 +120,7 @@ public class Packet : CommonBase {
 	 * Creates a copy of the Packet
 	 */
 	public Packet clone() {
-		long ret = bindings.Packet_clone(this.ptr);
+		long ret = Bindings.PacketClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Packet ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.Packet(null, ret); }
@@ -132,7 +132,7 @@ public class Packet : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the Packet.
 	 */
 	public long hash() {
-		long ret = bindings.Packet_hash(this.ptr);
+		long ret = Bindings.PacketHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -146,7 +146,7 @@ public class Packet : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.Packet b) {
-		bool ret = bindings.Packet_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.PacketEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -161,7 +161,7 @@ public class Packet : CommonBase {
 	 * Serialize the Packet object into a byte array which can be read by Packet_read
 	 */
 	public byte[] write() {
-		long ret = bindings.Packet_write(this.ptr);
+		long ret = Bindings.PacketWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);

@@ -12,7 +12,7 @@ namespace org { namespace ldk { namespace structs {
 public class MultiThreadedLockableScore : CommonBase {
 	internal MultiThreadedLockableScore(object _dummy, long ptr) : base(ptr) { }
 	~MultiThreadedLockableScore() {
-		if (ptr != 0) { bindings.MultiThreadedLockableScore_free(ptr); }
+		if (ptr != 0) { Bindings.MultiThreadedLockableScoreFree(ptr); }
 	}
 
 	/**
@@ -20,7 +20,7 @@ public class MultiThreadedLockableScore : CommonBase {
 	 * This copies the `inner` pointer in this_arg and thus the returned LockableScore must be freed before this_arg is
 	 */
 	public LockableScore as_LockableScore() {
-		long ret = bindings.MultiThreadedLockableScore_as_LockableScore(this.ptr);
+		long ret = Bindings.MultiThreadedLockableScoreAsLockableScore(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		LockableScore ret_hu_conv = new LockableScore(null, ret);
@@ -32,7 +32,7 @@ public class MultiThreadedLockableScore : CommonBase {
 	 * Serialize the MultiThreadedLockableScore object into a byte array which can be read by MultiThreadedLockableScore_read
 	 */
 	public byte[] write() {
-		long ret = bindings.MultiThreadedLockableScore_write(this.ptr);
+		long ret = Bindings.MultiThreadedLockableScoreWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -44,7 +44,7 @@ public class MultiThreadedLockableScore : CommonBase {
 	 * This copies the `inner` pointer in this_arg and thus the returned WriteableScore must be freed before this_arg is
 	 */
 	public WriteableScore as_WriteableScore() {
-		long ret = bindings.MultiThreadedLockableScore_as_WriteableScore(this.ptr);
+		long ret = Bindings.MultiThreadedLockableScoreAsWriteableScore(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		WriteableScore ret_hu_conv = new WriteableScore(null, ret);
@@ -56,7 +56,7 @@ public class MultiThreadedLockableScore : CommonBase {
 	 * Creates a new [`MultiThreadedLockableScore`] given an underlying [`Score`].
 	 */
 	public static MultiThreadedLockableScore of(org.ldk.structs.Score score) {
-		long ret = bindings.MultiThreadedLockableScore_new(score.ptr);
+		long ret = Bindings.MultiThreadedLockableScoreNew(score.ptr);
 		GC.KeepAlive(score);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.MultiThreadedLockableScore ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.MultiThreadedLockableScore(null, ret); }

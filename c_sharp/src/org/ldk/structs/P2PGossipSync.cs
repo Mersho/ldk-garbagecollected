@@ -16,7 +16,7 @@ namespace org { namespace ldk { namespace structs {
 public class P2PGossipSync : CommonBase {
 	internal P2PGossipSync(object _dummy, long ptr) : base(ptr) { }
 	~P2PGossipSync() {
-		if (ptr != 0) { bindings.P2PGossipSync_free(ptr); }
+		if (ptr != 0) { Bindings.P2PGossipSyncFree(ptr); }
 	}
 
 	/**
@@ -26,7 +26,7 @@ public class P2PGossipSync : CommonBase {
 	 * correct, and the announcement is signed with channel owners' keys.
 	 */
 	public static P2PGossipSync of(org.ldk.structs.NetworkGraph network_graph, org.ldk.structs.Option_UtxoLookupZ utxo_lookup, org.ldk.structs.Logger logger) {
-		long ret = bindings.P2PGossipSync_new(network_graph == null ? 0 : network_graph.ptr, utxo_lookup.ptr, logger.ptr);
+		long ret = Bindings.P2PGossipSyncNew(network_graph == null ? 0 : network_graph.ptr, utxo_lookup.ptr, logger.ptr);
 		GC.KeepAlive(network_graph);
 		GC.KeepAlive(utxo_lookup);
 		GC.KeepAlive(logger);
@@ -45,7 +45,7 @@ public class P2PGossipSync : CommonBase {
 	 * Add, update or remove the provider would replace the current one.
 	 */
 	public void add_utxo_lookup(org.ldk.structs.Option_UtxoLookupZ utxo_lookup) {
-		bindings.P2PGossipSync_add_utxo_lookup(this.ptr, utxo_lookup.ptr);
+		Bindings.P2PGossipSyncAddUtxoLookup(this.ptr, utxo_lookup.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(utxo_lookup);
 		if (this != null) { this.ptrs_to.AddLast(utxo_lookup); };
@@ -56,7 +56,7 @@ public class P2PGossipSync : CommonBase {
 	 * This copies the `inner` pointer in this_arg and thus the returned RoutingMessageHandler must be freed before this_arg is
 	 */
 	public RoutingMessageHandler as_RoutingMessageHandler() {
-		long ret = bindings.P2PGossipSync_as_RoutingMessageHandler(this.ptr);
+		long ret = Bindings.P2PGossipSyncAsRoutingMessageHandler(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		RoutingMessageHandler ret_hu_conv = new RoutingMessageHandler(null, ret);
@@ -69,7 +69,7 @@ public class P2PGossipSync : CommonBase {
 	 * This copies the `inner` pointer in this_arg and thus the returned MessageSendEventsProvider must be freed before this_arg is
 	 */
 	public MessageSendEventsProvider as_MessageSendEventsProvider() {
-		long ret = bindings.P2PGossipSync_as_MessageSendEventsProvider(this.ptr);
+		long ret = Bindings.P2PGossipSyncAsMessageSendEventsProvider(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		MessageSendEventsProvider ret_hu_conv = new MessageSendEventsProvider(null, ret);

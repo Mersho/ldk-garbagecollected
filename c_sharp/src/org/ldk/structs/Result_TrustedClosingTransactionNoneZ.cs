@@ -8,11 +8,11 @@ namespace org { namespace ldk { namespace structs {
 public class Result_TrustedClosingTransactionNoneZ : CommonBase {
 	Result_TrustedClosingTransactionNoneZ(object _dummy, long ptr) : base(ptr) { }
 	~Result_TrustedClosingTransactionNoneZ() {
-		if (ptr != 0) { bindings.CResult_TrustedClosingTransactionNoneZ_free(ptr); }
+		if (ptr != 0) { Bindings.CResultTrustedClosingTransactionNoneZFree(ptr); }
 	}
 
 	internal static Result_TrustedClosingTransactionNoneZ constr_from_ptr(long ptr) {
-		if (bindings.CResult_TrustedClosingTransactionNoneZ_is_ok(ptr)) {
+		if (Bindings.CResultTrustedClosingTransactionNoneZIsOk(ptr)) {
 			return new Result_TrustedClosingTransactionNoneZ_OK(null, ptr);
 		} else {
 			return new Result_TrustedClosingTransactionNoneZ_Err(null, ptr);
@@ -21,7 +21,7 @@ public class Result_TrustedClosingTransactionNoneZ : CommonBase {
 	public class Result_TrustedClosingTransactionNoneZ_OK : Result_TrustedClosingTransactionNoneZ {
 		public readonly TrustedClosingTransaction res;
 		internal Result_TrustedClosingTransactionNoneZ_OK(object _dummy, long ptr) : base(_dummy, ptr) {
-			long res = bindings.CResult_TrustedClosingTransactionNoneZ_get_ok(ptr);
+			long res = Bindings.CResultTrustedClosingTransactionNoneZGetOk(ptr);
 			org.ldk.structs.TrustedClosingTransaction res_hu_conv = null; if (res < 0 || res > 4096) { res_hu_conv = new org.ldk.structs.TrustedClosingTransaction(null, res); }
 			if (res_hu_conv != null) { res_hu_conv.ptrs_to.AddLast(this); };
 			this.res = res_hu_conv;
@@ -37,7 +37,7 @@ public class Result_TrustedClosingTransactionNoneZ : CommonBase {
 	 * Creates a new CResult_TrustedClosingTransactionNoneZ in the success state.
 	 */
 	public static Result_TrustedClosingTransactionNoneZ ok(org.ldk.structs.TrustedClosingTransaction o) {
-		long ret = bindings.CResult_TrustedClosingTransactionNoneZ_ok(o == null ? 0 : o.ptr);
+		long ret = Bindings.CResultTrustedClosingTransactionNoneZOk(o == null ? 0 : o.ptr);
 		GC.KeepAlive(o);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_TrustedClosingTransactionNoneZ ret_hu_conv = Result_TrustedClosingTransactionNoneZ.constr_from_ptr(ret);
@@ -57,7 +57,7 @@ public class Result_TrustedClosingTransactionNoneZ : CommonBase {
 	 * Creates a new CResult_TrustedClosingTransactionNoneZ in the error state.
 	 */
 	public static Result_TrustedClosingTransactionNoneZ err() {
-		long ret = bindings.CResult_TrustedClosingTransactionNoneZ_err();
+		long ret = Bindings.CResultTrustedClosingTransactionNoneZErr();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_TrustedClosingTransactionNoneZ ret_hu_conv = Result_TrustedClosingTransactionNoneZ.constr_from_ptr(ret);
 		return ret_hu_conv;
@@ -67,7 +67,7 @@ public class Result_TrustedClosingTransactionNoneZ : CommonBase {
 	 * Checks if the given object is currently in the success state
 	 */
 	public bool is_ok() {
-		bool ret = bindings.CResult_TrustedClosingTransactionNoneZ_is_ok(this.ptr);
+		bool ret = Bindings.CResultTrustedClosingTransactionNoneZIsOk(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}

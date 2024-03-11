@@ -9,7 +9,7 @@ namespace org { namespace ldk { namespace structs {
 
 
 /** An implementation of SignerProvider */
-public interface SignerProviderInterface {
+public interface ISignerProvider {
 	/**Generates a unique `channel_keys_id` that can be used to obtain a [`Self::EcdsaSigner`] through
 	 * [`SignerProvider::derive_channel_signer`]. The `user_channel_id` is provided to allow
 	 * implementations of [`SignerProvider`] to maintain a mapping between itself and the generated
@@ -66,27 +66,27 @@ public interface SignerProviderInterface {
  * A trait that can return signer instances for individual channels.
  */
 public class SignerProvider : CommonBase {
-	internal bindings.LDKSignerProvider bindings_instance;
+	internal Bindings.LDKSignerProvider bindings_instance;
 	internal long instance_idx;
 
 	internal SignerProvider(object _dummy, long ptr) : base(ptr) { bindings_instance = null; }
 	~SignerProvider() {
-		if (ptr != 0) { bindings.SignerProvider_free(ptr); }
+		if (ptr != 0) { Bindings.SignerProviderFree(ptr); }
 	}
 
 	private class LDKSignerProviderHolder { internal SignerProvider held; }
-	private class LDKSignerProviderImpl : bindings.LDKSignerProvider {
-		internal LDKSignerProviderImpl(SignerProviderInterface arg, LDKSignerProviderHolder impl_holder) { this.arg = arg; this.impl_holder = impl_holder; }
-		private SignerProviderInterface arg;
+	private class LDKSignerProviderImpl : Bindings.LDKSignerProvider {
+		internal LDKSignerProviderImpl(ISignerProvider arg, LDKSignerProviderHolder impl_holder) { this.arg = arg; this.impl_holder = impl_holder; }
+		private ISignerProvider arg;
 		private LDKSignerProviderHolder impl_holder;
-		public long generate_channel_keys_id(bool _inbound, long _channel_value_satoshis, long _user_channel_id) {
+		public long GenerateChannelKeysId(bool _inbound, long _channel_value_satoshis, long _user_channel_id) {
 			org.ldk.util.UInt128 _user_channel_id_conv = new org.ldk.util.UInt128(_user_channel_id);
 			byte[] ret = arg.generate_channel_keys_id(_inbound, _channel_value_satoshis, _user_channel_id_conv);
 				GC.KeepAlive(arg);
 			long result = InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(ret, 32));
 			return result;
 		}
-		public long derive_channel_signer(long _channel_value_satoshis, long _channel_keys_id) {
+		public long DeriveChannelSigner(long _channel_value_satoshis, long _channel_keys_id) {
 			byte[] _channel_keys_id_conv = InternalUtils.decodeUint8Array(_channel_keys_id);
 			WriteableEcdsaChannelSigner ret = arg.derive_channel_signer(_channel_value_satoshis, _channel_keys_id_conv);
 				GC.KeepAlive(arg);
@@ -94,21 +94,21 @@ public class SignerProvider : CommonBase {
 			if (impl_holder.held != null) { impl_holder.held.ptrs_to.AddLast(ret); };
 			return result;
 		}
-		public long read_chan_signer(long _reader) {
+		public long ReadChanSigner(long _reader) {
 			byte[] _reader_conv = InternalUtils.decodeUint8Array(_reader);
 			Result_WriteableEcdsaChannelSignerDecodeErrorZ ret = arg.read_chan_signer(_reader_conv);
 				GC.KeepAlive(arg);
 			long result = ret == null ? 0 : ret.clone_ptr();
 			return result;
 		}
-		public long get_destination_script(long _channel_keys_id) {
+		public long GetDestinationScript(long _channel_keys_id) {
 			byte[] _channel_keys_id_conv = InternalUtils.decodeUint8Array(_channel_keys_id);
 			Result_CVec_u8ZNoneZ ret = arg.get_destination_script(_channel_keys_id_conv);
 				GC.KeepAlive(arg);
 			long result = ret == null ? 0 : ret.clone_ptr();
 			return result;
 		}
-		public long get_shutdown_scriptpubkey() {
+		public long GetShutdownScriptpubkey() {
 			Result_ShutdownScriptNoneZ ret = arg.get_shutdown_scriptpubkey();
 				GC.KeepAlive(arg);
 			long result = ret == null ? 0 : ret.clone_ptr();
@@ -117,10 +117,10 @@ public class SignerProvider : CommonBase {
 	}
 
 	/** Creates a new instance of SignerProvider from a given implementation */
-	public static SignerProvider new_impl(SignerProviderInterface arg) {
+	public static SignerProvider new_impl(ISignerProvider arg) {
 		LDKSignerProviderHolder impl_holder = new LDKSignerProviderHolder();
 		LDKSignerProviderImpl impl = new LDKSignerProviderImpl(arg, impl_holder);
-		long[] ptr_idx = bindings.LDKSignerProvider_new(impl);
+		long[] ptr_idx = Bindings.LDKSignerProviderNew(impl);
 
 		impl_holder.held = new SignerProvider(null, ptr_idx[0]);
 		impl_holder.held.instance_idx = ptr_idx[1];
@@ -137,7 +137,7 @@ public class SignerProvider : CommonBase {
 	 * This method must return a different value each time it is called.
 	 */
 	public byte[] generate_channel_keys_id(bool inbound, long channel_value_satoshis, org.ldk.util.UInt128 user_channel_id) {
-		long ret = bindings.SignerProvider_generate_channel_keys_id(this.ptr, inbound, channel_value_satoshis, InternalUtils.encodeUint8Array(user_channel_id.getLEBytes()));
+		long ret = Bindings.SignerProviderGenerateChannelKeysId(this.ptr, inbound, channel_value_satoshis, InternalUtils.encodeUint8Array(user_channel_id.getLEBytes()));
 		GC.KeepAlive(this);
 		GC.KeepAlive(inbound);
 		GC.KeepAlive(channel_value_satoshis);
@@ -156,7 +156,7 @@ public class SignerProvider : CommonBase {
 	 * [`ChannelSigner::channel_keys_id`].
 	 */
 	public WriteableEcdsaChannelSigner derive_channel_signer(long channel_value_satoshis, byte[] channel_keys_id) {
-		long ret = bindings.SignerProvider_derive_channel_signer(this.ptr, channel_value_satoshis, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(channel_keys_id, 32)));
+		long ret = Bindings.SignerProviderDeriveChannelSigner(this.ptr, channel_value_satoshis, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(channel_keys_id, 32)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(channel_value_satoshis);
 		GC.KeepAlive(channel_keys_id);
@@ -182,7 +182,7 @@ public class SignerProvider : CommonBase {
 	 * [`ChannelManager`]: crate::ln::channelmanager::ChannelManager
 	 */
 	public Result_WriteableEcdsaChannelSignerDecodeErrorZ read_chan_signer(byte[] reader) {
-		long ret = bindings.SignerProvider_read_chan_signer(this.ptr, InternalUtils.encodeUint8Array(reader));
+		long ret = Bindings.SignerProviderReadChanSigner(this.ptr, InternalUtils.encodeUint8Array(reader));
 		GC.KeepAlive(this);
 		GC.KeepAlive(reader);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -200,7 +200,7 @@ public class SignerProvider : CommonBase {
 	 * used to derive a unique value for each channel.
 	 */
 	public Result_CVec_u8ZNoneZ get_destination_script(byte[] channel_keys_id) {
-		long ret = bindings.SignerProvider_get_destination_script(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(channel_keys_id, 32)));
+		long ret = Bindings.SignerProviderGetDestinationScript(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(channel_keys_id, 32)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(channel_keys_id);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -219,7 +219,7 @@ public class SignerProvider : CommonBase {
 	 * on-chain funds across channels as controlled to the same user.
 	 */
 	public Result_ShutdownScriptNoneZ get_shutdown_scriptpubkey() {
-		long ret = bindings.SignerProvider_get_shutdown_scriptpubkey(this.ptr);
+		long ret = Bindings.SignerProviderGetShutdownScriptpubkey(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_ShutdownScriptNoneZ ret_hu_conv = Result_ShutdownScriptNoneZ.constr_from_ptr(ret);

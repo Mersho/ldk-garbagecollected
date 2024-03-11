@@ -12,7 +12,7 @@ namespace org { namespace ldk { namespace structs {
 public class OnionMessagePath : CommonBase {
 	internal OnionMessagePath(object _dummy, long ptr) : base(ptr) { }
 	~OnionMessagePath() {
-		if (ptr != 0) { bindings.OnionMessagePath_free(ptr); }
+		if (ptr != 0) { Bindings.OnionMessagePathFree(ptr); }
 	}
 
 	/**
@@ -21,7 +21,7 @@ public class OnionMessagePath : CommonBase {
 	 * Returns a copy of the field.
 	 */
 	public byte[][] get_intermediate_nodes() {
-		long ret = bindings.OnionMessagePath_get_intermediate_nodes(this.ptr);
+		long ret = Bindings.OnionMessagePathGetIntermediateNodes(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		int ret_conv_8_len = InternalUtils.getArrayLength(ret);
@@ -31,7 +31,7 @@ public class OnionMessagePath : CommonBase {
 			byte[] ret_conv_8_conv = InternalUtils.decodeUint8Array(ret_conv_8);
 			ret_conv_8_arr[i] = ret_conv_8_conv;
 		}
-		bindings.free_buffer(ret);
+		Bindings.FreeBuffer(ret);
 		return ret_conv_8_arr;
 	}
 
@@ -39,7 +39,7 @@ public class OnionMessagePath : CommonBase {
 	 * Nodes on the path between the sender and the destination.
 	 */
 	public void set_intermediate_nodes(byte[][] val) {
-		bindings.OnionMessagePath_set_intermediate_nodes(this.ptr, InternalUtils.encodeUint64Array(InternalUtils.mapArray(val, val_conv_8 => InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val_conv_8, 33)))));
+		Bindings.OnionMessagePathSetIntermediateNodes(this.ptr, InternalUtils.encodeUint64Array(InternalUtils.mapArray(val, val_conv_8 => InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val_conv_8, 33)))));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -48,7 +48,7 @@ public class OnionMessagePath : CommonBase {
 	 * The recipient of the message.
 	 */
 	public Destination get_destination() {
-		long ret = bindings.OnionMessagePath_get_destination(this.ptr);
+		long ret = Bindings.OnionMessagePathGetDestination(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Destination ret_hu_conv = org.ldk.structs.Destination.constr_from_ptr(ret);
@@ -60,7 +60,7 @@ public class OnionMessagePath : CommonBase {
 	 * The recipient of the message.
 	 */
 	public void set_destination(org.ldk.structs.Destination val) {
-		bindings.OnionMessagePath_set_destination(this.ptr, val.ptr);
+		Bindings.OnionMessagePathSetDestination(this.ptr, val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -75,7 +75,7 @@ public class OnionMessagePath : CommonBase {
 	 * Returns a copy of the field.
 	 */
 	public Option_CVec_SocketAddressZZ get_first_node_addresses() {
-		long ret = bindings.OnionMessagePath_get_first_node_addresses(this.ptr);
+		long ret = Bindings.OnionMessagePathGetFirstNodeAddresses(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_CVec_SocketAddressZZ ret_hu_conv = org.ldk.structs.Option_CVec_SocketAddressZZ.constr_from_ptr(ret);
@@ -90,7 +90,7 @@ public class OnionMessagePath : CommonBase {
 	 * this to initiate such a connection.
 	 */
 	public void set_first_node_addresses(org.ldk.structs.Option_CVec_SocketAddressZZ val) {
-		bindings.OnionMessagePath_set_first_node_addresses(this.ptr, val.ptr);
+		Bindings.OnionMessagePathSetFirstNodeAddresses(this.ptr, val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -100,7 +100,7 @@ public class OnionMessagePath : CommonBase {
 	 * Constructs a new OnionMessagePath given each field
 	 */
 	public static OnionMessagePath of(byte[][] intermediate_nodes_arg, org.ldk.structs.Destination destination_arg, org.ldk.structs.Option_CVec_SocketAddressZZ first_node_addresses_arg) {
-		long ret = bindings.OnionMessagePath_new(InternalUtils.encodeUint64Array(InternalUtils.mapArray(intermediate_nodes_arg, intermediate_nodes_arg_conv_8 => InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(intermediate_nodes_arg_conv_8, 33)))), destination_arg.ptr, first_node_addresses_arg.ptr);
+		long ret = Bindings.OnionMessagePathNew(InternalUtils.encodeUint64Array(InternalUtils.mapArray(intermediate_nodes_arg, intermediate_nodes_arg_conv_8 => InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(intermediate_nodes_arg_conv_8, 33)))), destination_arg.ptr, first_node_addresses_arg.ptr);
 		GC.KeepAlive(intermediate_nodes_arg);
 		GC.KeepAlive(destination_arg);
 		GC.KeepAlive(first_node_addresses_arg);
@@ -113,7 +113,7 @@ public class OnionMessagePath : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.OnionMessagePath_clone_ptr(this.ptr);
+		long ret = Bindings.OnionMessagePathClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -122,7 +122,7 @@ public class OnionMessagePath : CommonBase {
 	 * Creates a copy of the OnionMessagePath
 	 */
 	public OnionMessagePath clone() {
-		long ret = bindings.OnionMessagePath_clone(this.ptr);
+		long ret = Bindings.OnionMessagePathClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.OnionMessagePath ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.OnionMessagePath(null, ret); }
@@ -134,7 +134,7 @@ public class OnionMessagePath : CommonBase {
 	 * Returns the first node in the path.
 	 */
 	public byte[] first_node() {
-		long ret = bindings.OnionMessagePath_first_node(this.ptr);
+		long ret = Bindings.OnionMessagePathFirstNode(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);

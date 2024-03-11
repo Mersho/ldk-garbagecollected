@@ -8,11 +8,11 @@ namespace org { namespace ldk { namespace structs {
 public class Result_TxAbortDecodeErrorZ : CommonBase {
 	Result_TxAbortDecodeErrorZ(object _dummy, long ptr) : base(ptr) { }
 	~Result_TxAbortDecodeErrorZ() {
-		if (ptr != 0) { bindings.CResult_TxAbortDecodeErrorZ_free(ptr); }
+		if (ptr != 0) { Bindings.CResultTxAbortDecodeErrorZFree(ptr); }
 	}
 
 	internal static Result_TxAbortDecodeErrorZ constr_from_ptr(long ptr) {
-		if (bindings.CResult_TxAbortDecodeErrorZ_is_ok(ptr)) {
+		if (Bindings.CResultTxAbortDecodeErrorZIsOk(ptr)) {
 			return new Result_TxAbortDecodeErrorZ_OK(null, ptr);
 		} else {
 			return new Result_TxAbortDecodeErrorZ_Err(null, ptr);
@@ -21,7 +21,7 @@ public class Result_TxAbortDecodeErrorZ : CommonBase {
 	public class Result_TxAbortDecodeErrorZ_OK : Result_TxAbortDecodeErrorZ {
 		public readonly TxAbort res;
 		internal Result_TxAbortDecodeErrorZ_OK(object _dummy, long ptr) : base(_dummy, ptr) {
-			long res = bindings.CResult_TxAbortDecodeErrorZ_get_ok(ptr);
+			long res = Bindings.CResultTxAbortDecodeErrorZGetOk(ptr);
 			org.ldk.structs.TxAbort res_hu_conv = null; if (res < 0 || res > 4096) { res_hu_conv = new org.ldk.structs.TxAbort(null, res); }
 			if (res_hu_conv != null) { res_hu_conv.ptrs_to.AddLast(this); };
 			this.res = res_hu_conv;
@@ -31,7 +31,7 @@ public class Result_TxAbortDecodeErrorZ : CommonBase {
 	public class Result_TxAbortDecodeErrorZ_Err : Result_TxAbortDecodeErrorZ {
 		public readonly DecodeError err;
 		internal Result_TxAbortDecodeErrorZ_Err(object _dummy, long ptr) : base(_dummy, ptr) {
-			long err = bindings.CResult_TxAbortDecodeErrorZ_get_err(ptr);
+			long err = Bindings.CResultTxAbortDecodeErrorZGetErr(ptr);
 			org.ldk.structs.DecodeError err_hu_conv = org.ldk.structs.DecodeError.constr_from_ptr(err);
 			if (err_hu_conv != null) { err_hu_conv.ptrs_to.AddLast(this); };
 			this.err = err_hu_conv;
@@ -42,7 +42,7 @@ public class Result_TxAbortDecodeErrorZ : CommonBase {
 	 * Creates a new CResult_TxAbortDecodeErrorZ in the success state.
 	 */
 	public static Result_TxAbortDecodeErrorZ ok(org.ldk.structs.TxAbort o) {
-		long ret = bindings.CResult_TxAbortDecodeErrorZ_ok(o == null ? 0 : o.ptr);
+		long ret = Bindings.CResultTxAbortDecodeErrorZOk(o == null ? 0 : o.ptr);
 		GC.KeepAlive(o);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_TxAbortDecodeErrorZ ret_hu_conv = Result_TxAbortDecodeErrorZ.constr_from_ptr(ret);
@@ -54,7 +54,7 @@ public class Result_TxAbortDecodeErrorZ : CommonBase {
 	 * Creates a new CResult_TxAbortDecodeErrorZ in the error state.
 	 */
 	public static Result_TxAbortDecodeErrorZ err(org.ldk.structs.DecodeError e) {
-		long ret = bindings.CResult_TxAbortDecodeErrorZ_err(e.ptr);
+		long ret = Bindings.CResultTxAbortDecodeErrorZErr(e.ptr);
 		GC.KeepAlive(e);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_TxAbortDecodeErrorZ ret_hu_conv = Result_TxAbortDecodeErrorZ.constr_from_ptr(ret);
@@ -66,13 +66,13 @@ public class Result_TxAbortDecodeErrorZ : CommonBase {
 	 * Checks if the given object is currently in the success state
 	 */
 	public bool is_ok() {
-		bool ret = bindings.CResult_TxAbortDecodeErrorZ_is_ok(this.ptr);
+		bool ret = Bindings.CResultTxAbortDecodeErrorZIsOk(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.CResult_TxAbortDecodeErrorZ_clone_ptr(this.ptr);
+		long ret = Bindings.CResultTxAbortDecodeErrorZClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -82,7 +82,7 @@ public class Result_TxAbortDecodeErrorZ : CommonBase {
 	 * but with all dynamically-allocated buffers duplicated in new buffers.
 	 */
 	public Result_TxAbortDecodeErrorZ clone() {
-		long ret = bindings.CResult_TxAbortDecodeErrorZ_clone(this.ptr);
+		long ret = Bindings.CResultTxAbortDecodeErrorZClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_TxAbortDecodeErrorZ ret_hu_conv = Result_TxAbortDecodeErrorZ.constr_from_ptr(ret);

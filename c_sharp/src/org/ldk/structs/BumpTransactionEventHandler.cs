@@ -16,7 +16,7 @@ namespace org { namespace ldk { namespace structs {
 public class BumpTransactionEventHandler : CommonBase {
 	internal BumpTransactionEventHandler(object _dummy, long ptr) : base(ptr) { }
 	~BumpTransactionEventHandler() {
-		if (ptr != 0) { bindings.BumpTransactionEventHandler_free(ptr); }
+		if (ptr != 0) { Bindings.BumpTransactionEventHandlerFree(ptr); }
 	}
 
 	/**
@@ -25,7 +25,7 @@ public class BumpTransactionEventHandler : CommonBase {
 	 * [`Event::BumpTransaction`]: crate::events::Event::BumpTransaction
 	 */
 	public static BumpTransactionEventHandler of(org.ldk.structs.BroadcasterInterface broadcaster, org.ldk.structs.CoinSelectionSource utxo_source, org.ldk.structs.SignerProvider signer_provider, org.ldk.structs.Logger logger) {
-		long ret = bindings.BumpTransactionEventHandler_new(broadcaster.ptr, utxo_source.ptr, signer_provider.ptr, logger.ptr);
+		long ret = Bindings.BumpTransactionEventHandlerNew(broadcaster.ptr, utxo_source.ptr, signer_provider.ptr, logger.ptr);
 		GC.KeepAlive(broadcaster);
 		GC.KeepAlive(utxo_source);
 		GC.KeepAlive(signer_provider);
@@ -44,7 +44,7 @@ public class BumpTransactionEventHandler : CommonBase {
 	 * Handles all variants of [`BumpTransactionEvent`].
 	 */
 	public void handle_event(org.ldk.structs.BumpTransactionEvent _event) {
-		bindings.BumpTransactionEventHandler_handle_event(this.ptr, _event == null ? 0 : _event.ptr);
+		Bindings.BumpTransactionEventHandlerHandleEvent(this.ptr, _event == null ? 0 : _event.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(_event);
 	}

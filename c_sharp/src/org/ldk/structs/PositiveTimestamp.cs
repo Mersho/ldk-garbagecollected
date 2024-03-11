@@ -17,7 +17,7 @@ namespace org { namespace ldk { namespace structs {
 public class PositiveTimestamp : CommonBase {
 	internal PositiveTimestamp(object _dummy, long ptr) : base(ptr) { }
 	~PositiveTimestamp() {
-		if (ptr != 0) { bindings.PositiveTimestamp_free(ptr); }
+		if (ptr != 0) { Bindings.PositiveTimestampFree(ptr); }
 	}
 
 	/**
@@ -26,7 +26,7 @@ public class PositiveTimestamp : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.PositiveTimestamp b) {
-		bool ret = bindings.PositiveTimestamp_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.PositiveTimestampEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -38,7 +38,7 @@ public class PositiveTimestamp : CommonBase {
 		return this.eq((PositiveTimestamp)o);
 	}
 	internal long clone_ptr() {
-		long ret = bindings.PositiveTimestamp_clone_ptr(this.ptr);
+		long ret = Bindings.PositiveTimestampClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -47,7 +47,7 @@ public class PositiveTimestamp : CommonBase {
 	 * Creates a copy of the PositiveTimestamp
 	 */
 	public PositiveTimestamp clone() {
-		long ret = bindings.PositiveTimestamp_clone(this.ptr);
+		long ret = Bindings.PositiveTimestampClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.PositiveTimestamp ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.PositiveTimestamp(null, ret); }
@@ -59,7 +59,7 @@ public class PositiveTimestamp : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the PositiveTimestamp.
 	 */
 	public long hash() {
-		long ret = bindings.PositiveTimestamp_hash(this.ptr);
+		long ret = Bindings.PositiveTimestampHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -73,7 +73,7 @@ public class PositiveTimestamp : CommonBase {
 	 * Otherwise, returns a [`CreationError::TimestampOutOfBounds`].
 	 */
 	public static Result_PositiveTimestampCreationErrorZ from_unix_timestamp(long unix_seconds) {
-		long ret = bindings.PositiveTimestamp_from_unix_timestamp(unix_seconds);
+		long ret = Bindings.PositiveTimestampFromUnixTimestamp(unix_seconds);
 		GC.KeepAlive(unix_seconds);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_PositiveTimestampCreationErrorZ ret_hu_conv = Result_PositiveTimestampCreationErrorZ.constr_from_ptr(ret);
@@ -89,7 +89,7 @@ public class PositiveTimestamp : CommonBase {
 	 * Otherwise, returns a [`CreationError::TimestampOutOfBounds`].
 	 */
 	public static Result_PositiveTimestampCreationErrorZ from_system_time(long time) {
-		long ret = bindings.PositiveTimestamp_from_system_time(time);
+		long ret = Bindings.PositiveTimestampFromSystemTime(time);
 		GC.KeepAlive(time);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_PositiveTimestampCreationErrorZ ret_hu_conv = Result_PositiveTimestampCreationErrorZ.constr_from_ptr(ret);
@@ -105,7 +105,7 @@ public class PositiveTimestamp : CommonBase {
 	 * Otherwise, returns a [`CreationError::TimestampOutOfBounds`].
 	 */
 	public static Result_PositiveTimestampCreationErrorZ from_duration_since_epoch(long duration) {
-		long ret = bindings.PositiveTimestamp_from_duration_since_epoch(duration);
+		long ret = Bindings.PositiveTimestampFromDurationSinceEpoch(duration);
 		GC.KeepAlive(duration);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_PositiveTimestampCreationErrorZ ret_hu_conv = Result_PositiveTimestampCreationErrorZ.constr_from_ptr(ret);
@@ -116,7 +116,7 @@ public class PositiveTimestamp : CommonBase {
 	 * Returns the Unix timestamp representing the stored time
 	 */
 	public long as_unix_timestamp() {
-		long ret = bindings.PositiveTimestamp_as_unix_timestamp(this.ptr);
+		long ret = Bindings.PositiveTimestampAsUnixTimestamp(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -125,7 +125,7 @@ public class PositiveTimestamp : CommonBase {
 	 * Returns the duration of the stored time since the Unix epoch
 	 */
 	public long as_duration_since_epoch() {
-		long ret = bindings.PositiveTimestamp_as_duration_since_epoch(this.ptr);
+		long ret = Bindings.PositiveTimestampAsDurationSinceEpoch(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -134,7 +134,7 @@ public class PositiveTimestamp : CommonBase {
 	 * Returns the [`SystemTime`] representing the stored time
 	 */
 	public long as_time() {
-		long ret = bindings.PositiveTimestamp_as_time(this.ptr);
+		long ret = Bindings.PositiveTimestampAsTime(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}

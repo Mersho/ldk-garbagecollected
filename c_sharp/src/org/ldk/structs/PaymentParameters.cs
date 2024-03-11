@@ -12,14 +12,14 @@ namespace org { namespace ldk { namespace structs {
 public class PaymentParameters : CommonBase {
 	internal PaymentParameters(object _dummy, long ptr) : base(ptr) { }
 	~PaymentParameters() {
-		if (ptr != 0) { bindings.PaymentParameters_free(ptr); }
+		if (ptr != 0) { Bindings.PaymentParametersFree(ptr); }
 	}
 
 	/**
 	 * Information about the payee, such as their features and route hints for their channels.
 	 */
 	public Payee get_payee() {
-		long ret = bindings.PaymentParameters_get_payee(this.ptr);
+		long ret = Bindings.PaymentParametersGetPayee(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Payee ret_hu_conv = org.ldk.structs.Payee.constr_from_ptr(ret);
@@ -31,7 +31,7 @@ public class PaymentParameters : CommonBase {
 	 * Information about the payee, such as their features and route hints for their channels.
 	 */
 	public void set_payee(org.ldk.structs.Payee val) {
-		bindings.PaymentParameters_set_payee(this.ptr, val.ptr);
+		Bindings.PaymentParametersSetPayee(this.ptr, val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -41,7 +41,7 @@ public class PaymentParameters : CommonBase {
 	 * Expiration of a payment to the payee, in seconds relative to the UNIX epoch.
 	 */
 	public Option_u64Z get_expiry_time() {
-		long ret = bindings.PaymentParameters_get_expiry_time(this.ptr);
+		long ret = Bindings.PaymentParametersGetExpiryTime(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_u64Z ret_hu_conv = org.ldk.structs.Option_u64Z.constr_from_ptr(ret);
@@ -53,7 +53,7 @@ public class PaymentParameters : CommonBase {
 	 * Expiration of a payment to the payee, in seconds relative to the UNIX epoch.
 	 */
 	public void set_expiry_time(org.ldk.structs.Option_u64Z val) {
-		bindings.PaymentParameters_set_expiry_time(this.ptr, val.ptr);
+		Bindings.PaymentParametersSetExpiryTime(this.ptr, val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -64,7 +64,7 @@ public class PaymentParameters : CommonBase {
 	 * Defaults to [`DEFAULT_MAX_TOTAL_CLTV_EXPIRY_DELTA`].
 	 */
 	public int get_max_total_cltv_expiry_delta() {
-		int ret = bindings.PaymentParameters_get_max_total_cltv_expiry_delta(this.ptr);
+		int ret = Bindings.PaymentParametersGetMaxTotalCltvExpiryDelta(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -74,7 +74,7 @@ public class PaymentParameters : CommonBase {
 	 * Defaults to [`DEFAULT_MAX_TOTAL_CLTV_EXPIRY_DELTA`].
 	 */
 	public void set_max_total_cltv_expiry_delta(int val) {
-		bindings.PaymentParameters_set_max_total_cltv_expiry_delta(this.ptr, val);
+		Bindings.PaymentParametersSetMaxTotalCltvExpiryDelta(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -84,7 +84,7 @@ public class PaymentParameters : CommonBase {
 	 * Defaults to [`DEFAULT_MAX_PATH_COUNT`].
 	 */
 	public byte get_max_path_count() {
-		byte ret = bindings.PaymentParameters_get_max_path_count(this.ptr);
+		byte ret = Bindings.PaymentParametersGetMaxPathCount(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -94,7 +94,7 @@ public class PaymentParameters : CommonBase {
 	 * Defaults to [`DEFAULT_MAX_PATH_COUNT`].
 	 */
 	public void set_max_path_count(byte val) {
-		bindings.PaymentParameters_set_max_path_count(this.ptr, val);
+		Bindings.PaymentParametersSetMaxPathCount(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -115,7 +115,7 @@ public class PaymentParameters : CommonBase {
 	 * Default value: 2
 	 */
 	public byte get_max_channel_saturation_power_of_half() {
-		byte ret = bindings.PaymentParameters_get_max_channel_saturation_power_of_half(this.ptr);
+		byte ret = Bindings.PaymentParametersGetMaxChannelSaturationPowerOfHalf(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -136,7 +136,7 @@ public class PaymentParameters : CommonBase {
 	 * Default value: 2
 	 */
 	public void set_max_channel_saturation_power_of_half(byte val) {
-		bindings.PaymentParameters_set_max_channel_saturation_power_of_half(this.ptr, val);
+		Bindings.PaymentParametersSetMaxChannelSaturationPowerOfHalf(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -149,7 +149,7 @@ public class PaymentParameters : CommonBase {
 	 * Returns a copy of the field.
 	 */
 	public long[] get_previously_failed_channels() {
-		long ret = bindings.PaymentParameters_get_previously_failed_channels(this.ptr);
+		long ret = Bindings.PaymentParametersGetPreviouslyFailedChannels(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		long[] ret_conv = InternalUtils.decodeUint64Array(ret);
@@ -162,7 +162,7 @@ public class PaymentParameters : CommonBase {
 	 * these SCIDs.
 	 */
 	public void set_previously_failed_channels(long[] val) {
-		bindings.PaymentParameters_set_previously_failed_channels(this.ptr, InternalUtils.encodeUint64Array(val));
+		Bindings.PaymentParametersSetPreviouslyFailedChannels(this.ptr, InternalUtils.encodeUint64Array(val));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -175,7 +175,7 @@ public class PaymentParameters : CommonBase {
 	 * Returns a copy of the field.
 	 */
 	public long[] get_previously_failed_blinded_path_idxs() {
-		long ret = bindings.PaymentParameters_get_previously_failed_blinded_path_idxs(this.ptr);
+		long ret = Bindings.PaymentParametersGetPreviouslyFailedBlindedPathIdxs(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		long[] ret_conv = InternalUtils.decodeUint64Array(ret);
@@ -188,7 +188,7 @@ public class PaymentParameters : CommonBase {
 	 * for the same payment shouldn't be relayed through any of these blinded paths.
 	 */
 	public void set_previously_failed_blinded_path_idxs(long[] val) {
-		bindings.PaymentParameters_set_previously_failed_blinded_path_idxs(this.ptr, InternalUtils.encodeUint64Array(val));
+		Bindings.PaymentParametersSetPreviouslyFailedBlindedPathIdxs(this.ptr, InternalUtils.encodeUint64Array(val));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -197,7 +197,7 @@ public class PaymentParameters : CommonBase {
 	 * Constructs a new PaymentParameters given each field
 	 */
 	public static PaymentParameters of(org.ldk.structs.Payee payee_arg, org.ldk.structs.Option_u64Z expiry_time_arg, int max_total_cltv_expiry_delta_arg, byte max_path_count_arg, byte max_channel_saturation_power_of_half_arg, long[] previously_failed_channels_arg, long[] previously_failed_blinded_path_idxs_arg) {
-		long ret = bindings.PaymentParameters_new(payee_arg.ptr, expiry_time_arg.ptr, max_total_cltv_expiry_delta_arg, max_path_count_arg, max_channel_saturation_power_of_half_arg, InternalUtils.encodeUint64Array(previously_failed_channels_arg), InternalUtils.encodeUint64Array(previously_failed_blinded_path_idxs_arg));
+		long ret = Bindings.PaymentParametersNew(payee_arg.ptr, expiry_time_arg.ptr, max_total_cltv_expiry_delta_arg, max_path_count_arg, max_channel_saturation_power_of_half_arg, InternalUtils.encodeUint64Array(previously_failed_channels_arg), InternalUtils.encodeUint64Array(previously_failed_blinded_path_idxs_arg));
 		GC.KeepAlive(payee_arg);
 		GC.KeepAlive(expiry_time_arg);
 		GC.KeepAlive(max_total_cltv_expiry_delta_arg);
@@ -214,7 +214,7 @@ public class PaymentParameters : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.PaymentParameters_clone_ptr(this.ptr);
+		long ret = Bindings.PaymentParametersClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -223,7 +223,7 @@ public class PaymentParameters : CommonBase {
 	 * Creates a copy of the PaymentParameters
 	 */
 	public PaymentParameters clone() {
-		long ret = bindings.PaymentParameters_clone(this.ptr);
+		long ret = Bindings.PaymentParametersClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.PaymentParameters ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.PaymentParameters(null, ret); }
@@ -235,7 +235,7 @@ public class PaymentParameters : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the PaymentParameters.
 	 */
 	public long hash() {
-		long ret = bindings.PaymentParameters_hash(this.ptr);
+		long ret = Bindings.PaymentParametersHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -249,7 +249,7 @@ public class PaymentParameters : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.PaymentParameters b) {
-		bool ret = bindings.PaymentParameters_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.PaymentParametersEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -264,7 +264,7 @@ public class PaymentParameters : CommonBase {
 	 * Serialize the PaymentParameters object into a byte array which can be read by PaymentParameters_read
 	 */
 	public byte[] write() {
-		long ret = bindings.PaymentParameters_write(this.ptr);
+		long ret = Bindings.PaymentParametersWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -275,7 +275,7 @@ public class PaymentParameters : CommonBase {
 	 * Read a PaymentParameters from a byte array, created by PaymentParameters_write
 	 */
 	public static Result_PaymentParametersDecodeErrorZ read(byte[] ser, int arg) {
-		long ret = bindings.PaymentParameters_read(InternalUtils.encodeUint8Array(ser), arg);
+		long ret = Bindings.PaymentParametersRead(InternalUtils.encodeUint8Array(ser), arg);
 		GC.KeepAlive(ser);
 		GC.KeepAlive(arg);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -290,7 +290,7 @@ public class PaymentParameters : CommonBase {
 	 * provided.
 	 */
 	public static PaymentParameters from_node_id(byte[] payee_pubkey, int final_cltv_expiry_delta) {
-		long ret = bindings.PaymentParameters_from_node_id(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payee_pubkey, 33)), final_cltv_expiry_delta);
+		long ret = Bindings.PaymentParametersFromNodeId(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payee_pubkey, 33)), final_cltv_expiry_delta);
 		GC.KeepAlive(payee_pubkey);
 		GC.KeepAlive(final_cltv_expiry_delta);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -313,7 +313,7 @@ public class PaymentParameters : CommonBase {
 	 * [`RecipientOnionFields::secret_only`]: crate::ln::channelmanager::RecipientOnionFields::secret_only
 	 */
 	public static PaymentParameters for_keysend(byte[] payee_pubkey, int final_cltv_expiry_delta, bool allow_mpp) {
-		long ret = bindings.PaymentParameters_for_keysend(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payee_pubkey, 33)), final_cltv_expiry_delta, allow_mpp);
+		long ret = Bindings.PaymentParametersForKeysend(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payee_pubkey, 33)), final_cltv_expiry_delta, allow_mpp);
 		GC.KeepAlive(payee_pubkey);
 		GC.KeepAlive(final_cltv_expiry_delta);
 		GC.KeepAlive(allow_mpp);
@@ -329,7 +329,7 @@ public class PaymentParameters : CommonBase {
 	 * [`PaymentParameters::expiry_time`].
 	 */
 	public static PaymentParameters from_bolt12_invoice(org.ldk.structs.Bolt12Invoice invoice) {
-		long ret = bindings.PaymentParameters_from_bolt12_invoice(invoice == null ? 0 : invoice.ptr);
+		long ret = Bindings.PaymentParametersFromBolt12Invoice(invoice == null ? 0 : invoice.ptr);
 		GC.KeepAlive(invoice);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.PaymentParameters ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.PaymentParameters(null, ret); }
@@ -342,7 +342,7 @@ public class PaymentParameters : CommonBase {
 	 * Creates parameters for paying to a blinded payee from the provided blinded route hints.
 	 */
 	public static PaymentParameters blinded(TwoTuple_BlindedPayInfoBlindedPathZ[] blinded_route_hints) {
-		long ret = bindings.PaymentParameters_blinded(InternalUtils.encodeUint64Array(InternalUtils.mapArray(blinded_route_hints, blinded_route_hints_conv_37 => blinded_route_hints_conv_37 != null ? blinded_route_hints_conv_37.ptr : 0)));
+		long ret = Bindings.PaymentParametersBlinded(InternalUtils.encodeUint64Array(InternalUtils.mapArray(blinded_route_hints, blinded_route_hints_conv_37 => blinded_route_hints_conv_37 != null ? blinded_route_hints_conv_37.ptr : 0)));
 		GC.KeepAlive(blinded_route_hints);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.PaymentParameters ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.PaymentParameters(null, ret); }

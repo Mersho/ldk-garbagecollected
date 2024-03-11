@@ -14,14 +14,14 @@ namespace org { namespace ldk { namespace structs {
 public class UnsignedNodeAnnouncement : CommonBase {
 	internal UnsignedNodeAnnouncement(object _dummy, long ptr) : base(ptr) { }
 	~UnsignedNodeAnnouncement() {
-		if (ptr != 0) { bindings.UnsignedNodeAnnouncement_free(ptr); }
+		if (ptr != 0) { Bindings.UnsignedNodeAnnouncementFree(ptr); }
 	}
 
 	/**
 	 * The advertised features
 	 */
 	public NodeFeatures get_features() {
-		long ret = bindings.UnsignedNodeAnnouncement_get_features(this.ptr);
+		long ret = Bindings.UnsignedNodeAnnouncementGetFeatures(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.NodeFeatures ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.NodeFeatures(null, ret); }
@@ -33,7 +33,7 @@ public class UnsignedNodeAnnouncement : CommonBase {
 	 * The advertised features
 	 */
 	public void set_features(org.ldk.structs.NodeFeatures val) {
-		bindings.UnsignedNodeAnnouncement_set_features(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.UnsignedNodeAnnouncementSetFeatures(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -43,7 +43,7 @@ public class UnsignedNodeAnnouncement : CommonBase {
 	 * A strictly monotonic announcement counter, with gaps allowed
 	 */
 	public int get_timestamp() {
-		int ret = bindings.UnsignedNodeAnnouncement_get_timestamp(this.ptr);
+		int ret = Bindings.UnsignedNodeAnnouncementGetTimestamp(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -52,7 +52,7 @@ public class UnsignedNodeAnnouncement : CommonBase {
 	 * A strictly monotonic announcement counter, with gaps allowed
 	 */
 	public void set_timestamp(int val) {
-		bindings.UnsignedNodeAnnouncement_set_timestamp(this.ptr, val);
+		Bindings.UnsignedNodeAnnouncementSetTimestamp(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -62,7 +62,7 @@ public class UnsignedNodeAnnouncement : CommonBase {
 	 * to this node).
 	 */
 	public NodeId get_node_id() {
-		long ret = bindings.UnsignedNodeAnnouncement_get_node_id(this.ptr);
+		long ret = Bindings.UnsignedNodeAnnouncementGetNodeId(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.NodeId ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.NodeId(null, ret); }
@@ -75,7 +75,7 @@ public class UnsignedNodeAnnouncement : CommonBase {
 	 * to this node).
 	 */
 	public void set_node_id(org.ldk.structs.NodeId val) {
-		bindings.UnsignedNodeAnnouncement_set_node_id(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.UnsignedNodeAnnouncementSetNodeId(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -85,7 +85,7 @@ public class UnsignedNodeAnnouncement : CommonBase {
 	 * An RGB color for UI purposes
 	 */
 	public byte[] get_rgb() {
-		long ret = bindings.UnsignedNodeAnnouncement_get_rgb(this.ptr);
+		long ret = Bindings.UnsignedNodeAnnouncementGetRgb(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -96,7 +96,7 @@ public class UnsignedNodeAnnouncement : CommonBase {
 	 * An RGB color for UI purposes
 	 */
 	public void set_rgb(byte[] val) {
-		bindings.UnsignedNodeAnnouncement_set_rgb(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 3)));
+		Bindings.UnsignedNodeAnnouncementSetRgb(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 3)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -107,7 +107,7 @@ public class UnsignedNodeAnnouncement : CommonBase {
 	 * This should be sanitized before use. There is no guarantee of uniqueness.
 	 */
 	public NodeAlias get_alias() {
-		long ret = bindings.UnsignedNodeAnnouncement_get_alias(this.ptr);
+		long ret = Bindings.UnsignedNodeAnnouncementGetAlias(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.NodeAlias ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.NodeAlias(null, ret); }
@@ -121,7 +121,7 @@ public class UnsignedNodeAnnouncement : CommonBase {
 	 * This should be sanitized before use. There is no guarantee of uniqueness.
 	 */
 	public void set_alias(org.ldk.structs.NodeAlias val) {
-		bindings.UnsignedNodeAnnouncement_set_alias(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.UnsignedNodeAnnouncementSetAlias(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -133,7 +133,7 @@ public class UnsignedNodeAnnouncement : CommonBase {
 	 * Returns a copy of the field.
 	 */
 	public SocketAddress[] get_addresses() {
-		long ret = bindings.UnsignedNodeAnnouncement_get_addresses(this.ptr);
+		long ret = Bindings.UnsignedNodeAnnouncementGetAddresses(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		int ret_conv_15_len = InternalUtils.getArrayLength(ret);
@@ -144,7 +144,7 @@ public class UnsignedNodeAnnouncement : CommonBase {
 			if (ret_conv_15_hu_conv != null) { ret_conv_15_hu_conv.ptrs_to.AddLast(this); };
 			ret_conv_15_arr[p] = ret_conv_15_hu_conv;
 		}
-		bindings.free_buffer(ret);
+		Bindings.FreeBuffer(ret);
 		return ret_conv_15_arr;
 	}
 
@@ -152,14 +152,14 @@ public class UnsignedNodeAnnouncement : CommonBase {
 	 * List of addresses on which this node is reachable
 	 */
 	public void set_addresses(SocketAddress[] val) {
-		bindings.UnsignedNodeAnnouncement_set_addresses(this.ptr, InternalUtils.encodeUint64Array(InternalUtils.mapArray(val, val_conv_15 => val_conv_15.ptr)));
+		Bindings.UnsignedNodeAnnouncementSetAddresses(this.ptr, InternalUtils.encodeUint64Array(InternalUtils.mapArray(val, val_conv_15 => val_conv_15.ptr)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		foreach (SocketAddress val_conv_15 in val) { if (this != null) { this.ptrs_to.AddLast(val_conv_15); }; };
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.UnsignedNodeAnnouncement_clone_ptr(this.ptr);
+		long ret = Bindings.UnsignedNodeAnnouncementClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -168,7 +168,7 @@ public class UnsignedNodeAnnouncement : CommonBase {
 	 * Creates a copy of the UnsignedNodeAnnouncement
 	 */
 	public UnsignedNodeAnnouncement clone() {
-		long ret = bindings.UnsignedNodeAnnouncement_clone(this.ptr);
+		long ret = Bindings.UnsignedNodeAnnouncementClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.UnsignedNodeAnnouncement ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.UnsignedNodeAnnouncement(null, ret); }
@@ -180,7 +180,7 @@ public class UnsignedNodeAnnouncement : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the UnsignedNodeAnnouncement.
 	 */
 	public long hash() {
-		long ret = bindings.UnsignedNodeAnnouncement_hash(this.ptr);
+		long ret = Bindings.UnsignedNodeAnnouncementHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -194,7 +194,7 @@ public class UnsignedNodeAnnouncement : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.UnsignedNodeAnnouncement b) {
-		bool ret = bindings.UnsignedNodeAnnouncement_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.UnsignedNodeAnnouncementEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -209,7 +209,7 @@ public class UnsignedNodeAnnouncement : CommonBase {
 	 * Serialize the UnsignedNodeAnnouncement object into a byte array which can be read by UnsignedNodeAnnouncement_read
 	 */
 	public byte[] write() {
-		long ret = bindings.UnsignedNodeAnnouncement_write(this.ptr);
+		long ret = Bindings.UnsignedNodeAnnouncementWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -220,7 +220,7 @@ public class UnsignedNodeAnnouncement : CommonBase {
 	 * Read a UnsignedNodeAnnouncement from a byte array, created by UnsignedNodeAnnouncement_write
 	 */
 	public static Result_UnsignedNodeAnnouncementDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.UnsignedNodeAnnouncement_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.UnsignedNodeAnnouncementRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_UnsignedNodeAnnouncementDecodeErrorZ ret_hu_conv = Result_UnsignedNodeAnnouncementDecodeErrorZ.constr_from_ptr(ret);

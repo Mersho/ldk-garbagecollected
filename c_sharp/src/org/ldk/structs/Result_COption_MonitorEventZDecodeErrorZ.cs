@@ -8,11 +8,11 @@ namespace org { namespace ldk { namespace structs {
 public class Result_COption_MonitorEventZDecodeErrorZ : CommonBase {
 	Result_COption_MonitorEventZDecodeErrorZ(object _dummy, long ptr) : base(ptr) { }
 	~Result_COption_MonitorEventZDecodeErrorZ() {
-		if (ptr != 0) { bindings.CResult_COption_MonitorEventZDecodeErrorZ_free(ptr); }
+		if (ptr != 0) { Bindings.CResultCOptionMonitorEventZDecodeErrorZFree(ptr); }
 	}
 
 	internal static Result_COption_MonitorEventZDecodeErrorZ constr_from_ptr(long ptr) {
-		if (bindings.CResult_COption_MonitorEventZDecodeErrorZ_is_ok(ptr)) {
+		if (Bindings.CResultCOptionMonitorEventZDecodeErrorZIsOk(ptr)) {
 			return new Result_COption_MonitorEventZDecodeErrorZ_OK(null, ptr);
 		} else {
 			return new Result_COption_MonitorEventZDecodeErrorZ_Err(null, ptr);
@@ -21,7 +21,7 @@ public class Result_COption_MonitorEventZDecodeErrorZ : CommonBase {
 	public class Result_COption_MonitorEventZDecodeErrorZ_OK : Result_COption_MonitorEventZDecodeErrorZ {
 		public readonly Option_MonitorEventZ res;
 		internal Result_COption_MonitorEventZDecodeErrorZ_OK(object _dummy, long ptr) : base(_dummy, ptr) {
-			long res = bindings.CResult_COption_MonitorEventZDecodeErrorZ_get_ok(ptr);
+			long res = Bindings.CResultCOptionMonitorEventZDecodeErrorZGetOk(ptr);
 			org.ldk.structs.Option_MonitorEventZ res_hu_conv = org.ldk.structs.Option_MonitorEventZ.constr_from_ptr(res);
 			if (res_hu_conv != null) { res_hu_conv.ptrs_to.AddLast(this); };
 			this.res = res_hu_conv;
@@ -31,7 +31,7 @@ public class Result_COption_MonitorEventZDecodeErrorZ : CommonBase {
 	public class Result_COption_MonitorEventZDecodeErrorZ_Err : Result_COption_MonitorEventZDecodeErrorZ {
 		public readonly DecodeError err;
 		internal Result_COption_MonitorEventZDecodeErrorZ_Err(object _dummy, long ptr) : base(_dummy, ptr) {
-			long err = bindings.CResult_COption_MonitorEventZDecodeErrorZ_get_err(ptr);
+			long err = Bindings.CResultCOptionMonitorEventZDecodeErrorZGetErr(ptr);
 			org.ldk.structs.DecodeError err_hu_conv = org.ldk.structs.DecodeError.constr_from_ptr(err);
 			if (err_hu_conv != null) { err_hu_conv.ptrs_to.AddLast(this); };
 			this.err = err_hu_conv;
@@ -42,7 +42,7 @@ public class Result_COption_MonitorEventZDecodeErrorZ : CommonBase {
 	 * Creates a new CResult_COption_MonitorEventZDecodeErrorZ in the success state.
 	 */
 	public static Result_COption_MonitorEventZDecodeErrorZ ok(org.ldk.structs.Option_MonitorEventZ o) {
-		long ret = bindings.CResult_COption_MonitorEventZDecodeErrorZ_ok(o.ptr);
+		long ret = Bindings.CResultCOptionMonitorEventZDecodeErrorZOk(o.ptr);
 		GC.KeepAlive(o);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_COption_MonitorEventZDecodeErrorZ ret_hu_conv = Result_COption_MonitorEventZDecodeErrorZ.constr_from_ptr(ret);
@@ -54,7 +54,7 @@ public class Result_COption_MonitorEventZDecodeErrorZ : CommonBase {
 	 * Creates a new CResult_COption_MonitorEventZDecodeErrorZ in the error state.
 	 */
 	public static Result_COption_MonitorEventZDecodeErrorZ err(org.ldk.structs.DecodeError e) {
-		long ret = bindings.CResult_COption_MonitorEventZDecodeErrorZ_err(e.ptr);
+		long ret = Bindings.CResultCOptionMonitorEventZDecodeErrorZErr(e.ptr);
 		GC.KeepAlive(e);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_COption_MonitorEventZDecodeErrorZ ret_hu_conv = Result_COption_MonitorEventZDecodeErrorZ.constr_from_ptr(ret);
@@ -66,13 +66,13 @@ public class Result_COption_MonitorEventZDecodeErrorZ : CommonBase {
 	 * Checks if the given object is currently in the success state
 	 */
 	public bool is_ok() {
-		bool ret = bindings.CResult_COption_MonitorEventZDecodeErrorZ_is_ok(this.ptr);
+		bool ret = Bindings.CResultCOptionMonitorEventZDecodeErrorZIsOk(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.CResult_COption_MonitorEventZDecodeErrorZ_clone_ptr(this.ptr);
+		long ret = Bindings.CResultCOptionMonitorEventZDecodeErrorZClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -82,7 +82,7 @@ public class Result_COption_MonitorEventZDecodeErrorZ : CommonBase {
 	 * but with all dynamically-allocated buffers duplicated in new buffers.
 	 */
 	public Result_COption_MonitorEventZDecodeErrorZ clone() {
-		long ret = bindings.CResult_COption_MonitorEventZDecodeErrorZ_clone(this.ptr);
+		long ret = Bindings.CResultCOptionMonitorEventZDecodeErrorZClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_COption_MonitorEventZDecodeErrorZ ret_hu_conv = Result_COption_MonitorEventZDecodeErrorZ.constr_from_ptr(ret);

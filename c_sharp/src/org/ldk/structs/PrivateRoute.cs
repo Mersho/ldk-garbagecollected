@@ -15,11 +15,11 @@ namespace org { namespace ldk { namespace structs {
 public class PrivateRoute : CommonBase {
 	internal PrivateRoute(object _dummy, long ptr) : base(ptr) { }
 	~PrivateRoute() {
-		if (ptr != 0) { bindings.PrivateRoute_free(ptr); }
+		if (ptr != 0) { Bindings.PrivateRouteFree(ptr); }
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.PrivateRoute_clone_ptr(this.ptr);
+		long ret = Bindings.PrivateRouteClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -28,7 +28,7 @@ public class PrivateRoute : CommonBase {
 	 * Creates a copy of the PrivateRoute
 	 */
 	public PrivateRoute clone() {
-		long ret = bindings.PrivateRoute_clone(this.ptr);
+		long ret = Bindings.PrivateRouteClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.PrivateRoute ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.PrivateRoute(null, ret); }
@@ -40,7 +40,7 @@ public class PrivateRoute : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the PrivateRoute.
 	 */
 	public long hash() {
-		long ret = bindings.PrivateRoute_hash(this.ptr);
+		long ret = Bindings.PrivateRouteHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -54,7 +54,7 @@ public class PrivateRoute : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.PrivateRoute b) {
-		bool ret = bindings.PrivateRoute_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.PrivateRouteEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -69,7 +69,7 @@ public class PrivateRoute : CommonBase {
 	 * Creates a new (partial) route from a list of hops
 	 */
 	public static Result_PrivateRouteCreationErrorZ of(org.ldk.structs.RouteHint hops) {
-		long ret = bindings.PrivateRoute_new(hops == null ? 0 : hops.ptr);
+		long ret = Bindings.PrivateRouteNew(hops == null ? 0 : hops.ptr);
 		GC.KeepAlive(hops);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_PrivateRouteCreationErrorZ ret_hu_conv = Result_PrivateRouteCreationErrorZ.constr_from_ptr(ret);
@@ -81,7 +81,7 @@ public class PrivateRoute : CommonBase {
 	 * Returns the underlying list of hops
 	 */
 	public RouteHint into_inner() {
-		long ret = bindings.PrivateRoute_into_inner(this.ptr);
+		long ret = Bindings.PrivateRouteIntoInner(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.RouteHint ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.RouteHint(null, ret); }

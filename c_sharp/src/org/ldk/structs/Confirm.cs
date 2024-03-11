@@ -9,7 +9,7 @@ namespace org { namespace ldk { namespace structs {
 
 
 /** An implementation of Confirm */
-public interface ConfirmInterface {
+public interface IConfirm {
 	/**Notifies LDK of transactions confirmed in a block with a given header and height.
 	 * 
 	 * Must be called for any transactions registered by [`Filter::register_tx`] or any
@@ -106,20 +106,20 @@ public interface ConfirmInterface {
  * [`get_relevant_txids`]: Self::get_relevant_txids
  */
 public class Confirm : CommonBase {
-	internal bindings.LDKConfirm bindings_instance;
+	internal Bindings.LDKConfirm bindings_instance;
 	internal long instance_idx;
 
 	internal Confirm(object _dummy, long ptr) : base(ptr) { bindings_instance = null; }
 	~Confirm() {
-		if (ptr != 0) { bindings.Confirm_free(ptr); }
+		if (ptr != 0) { Bindings.ConfirmFree(ptr); }
 	}
 
 	private class LDKConfirmHolder { internal Confirm held; }
-	private class LDKConfirmImpl : bindings.LDKConfirm {
-		internal LDKConfirmImpl(ConfirmInterface arg, LDKConfirmHolder impl_holder) { this.arg = arg; this.impl_holder = impl_holder; }
-		private ConfirmInterface arg;
+	private class LDKConfirmImpl : Bindings.LDKConfirm {
+		internal LDKConfirmImpl(IConfirm arg, LDKConfirmHolder impl_holder) { this.arg = arg; this.impl_holder = impl_holder; }
+		private IConfirm arg;
 		private LDKConfirmHolder impl_holder;
-		public void transactions_confirmed(long _header, long _txdata, int _height) {
+		public void TransactionsConfirmed(long _header, long _txdata, int _height) {
 			byte[] _header_conv = InternalUtils.decodeUint8Array(_header);
 			int _txdata_conv_28_len = InternalUtils.getArrayLength(_txdata);
 			TwoTuple_usizeTransactionZ[] _txdata_conv_28_arr = new TwoTuple_usizeTransactionZ[_txdata_conv_28_len];
@@ -129,21 +129,21 @@ public class Confirm : CommonBase {
 				if (_txdata_conv_28_hu_conv != null) { _txdata_conv_28_hu_conv.ptrs_to.AddLast(this); };
 				_txdata_conv_28_arr[c] = _txdata_conv_28_hu_conv;
 			}
-			bindings.free_buffer(_txdata);
+			Bindings.FreeBuffer(_txdata);
 			arg.transactions_confirmed(_header_conv, _txdata_conv_28_arr, _height);
 				GC.KeepAlive(arg);
 		}
-		public void transaction_unconfirmed(long _txid) {
+		public void TransactionUnconfirmed(long _txid) {
 			byte[] _txid_conv = InternalUtils.decodeUint8Array(_txid);
 			arg.transaction_unconfirmed(_txid_conv);
 				GC.KeepAlive(arg);
 		}
-		public void best_block_updated(long _header, int _height) {
+		public void BestBlockUpdated(long _header, int _height) {
 			byte[] _header_conv = InternalUtils.decodeUint8Array(_header);
 			arg.best_block_updated(_header_conv, _height);
 				GC.KeepAlive(arg);
 		}
-		public long get_relevant_txids() {
+		public long GetRelevantTxids() {
 			ThreeTuple_ThirtyTwoBytesu32COption_ThirtyTwoBytesZZ[] ret = arg.get_relevant_txids();
 				GC.KeepAlive(arg);
 			long result = InternalUtils.encodeUint64Array(InternalUtils.mapArray(ret, ret_conv_54 => ret_conv_54 == null ? 0 : ret_conv_54.clone_ptr()));
@@ -152,10 +152,10 @@ public class Confirm : CommonBase {
 	}
 
 	/** Creates a new instance of Confirm from a given implementation */
-	public static Confirm new_impl(ConfirmInterface arg) {
+	public static Confirm new_impl(IConfirm arg) {
 		LDKConfirmHolder impl_holder = new LDKConfirmHolder();
 		LDKConfirmImpl impl = new LDKConfirmImpl(arg, impl_holder);
-		long[] ptr_idx = bindings.LDKConfirm_new(impl);
+		long[] ptr_idx = Bindings.LDKConfirmNew(impl);
 
 		impl_holder.held = new Confirm(null, ptr_idx[0]);
 		impl_holder.held.instance_idx = ptr_idx[1];
@@ -179,7 +179,7 @@ public class Confirm : CommonBase {
 	 * [`best_block_updated`]: Self::best_block_updated
 	 */
 	public void transactions_confirmed(byte[] header, TwoTuple_usizeTransactionZ[] txdata, int height) {
-		bindings.Confirm_transactions_confirmed(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(header, 80)), InternalUtils.encodeUint64Array(InternalUtils.mapArray(txdata, txdata_conv_28 => txdata_conv_28 != null ? txdata_conv_28.ptr : 0)), height);
+		Bindings.ConfirmTransactionsConfirmed(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(header, 80)), InternalUtils.encodeUint64Array(InternalUtils.mapArray(txdata, txdata_conv_28 => txdata_conv_28 != null ? txdata_conv_28.ptr : 0)), height);
 		GC.KeepAlive(this);
 		GC.KeepAlive(header);
 		GC.KeepAlive(txdata);
@@ -198,7 +198,7 @@ public class Confirm : CommonBase {
 	 * [`transactions_confirmed`]: Self::transactions_confirmed
 	 */
 	public void transaction_unconfirmed(byte[] txid) {
-		bindings.Confirm_transaction_unconfirmed(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(txid, 32)));
+		Bindings.ConfirmTransactionUnconfirmed(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(txid, 32)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(txid);
 	}
@@ -210,7 +210,7 @@ public class Confirm : CommonBase {
 	 * blocks.
 	 */
 	public void best_block_updated(byte[] header, int height) {
-		bindings.Confirm_best_block_updated(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(header, 80)), height);
+		Bindings.ConfirmBestBlockUpdated(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(header, 80)), height);
 		GC.KeepAlive(this);
 		GC.KeepAlive(header);
 		GC.KeepAlive(height);
@@ -240,7 +240,7 @@ public class Confirm : CommonBase {
 	 * [`transaction_unconfirmed`]: Self::transaction_unconfirmed
 	 */
 	public ThreeTuple_ThirtyTwoBytesu32COption_ThirtyTwoBytesZZ[] get_relevant_txids() {
-		long ret = bindings.Confirm_get_relevant_txids(this.ptr);
+		long ret = Bindings.ConfirmGetRelevantTxids(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		int ret_conv_54_len = InternalUtils.getArrayLength(ret);
@@ -251,7 +251,7 @@ public class Confirm : CommonBase {
 			if (ret_conv_54_hu_conv != null) { ret_conv_54_hu_conv.ptrs_to.AddLast(this); };
 			ret_conv_54_arr[c] = ret_conv_54_hu_conv;
 		}
-		bindings.free_buffer(ret);
+		Bindings.FreeBuffer(ret);
 		return ret_conv_54_arr;
 	}
 

@@ -12,14 +12,14 @@ namespace org { namespace ldk { namespace structs {
 public class MultiThreadedScoreLockWrite : CommonBase {
 	internal MultiThreadedScoreLockWrite(object _dummy, long ptr) : base(ptr) { }
 	~MultiThreadedScoreLockWrite() {
-		if (ptr != 0) { bindings.MultiThreadedScoreLockWrite_free(ptr); }
+		if (ptr != 0) { Bindings.MultiThreadedScoreLockWriteFree(ptr); }
 	}
 
 	/**
 	 * Serialize the MultiThreadedScoreLockWrite object into a byte array which can be read by MultiThreadedScoreLockWrite_read
 	 */
 	public byte[] write() {
-		long ret = bindings.MultiThreadedScoreLockWrite_write(this.ptr);
+		long ret = Bindings.MultiThreadedScoreLockWriteWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -31,7 +31,7 @@ public class MultiThreadedScoreLockWrite : CommonBase {
 	 * This copies the `inner` pointer in this_arg and thus the returned ScoreUpdate must be freed before this_arg is
 	 */
 	public ScoreUpdate as_ScoreUpdate() {
-		long ret = bindings.MultiThreadedScoreLockWrite_as_ScoreUpdate(this.ptr);
+		long ret = Bindings.MultiThreadedScoreLockWriteAsScoreUpdate(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		ScoreUpdate ret_hu_conv = new ScoreUpdate(null, ret);

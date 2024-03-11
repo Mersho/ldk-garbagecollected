@@ -15,7 +15,7 @@ namespace org { namespace ldk { namespace structs {
 public class LockedChannelMonitor : CommonBase, IDisposable {
 	internal LockedChannelMonitor(object _dummy, long ptr) : base(ptr) { }
 	public void Dispose() {
-		if (ptr != 0) { bindings.LockedChannelMonitor_free(ptr); }
+		if (ptr != 0) { Bindings.LockedChannelMonitorFree(ptr); }
 	}
 
 }

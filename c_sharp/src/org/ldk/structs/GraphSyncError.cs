@@ -11,11 +11,11 @@ namespace org { namespace ldk { namespace structs {
 public class GraphSyncError : CommonBase {
 	protected GraphSyncError(object _dummy, long ptr) : base(ptr) { }
 	~GraphSyncError() {
-		if (ptr != 0) { bindings.GraphSyncError_free(ptr); }
+		if (ptr != 0) { Bindings.GraphSyncErrorFree(ptr); }
 	}
 
 	internal static GraphSyncError constr_from_ptr(long ptr) {
-		long raw_ty = bindings.LDKGraphSyncError_ty_from_ptr(ptr);
+		long raw_ty = Bindings.LDKGraphSyncErrorTyFromPtr(ptr);
 		switch (raw_ty) {
 			case 0: return new GraphSyncError_DecodeError(ptr);
 			case 1: return new GraphSyncError_LightningError(ptr);
@@ -28,7 +28,7 @@ public class GraphSyncError : CommonBase {
 	public class GraphSyncError_DecodeError : GraphSyncError {
 		public DecodeError decode_error;
 		internal GraphSyncError_DecodeError(long ptr) : base(null, ptr) {
-			long decode_error = bindings.LDKGraphSyncError_DecodeError_get_decode_error(ptr);
+			long decode_error = Bindings.LDKGraphSyncErrorDecodeErrorGetDecodeError(ptr);
 			org.ldk.structs.DecodeError decode_error_hu_conv = org.ldk.structs.DecodeError.constr_from_ptr(decode_error);
 			if (decode_error_hu_conv != null) { decode_error_hu_conv.ptrs_to.AddLast(this); };
 			this.decode_error = decode_error_hu_conv;
@@ -38,14 +38,14 @@ public class GraphSyncError : CommonBase {
 	public class GraphSyncError_LightningError : GraphSyncError {
 		public LightningError lightning_error;
 		internal GraphSyncError_LightningError(long ptr) : base(null, ptr) {
-			long lightning_error = bindings.LDKGraphSyncError_LightningError_get_lightning_error(ptr);
+			long lightning_error = Bindings.LDKGraphSyncErrorLightningErrorGetLightningError(ptr);
 			org.ldk.structs.LightningError lightning_error_hu_conv = null; if (lightning_error < 0 || lightning_error > 4096) { lightning_error_hu_conv = new org.ldk.structs.LightningError(null, lightning_error); }
 			if (lightning_error_hu_conv != null) { lightning_error_hu_conv.ptrs_to.AddLast(this); };
 			this.lightning_error = lightning_error_hu_conv;
 		}
 	}
 	internal long clone_ptr() {
-		long ret = bindings.GraphSyncError_clone_ptr(this.ptr);
+		long ret = Bindings.GraphSyncErrorClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -54,7 +54,7 @@ public class GraphSyncError : CommonBase {
 	 * Creates a copy of the GraphSyncError
 	 */
 	public GraphSyncError clone() {
-		long ret = bindings.GraphSyncError_clone(this.ptr);
+		long ret = Bindings.GraphSyncErrorClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.GraphSyncError ret_hu_conv = org.ldk.structs.GraphSyncError.constr_from_ptr(ret);
@@ -66,7 +66,7 @@ public class GraphSyncError : CommonBase {
 	 * Utility method to constructs a new DecodeError-variant GraphSyncError
 	 */
 	public static GraphSyncError decode_error(org.ldk.structs.DecodeError a) {
-		long ret = bindings.GraphSyncError_decode_error(a.ptr);
+		long ret = Bindings.GraphSyncErrorDecodeError(a.ptr);
 		GC.KeepAlive(a);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.GraphSyncError ret_hu_conv = org.ldk.structs.GraphSyncError.constr_from_ptr(ret);
@@ -79,7 +79,7 @@ public class GraphSyncError : CommonBase {
 	 * Utility method to constructs a new LightningError-variant GraphSyncError
 	 */
 	public static GraphSyncError lightning_error(org.ldk.structs.LightningError a) {
-		long ret = bindings.GraphSyncError_lightning_error(a == null ? 0 : a.ptr);
+		long ret = Bindings.GraphSyncErrorLightningError(a == null ? 0 : a.ptr);
 		GC.KeepAlive(a);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.GraphSyncError ret_hu_conv = org.ldk.structs.GraphSyncError.constr_from_ptr(ret);

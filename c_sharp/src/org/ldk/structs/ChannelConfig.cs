@@ -13,7 +13,7 @@ namespace org { namespace ldk { namespace structs {
 public class ChannelConfig : CommonBase {
 	internal ChannelConfig(object _dummy, long ptr) : base(ptr) { }
 	~ChannelConfig() {
-		if (ptr != 0) { bindings.ChannelConfig_free(ptr); }
+		if (ptr != 0) { Bindings.ChannelConfigFree(ptr); }
 	}
 
 	/**
@@ -25,7 +25,7 @@ public class ChannelConfig : CommonBase {
 	 * Default value: 0.
 	 */
 	public int get_forwarding_fee_proportional_millionths() {
-		int ret = bindings.ChannelConfig_get_forwarding_fee_proportional_millionths(this.ptr);
+		int ret = Bindings.ChannelConfigGetForwardingFeeProportionalMillionths(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -39,7 +39,7 @@ public class ChannelConfig : CommonBase {
 	 * Default value: 0.
 	 */
 	public void set_forwarding_fee_proportional_millionths(int val) {
-		bindings.ChannelConfig_set_forwarding_fee_proportional_millionths(this.ptr, val);
+		Bindings.ChannelConfigSetForwardingFeeProportionalMillionths(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -59,7 +59,7 @@ public class ChannelConfig : CommonBase {
 	 * [`forwarding_fee_proportional_millionths`]: ChannelConfig::forwarding_fee_proportional_millionths
 	 */
 	public int get_forwarding_fee_base_msat() {
-		int ret = bindings.ChannelConfig_get_forwarding_fee_base_msat(this.ptr);
+		int ret = Bindings.ChannelConfigGetForwardingFeeBaseMsat(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -79,7 +79,7 @@ public class ChannelConfig : CommonBase {
 	 * [`forwarding_fee_proportional_millionths`]: ChannelConfig::forwarding_fee_proportional_millionths
 	 */
 	public void set_forwarding_fee_base_msat(int val) {
-		bindings.ChannelConfig_set_forwarding_fee_base_msat(this.ptr, val);
+		Bindings.ChannelConfigSetForwardingFeeBaseMsat(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -106,7 +106,7 @@ public class ChannelConfig : CommonBase {
 	 * [`MIN_CLTV_EXPIRY_DELTA`]: crate::ln::channelmanager::MIN_CLTV_EXPIRY_DELTA
 	 */
 	public short get_cltv_expiry_delta() {
-		short ret = bindings.ChannelConfig_get_cltv_expiry_delta(this.ptr);
+		short ret = Bindings.ChannelConfigGetCltvExpiryDelta(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -133,7 +133,7 @@ public class ChannelConfig : CommonBase {
 	 * [`MIN_CLTV_EXPIRY_DELTA`]: crate::ln::channelmanager::MIN_CLTV_EXPIRY_DELTA
 	 */
 	public void set_cltv_expiry_delta(short val) {
-		bindings.ChannelConfig_set_cltv_expiry_delta(this.ptr, val);
+		Bindings.ChannelConfigSetCltvExpiryDelta(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -162,7 +162,7 @@ public class ChannelConfig : CommonBase {
 	 * Default value: [`MaxDustHTLCExposure::FeeRateMultiplier`] with a multiplier of 5000.
 	 */
 	public MaxDustHTLCExposure get_max_dust_htlc_exposure() {
-		long ret = bindings.ChannelConfig_get_max_dust_htlc_exposure(this.ptr);
+		long ret = Bindings.ChannelConfigGetMaxDustHtlcExposure(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.MaxDustHTLCExposure ret_hu_conv = org.ldk.structs.MaxDustHTLCExposure.constr_from_ptr(ret);
@@ -194,7 +194,7 @@ public class ChannelConfig : CommonBase {
 	 * Default value: [`MaxDustHTLCExposure::FeeRateMultiplier`] with a multiplier of 5000.
 	 */
 	public void set_max_dust_htlc_exposure(org.ldk.structs.MaxDustHTLCExposure val) {
-		bindings.ChannelConfig_set_max_dust_htlc_exposure(this.ptr, val.ptr);
+		Bindings.ChannelConfigSetMaxDustHtlcExposure(this.ptr, val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -225,7 +225,7 @@ public class ChannelConfig : CommonBase {
 	 * [`ChannelCloseMinimum`]: crate::chain::chaininterface::ConfirmationTarget::ChannelCloseMinimum
 	 */
 	public long get_force_close_avoidance_max_fee_satoshis() {
-		long ret = bindings.ChannelConfig_get_force_close_avoidance_max_fee_satoshis(this.ptr);
+		long ret = Bindings.ChannelConfigGetForceCloseAvoidanceMaxFeeSatoshis(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -255,7 +255,7 @@ public class ChannelConfig : CommonBase {
 	 * [`ChannelCloseMinimum`]: crate::chain::chaininterface::ConfirmationTarget::ChannelCloseMinimum
 	 */
 	public void set_force_close_avoidance_max_fee_satoshis(long val) {
-		bindings.ChannelConfig_set_force_close_avoidance_max_fee_satoshis(this.ptr, val);
+		Bindings.ChannelConfigSetForceCloseAvoidanceMaxFeeSatoshis(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -294,7 +294,7 @@ public class ChannelConfig : CommonBase {
 	 * [`PaymentClaimable::counterparty_skimmed_fee_msat`]: crate::events::Event::PaymentClaimable::counterparty_skimmed_fee_msat
 	 */
 	public bool get_accept_underpaying_htlcs() {
-		bool ret = bindings.ChannelConfig_get_accept_underpaying_htlcs(this.ptr);
+		bool ret = Bindings.ChannelConfigGetAcceptUnderpayingHtlcs(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -333,7 +333,7 @@ public class ChannelConfig : CommonBase {
 	 * [`PaymentClaimable::counterparty_skimmed_fee_msat`]: crate::events::Event::PaymentClaimable::counterparty_skimmed_fee_msat
 	 */
 	public void set_accept_underpaying_htlcs(bool val) {
-		bindings.ChannelConfig_set_accept_underpaying_htlcs(this.ptr, val);
+		Bindings.ChannelConfigSetAcceptUnderpayingHtlcs(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -342,7 +342,7 @@ public class ChannelConfig : CommonBase {
 	 * Constructs a new ChannelConfig given each field
 	 */
 	public static ChannelConfig of(int forwarding_fee_proportional_millionths_arg, int forwarding_fee_base_msat_arg, short cltv_expiry_delta_arg, org.ldk.structs.MaxDustHTLCExposure max_dust_htlc_exposure_arg, long force_close_avoidance_max_fee_satoshis_arg, bool accept_underpaying_htlcs_arg) {
-		long ret = bindings.ChannelConfig_new(forwarding_fee_proportional_millionths_arg, forwarding_fee_base_msat_arg, cltv_expiry_delta_arg, max_dust_htlc_exposure_arg.ptr, force_close_avoidance_max_fee_satoshis_arg, accept_underpaying_htlcs_arg);
+		long ret = Bindings.ChannelConfigNew(forwarding_fee_proportional_millionths_arg, forwarding_fee_base_msat_arg, cltv_expiry_delta_arg, max_dust_htlc_exposure_arg.ptr, force_close_avoidance_max_fee_satoshis_arg, accept_underpaying_htlcs_arg);
 		GC.KeepAlive(forwarding_fee_proportional_millionths_arg);
 		GC.KeepAlive(forwarding_fee_base_msat_arg);
 		GC.KeepAlive(cltv_expiry_delta_arg);
@@ -357,7 +357,7 @@ public class ChannelConfig : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.ChannelConfig_clone_ptr(this.ptr);
+		long ret = Bindings.ChannelConfigClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -366,7 +366,7 @@ public class ChannelConfig : CommonBase {
 	 * Creates a copy of the ChannelConfig
 	 */
 	public ChannelConfig clone() {
-		long ret = bindings.ChannelConfig_clone(this.ptr);
+		long ret = Bindings.ChannelConfigClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChannelConfig ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChannelConfig(null, ret); }
@@ -380,7 +380,7 @@ public class ChannelConfig : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.ChannelConfig b) {
-		bool ret = bindings.ChannelConfig_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.ChannelConfigEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -395,7 +395,7 @@ public class ChannelConfig : CommonBase {
 	 * Applies the given [`ChannelConfigUpdate`] as a partial update to the [`ChannelConfig`].
 	 */
 	public void apply(org.ldk.structs.ChannelConfigUpdate update) {
-		bindings.ChannelConfig_apply(this.ptr, update == null ? 0 : update.ptr);
+		Bindings.ChannelConfigApply(this.ptr, update == null ? 0 : update.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(update);
 		if (this != null) { this.ptrs_to.AddLast(update); };
@@ -405,7 +405,7 @@ public class ChannelConfig : CommonBase {
 	 * Creates a "default" ChannelConfig. See struct and individual field documentaiton for details on which values are used.
 	 */
 	public static ChannelConfig with_default() {
-		long ret = bindings.ChannelConfig_default();
+		long ret = Bindings.ChannelConfigDefault();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChannelConfig ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChannelConfig(null, ret); }
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -416,7 +416,7 @@ public class ChannelConfig : CommonBase {
 	 * Serialize the ChannelConfig object into a byte array which can be read by ChannelConfig_read
 	 */
 	public byte[] write() {
-		long ret = bindings.ChannelConfig_write(this.ptr);
+		long ret = Bindings.ChannelConfigWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -427,7 +427,7 @@ public class ChannelConfig : CommonBase {
 	 * Read a ChannelConfig from a byte array, created by ChannelConfig_write
 	 */
 	public static Result_ChannelConfigDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.ChannelConfig_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.ChannelConfigRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_ChannelConfigDecodeErrorZ ret_hu_conv = Result_ChannelConfigDecodeErrorZ.constr_from_ptr(ret);

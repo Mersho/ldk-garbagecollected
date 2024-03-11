@@ -11,11 +11,11 @@ namespace org { namespace ldk { namespace structs {
 public class Option_CVec_u8ZZ : CommonBase {
 	protected Option_CVec_u8ZZ(object _dummy, long ptr) : base(ptr) { }
 	~Option_CVec_u8ZZ() {
-		if (ptr != 0) { bindings.COption_CVec_u8ZZ_free(ptr); }
+		if (ptr != 0) { Bindings.COptionCVecU8ZzFree(ptr); }
 	}
 
 	internal static Option_CVec_u8ZZ constr_from_ptr(long ptr) {
-		long raw_ty = bindings.LDKCOption_CVec_u8ZZ_ty_from_ptr(ptr);
+		long raw_ty = Bindings.LDKCOptionCVecU8ZzTyFromPtr(ptr);
 		switch (raw_ty) {
 			case 0: return new Option_CVec_u8ZZ_Some(ptr);
 			case 1: return new Option_CVec_u8ZZ_None(ptr);
@@ -28,7 +28,7 @@ public class Option_CVec_u8ZZ : CommonBase {
 	public class Option_CVec_u8ZZ_Some : Option_CVec_u8ZZ {
 		public byte[] some;
 		internal Option_CVec_u8ZZ_Some(long ptr) : base(null, ptr) {
-			long some = bindings.LDKCOption_CVec_u8ZZ_Some_get_some(ptr);
+			long some = Bindings.LDKCOptionCVecU8ZzSomeGetSome(ptr);
 			byte[] some_conv = InternalUtils.decodeUint8Array(some);
 			this.some = some_conv;
 		}
@@ -42,7 +42,7 @@ public class Option_CVec_u8ZZ : CommonBase {
 	 * Constructs a new COption_CVec_u8ZZ containing a crate::c_types::derived::CVec_u8Z
 	 */
 	public static Option_CVec_u8ZZ some(byte[] o) {
-		long ret = bindings.COption_CVec_u8ZZ_some(InternalUtils.encodeUint8Array(o));
+		long ret = Bindings.COptionCVecU8ZzSome(InternalUtils.encodeUint8Array(o));
 		GC.KeepAlive(o);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_CVec_u8ZZ ret_hu_conv = org.ldk.structs.Option_CVec_u8ZZ.constr_from_ptr(ret);
@@ -54,7 +54,7 @@ public class Option_CVec_u8ZZ : CommonBase {
 	 * Constructs a new COption_CVec_u8ZZ containing nothing
 	 */
 	public static Option_CVec_u8ZZ none() {
-		long ret = bindings.COption_CVec_u8ZZ_none();
+		long ret = Bindings.COptionCVecU8ZzNone();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_CVec_u8ZZ ret_hu_conv = org.ldk.structs.Option_CVec_u8ZZ.constr_from_ptr(ret);
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -62,7 +62,7 @@ public class Option_CVec_u8ZZ : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.COption_CVec_u8ZZ_clone_ptr(this.ptr);
+		long ret = Bindings.COptionCVecU8ZzClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -72,7 +72,7 @@ public class Option_CVec_u8ZZ : CommonBase {
 	 * but with all dynamically-allocated buffers duplicated in new buffers.
 	 */
 	public Option_CVec_u8ZZ clone() {
-		long ret = bindings.COption_CVec_u8ZZ_clone(this.ptr);
+		long ret = Bindings.COptionCVecU8ZzClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_CVec_u8ZZ ret_hu_conv = org.ldk.structs.Option_CVec_u8ZZ.constr_from_ptr(ret);

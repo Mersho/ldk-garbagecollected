@@ -16,14 +16,14 @@ namespace org { namespace ldk { namespace structs {
 public class DirectedChannelTransactionParameters : CommonBase {
 	internal DirectedChannelTransactionParameters(object _dummy, long ptr) : base(ptr) { }
 	~DirectedChannelTransactionParameters() {
-		if (ptr != 0) { bindings.DirectedChannelTransactionParameters_free(ptr); }
+		if (ptr != 0) { Bindings.DirectedChannelTransactionParametersFree(ptr); }
 	}
 
 	/**
 	 * Get the channel pubkeys for the broadcaster
 	 */
 	public ChannelPublicKeys broadcaster_pubkeys() {
-		long ret = bindings.DirectedChannelTransactionParameters_broadcaster_pubkeys(this.ptr);
+		long ret = Bindings.DirectedChannelTransactionParametersBroadcasterPubkeys(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChannelPublicKeys ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChannelPublicKeys(null, ret); }
@@ -35,7 +35,7 @@ public class DirectedChannelTransactionParameters : CommonBase {
 	 * Get the channel pubkeys for the countersignatory
 	 */
 	public ChannelPublicKeys countersignatory_pubkeys() {
-		long ret = bindings.DirectedChannelTransactionParameters_countersignatory_pubkeys(this.ptr);
+		long ret = Bindings.DirectedChannelTransactionParametersCountersignatoryPubkeys(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChannelPublicKeys ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChannelPublicKeys(null, ret); }
@@ -48,7 +48,7 @@ public class DirectedChannelTransactionParameters : CommonBase {
 	 * Note that the contest delay was selected by the countersignatory.
 	 */
 	public short contest_delay() {
-		short ret = bindings.DirectedChannelTransactionParameters_contest_delay(this.ptr);
+		short ret = Bindings.DirectedChannelTransactionParametersContestDelay(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -60,7 +60,7 @@ public class DirectedChannelTransactionParameters : CommonBase {
 	 * an input to the commitment number obscure factor computation.
 	 */
 	public bool is_outbound() {
-		bool ret = bindings.DirectedChannelTransactionParameters_is_outbound(this.ptr);
+		bool ret = Bindings.DirectedChannelTransactionParametersIsOutbound(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -69,7 +69,7 @@ public class DirectedChannelTransactionParameters : CommonBase {
 	 * The funding outpoint
 	 */
 	public OutPoint funding_outpoint() {
-		long ret = bindings.DirectedChannelTransactionParameters_funding_outpoint(this.ptr);
+		long ret = Bindings.DirectedChannelTransactionParametersFundingOutpoint(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.OutPoint ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.OutPoint(null, ret); }
@@ -81,7 +81,7 @@ public class DirectedChannelTransactionParameters : CommonBase {
 	 * Whether to use anchors for this channel
 	 */
 	public ChannelTypeFeatures channel_type_features() {
-		long ret = bindings.DirectedChannelTransactionParameters_channel_type_features(this.ptr);
+		long ret = Bindings.DirectedChannelTransactionParametersChannelTypeFeatures(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChannelTypeFeatures ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChannelTypeFeatures(null, ret); }

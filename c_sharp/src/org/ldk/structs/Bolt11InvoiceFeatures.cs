@@ -12,7 +12,7 @@ namespace org { namespace ldk { namespace structs {
 public class Bolt11InvoiceFeatures : CommonBase {
 	internal Bolt11InvoiceFeatures(object _dummy, long ptr) : base(ptr) { }
 	~Bolt11InvoiceFeatures() {
-		if (ptr != 0) { bindings.Bolt11InvoiceFeatures_free(ptr); }
+		if (ptr != 0) { Bindings.Bolt11InvoiceFeaturesFree(ptr); }
 	}
 
 	/**
@@ -21,7 +21,7 @@ public class Bolt11InvoiceFeatures : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.Bolt11InvoiceFeatures b) {
-		bool ret = bindings.Bolt11InvoiceFeatures_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.Bolt11InvoiceFeaturesEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -33,7 +33,7 @@ public class Bolt11InvoiceFeatures : CommonBase {
 		return this.eq((Bolt11InvoiceFeatures)o);
 	}
 	internal long clone_ptr() {
-		long ret = bindings.Bolt11InvoiceFeatures_clone_ptr(this.ptr);
+		long ret = Bindings.Bolt11InvoiceFeaturesClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -42,7 +42,7 @@ public class Bolt11InvoiceFeatures : CommonBase {
 	 * Creates a copy of the Bolt11InvoiceFeatures
 	 */
 	public Bolt11InvoiceFeatures clone() {
-		long ret = bindings.Bolt11InvoiceFeatures_clone(this.ptr);
+		long ret = Bindings.Bolt11InvoiceFeaturesClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Bolt11InvoiceFeatures ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.Bolt11InvoiceFeatures(null, ret); }
@@ -54,7 +54,7 @@ public class Bolt11InvoiceFeatures : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the Bolt11InvoiceFeatures.
 	 */
 	public long hash() {
-		long ret = bindings.Bolt11InvoiceFeatures_hash(this.ptr);
+		long ret = Bindings.Bolt11InvoiceFeaturesHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -66,7 +66,7 @@ public class Bolt11InvoiceFeatures : CommonBase {
 	 * Create a blank Features with no features set
 	 */
 	public static Bolt11InvoiceFeatures empty() {
-		long ret = bindings.Bolt11InvoiceFeatures_empty();
+		long ret = Bindings.Bolt11InvoiceFeaturesEmpty();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Bolt11InvoiceFeatures ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.Bolt11InvoiceFeatures(null, ret); }
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -77,7 +77,7 @@ public class Bolt11InvoiceFeatures : CommonBase {
 	 * Returns true if this `Features` object contains required features unknown by `other`.
 	 */
 	public bool requires_unknown_bits_from(org.ldk.structs.Bolt11InvoiceFeatures other) {
-		bool ret = bindings.Bolt11InvoiceFeatures_requires_unknown_bits_from(this.ptr, other == null ? 0 : other.ptr);
+		bool ret = Bindings.Bolt11InvoiceFeaturesRequiresUnknownBitsFrom(this.ptr, other == null ? 0 : other.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(other);
 		if (this != null) { this.ptrs_to.AddLast(other); };
@@ -89,7 +89,7 @@ public class Bolt11InvoiceFeatures : CommonBase {
 	 * \"required\".
 	 */
 	public bool requires_unknown_bits() {
-		bool ret = bindings.Bolt11InvoiceFeatures_requires_unknown_bits(this.ptr);
+		bool ret = Bindings.Bolt11InvoiceFeaturesRequiresUnknownBits(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -104,7 +104,7 @@ public class Bolt11InvoiceFeatures : CommonBase {
 	 * [BOLT 9]: https://github.com/lightning/bolts/blob/master/09-features.md
 	 */
 	public Result_NoneNoneZ set_required_feature_bit(long bit) {
-		long ret = bindings.Bolt11InvoiceFeatures_set_required_feature_bit(this.ptr, bit);
+		long ret = Bindings.Bolt11InvoiceFeaturesSetRequiredFeatureBit(this.ptr, bit);
 		GC.KeepAlive(this);
 		GC.KeepAlive(bit);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -122,7 +122,7 @@ public class Bolt11InvoiceFeatures : CommonBase {
 	 * [BOLT 9]: https://github.com/lightning/bolts/blob/master/09-features.md
 	 */
 	public Result_NoneNoneZ set_optional_feature_bit(long bit) {
-		long ret = bindings.Bolt11InvoiceFeatures_set_optional_feature_bit(this.ptr, bit);
+		long ret = Bindings.Bolt11InvoiceFeaturesSetOptionalFeatureBit(this.ptr, bit);
 		GC.KeepAlive(this);
 		GC.KeepAlive(bit);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -140,7 +140,7 @@ public class Bolt11InvoiceFeatures : CommonBase {
 	 * [bLIP 2]: https://github.com/lightning/blips/blob/master/blip-0002.md#feature-bits
 	 */
 	public Result_NoneNoneZ set_required_custom_bit(long bit) {
-		long ret = bindings.Bolt11InvoiceFeatures_set_required_custom_bit(this.ptr, bit);
+		long ret = Bindings.Bolt11InvoiceFeaturesSetRequiredCustomBit(this.ptr, bit);
 		GC.KeepAlive(this);
 		GC.KeepAlive(bit);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -158,7 +158,7 @@ public class Bolt11InvoiceFeatures : CommonBase {
 	 * [bLIP 2]: https://github.com/lightning/blips/blob/master/blip-0002.md#feature-bits
 	 */
 	public Result_NoneNoneZ set_optional_custom_bit(long bit) {
-		long ret = bindings.Bolt11InvoiceFeatures_set_optional_custom_bit(this.ptr, bit);
+		long ret = Bindings.Bolt11InvoiceFeaturesSetOptionalCustomBit(this.ptr, bit);
 		GC.KeepAlive(this);
 		GC.KeepAlive(bit);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -170,7 +170,7 @@ public class Bolt11InvoiceFeatures : CommonBase {
 	 * Serialize the Bolt11InvoiceFeatures object into a byte array which can be read by Bolt11InvoiceFeatures_read
 	 */
 	public byte[] write() {
-		long ret = bindings.Bolt11InvoiceFeatures_write(this.ptr);
+		long ret = Bindings.Bolt11InvoiceFeaturesWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -181,7 +181,7 @@ public class Bolt11InvoiceFeatures : CommonBase {
 	 * Read a Bolt11InvoiceFeatures from a byte array, created by Bolt11InvoiceFeatures_write
 	 */
 	public static Result_Bolt11InvoiceFeaturesDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.Bolt11InvoiceFeatures_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.Bolt11InvoiceFeaturesRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_Bolt11InvoiceFeaturesDecodeErrorZ ret_hu_conv = Result_Bolt11InvoiceFeaturesDecodeErrorZ.constr_from_ptr(ret);
@@ -192,7 +192,7 @@ public class Bolt11InvoiceFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_variable_length_onion_optional() {
-		bindings.Bolt11InvoiceFeatures_set_variable_length_onion_optional(this.ptr);
+		Bindings.Bolt11InvoiceFeaturesSetVariableLengthOnionOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -200,7 +200,7 @@ public class Bolt11InvoiceFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_variable_length_onion_required() {
-		bindings.Bolt11InvoiceFeatures_set_variable_length_onion_required(this.ptr);
+		Bindings.Bolt11InvoiceFeaturesSetVariableLengthOnionRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -208,7 +208,7 @@ public class Bolt11InvoiceFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_variable_length_onion() {
-		bool ret = bindings.Bolt11InvoiceFeatures_supports_variable_length_onion(this.ptr);
+		bool ret = Bindings.Bolt11InvoiceFeaturesSupportsVariableLengthOnion(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -217,7 +217,7 @@ public class Bolt11InvoiceFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_variable_length_onion() {
-		bool ret = bindings.Bolt11InvoiceFeatures_requires_variable_length_onion(this.ptr);
+		bool ret = Bindings.Bolt11InvoiceFeaturesRequiresVariableLengthOnion(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -226,7 +226,7 @@ public class Bolt11InvoiceFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_payment_secret_optional() {
-		bindings.Bolt11InvoiceFeatures_set_payment_secret_optional(this.ptr);
+		Bindings.Bolt11InvoiceFeaturesSetPaymentSecretOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -234,7 +234,7 @@ public class Bolt11InvoiceFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_payment_secret_required() {
-		bindings.Bolt11InvoiceFeatures_set_payment_secret_required(this.ptr);
+		Bindings.Bolt11InvoiceFeaturesSetPaymentSecretRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -242,7 +242,7 @@ public class Bolt11InvoiceFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_payment_secret() {
-		bool ret = bindings.Bolt11InvoiceFeatures_supports_payment_secret(this.ptr);
+		bool ret = Bindings.Bolt11InvoiceFeaturesSupportsPaymentSecret(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -251,7 +251,7 @@ public class Bolt11InvoiceFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_payment_secret() {
-		bool ret = bindings.Bolt11InvoiceFeatures_requires_payment_secret(this.ptr);
+		bool ret = Bindings.Bolt11InvoiceFeaturesRequiresPaymentSecret(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -260,7 +260,7 @@ public class Bolt11InvoiceFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_basic_mpp_optional() {
-		bindings.Bolt11InvoiceFeatures_set_basic_mpp_optional(this.ptr);
+		Bindings.Bolt11InvoiceFeaturesSetBasicMppOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -268,7 +268,7 @@ public class Bolt11InvoiceFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_basic_mpp_required() {
-		bindings.Bolt11InvoiceFeatures_set_basic_mpp_required(this.ptr);
+		Bindings.Bolt11InvoiceFeaturesSetBasicMppRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -276,7 +276,7 @@ public class Bolt11InvoiceFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_basic_mpp() {
-		bool ret = bindings.Bolt11InvoiceFeatures_supports_basic_mpp(this.ptr);
+		bool ret = Bindings.Bolt11InvoiceFeaturesSupportsBasicMpp(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -285,7 +285,7 @@ public class Bolt11InvoiceFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_basic_mpp() {
-		bool ret = bindings.Bolt11InvoiceFeatures_requires_basic_mpp(this.ptr);
+		bool ret = Bindings.Bolt11InvoiceFeaturesRequiresBasicMpp(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -294,7 +294,7 @@ public class Bolt11InvoiceFeatures : CommonBase {
 	 * Set this feature as optional.
 	 */
 	public void set_payment_metadata_optional() {
-		bindings.Bolt11InvoiceFeatures_set_payment_metadata_optional(this.ptr);
+		Bindings.Bolt11InvoiceFeaturesSetPaymentMetadataOptional(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -302,7 +302,7 @@ public class Bolt11InvoiceFeatures : CommonBase {
 	 * Set this feature as required.
 	 */
 	public void set_payment_metadata_required() {
-		bindings.Bolt11InvoiceFeatures_set_payment_metadata_required(this.ptr);
+		Bindings.Bolt11InvoiceFeaturesSetPaymentMetadataRequired(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -310,7 +310,7 @@ public class Bolt11InvoiceFeatures : CommonBase {
 	 * Checks if this feature is supported.
 	 */
 	public bool supports_payment_metadata() {
-		bool ret = bindings.Bolt11InvoiceFeatures_supports_payment_metadata(this.ptr);
+		bool ret = Bindings.Bolt11InvoiceFeaturesSupportsPaymentMetadata(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -319,7 +319,7 @@ public class Bolt11InvoiceFeatures : CommonBase {
 	 * Checks if this feature is required.
 	 */
 	public bool requires_payment_metadata() {
-		bool ret = bindings.Bolt11InvoiceFeatures_requires_payment_metadata(this.ptr);
+		bool ret = Bindings.Bolt11InvoiceFeaturesRequiresPaymentMetadata(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}

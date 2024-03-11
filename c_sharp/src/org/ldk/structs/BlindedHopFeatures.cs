@@ -12,7 +12,7 @@ namespace org { namespace ldk { namespace structs {
 public class BlindedHopFeatures : CommonBase {
 	internal BlindedHopFeatures(object _dummy, long ptr) : base(ptr) { }
 	~BlindedHopFeatures() {
-		if (ptr != 0) { bindings.BlindedHopFeatures_free(ptr); }
+		if (ptr != 0) { Bindings.BlindedHopFeaturesFree(ptr); }
 	}
 
 	/**
@@ -21,7 +21,7 @@ public class BlindedHopFeatures : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.BlindedHopFeatures b) {
-		bool ret = bindings.BlindedHopFeatures_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.BlindedHopFeaturesEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -33,7 +33,7 @@ public class BlindedHopFeatures : CommonBase {
 		return this.eq((BlindedHopFeatures)o);
 	}
 	internal long clone_ptr() {
-		long ret = bindings.BlindedHopFeatures_clone_ptr(this.ptr);
+		long ret = Bindings.BlindedHopFeaturesClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -42,7 +42,7 @@ public class BlindedHopFeatures : CommonBase {
 	 * Creates a copy of the BlindedHopFeatures
 	 */
 	public BlindedHopFeatures clone() {
-		long ret = bindings.BlindedHopFeatures_clone(this.ptr);
+		long ret = Bindings.BlindedHopFeaturesClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.BlindedHopFeatures ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.BlindedHopFeatures(null, ret); }
@@ -54,7 +54,7 @@ public class BlindedHopFeatures : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the BlindedHopFeatures.
 	 */
 	public long hash() {
-		long ret = bindings.BlindedHopFeatures_hash(this.ptr);
+		long ret = Bindings.BlindedHopFeaturesHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -66,7 +66,7 @@ public class BlindedHopFeatures : CommonBase {
 	 * Create a blank Features with no features set
 	 */
 	public static BlindedHopFeatures empty() {
-		long ret = bindings.BlindedHopFeatures_empty();
+		long ret = Bindings.BlindedHopFeaturesEmpty();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.BlindedHopFeatures ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.BlindedHopFeatures(null, ret); }
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -77,7 +77,7 @@ public class BlindedHopFeatures : CommonBase {
 	 * Returns true if this `Features` object contains required features unknown by `other`.
 	 */
 	public bool requires_unknown_bits_from(org.ldk.structs.BlindedHopFeatures other) {
-		bool ret = bindings.BlindedHopFeatures_requires_unknown_bits_from(this.ptr, other == null ? 0 : other.ptr);
+		bool ret = Bindings.BlindedHopFeaturesRequiresUnknownBitsFrom(this.ptr, other == null ? 0 : other.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(other);
 		if (this != null) { this.ptrs_to.AddLast(other); };
@@ -89,7 +89,7 @@ public class BlindedHopFeatures : CommonBase {
 	 * \"required\".
 	 */
 	public bool requires_unknown_bits() {
-		bool ret = bindings.BlindedHopFeatures_requires_unknown_bits(this.ptr);
+		bool ret = Bindings.BlindedHopFeaturesRequiresUnknownBits(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -104,7 +104,7 @@ public class BlindedHopFeatures : CommonBase {
 	 * [BOLT 9]: https://github.com/lightning/bolts/blob/master/09-features.md
 	 */
 	public Result_NoneNoneZ set_required_feature_bit(long bit) {
-		long ret = bindings.BlindedHopFeatures_set_required_feature_bit(this.ptr, bit);
+		long ret = Bindings.BlindedHopFeaturesSetRequiredFeatureBit(this.ptr, bit);
 		GC.KeepAlive(this);
 		GC.KeepAlive(bit);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -122,7 +122,7 @@ public class BlindedHopFeatures : CommonBase {
 	 * [BOLT 9]: https://github.com/lightning/bolts/blob/master/09-features.md
 	 */
 	public Result_NoneNoneZ set_optional_feature_bit(long bit) {
-		long ret = bindings.BlindedHopFeatures_set_optional_feature_bit(this.ptr, bit);
+		long ret = Bindings.BlindedHopFeaturesSetOptionalFeatureBit(this.ptr, bit);
 		GC.KeepAlive(this);
 		GC.KeepAlive(bit);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -140,7 +140,7 @@ public class BlindedHopFeatures : CommonBase {
 	 * [bLIP 2]: https://github.com/lightning/blips/blob/master/blip-0002.md#feature-bits
 	 */
 	public Result_NoneNoneZ set_required_custom_bit(long bit) {
-		long ret = bindings.BlindedHopFeatures_set_required_custom_bit(this.ptr, bit);
+		long ret = Bindings.BlindedHopFeaturesSetRequiredCustomBit(this.ptr, bit);
 		GC.KeepAlive(this);
 		GC.KeepAlive(bit);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -158,7 +158,7 @@ public class BlindedHopFeatures : CommonBase {
 	 * [bLIP 2]: https://github.com/lightning/blips/blob/master/blip-0002.md#feature-bits
 	 */
 	public Result_NoneNoneZ set_optional_custom_bit(long bit) {
-		long ret = bindings.BlindedHopFeatures_set_optional_custom_bit(this.ptr, bit);
+		long ret = Bindings.BlindedHopFeaturesSetOptionalCustomBit(this.ptr, bit);
 		GC.KeepAlive(this);
 		GC.KeepAlive(bit);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -170,7 +170,7 @@ public class BlindedHopFeatures : CommonBase {
 	 * Serialize the BlindedHopFeatures object into a byte array which can be read by BlindedHopFeatures_read
 	 */
 	public byte[] write() {
-		long ret = bindings.BlindedHopFeatures_write(this.ptr);
+		long ret = Bindings.BlindedHopFeaturesWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -181,7 +181,7 @@ public class BlindedHopFeatures : CommonBase {
 	 * Read a BlindedHopFeatures from a byte array, created by BlindedHopFeatures_write
 	 */
 	public static Result_BlindedHopFeaturesDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.BlindedHopFeatures_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.BlindedHopFeaturesRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_BlindedHopFeaturesDecodeErrorZ ret_hu_conv = Result_BlindedHopFeaturesDecodeErrorZ.constr_from_ptr(ret);

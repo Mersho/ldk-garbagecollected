@@ -11,11 +11,11 @@ namespace org { namespace ldk { namespace structs {
 public class PendingHTLCRouting : CommonBase {
 	protected PendingHTLCRouting(object _dummy, long ptr) : base(ptr) { }
 	~PendingHTLCRouting() {
-		if (ptr != 0) { bindings.PendingHTLCRouting_free(ptr); }
+		if (ptr != 0) { Bindings.PendingHTLCRoutingFree(ptr); }
 	}
 
 	internal static PendingHTLCRouting constr_from_ptr(long ptr) {
-		long raw_ty = bindings.LDKPendingHTLCRouting_ty_from_ptr(ptr);
+		long raw_ty = Bindings.LDKPendingHTLCRoutingTyFromPtr(ptr);
 		switch (raw_ty) {
 			case 0: return new PendingHTLCRouting_Forward(ptr);
 			case 1: return new PendingHTLCRouting_Receive(ptr);
@@ -47,12 +47,12 @@ public class PendingHTLCRouting : CommonBase {
 		 */
 		public BlindedForward blinded;
 		internal PendingHTLCRouting_Forward(long ptr) : base(null, ptr) {
-			long onion_packet = bindings.LDKPendingHTLCRouting_Forward_get_onion_packet(ptr);
+			long onion_packet = Bindings.LDKPendingHTLCRoutingForwardGetOnionPacket(ptr);
 			org.ldk.structs.OnionPacket onion_packet_hu_conv = null; if (onion_packet < 0 || onion_packet > 4096) { onion_packet_hu_conv = new org.ldk.structs.OnionPacket(null, onion_packet); }
 			if (onion_packet_hu_conv != null) { onion_packet_hu_conv.ptrs_to.AddLast(this); };
 			this.onion_packet = onion_packet_hu_conv;
-			this.short_channel_id = bindings.LDKPendingHTLCRouting_Forward_get_short_channel_id(ptr);
-			long blinded = bindings.LDKPendingHTLCRouting_Forward_get_blinded(ptr);
+			this.short_channel_id = Bindings.LDKPendingHTLCRoutingForwardGetShortChannelId(ptr);
+			long blinded = Bindings.LDKPendingHTLCRoutingForwardGetBlinded(ptr);
 			org.ldk.structs.BlindedForward blinded_hu_conv = null; if (blinded < 0 || blinded > 4096) { blinded_hu_conv = new org.ldk.structs.BlindedForward(null, blinded); }
 			if (blinded_hu_conv != null) { blinded_hu_conv.ptrs_to.AddLast(this); };
 			this.blinded = blinded_hu_conv;
@@ -101,19 +101,19 @@ public class PendingHTLCRouting : CommonBase {
 		 */
 		public bool requires_blinded_error;
 		internal PendingHTLCRouting_Receive(long ptr) : base(null, ptr) {
-			long payment_data = bindings.LDKPendingHTLCRouting_Receive_get_payment_data(ptr);
+			long payment_data = Bindings.LDKPendingHTLCRoutingReceiveGetPaymentData(ptr);
 			org.ldk.structs.FinalOnionHopData payment_data_hu_conv = null; if (payment_data < 0 || payment_data > 4096) { payment_data_hu_conv = new org.ldk.structs.FinalOnionHopData(null, payment_data); }
 			if (payment_data_hu_conv != null) { payment_data_hu_conv.ptrs_to.AddLast(this); };
 			this.payment_data = payment_data_hu_conv;
-			long payment_metadata = bindings.LDKPendingHTLCRouting_Receive_get_payment_metadata(ptr);
+			long payment_metadata = Bindings.LDKPendingHTLCRoutingReceiveGetPaymentMetadata(ptr);
 			org.ldk.structs.Option_CVec_u8ZZ payment_metadata_hu_conv = org.ldk.structs.Option_CVec_u8ZZ.constr_from_ptr(payment_metadata);
 			if (payment_metadata_hu_conv != null) { payment_metadata_hu_conv.ptrs_to.AddLast(this); };
 			this.payment_metadata = payment_metadata_hu_conv;
-			this.incoming_cltv_expiry = bindings.LDKPendingHTLCRouting_Receive_get_incoming_cltv_expiry(ptr);
-			long phantom_shared_secret = bindings.LDKPendingHTLCRouting_Receive_get_phantom_shared_secret(ptr);
+			this.incoming_cltv_expiry = Bindings.LDKPendingHTLCRoutingReceiveGetIncomingCltvExpiry(ptr);
+			long phantom_shared_secret = Bindings.LDKPendingHTLCRoutingReceiveGetPhantomSharedSecret(ptr);
 			byte[] phantom_shared_secret_conv = InternalUtils.decodeUint8Array(phantom_shared_secret);
 			this.phantom_shared_secret = phantom_shared_secret_conv;
-			long custom_tlvs = bindings.LDKPendingHTLCRouting_Receive_get_custom_tlvs(ptr);
+			long custom_tlvs = Bindings.LDKPendingHTLCRoutingReceiveGetCustomTlvs(ptr);
 			int custom_tlvs_conv_23_len = InternalUtils.getArrayLength(custom_tlvs);
 			TwoTuple_u64CVec_u8ZZ[] custom_tlvs_conv_23_arr = new TwoTuple_u64CVec_u8ZZ[custom_tlvs_conv_23_len];
 			for (int x = 0; x < custom_tlvs_conv_23_len; x++) {
@@ -122,9 +122,9 @@ public class PendingHTLCRouting : CommonBase {
 				if (custom_tlvs_conv_23_hu_conv != null) { custom_tlvs_conv_23_hu_conv.ptrs_to.AddLast(this); };
 				custom_tlvs_conv_23_arr[x] = custom_tlvs_conv_23_hu_conv;
 			}
-			bindings.free_buffer(custom_tlvs);
+			Bindings.FreeBuffer(custom_tlvs);
 			this.custom_tlvs = custom_tlvs_conv_23_arr;
-			this.requires_blinded_error = bindings.LDKPendingHTLCRouting_Receive_get_requires_blinded_error(ptr);
+			this.requires_blinded_error = Bindings.LDKPendingHTLCRoutingReceiveGetRequiresBlindedError(ptr);
 		}
 	}
 	/** A PendingHTLCRouting of type ReceiveKeysend */
@@ -165,19 +165,19 @@ public class PendingHTLCRouting : CommonBase {
 		 */
 		public TwoTuple_u64CVec_u8ZZ[] custom_tlvs;
 		internal PendingHTLCRouting_ReceiveKeysend(long ptr) : base(null, ptr) {
-			long payment_data = bindings.LDKPendingHTLCRouting_ReceiveKeysend_get_payment_data(ptr);
+			long payment_data = Bindings.LDKPendingHTLCRoutingReceiveKeysendGetPaymentData(ptr);
 			org.ldk.structs.FinalOnionHopData payment_data_hu_conv = null; if (payment_data < 0 || payment_data > 4096) { payment_data_hu_conv = new org.ldk.structs.FinalOnionHopData(null, payment_data); }
 			if (payment_data_hu_conv != null) { payment_data_hu_conv.ptrs_to.AddLast(this); };
 			this.payment_data = payment_data_hu_conv;
-			long payment_preimage = bindings.LDKPendingHTLCRouting_ReceiveKeysend_get_payment_preimage(ptr);
+			long payment_preimage = Bindings.LDKPendingHTLCRoutingReceiveKeysendGetPaymentPreimage(ptr);
 			byte[] payment_preimage_conv = InternalUtils.decodeUint8Array(payment_preimage);
 			this.payment_preimage = payment_preimage_conv;
-			long payment_metadata = bindings.LDKPendingHTLCRouting_ReceiveKeysend_get_payment_metadata(ptr);
+			long payment_metadata = Bindings.LDKPendingHTLCRoutingReceiveKeysendGetPaymentMetadata(ptr);
 			org.ldk.structs.Option_CVec_u8ZZ payment_metadata_hu_conv = org.ldk.structs.Option_CVec_u8ZZ.constr_from_ptr(payment_metadata);
 			if (payment_metadata_hu_conv != null) { payment_metadata_hu_conv.ptrs_to.AddLast(this); };
 			this.payment_metadata = payment_metadata_hu_conv;
-			this.incoming_cltv_expiry = bindings.LDKPendingHTLCRouting_ReceiveKeysend_get_incoming_cltv_expiry(ptr);
-			long custom_tlvs = bindings.LDKPendingHTLCRouting_ReceiveKeysend_get_custom_tlvs(ptr);
+			this.incoming_cltv_expiry = Bindings.LDKPendingHTLCRoutingReceiveKeysendGetIncomingCltvExpiry(ptr);
+			long custom_tlvs = Bindings.LDKPendingHTLCRoutingReceiveKeysendGetCustomTlvs(ptr);
 			int custom_tlvs_conv_23_len = InternalUtils.getArrayLength(custom_tlvs);
 			TwoTuple_u64CVec_u8ZZ[] custom_tlvs_conv_23_arr = new TwoTuple_u64CVec_u8ZZ[custom_tlvs_conv_23_len];
 			for (int x = 0; x < custom_tlvs_conv_23_len; x++) {
@@ -186,12 +186,12 @@ public class PendingHTLCRouting : CommonBase {
 				if (custom_tlvs_conv_23_hu_conv != null) { custom_tlvs_conv_23_hu_conv.ptrs_to.AddLast(this); };
 				custom_tlvs_conv_23_arr[x] = custom_tlvs_conv_23_hu_conv;
 			}
-			bindings.free_buffer(custom_tlvs);
+			Bindings.FreeBuffer(custom_tlvs);
 			this.custom_tlvs = custom_tlvs_conv_23_arr;
 		}
 	}
 	internal long clone_ptr() {
-		long ret = bindings.PendingHTLCRouting_clone_ptr(this.ptr);
+		long ret = Bindings.PendingHTLCRoutingClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -200,7 +200,7 @@ public class PendingHTLCRouting : CommonBase {
 	 * Creates a copy of the PendingHTLCRouting
 	 */
 	public PendingHTLCRouting clone() {
-		long ret = bindings.PendingHTLCRouting_clone(this.ptr);
+		long ret = Bindings.PendingHTLCRoutingClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.PendingHTLCRouting ret_hu_conv = org.ldk.structs.PendingHTLCRouting.constr_from_ptr(ret);
@@ -212,7 +212,7 @@ public class PendingHTLCRouting : CommonBase {
 	 * Utility method to constructs a new Forward-variant PendingHTLCRouting
 	 */
 	public static PendingHTLCRouting forward(org.ldk.structs.OnionPacket onion_packet, long short_channel_id, org.ldk.structs.BlindedForward blinded) {
-		long ret = bindings.PendingHTLCRouting_forward(onion_packet == null ? 0 : onion_packet.ptr, short_channel_id, blinded == null ? 0 : blinded.ptr);
+		long ret = Bindings.PendingHTLCRoutingForward(onion_packet == null ? 0 : onion_packet.ptr, short_channel_id, blinded == null ? 0 : blinded.ptr);
 		GC.KeepAlive(onion_packet);
 		GC.KeepAlive(short_channel_id);
 		GC.KeepAlive(blinded);
@@ -228,7 +228,7 @@ public class PendingHTLCRouting : CommonBase {
 	 * Utility method to constructs a new Receive-variant PendingHTLCRouting
 	 */
 	public static PendingHTLCRouting receive(org.ldk.structs.FinalOnionHopData payment_data, org.ldk.structs.Option_CVec_u8ZZ payment_metadata, int incoming_cltv_expiry, byte[] phantom_shared_secret, TwoTuple_u64CVec_u8ZZ[] custom_tlvs, bool requires_blinded_error) {
-		long ret = bindings.PendingHTLCRouting_receive(payment_data == null ? 0 : payment_data.ptr, payment_metadata.ptr, incoming_cltv_expiry, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(phantom_shared_secret, 32)), InternalUtils.encodeUint64Array(InternalUtils.mapArray(custom_tlvs, custom_tlvs_conv_23 => custom_tlvs_conv_23 != null ? custom_tlvs_conv_23.ptr : 0)), requires_blinded_error);
+		long ret = Bindings.PendingHTLCRoutingReceive(payment_data == null ? 0 : payment_data.ptr, payment_metadata.ptr, incoming_cltv_expiry, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(phantom_shared_secret, 32)), InternalUtils.encodeUint64Array(InternalUtils.mapArray(custom_tlvs, custom_tlvs_conv_23 => custom_tlvs_conv_23 != null ? custom_tlvs_conv_23.ptr : 0)), requires_blinded_error);
 		GC.KeepAlive(payment_data);
 		GC.KeepAlive(payment_metadata);
 		GC.KeepAlive(incoming_cltv_expiry);
@@ -247,7 +247,7 @@ public class PendingHTLCRouting : CommonBase {
 	 * Utility method to constructs a new ReceiveKeysend-variant PendingHTLCRouting
 	 */
 	public static PendingHTLCRouting receive_keysend(org.ldk.structs.FinalOnionHopData payment_data, byte[] payment_preimage, org.ldk.structs.Option_CVec_u8ZZ payment_metadata, int incoming_cltv_expiry, TwoTuple_u64CVec_u8ZZ[] custom_tlvs) {
-		long ret = bindings.PendingHTLCRouting_receive_keysend(payment_data == null ? 0 : payment_data.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_preimage, 32)), payment_metadata.ptr, incoming_cltv_expiry, InternalUtils.encodeUint64Array(InternalUtils.mapArray(custom_tlvs, custom_tlvs_conv_23 => custom_tlvs_conv_23 != null ? custom_tlvs_conv_23.ptr : 0)));
+		long ret = Bindings.PendingHTLCRoutingReceiveKeysend(payment_data == null ? 0 : payment_data.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(payment_preimage, 32)), payment_metadata.ptr, incoming_cltv_expiry, InternalUtils.encodeUint64Array(InternalUtils.mapArray(custom_tlvs, custom_tlvs_conv_23 => custom_tlvs_conv_23 != null ? custom_tlvs_conv_23.ptr : 0)));
 		GC.KeepAlive(payment_data);
 		GC.KeepAlive(payment_preimage);
 		GC.KeepAlive(payment_metadata);
@@ -265,7 +265,7 @@ public class PendingHTLCRouting : CommonBase {
 	 * Serialize the PendingHTLCRouting object into a byte array which can be read by PendingHTLCRouting_read
 	 */
 	public byte[] write() {
-		long ret = bindings.PendingHTLCRouting_write(this.ptr);
+		long ret = Bindings.PendingHTLCRoutingWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -276,7 +276,7 @@ public class PendingHTLCRouting : CommonBase {
 	 * Read a PendingHTLCRouting from a byte array, created by PendingHTLCRouting_write
 	 */
 	public static Result_PendingHTLCRoutingDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.PendingHTLCRouting_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.PendingHTLCRoutingRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_PendingHTLCRoutingDecodeErrorZ ret_hu_conv = Result_PendingHTLCRoutingDecodeErrorZ.constr_from_ptr(ret);

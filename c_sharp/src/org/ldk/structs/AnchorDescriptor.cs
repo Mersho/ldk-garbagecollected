@@ -12,14 +12,14 @@ namespace org { namespace ldk { namespace structs {
 public class AnchorDescriptor : CommonBase {
 	internal AnchorDescriptor(object _dummy, long ptr) : base(ptr) { }
 	~AnchorDescriptor() {
-		if (ptr != 0) { bindings.AnchorDescriptor_free(ptr); }
+		if (ptr != 0) { Bindings.AnchorDescriptorFree(ptr); }
 	}
 
 	/**
 	 * The parameters required to derive the signer for the anchor input.
 	 */
 	public ChannelDerivationParameters get_channel_derivation_parameters() {
-		long ret = bindings.AnchorDescriptor_get_channel_derivation_parameters(this.ptr);
+		long ret = Bindings.AnchorDescriptorGetChannelDerivationParameters(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChannelDerivationParameters ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChannelDerivationParameters(null, ret); }
@@ -31,7 +31,7 @@ public class AnchorDescriptor : CommonBase {
 	 * The parameters required to derive the signer for the anchor input.
 	 */
 	public void set_channel_derivation_parameters(org.ldk.structs.ChannelDerivationParameters val) {
-		bindings.AnchorDescriptor_set_channel_derivation_parameters(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.AnchorDescriptorSetChannelDerivationParameters(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -42,7 +42,7 @@ public class AnchorDescriptor : CommonBase {
 	 * output.
 	 */
 	public OutPoint get_outpoint() {
-		long ret = bindings.AnchorDescriptor_get_outpoint(this.ptr);
+		long ret = Bindings.AnchorDescriptorGetOutpoint(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.OutPoint ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.OutPoint(null, ret); }
@@ -55,7 +55,7 @@ public class AnchorDescriptor : CommonBase {
 	 * output.
 	 */
 	public void set_outpoint(org.ldk.structs.OutPoint val) {
-		bindings.AnchorDescriptor_set_outpoint(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.AnchorDescriptorSetOutpoint(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -65,7 +65,7 @@ public class AnchorDescriptor : CommonBase {
 	 * Constructs a new AnchorDescriptor given each field
 	 */
 	public static AnchorDescriptor of(org.ldk.structs.ChannelDerivationParameters channel_derivation_parameters_arg, org.ldk.structs.OutPoint outpoint_arg) {
-		long ret = bindings.AnchorDescriptor_new(channel_derivation_parameters_arg == null ? 0 : channel_derivation_parameters_arg.ptr, outpoint_arg == null ? 0 : outpoint_arg.ptr);
+		long ret = Bindings.AnchorDescriptorNew(channel_derivation_parameters_arg == null ? 0 : channel_derivation_parameters_arg.ptr, outpoint_arg == null ? 0 : outpoint_arg.ptr);
 		GC.KeepAlive(channel_derivation_parameters_arg);
 		GC.KeepAlive(outpoint_arg);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -77,7 +77,7 @@ public class AnchorDescriptor : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.AnchorDescriptor_clone_ptr(this.ptr);
+		long ret = Bindings.AnchorDescriptorClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -86,7 +86,7 @@ public class AnchorDescriptor : CommonBase {
 	 * Creates a copy of the AnchorDescriptor
 	 */
 	public AnchorDescriptor clone() {
-		long ret = bindings.AnchorDescriptor_clone(this.ptr);
+		long ret = Bindings.AnchorDescriptorClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.AnchorDescriptor ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.AnchorDescriptor(null, ret); }
@@ -100,7 +100,7 @@ public class AnchorDescriptor : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.AnchorDescriptor b) {
-		bool ret = bindings.AnchorDescriptor_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.AnchorDescriptorEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -116,7 +116,7 @@ public class AnchorDescriptor : CommonBase {
 	 * [`Self::unsigned_tx_input`].
 	 */
 	public TxOut previous_utxo() {
-		long ret = bindings.AnchorDescriptor_previous_utxo(this.ptr);
+		long ret = Bindings.AnchorDescriptorPreviousUtxo(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		TxOut ret_conv = new TxOut(null, ret);
@@ -128,7 +128,7 @@ public class AnchorDescriptor : CommonBase {
 	 * transaction.
 	 */
 	public TxIn unsigned_tx_input() {
-		long ret = bindings.AnchorDescriptor_unsigned_tx_input(this.ptr);
+		long ret = Bindings.AnchorDescriptorUnsignedTxInput(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		TxIn ret_conv = new TxIn(null, ret);
@@ -139,7 +139,7 @@ public class AnchorDescriptor : CommonBase {
 	 * Returns the witness script of the anchor output in the commitment transaction.
 	 */
 	public byte[] witness_script() {
-		long ret = bindings.AnchorDescriptor_witness_script(this.ptr);
+		long ret = Bindings.AnchorDescriptorWitnessScript(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -151,7 +151,7 @@ public class AnchorDescriptor : CommonBase {
 	 * transaction.
 	 */
 	public byte[] tx_input_witness(byte[] signature) {
-		long ret = bindings.AnchorDescriptor_tx_input_witness(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(signature, 64)));
+		long ret = Bindings.AnchorDescriptorTxInputWitness(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(signature, 64)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(signature);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -163,7 +163,7 @@ public class AnchorDescriptor : CommonBase {
 	 * Derives the channel signer required to sign the anchor input.
 	 */
 	public WriteableEcdsaChannelSigner derive_channel_signer(org.ldk.structs.SignerProvider signer_provider) {
-		long ret = bindings.AnchorDescriptor_derive_channel_signer(this.ptr, signer_provider.ptr);
+		long ret = Bindings.AnchorDescriptorDeriveChannelSigner(this.ptr, signer_provider.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(signer_provider);
 		if (ret >= 0 && ret <= 4096) { return null; }

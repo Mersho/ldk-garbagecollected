@@ -16,7 +16,7 @@ namespace org { namespace ldk { namespace structs {
 public class SignedRawBolt11Invoice : CommonBase {
 	internal SignedRawBolt11Invoice(object _dummy, long ptr) : base(ptr) { }
 	~SignedRawBolt11Invoice() {
-		if (ptr != 0) { bindings.SignedRawBolt11Invoice_free(ptr); }
+		if (ptr != 0) { Bindings.SignedRawBolt11InvoiceFree(ptr); }
 	}
 
 	/**
@@ -25,7 +25,7 @@ public class SignedRawBolt11Invoice : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.SignedRawBolt11Invoice b) {
-		bool ret = bindings.SignedRawBolt11Invoice_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.SignedRawBolt11InvoiceEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -37,7 +37,7 @@ public class SignedRawBolt11Invoice : CommonBase {
 		return this.eq((SignedRawBolt11Invoice)o);
 	}
 	internal long clone_ptr() {
-		long ret = bindings.SignedRawBolt11Invoice_clone_ptr(this.ptr);
+		long ret = Bindings.SignedRawBolt11InvoiceClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -46,7 +46,7 @@ public class SignedRawBolt11Invoice : CommonBase {
 	 * Creates a copy of the SignedRawBolt11Invoice
 	 */
 	public SignedRawBolt11Invoice clone() {
-		long ret = bindings.SignedRawBolt11Invoice_clone(this.ptr);
+		long ret = Bindings.SignedRawBolt11InvoiceClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.SignedRawBolt11Invoice ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.SignedRawBolt11Invoice(null, ret); }
@@ -58,7 +58,7 @@ public class SignedRawBolt11Invoice : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the SignedRawBolt11Invoice.
 	 */
 	public long hash() {
-		long ret = bindings.SignedRawBolt11Invoice_hash(this.ptr);
+		long ret = Bindings.SignedRawBolt11InvoiceHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -73,7 +73,7 @@ public class SignedRawBolt11Invoice : CommonBase {
 	 * 3. signature
 	 */
 	public ThreeTuple_RawBolt11Invoice_u832Bolt11InvoiceSignatureZ into_parts() {
-		long ret = bindings.SignedRawBolt11Invoice_into_parts(this.ptr);
+		long ret = Bindings.SignedRawBolt11InvoiceIntoParts(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		ThreeTuple_RawBolt11Invoice_u832Bolt11InvoiceSignatureZ ret_hu_conv = new ThreeTuple_RawBolt11Invoice_u832Bolt11InvoiceSignatureZ(null, ret);
@@ -86,7 +86,7 @@ public class SignedRawBolt11Invoice : CommonBase {
 	 * The [`RawBolt11Invoice`] which was signed.
 	 */
 	public RawBolt11Invoice raw_invoice() {
-		long ret = bindings.SignedRawBolt11Invoice_raw_invoice(this.ptr);
+		long ret = Bindings.SignedRawBolt11InvoiceRawInvoice(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.RawBolt11Invoice ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.RawBolt11Invoice(null, ret); }
@@ -98,7 +98,7 @@ public class SignedRawBolt11Invoice : CommonBase {
 	 * The hash of the [`RawBolt11Invoice`] that was signed.
 	 */
 	public byte[] signable_hash() {
-		long ret = bindings.SignedRawBolt11Invoice_signable_hash(this.ptr);
+		long ret = Bindings.SignedRawBolt11InvoiceSignableHash(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -109,7 +109,7 @@ public class SignedRawBolt11Invoice : CommonBase {
 	 * Signature for the invoice.
 	 */
 	public Bolt11InvoiceSignature signature() {
-		long ret = bindings.SignedRawBolt11Invoice_signature(this.ptr);
+		long ret = Bindings.SignedRawBolt11InvoiceSignature(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Bolt11InvoiceSignature ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.Bolt11InvoiceSignature(null, ret); }
@@ -121,7 +121,7 @@ public class SignedRawBolt11Invoice : CommonBase {
 	 * Recovers the public key used for signing the invoice from the recoverable signature.
 	 */
 	public Result_PayeePubKeySecp256k1ErrorZ recover_payee_pub_key() {
-		long ret = bindings.SignedRawBolt11Invoice_recover_payee_pub_key(this.ptr);
+		long ret = Bindings.SignedRawBolt11InvoiceRecoverPayeePubKey(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_PayeePubKeySecp256k1ErrorZ ret_hu_conv = Result_PayeePubKeySecp256k1ErrorZ.constr_from_ptr(ret);
@@ -133,7 +133,7 @@ public class SignedRawBolt11Invoice : CommonBase {
 	 * valid for the recovered signature (which should always be true?).
 	 */
 	public bool check_signature() {
-		bool ret = bindings.SignedRawBolt11Invoice_check_signature(this.ptr);
+		bool ret = Bindings.SignedRawBolt11InvoiceCheckSignature(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -142,7 +142,7 @@ public class SignedRawBolt11Invoice : CommonBase {
 	 * Read a SignedRawBolt11Invoice object from a string
 	 */
 	public static Result_SignedRawBolt11InvoiceBolt11ParseErrorZ from_str(string s) {
-		long ret = bindings.SignedRawBolt11Invoice_from_str(InternalUtils.encodeString(s));
+		long ret = Bindings.SignedRawBolt11InvoiceFromStr(InternalUtils.encodeString(s));
 		GC.KeepAlive(s);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_SignedRawBolt11InvoiceBolt11ParseErrorZ ret_hu_conv = Result_SignedRawBolt11InvoiceBolt11ParseErrorZ.constr_from_ptr(ret);
@@ -153,7 +153,7 @@ public class SignedRawBolt11Invoice : CommonBase {
 	 * Get the string representation of a SignedRawBolt11Invoice object
 	 */
 	public string to_str() {
-		long ret = bindings.SignedRawBolt11Invoice_to_str(this.ptr);
+		long ret = Bindings.SignedRawBolt11InvoiceToStr(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		string ret_conv = InternalUtils.decodeString(ret);

@@ -14,14 +14,14 @@ namespace org { namespace ldk { namespace structs {
 public class ChannelAnnouncement : CommonBase {
 	internal ChannelAnnouncement(object _dummy, long ptr) : base(ptr) { }
 	~ChannelAnnouncement() {
-		if (ptr != 0) { bindings.ChannelAnnouncement_free(ptr); }
+		if (ptr != 0) { Bindings.ChannelAnnouncementFree(ptr); }
 	}
 
 	/**
 	 * Authentication of the announcement by the first public node
 	 */
 	public byte[] get_node_signature_1() {
-		long ret = bindings.ChannelAnnouncement_get_node_signature_1(this.ptr);
+		long ret = Bindings.ChannelAnnouncementGetNodeSignature1(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -32,7 +32,7 @@ public class ChannelAnnouncement : CommonBase {
 	 * Authentication of the announcement by the first public node
 	 */
 	public void set_node_signature_1(byte[] val) {
-		bindings.ChannelAnnouncement_set_node_signature_1(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 64)));
+		Bindings.ChannelAnnouncementSetNodeSignature1(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 64)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -41,7 +41,7 @@ public class ChannelAnnouncement : CommonBase {
 	 * Authentication of the announcement by the second public node
 	 */
 	public byte[] get_node_signature_2() {
-		long ret = bindings.ChannelAnnouncement_get_node_signature_2(this.ptr);
+		long ret = Bindings.ChannelAnnouncementGetNodeSignature2(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -52,7 +52,7 @@ public class ChannelAnnouncement : CommonBase {
 	 * Authentication of the announcement by the second public node
 	 */
 	public void set_node_signature_2(byte[] val) {
-		bindings.ChannelAnnouncement_set_node_signature_2(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 64)));
+		Bindings.ChannelAnnouncementSetNodeSignature2(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 64)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -61,7 +61,7 @@ public class ChannelAnnouncement : CommonBase {
 	 * Proof of funding UTXO ownership by the first public node
 	 */
 	public byte[] get_bitcoin_signature_1() {
-		long ret = bindings.ChannelAnnouncement_get_bitcoin_signature_1(this.ptr);
+		long ret = Bindings.ChannelAnnouncementGetBitcoinSignature1(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -72,7 +72,7 @@ public class ChannelAnnouncement : CommonBase {
 	 * Proof of funding UTXO ownership by the first public node
 	 */
 	public void set_bitcoin_signature_1(byte[] val) {
-		bindings.ChannelAnnouncement_set_bitcoin_signature_1(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 64)));
+		Bindings.ChannelAnnouncementSetBitcoinSignature1(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 64)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -81,7 +81,7 @@ public class ChannelAnnouncement : CommonBase {
 	 * Proof of funding UTXO ownership by the second public node
 	 */
 	public byte[] get_bitcoin_signature_2() {
-		long ret = bindings.ChannelAnnouncement_get_bitcoin_signature_2(this.ptr);
+		long ret = Bindings.ChannelAnnouncementGetBitcoinSignature2(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -92,7 +92,7 @@ public class ChannelAnnouncement : CommonBase {
 	 * Proof of funding UTXO ownership by the second public node
 	 */
 	public void set_bitcoin_signature_2(byte[] val) {
-		bindings.ChannelAnnouncement_set_bitcoin_signature_2(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 64)));
+		Bindings.ChannelAnnouncementSetBitcoinSignature2(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 64)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -101,7 +101,7 @@ public class ChannelAnnouncement : CommonBase {
 	 * The actual announcement
 	 */
 	public UnsignedChannelAnnouncement get_contents() {
-		long ret = bindings.ChannelAnnouncement_get_contents(this.ptr);
+		long ret = Bindings.ChannelAnnouncementGetContents(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.UnsignedChannelAnnouncement ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.UnsignedChannelAnnouncement(null, ret); }
@@ -113,7 +113,7 @@ public class ChannelAnnouncement : CommonBase {
 	 * The actual announcement
 	 */
 	public void set_contents(org.ldk.structs.UnsignedChannelAnnouncement val) {
-		bindings.ChannelAnnouncement_set_contents(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.ChannelAnnouncementSetContents(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -123,7 +123,7 @@ public class ChannelAnnouncement : CommonBase {
 	 * Constructs a new ChannelAnnouncement given each field
 	 */
 	public static ChannelAnnouncement of(byte[] node_signature_1_arg, byte[] node_signature_2_arg, byte[] bitcoin_signature_1_arg, byte[] bitcoin_signature_2_arg, org.ldk.structs.UnsignedChannelAnnouncement contents_arg) {
-		long ret = bindings.ChannelAnnouncement_new(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(node_signature_1_arg, 64)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(node_signature_2_arg, 64)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(bitcoin_signature_1_arg, 64)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(bitcoin_signature_2_arg, 64)), contents_arg == null ? 0 : contents_arg.ptr);
+		long ret = Bindings.ChannelAnnouncementNew(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(node_signature_1_arg, 64)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(node_signature_2_arg, 64)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(bitcoin_signature_1_arg, 64)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(bitcoin_signature_2_arg, 64)), contents_arg == null ? 0 : contents_arg.ptr);
 		GC.KeepAlive(node_signature_1_arg);
 		GC.KeepAlive(node_signature_2_arg);
 		GC.KeepAlive(bitcoin_signature_1_arg);
@@ -137,7 +137,7 @@ public class ChannelAnnouncement : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.ChannelAnnouncement_clone_ptr(this.ptr);
+		long ret = Bindings.ChannelAnnouncementClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -146,7 +146,7 @@ public class ChannelAnnouncement : CommonBase {
 	 * Creates a copy of the ChannelAnnouncement
 	 */
 	public ChannelAnnouncement clone() {
-		long ret = bindings.ChannelAnnouncement_clone(this.ptr);
+		long ret = Bindings.ChannelAnnouncementClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChannelAnnouncement ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChannelAnnouncement(null, ret); }
@@ -158,7 +158,7 @@ public class ChannelAnnouncement : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the ChannelAnnouncement.
 	 */
 	public long hash() {
-		long ret = bindings.ChannelAnnouncement_hash(this.ptr);
+		long ret = Bindings.ChannelAnnouncementHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -172,7 +172,7 @@ public class ChannelAnnouncement : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.ChannelAnnouncement b) {
-		bool ret = bindings.ChannelAnnouncement_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.ChannelAnnouncementEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -187,7 +187,7 @@ public class ChannelAnnouncement : CommonBase {
 	 * Serialize the ChannelAnnouncement object into a byte array which can be read by ChannelAnnouncement_read
 	 */
 	public byte[] write() {
-		long ret = bindings.ChannelAnnouncement_write(this.ptr);
+		long ret = Bindings.ChannelAnnouncementWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -198,7 +198,7 @@ public class ChannelAnnouncement : CommonBase {
 	 * Read a ChannelAnnouncement from a byte array, created by ChannelAnnouncement_write
 	 */
 	public static Result_ChannelAnnouncementDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.ChannelAnnouncement_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.ChannelAnnouncementRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_ChannelAnnouncementDecodeErrorZ ret_hu_conv = Result_ChannelAnnouncementDecodeErrorZ.constr_from_ptr(ret);

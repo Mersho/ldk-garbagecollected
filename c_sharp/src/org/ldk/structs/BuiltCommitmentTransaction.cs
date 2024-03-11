@@ -12,14 +12,14 @@ namespace org { namespace ldk { namespace structs {
 public class BuiltCommitmentTransaction : CommonBase {
 	internal BuiltCommitmentTransaction(object _dummy, long ptr) : base(ptr) { }
 	~BuiltCommitmentTransaction() {
-		if (ptr != 0) { bindings.BuiltCommitmentTransaction_free(ptr); }
+		if (ptr != 0) { Bindings.BuiltCommitmentTransactionFree(ptr); }
 	}
 
 	/**
 	 * The commitment transaction
 	 */
 	public byte[] get_transaction() {
-		long ret = bindings.BuiltCommitmentTransaction_get_transaction(this.ptr);
+		long ret = Bindings.BuiltCommitmentTransactionGetTransaction(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -30,7 +30,7 @@ public class BuiltCommitmentTransaction : CommonBase {
 	 * The commitment transaction
 	 */
 	public void set_transaction(byte[] val) {
-		bindings.BuiltCommitmentTransaction_set_transaction(this.ptr, InternalUtils.encodeUint8Array(val));
+		Bindings.BuiltCommitmentTransactionSetTransaction(this.ptr, InternalUtils.encodeUint8Array(val));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -42,7 +42,7 @@ public class BuiltCommitmentTransaction : CommonBase {
 	 * multiple times.
 	 */
 	public byte[] get_txid() {
-		long ret = bindings.BuiltCommitmentTransaction_get_txid(this.ptr);
+		long ret = Bindings.BuiltCommitmentTransactionGetTxid(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -56,7 +56,7 @@ public class BuiltCommitmentTransaction : CommonBase {
 	 * multiple times.
 	 */
 	public void set_txid(byte[] val) {
-		bindings.BuiltCommitmentTransaction_set_txid(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
+		Bindings.BuiltCommitmentTransactionSetTxid(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -65,7 +65,7 @@ public class BuiltCommitmentTransaction : CommonBase {
 	 * Constructs a new BuiltCommitmentTransaction given each field
 	 */
 	public static BuiltCommitmentTransaction of(byte[] transaction_arg, byte[] txid_arg) {
-		long ret = bindings.BuiltCommitmentTransaction_new(InternalUtils.encodeUint8Array(transaction_arg), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(txid_arg, 32)));
+		long ret = Bindings.BuiltCommitmentTransactionNew(InternalUtils.encodeUint8Array(transaction_arg), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(txid_arg, 32)));
 		GC.KeepAlive(transaction_arg);
 		GC.KeepAlive(txid_arg);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -75,7 +75,7 @@ public class BuiltCommitmentTransaction : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.BuiltCommitmentTransaction_clone_ptr(this.ptr);
+		long ret = Bindings.BuiltCommitmentTransactionClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -84,7 +84,7 @@ public class BuiltCommitmentTransaction : CommonBase {
 	 * Creates a copy of the BuiltCommitmentTransaction
 	 */
 	public BuiltCommitmentTransaction clone() {
-		long ret = bindings.BuiltCommitmentTransaction_clone(this.ptr);
+		long ret = Bindings.BuiltCommitmentTransactionClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.BuiltCommitmentTransaction ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.BuiltCommitmentTransaction(null, ret); }
@@ -96,7 +96,7 @@ public class BuiltCommitmentTransaction : CommonBase {
 	 * Serialize the BuiltCommitmentTransaction object into a byte array which can be read by BuiltCommitmentTransaction_read
 	 */
 	public byte[] write() {
-		long ret = bindings.BuiltCommitmentTransaction_write(this.ptr);
+		long ret = Bindings.BuiltCommitmentTransactionWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -107,7 +107,7 @@ public class BuiltCommitmentTransaction : CommonBase {
 	 * Read a BuiltCommitmentTransaction from a byte array, created by BuiltCommitmentTransaction_write
 	 */
 	public static Result_BuiltCommitmentTransactionDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.BuiltCommitmentTransaction_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.BuiltCommitmentTransactionRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_BuiltCommitmentTransactionDecodeErrorZ ret_hu_conv = Result_BuiltCommitmentTransactionDecodeErrorZ.constr_from_ptr(ret);
@@ -120,7 +120,7 @@ public class BuiltCommitmentTransaction : CommonBase {
 	 * This can be used to verify a signature.
 	 */
 	public byte[] get_sighash_all(byte[] funding_redeemscript, long channel_value_satoshis) {
-		long ret = bindings.BuiltCommitmentTransaction_get_sighash_all(this.ptr, InternalUtils.encodeUint8Array(funding_redeemscript), channel_value_satoshis);
+		long ret = Bindings.BuiltCommitmentTransactionGetSighashAll(this.ptr, InternalUtils.encodeUint8Array(funding_redeemscript), channel_value_satoshis);
 		GC.KeepAlive(this);
 		GC.KeepAlive(funding_redeemscript);
 		GC.KeepAlive(channel_value_satoshis);
@@ -133,7 +133,7 @@ public class BuiltCommitmentTransaction : CommonBase {
 	 * Signs the counterparty's commitment transaction.
 	 */
 	public byte[] sign_counterparty_commitment(byte[] funding_key, byte[] funding_redeemscript, long channel_value_satoshis) {
-		long ret = bindings.BuiltCommitmentTransaction_sign_counterparty_commitment(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(funding_key, 32)), InternalUtils.encodeUint8Array(funding_redeemscript), channel_value_satoshis);
+		long ret = Bindings.BuiltCommitmentTransactionSignCounterpartyCommitment(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(funding_key, 32)), InternalUtils.encodeUint8Array(funding_redeemscript), channel_value_satoshis);
 		GC.KeepAlive(this);
 		GC.KeepAlive(funding_key);
 		GC.KeepAlive(funding_redeemscript);
@@ -147,7 +147,7 @@ public class BuiltCommitmentTransaction : CommonBase {
 	 * Signs the holder commitment transaction because we are about to broadcast it.
 	 */
 	public byte[] sign_holder_commitment(byte[] funding_key, byte[] funding_redeemscript, long channel_value_satoshis, org.ldk.structs.EntropySource entropy_source) {
-		long ret = bindings.BuiltCommitmentTransaction_sign_holder_commitment(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(funding_key, 32)), InternalUtils.encodeUint8Array(funding_redeemscript), channel_value_satoshis, entropy_source.ptr);
+		long ret = Bindings.BuiltCommitmentTransactionSignHolderCommitment(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(funding_key, 32)), InternalUtils.encodeUint8Array(funding_redeemscript), channel_value_satoshis, entropy_source.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(funding_key);
 		GC.KeepAlive(funding_redeemscript);

@@ -14,14 +14,14 @@ namespace org { namespace ldk { namespace structs {
 public class Input : CommonBase {
 	internal Input(object _dummy, long ptr) : base(ptr) { }
 	~Input() {
-		if (ptr != 0) { bindings.Input_free(ptr); }
+		if (ptr != 0) { Bindings.InputFree(ptr); }
 	}
 
 	/**
 	 * The unique identifier of the input.
 	 */
 	public OutPoint get_outpoint() {
-		long ret = bindings.Input_get_outpoint(this.ptr);
+		long ret = Bindings.InputGetOutpoint(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.OutPoint ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.OutPoint(null, ret); }
@@ -33,7 +33,7 @@ public class Input : CommonBase {
 	 * The unique identifier of the input.
 	 */
 	public void set_outpoint(org.ldk.structs.OutPoint val) {
-		bindings.Input_set_outpoint(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.InputSetOutpoint(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -43,7 +43,7 @@ public class Input : CommonBase {
 	 * The UTXO being spent by the input.
 	 */
 	public TxOut get_previous_utxo() {
-		long ret = bindings.Input_get_previous_utxo(this.ptr);
+		long ret = Bindings.InputGetPreviousUtxo(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		TxOut ret_conv = new TxOut(null, ret);
@@ -54,7 +54,7 @@ public class Input : CommonBase {
 	 * The UTXO being spent by the input.
 	 */
 	public void set_previous_utxo(org.ldk.structs.TxOut val) {
-		bindings.Input_set_previous_utxo(this.ptr, val.ptr);
+		Bindings.InputSetPreviousUtxo(this.ptr, val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -65,7 +65,7 @@ public class Input : CommonBase {
 	 * script.
 	 */
 	public long get_satisfaction_weight() {
-		long ret = bindings.Input_get_satisfaction_weight(this.ptr);
+		long ret = Bindings.InputGetSatisfactionWeight(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -76,7 +76,7 @@ public class Input : CommonBase {
 	 * script.
 	 */
 	public void set_satisfaction_weight(long val) {
-		bindings.Input_set_satisfaction_weight(this.ptr, val);
+		Bindings.InputSetSatisfactionWeight(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -85,7 +85,7 @@ public class Input : CommonBase {
 	 * Constructs a new Input given each field
 	 */
 	public static Input of(org.ldk.structs.OutPoint outpoint_arg, org.ldk.structs.TxOut previous_utxo_arg, long satisfaction_weight_arg) {
-		long ret = bindings.Input_new(outpoint_arg == null ? 0 : outpoint_arg.ptr, previous_utxo_arg.ptr, satisfaction_weight_arg);
+		long ret = Bindings.InputNew(outpoint_arg == null ? 0 : outpoint_arg.ptr, previous_utxo_arg.ptr, satisfaction_weight_arg);
 		GC.KeepAlive(outpoint_arg);
 		GC.KeepAlive(previous_utxo_arg);
 		GC.KeepAlive(satisfaction_weight_arg);
@@ -97,7 +97,7 @@ public class Input : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.Input_clone_ptr(this.ptr);
+		long ret = Bindings.InputClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -106,7 +106,7 @@ public class Input : CommonBase {
 	 * Creates a copy of the Input
 	 */
 	public Input clone() {
-		long ret = bindings.Input_clone(this.ptr);
+		long ret = Bindings.InputClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Input ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.Input(null, ret); }
@@ -118,7 +118,7 @@ public class Input : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the Input.
 	 */
 	public long hash() {
-		long ret = bindings.Input_hash(this.ptr);
+		long ret = Bindings.InputHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -132,7 +132,7 @@ public class Input : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.Input b) {
-		bool ret = bindings.Input_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.InputEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };

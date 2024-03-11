@@ -16,14 +16,14 @@ namespace org { namespace ldk { namespace structs {
 public class ChannelTransactionParameters : CommonBase {
 	internal ChannelTransactionParameters(object _dummy, long ptr) : base(ptr) { }
 	~ChannelTransactionParameters() {
-		if (ptr != 0) { bindings.ChannelTransactionParameters_free(ptr); }
+		if (ptr != 0) { Bindings.ChannelTransactionParametersFree(ptr); }
 	}
 
 	/**
 	 * Holder public keys
 	 */
 	public ChannelPublicKeys get_holder_pubkeys() {
-		long ret = bindings.ChannelTransactionParameters_get_holder_pubkeys(this.ptr);
+		long ret = Bindings.ChannelTransactionParametersGetHolderPubkeys(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChannelPublicKeys ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChannelPublicKeys(null, ret); }
@@ -35,7 +35,7 @@ public class ChannelTransactionParameters : CommonBase {
 	 * Holder public keys
 	 */
 	public void set_holder_pubkeys(org.ldk.structs.ChannelPublicKeys val) {
-		bindings.ChannelTransactionParameters_set_holder_pubkeys(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.ChannelTransactionParametersSetHolderPubkeys(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -45,7 +45,7 @@ public class ChannelTransactionParameters : CommonBase {
 	 * The contest delay selected by the holder, which applies to counterparty-broadcast transactions
 	 */
 	public short get_holder_selected_contest_delay() {
-		short ret = bindings.ChannelTransactionParameters_get_holder_selected_contest_delay(this.ptr);
+		short ret = Bindings.ChannelTransactionParametersGetHolderSelectedContestDelay(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -54,7 +54,7 @@ public class ChannelTransactionParameters : CommonBase {
 	 * The contest delay selected by the holder, which applies to counterparty-broadcast transactions
 	 */
 	public void set_holder_selected_contest_delay(short val) {
-		bindings.ChannelTransactionParameters_set_holder_selected_contest_delay(this.ptr, val);
+		Bindings.ChannelTransactionParametersSetHolderSelectedContestDelay(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -64,7 +64,7 @@ public class ChannelTransactionParameters : CommonBase {
 	 * This is an input to the commitment number obscure factor computation.
 	 */
 	public bool get_is_outbound_from_holder() {
-		bool ret = bindings.ChannelTransactionParameters_get_is_outbound_from_holder(this.ptr);
+		bool ret = Bindings.ChannelTransactionParametersGetIsOutboundFromHolder(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -74,7 +74,7 @@ public class ChannelTransactionParameters : CommonBase {
 	 * This is an input to the commitment number obscure factor computation.
 	 */
 	public void set_is_outbound_from_holder(bool val) {
-		bindings.ChannelTransactionParameters_set_is_outbound_from_holder(this.ptr, val);
+		Bindings.ChannelTransactionParametersSetIsOutboundFromHolder(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -86,7 +86,7 @@ public class ChannelTransactionParameters : CommonBase {
 	 * Note that the return value (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public CounterpartyChannelTransactionParameters get_counterparty_parameters() {
-		long ret = bindings.ChannelTransactionParameters_get_counterparty_parameters(this.ptr);
+		long ret = Bindings.ChannelTransactionParametersGetCounterpartyParameters(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.CounterpartyChannelTransactionParameters ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.CounterpartyChannelTransactionParameters(null, ret); }
@@ -101,7 +101,7 @@ public class ChannelTransactionParameters : CommonBase {
 	 * Note that val (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public void set_counterparty_parameters(org.ldk.structs.CounterpartyChannelTransactionParameters val) {
-		bindings.ChannelTransactionParameters_set_counterparty_parameters(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.ChannelTransactionParametersSetCounterpartyParameters(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -113,7 +113,7 @@ public class ChannelTransactionParameters : CommonBase {
 	 * Note that the return value (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public OutPoint get_funding_outpoint() {
-		long ret = bindings.ChannelTransactionParameters_get_funding_outpoint(this.ptr);
+		long ret = Bindings.ChannelTransactionParametersGetFundingOutpoint(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.OutPoint ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.OutPoint(null, ret); }
@@ -127,7 +127,7 @@ public class ChannelTransactionParameters : CommonBase {
 	 * Note that val (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public void set_funding_outpoint(org.ldk.structs.OutPoint val) {
-		bindings.ChannelTransactionParameters_set_funding_outpoint(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.ChannelTransactionParametersSetFundingOutpoint(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -138,7 +138,7 @@ public class ChannelTransactionParameters : CommonBase {
 	 * wasn't serialized, it will default to static_remote_key at deserialization.
 	 */
 	public ChannelTypeFeatures get_channel_type_features() {
-		long ret = bindings.ChannelTransactionParameters_get_channel_type_features(this.ptr);
+		long ret = Bindings.ChannelTransactionParametersGetChannelTypeFeatures(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChannelTypeFeatures ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChannelTypeFeatures(null, ret); }
@@ -151,7 +151,7 @@ public class ChannelTransactionParameters : CommonBase {
 	 * wasn't serialized, it will default to static_remote_key at deserialization.
 	 */
 	public void set_channel_type_features(org.ldk.structs.ChannelTypeFeatures val) {
-		bindings.ChannelTransactionParameters_set_channel_type_features(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.ChannelTransactionParametersSetChannelTypeFeatures(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -164,7 +164,7 @@ public class ChannelTransactionParameters : CommonBase {
 	 * Note that funding_outpoint_arg (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public static ChannelTransactionParameters of(org.ldk.structs.ChannelPublicKeys holder_pubkeys_arg, short holder_selected_contest_delay_arg, bool is_outbound_from_holder_arg, org.ldk.structs.CounterpartyChannelTransactionParameters counterparty_parameters_arg, org.ldk.structs.OutPoint funding_outpoint_arg, org.ldk.structs.ChannelTypeFeatures channel_type_features_arg) {
-		long ret = bindings.ChannelTransactionParameters_new(holder_pubkeys_arg == null ? 0 : holder_pubkeys_arg.ptr, holder_selected_contest_delay_arg, is_outbound_from_holder_arg, counterparty_parameters_arg == null ? 0 : counterparty_parameters_arg.ptr, funding_outpoint_arg == null ? 0 : funding_outpoint_arg.ptr, channel_type_features_arg == null ? 0 : channel_type_features_arg.ptr);
+		long ret = Bindings.ChannelTransactionParametersNew(holder_pubkeys_arg == null ? 0 : holder_pubkeys_arg.ptr, holder_selected_contest_delay_arg, is_outbound_from_holder_arg, counterparty_parameters_arg == null ? 0 : counterparty_parameters_arg.ptr, funding_outpoint_arg == null ? 0 : funding_outpoint_arg.ptr, channel_type_features_arg == null ? 0 : channel_type_features_arg.ptr);
 		GC.KeepAlive(holder_pubkeys_arg);
 		GC.KeepAlive(holder_selected_contest_delay_arg);
 		GC.KeepAlive(is_outbound_from_holder_arg);
@@ -182,7 +182,7 @@ public class ChannelTransactionParameters : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.ChannelTransactionParameters_clone_ptr(this.ptr);
+		long ret = Bindings.ChannelTransactionParametersClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -191,7 +191,7 @@ public class ChannelTransactionParameters : CommonBase {
 	 * Creates a copy of the ChannelTransactionParameters
 	 */
 	public ChannelTransactionParameters clone() {
-		long ret = bindings.ChannelTransactionParameters_clone(this.ptr);
+		long ret = Bindings.ChannelTransactionParametersClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChannelTransactionParameters ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChannelTransactionParameters(null, ret); }
@@ -203,7 +203,7 @@ public class ChannelTransactionParameters : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the ChannelTransactionParameters.
 	 */
 	public long hash() {
-		long ret = bindings.ChannelTransactionParameters_hash(this.ptr);
+		long ret = Bindings.ChannelTransactionParametersHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -217,7 +217,7 @@ public class ChannelTransactionParameters : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.ChannelTransactionParameters b) {
-		bool ret = bindings.ChannelTransactionParameters_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.ChannelTransactionParametersEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -232,7 +232,7 @@ public class ChannelTransactionParameters : CommonBase {
 	 * Whether the late bound parameters are populated.
 	 */
 	public bool is_populated() {
-		bool ret = bindings.ChannelTransactionParameters_is_populated(this.ptr);
+		bool ret = Bindings.ChannelTransactionParametersIsPopulated(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -244,7 +244,7 @@ public class ChannelTransactionParameters : CommonBase {
 	 * self.is_populated() must be true before calling this function.
 	 */
 	public DirectedChannelTransactionParameters as_holder_broadcastable() {
-		long ret = bindings.ChannelTransactionParameters_as_holder_broadcastable(this.ptr);
+		long ret = Bindings.ChannelTransactionParametersAsHolderBroadcastable(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.DirectedChannelTransactionParameters ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.DirectedChannelTransactionParameters(null, ret); }
@@ -259,7 +259,7 @@ public class ChannelTransactionParameters : CommonBase {
 	 * self.is_populated() must be true before calling this function.
 	 */
 	public DirectedChannelTransactionParameters as_counterparty_broadcastable() {
-		long ret = bindings.ChannelTransactionParameters_as_counterparty_broadcastable(this.ptr);
+		long ret = Bindings.ChannelTransactionParametersAsCounterpartyBroadcastable(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.DirectedChannelTransactionParameters ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.DirectedChannelTransactionParameters(null, ret); }
@@ -271,7 +271,7 @@ public class ChannelTransactionParameters : CommonBase {
 	 * Serialize the ChannelTransactionParameters object into a byte array which can be read by ChannelTransactionParameters_read
 	 */
 	public byte[] write() {
-		long ret = bindings.ChannelTransactionParameters_write(this.ptr);
+		long ret = Bindings.ChannelTransactionParametersWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -282,7 +282,7 @@ public class ChannelTransactionParameters : CommonBase {
 	 * Read a ChannelTransactionParameters from a byte array, created by ChannelTransactionParameters_write
 	 */
 	public static Result_ChannelTransactionParametersDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.ChannelTransactionParameters_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.ChannelTransactionParametersRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_ChannelTransactionParametersDecodeErrorZ ret_hu_conv = Result_ChannelTransactionParametersDecodeErrorZ.constr_from_ptr(ret);

@@ -30,7 +30,7 @@ namespace org { namespace ldk { namespace structs {
 public class PeerManager : CommonBase {
 	internal PeerManager(object _dummy, long ptr) : base(ptr) { }
 	~PeerManager() {
-		if (ptr != 0) { bindings.PeerManager_free(ptr); }
+		if (ptr != 0) { Bindings.PeerManagerFree(ptr); }
 	}
 
 	/**
@@ -45,7 +45,7 @@ public class PeerManager : CommonBase {
 	 * minute should suffice.
 	 */
 	public static PeerManager of(ChannelMessageHandler message_handler_chan_handler_arg, RoutingMessageHandler message_handler_route_handler_arg, OnionMessageHandler message_handler_onion_message_handler_arg, CustomMessageHandler message_handler_custom_message_handler_arg, int current_time, byte[] ephemeral_random_data, org.ldk.structs.Logger logger, org.ldk.structs.NodeSigner node_signer) {
-		long ret = bindings.PeerManager_new(bindings.MessageHandler_new(message_handler_chan_handler_arg.ptr, message_handler_route_handler_arg.ptr, message_handler_onion_message_handler_arg.ptr, message_handler_custom_message_handler_arg.ptr), current_time, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(ephemeral_random_data, 32)), logger.ptr, node_signer.ptr);
+		long ret = Bindings.PeerManagerNew(Bindings.MessageHandlerNew(message_handler_chan_handler_arg.ptr, message_handler_route_handler_arg.ptr, message_handler_onion_message_handler_arg.ptr, message_handler_custom_message_handler_arg.ptr), current_time, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(ephemeral_random_data, 32)), logger.ptr, node_signer.ptr);
 		GC.KeepAlive(message_handler_chan_handler_arg);
 		GC.KeepAlive(message_handler_route_handler_arg);
 		GC.KeepAlive(message_handler_onion_message_handler_arg);
@@ -79,7 +79,7 @@ public class PeerManager : CommonBase {
 	 * [`Self::new_outbound_connection`] or [`Self::new_inbound_connection`].
 	 */
 	public TwoTuple_PublicKeyCOption_SocketAddressZZ[] get_peer_node_ids() {
-		long ret = bindings.PeerManager_get_peer_node_ids(this.ptr);
+		long ret = Bindings.PeerManagerGetPeerNodeIds(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		int ret_conv_43_len = InternalUtils.getArrayLength(ret);
@@ -90,7 +90,7 @@ public class PeerManager : CommonBase {
 			if (ret_conv_43_hu_conv != null) { ret_conv_43_hu_conv.ptrs_to.AddLast(this); };
 			ret_conv_43_arr[r] = ret_conv_43_hu_conv;
 		}
-		bindings.free_buffer(ret);
+		Bindings.FreeBuffer(ret);
 		return ret_conv_43_arr;
 	}
 
@@ -112,7 +112,7 @@ public class PeerManager : CommonBase {
 	 * [`socket_disconnected`]: PeerManager::socket_disconnected
 	 */
 	public Result_CVec_u8ZPeerHandleErrorZ new_outbound_connection(byte[] their_node_id, org.ldk.structs.SocketDescriptor descriptor, org.ldk.structs.Option_SocketAddressZ remote_network_address) {
-		long ret = bindings.PeerManager_new_outbound_connection(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(their_node_id, 33)), descriptor.ptr, remote_network_address.ptr);
+		long ret = Bindings.PeerManagerNewOutboundConnection(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(their_node_id, 33)), descriptor.ptr, remote_network_address.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(their_node_id);
 		GC.KeepAlive(descriptor);
@@ -142,7 +142,7 @@ public class PeerManager : CommonBase {
 	 * [`socket_disconnected`]: PeerManager::socket_disconnected
 	 */
 	public Result_NonePeerHandleErrorZ new_inbound_connection(org.ldk.structs.SocketDescriptor descriptor, org.ldk.structs.Option_SocketAddressZ remote_network_address) {
-		long ret = bindings.PeerManager_new_inbound_connection(this.ptr, descriptor.ptr, remote_network_address.ptr);
+		long ret = Bindings.PeerManagerNewInboundConnection(this.ptr, descriptor.ptr, remote_network_address.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(descriptor);
 		GC.KeepAlive(remote_network_address);
@@ -168,7 +168,7 @@ public class PeerManager : CommonBase {
 	 * [`write_buffer_space_avail`]: PeerManager::write_buffer_space_avail
 	 */
 	public Result_NonePeerHandleErrorZ write_buffer_space_avail(org.ldk.structs.SocketDescriptor descriptor) {
-		long ret = bindings.PeerManager_write_buffer_space_avail(this.ptr, descriptor.ptr);
+		long ret = Bindings.PeerManagerWriteBufferSpaceAvail(this.ptr, descriptor.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(descriptor);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -196,7 +196,7 @@ public class PeerManager : CommonBase {
 	 * [`process_events`]: PeerManager::process_events
 	 */
 	public Result_boolPeerHandleErrorZ read_event(org.ldk.structs.SocketDescriptor peer_descriptor, byte[] data) {
-		long ret = bindings.PeerManager_read_event(this.ptr, peer_descriptor.ptr, InternalUtils.encodeUint8Array(data));
+		long ret = Bindings.PeerManagerReadEvent(this.ptr, peer_descriptor.ptr, InternalUtils.encodeUint8Array(data));
 		GC.KeepAlive(this);
 		GC.KeepAlive(peer_descriptor);
 		GC.KeepAlive(data);
@@ -225,7 +225,7 @@ public class PeerManager : CommonBase {
 	 * [`send_data`]: SocketDescriptor::send_data
 	 */
 	public void process_events() {
-		bindings.PeerManager_process_events(this.ptr);
+		Bindings.PeerManagerProcessEvents(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -233,7 +233,7 @@ public class PeerManager : CommonBase {
 	 * Indicates that the given socket descriptor's connection is now closed.
 	 */
 	public void socket_disconnected(org.ldk.structs.SocketDescriptor descriptor) {
-		bindings.PeerManager_socket_disconnected(this.ptr, descriptor.ptr);
+		Bindings.PeerManagerSocketDisconnected(this.ptr, descriptor.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(descriptor);
 	}
@@ -247,7 +247,7 @@ public class PeerManager : CommonBase {
 	 * [`disconnect_socket`]: SocketDescriptor::disconnect_socket
 	 */
 	public void disconnect_by_node_id(byte[] node_id) {
-		bindings.PeerManager_disconnect_by_node_id(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(node_id, 33)));
+		Bindings.PeerManagerDisconnectByNodeId(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(node_id, 33)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(node_id);
 	}
@@ -258,7 +258,7 @@ public class PeerManager : CommonBase {
 	 * using regular ping/pongs.
 	 */
 	public void disconnect_all_peers() {
-		bindings.PeerManager_disconnect_all_peers(this.ptr);
+		Bindings.PeerManagerDisconnectAllPeers(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -276,7 +276,7 @@ public class PeerManager : CommonBase {
 	 * [`send_data`]: SocketDescriptor::send_data
 	 */
 	public void timer_tick_occurred() {
-		bindings.PeerManager_timer_tick_occurred(this.ptr);
+		Bindings.PeerManagerTimerTickOccurred(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -298,7 +298,7 @@ public class PeerManager : CommonBase {
 	 * [`get_and_clear_pending_msg_events`]: MessageSendEventsProvider::get_and_clear_pending_msg_events
 	 */
 	public void broadcast_node_announcement(byte[] rgb, byte[] alias, SocketAddress[] addresses) {
-		bindings.PeerManager_broadcast_node_announcement(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(rgb, 3)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(alias, 32)), InternalUtils.encodeUint64Array(InternalUtils.mapArray(addresses, addresses_conv_15 => addresses_conv_15.ptr)));
+		Bindings.PeerManagerBroadcastNodeAnnouncement(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(rgb, 3)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(alias, 32)), InternalUtils.encodeUint64Array(InternalUtils.mapArray(addresses, addresses_conv_15 => addresses_conv_15.ptr)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(rgb);
 		GC.KeepAlive(alias);

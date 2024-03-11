@@ -16,14 +16,14 @@ namespace org { namespace ldk { namespace structs {
 public class FundingSigned : CommonBase {
 	internal FundingSigned(object _dummy, long ptr) : base(ptr) { }
 	~FundingSigned() {
-		if (ptr != 0) { bindings.FundingSigned_free(ptr); }
+		if (ptr != 0) { Bindings.FundingSignedFree(ptr); }
 	}
 
 	/**
 	 * The channel ID
 	 */
 	public byte[] get_channel_id() {
-		long ret = bindings.FundingSigned_get_channel_id(this.ptr);
+		long ret = Bindings.FundingSignedGetChannelId(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -34,7 +34,7 @@ public class FundingSigned : CommonBase {
 	 * The channel ID
 	 */
 	public void set_channel_id(byte[] val) {
-		bindings.FundingSigned_set_channel_id(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
+		Bindings.FundingSignedSetChannelId(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -43,7 +43,7 @@ public class FundingSigned : CommonBase {
 	 * The signature of the channel acceptor (fundee) on the initial commitment transaction
 	 */
 	public byte[] get_signature() {
-		long ret = bindings.FundingSigned_get_signature(this.ptr);
+		long ret = Bindings.FundingSignedGetSignature(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -54,7 +54,7 @@ public class FundingSigned : CommonBase {
 	 * The signature of the channel acceptor (fundee) on the initial commitment transaction
 	 */
 	public void set_signature(byte[] val) {
-		bindings.FundingSigned_set_signature(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 64)));
+		Bindings.FundingSignedSetSignature(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 64)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -63,7 +63,7 @@ public class FundingSigned : CommonBase {
 	 * Constructs a new FundingSigned given each field
 	 */
 	public static FundingSigned of(byte[] channel_id_arg, byte[] signature_arg) {
-		long ret = bindings.FundingSigned_new(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(channel_id_arg, 32)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(signature_arg, 64)));
+		long ret = Bindings.FundingSignedNew(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(channel_id_arg, 32)), InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(signature_arg, 64)));
 		GC.KeepAlive(channel_id_arg);
 		GC.KeepAlive(signature_arg);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -73,7 +73,7 @@ public class FundingSigned : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.FundingSigned_clone_ptr(this.ptr);
+		long ret = Bindings.FundingSignedClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -82,7 +82,7 @@ public class FundingSigned : CommonBase {
 	 * Creates a copy of the FundingSigned
 	 */
 	public FundingSigned clone() {
-		long ret = bindings.FundingSigned_clone(this.ptr);
+		long ret = Bindings.FundingSignedClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.FundingSigned ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.FundingSigned(null, ret); }
@@ -94,7 +94,7 @@ public class FundingSigned : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the FundingSigned.
 	 */
 	public long hash() {
-		long ret = bindings.FundingSigned_hash(this.ptr);
+		long ret = Bindings.FundingSignedHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -108,7 +108,7 @@ public class FundingSigned : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.FundingSigned b) {
-		bool ret = bindings.FundingSigned_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.FundingSignedEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -123,7 +123,7 @@ public class FundingSigned : CommonBase {
 	 * Serialize the FundingSigned object into a byte array which can be read by FundingSigned_read
 	 */
 	public byte[] write() {
-		long ret = bindings.FundingSigned_write(this.ptr);
+		long ret = Bindings.FundingSignedWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -134,7 +134,7 @@ public class FundingSigned : CommonBase {
 	 * Read a FundingSigned from a byte array, created by FundingSigned_write
 	 */
 	public static Result_FundingSignedDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.FundingSigned_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.FundingSignedRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_FundingSignedDecodeErrorZ ret_hu_conv = Result_FundingSignedDecodeErrorZ.constr_from_ptr(ret);

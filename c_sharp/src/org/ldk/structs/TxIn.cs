@@ -18,16 +18,16 @@ public class TxIn : CommonBase {
 	public readonly int previous_vout;
 
 	internal TxIn(object _dummy, long ptr) : base(ptr) {
-		this.witness = InternalUtils.decodeUint8Array(bindings.TxIn_get_witness(ptr));
-		this.script_sig = InternalUtils.decodeUint8Array(bindings.TxIn_get_script_sig(ptr));
-		this.sequence = bindings.TxIn_get_sequence(ptr);
-		this.previous_txid = InternalUtils.decodeUint8Array(bindings.TxIn_get_previous_txid(ptr));
-		this.previous_vout = bindings.TxIn_get_previous_vout(ptr);
+		this.witness = InternalUtils.decodeUint8Array(Bindings.TxInGetWitness(ptr));
+		this.script_sig = InternalUtils.decodeUint8Array(Bindings.TxInGetScriptSig(ptr));
+		this.sequence = Bindings.TxInGetSequence(ptr);
+		this.previous_txid = InternalUtils.decodeUint8Array(Bindings.TxInGetPreviousTxid(ptr));
+		this.previous_vout = Bindings.TxInGetPreviousVout(ptr);
 	}
 	public TxIn(byte[] witness, byte[] script_sig, int sequence, byte[] previous_txid, int previous_vout)
-	: this(null, bindings.TxIn_new(InternalUtils.encodeUint8Array(witness), InternalUtils.encodeUint8Array(script_sig), sequence, InternalUtils.encodeUint8Array(previous_txid), previous_vout)) {}
+	: this(null, Bindings.TxInNew(InternalUtils.encodeUint8Array(witness), InternalUtils.encodeUint8Array(script_sig), sequence, InternalUtils.encodeUint8Array(previous_txid), previous_vout)) {}
 
 	~TxIn() {
-		if (ptr != 0) { bindings.TxIn_free(ptr); }
+		if (ptr != 0) { Bindings.TxInFree(ptr); }
 	}
 }} } }

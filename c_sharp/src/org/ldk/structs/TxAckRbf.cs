@@ -13,14 +13,14 @@ namespace org { namespace ldk { namespace structs {
 public class TxAckRbf : CommonBase {
 	internal TxAckRbf(object _dummy, long ptr) : base(ptr) { }
 	~TxAckRbf() {
-		if (ptr != 0) { bindings.TxAckRbf_free(ptr); }
+		if (ptr != 0) { Bindings.TxAckRbfFree(ptr); }
 	}
 
 	/**
 	 * The channel ID
 	 */
 	public byte[] get_channel_id() {
-		long ret = bindings.TxAckRbf_get_channel_id(this.ptr);
+		long ret = Bindings.TxAckRbfGetChannelId(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -31,7 +31,7 @@ public class TxAckRbf : CommonBase {
 	 * The channel ID
 	 */
 	public void set_channel_id(byte[] val) {
-		bindings.TxAckRbf_set_channel_id(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
+		Bindings.TxAckRbfSetChannelId(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -41,7 +41,7 @@ public class TxAckRbf : CommonBase {
 	 * (e.g. splice-out) the funding output of the transaction
 	 */
 	public Option_i64Z get_funding_output_contribution() {
-		long ret = bindings.TxAckRbf_get_funding_output_contribution(this.ptr);
+		long ret = Bindings.TxAckRbfGetFundingOutputContribution(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_i64Z ret_hu_conv = org.ldk.structs.Option_i64Z.constr_from_ptr(ret);
@@ -54,7 +54,7 @@ public class TxAckRbf : CommonBase {
 	 * (e.g. splice-out) the funding output of the transaction
 	 */
 	public void set_funding_output_contribution(org.ldk.structs.Option_i64Z val) {
-		bindings.TxAckRbf_set_funding_output_contribution(this.ptr, val.ptr);
+		Bindings.TxAckRbfSetFundingOutputContribution(this.ptr, val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -64,7 +64,7 @@ public class TxAckRbf : CommonBase {
 	 * Constructs a new TxAckRbf given each field
 	 */
 	public static TxAckRbf of(byte[] channel_id_arg, org.ldk.structs.Option_i64Z funding_output_contribution_arg) {
-		long ret = bindings.TxAckRbf_new(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(channel_id_arg, 32)), funding_output_contribution_arg.ptr);
+		long ret = Bindings.TxAckRbfNew(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(channel_id_arg, 32)), funding_output_contribution_arg.ptr);
 		GC.KeepAlive(channel_id_arg);
 		GC.KeepAlive(funding_output_contribution_arg);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -75,7 +75,7 @@ public class TxAckRbf : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.TxAckRbf_clone_ptr(this.ptr);
+		long ret = Bindings.TxAckRbfClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -84,7 +84,7 @@ public class TxAckRbf : CommonBase {
 	 * Creates a copy of the TxAckRbf
 	 */
 	public TxAckRbf clone() {
-		long ret = bindings.TxAckRbf_clone(this.ptr);
+		long ret = Bindings.TxAckRbfClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.TxAckRbf ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.TxAckRbf(null, ret); }
@@ -96,7 +96,7 @@ public class TxAckRbf : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the TxAckRbf.
 	 */
 	public long hash() {
-		long ret = bindings.TxAckRbf_hash(this.ptr);
+		long ret = Bindings.TxAckRbfHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -110,7 +110,7 @@ public class TxAckRbf : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.TxAckRbf b) {
-		bool ret = bindings.TxAckRbf_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.TxAckRbfEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -125,7 +125,7 @@ public class TxAckRbf : CommonBase {
 	 * Serialize the TxAckRbf object into a byte array which can be read by TxAckRbf_read
 	 */
 	public byte[] write() {
-		long ret = bindings.TxAckRbf_write(this.ptr);
+		long ret = Bindings.TxAckRbfWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -136,7 +136,7 @@ public class TxAckRbf : CommonBase {
 	 * Read a TxAckRbf from a byte array, created by TxAckRbf_write
 	 */
 	public static Result_TxAckRbfDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.TxAckRbf_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.TxAckRbfRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_TxAckRbfDecodeErrorZ ret_hu_conv = Result_TxAckRbfDecodeErrorZ.constr_from_ptr(ret);

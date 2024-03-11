@@ -8,11 +8,11 @@ namespace org { namespace ldk { namespace structs {
 public class Result_ChannelShutdownStateDecodeErrorZ : CommonBase {
 	Result_ChannelShutdownStateDecodeErrorZ(object _dummy, long ptr) : base(ptr) { }
 	~Result_ChannelShutdownStateDecodeErrorZ() {
-		if (ptr != 0) { bindings.CResult_ChannelShutdownStateDecodeErrorZ_free(ptr); }
+		if (ptr != 0) { Bindings.CResultChannelShutdownStateDecodeErrorZFree(ptr); }
 	}
 
 	internal static Result_ChannelShutdownStateDecodeErrorZ constr_from_ptr(long ptr) {
-		if (bindings.CResult_ChannelShutdownStateDecodeErrorZ_is_ok(ptr)) {
+		if (Bindings.CResultChannelShutdownStateDecodeErrorZIsOk(ptr)) {
 			return new Result_ChannelShutdownStateDecodeErrorZ_OK(null, ptr);
 		} else {
 			return new Result_ChannelShutdownStateDecodeErrorZ_Err(null, ptr);
@@ -21,14 +21,14 @@ public class Result_ChannelShutdownStateDecodeErrorZ : CommonBase {
 	public class Result_ChannelShutdownStateDecodeErrorZ_OK : Result_ChannelShutdownStateDecodeErrorZ {
 		public readonly ChannelShutdownState res;
 		internal Result_ChannelShutdownStateDecodeErrorZ_OK(object _dummy, long ptr) : base(_dummy, ptr) {
-			this.res = bindings.CResult_ChannelShutdownStateDecodeErrorZ_get_ok(ptr);
+			this.res = Bindings.CResultChannelShutdownStateDecodeErrorZGetOk(ptr);
 		}
 	}
 
 	public class Result_ChannelShutdownStateDecodeErrorZ_Err : Result_ChannelShutdownStateDecodeErrorZ {
 		public readonly DecodeError err;
 		internal Result_ChannelShutdownStateDecodeErrorZ_Err(object _dummy, long ptr) : base(_dummy, ptr) {
-			long err = bindings.CResult_ChannelShutdownStateDecodeErrorZ_get_err(ptr);
+			long err = Bindings.CResultChannelShutdownStateDecodeErrorZGetErr(ptr);
 			org.ldk.structs.DecodeError err_hu_conv = org.ldk.structs.DecodeError.constr_from_ptr(err);
 			if (err_hu_conv != null) { err_hu_conv.ptrs_to.AddLast(this); };
 			this.err = err_hu_conv;
@@ -39,7 +39,7 @@ public class Result_ChannelShutdownStateDecodeErrorZ : CommonBase {
 	 * Creates a new CResult_ChannelShutdownStateDecodeErrorZ in the success state.
 	 */
 	public static Result_ChannelShutdownStateDecodeErrorZ ok(ChannelShutdownState o) {
-		long ret = bindings.CResult_ChannelShutdownStateDecodeErrorZ_ok(o);
+		long ret = Bindings.CResultChannelShutdownStateDecodeErrorZOk(o);
 		GC.KeepAlive(o);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_ChannelShutdownStateDecodeErrorZ ret_hu_conv = Result_ChannelShutdownStateDecodeErrorZ.constr_from_ptr(ret);
@@ -50,7 +50,7 @@ public class Result_ChannelShutdownStateDecodeErrorZ : CommonBase {
 	 * Creates a new CResult_ChannelShutdownStateDecodeErrorZ in the error state.
 	 */
 	public static Result_ChannelShutdownStateDecodeErrorZ err(org.ldk.structs.DecodeError e) {
-		long ret = bindings.CResult_ChannelShutdownStateDecodeErrorZ_err(e.ptr);
+		long ret = Bindings.CResultChannelShutdownStateDecodeErrorZErr(e.ptr);
 		GC.KeepAlive(e);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_ChannelShutdownStateDecodeErrorZ ret_hu_conv = Result_ChannelShutdownStateDecodeErrorZ.constr_from_ptr(ret);
@@ -62,13 +62,13 @@ public class Result_ChannelShutdownStateDecodeErrorZ : CommonBase {
 	 * Checks if the given object is currently in the success state
 	 */
 	public bool is_ok() {
-		bool ret = bindings.CResult_ChannelShutdownStateDecodeErrorZ_is_ok(this.ptr);
+		bool ret = Bindings.CResultChannelShutdownStateDecodeErrorZIsOk(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.CResult_ChannelShutdownStateDecodeErrorZ_clone_ptr(this.ptr);
+		long ret = Bindings.CResultChannelShutdownStateDecodeErrorZClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -78,7 +78,7 @@ public class Result_ChannelShutdownStateDecodeErrorZ : CommonBase {
 	 * but with all dynamically-allocated buffers duplicated in new buffers.
 	 */
 	public Result_ChannelShutdownStateDecodeErrorZ clone() {
-		long ret = bindings.CResult_ChannelShutdownStateDecodeErrorZ_clone(this.ptr);
+		long ret = Bindings.CResultChannelShutdownStateDecodeErrorZClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_ChannelShutdownStateDecodeErrorZ ret_hu_conv = Result_ChannelShutdownStateDecodeErrorZ.constr_from_ptr(ret);

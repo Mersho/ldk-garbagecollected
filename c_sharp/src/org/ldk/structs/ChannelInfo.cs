@@ -13,14 +13,14 @@ namespace org { namespace ldk { namespace structs {
 public class ChannelInfo : CommonBase {
 	internal ChannelInfo(object _dummy, long ptr) : base(ptr) { }
 	~ChannelInfo() {
-		if (ptr != 0) { bindings.ChannelInfo_free(ptr); }
+		if (ptr != 0) { Bindings.ChannelInfoFree(ptr); }
 	}
 
 	/**
 	 * Protocol features of a channel communicated during its announcement
 	 */
 	public ChannelFeatures get_features() {
-		long ret = bindings.ChannelInfo_get_features(this.ptr);
+		long ret = Bindings.ChannelInfoGetFeatures(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChannelFeatures ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChannelFeatures(null, ret); }
@@ -32,7 +32,7 @@ public class ChannelInfo : CommonBase {
 	 * Protocol features of a channel communicated during its announcement
 	 */
 	public void set_features(org.ldk.structs.ChannelFeatures val) {
-		bindings.ChannelInfo_set_features(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.ChannelInfoSetFeatures(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -42,7 +42,7 @@ public class ChannelInfo : CommonBase {
 	 * Source node of the first direction of a channel
 	 */
 	public NodeId get_node_one() {
-		long ret = bindings.ChannelInfo_get_node_one(this.ptr);
+		long ret = Bindings.ChannelInfoGetNodeOne(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.NodeId ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.NodeId(null, ret); }
@@ -54,7 +54,7 @@ public class ChannelInfo : CommonBase {
 	 * Source node of the first direction of a channel
 	 */
 	public void set_node_one(org.ldk.structs.NodeId val) {
-		bindings.ChannelInfo_set_node_one(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.ChannelInfoSetNodeOne(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -66,7 +66,7 @@ public class ChannelInfo : CommonBase {
 	 * Note that the return value (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public ChannelUpdateInfo get_one_to_two() {
-		long ret = bindings.ChannelInfo_get_one_to_two(this.ptr);
+		long ret = Bindings.ChannelInfoGetOneToTwo(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChannelUpdateInfo ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChannelUpdateInfo(null, ret); }
@@ -80,7 +80,7 @@ public class ChannelInfo : CommonBase {
 	 * Note that val (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public void set_one_to_two(org.ldk.structs.ChannelUpdateInfo val) {
-		bindings.ChannelInfo_set_one_to_two(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.ChannelInfoSetOneToTwo(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -90,7 +90,7 @@ public class ChannelInfo : CommonBase {
 	 * Source node of the second direction of a channel
 	 */
 	public NodeId get_node_two() {
-		long ret = bindings.ChannelInfo_get_node_two(this.ptr);
+		long ret = Bindings.ChannelInfoGetNodeTwo(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.NodeId ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.NodeId(null, ret); }
@@ -102,7 +102,7 @@ public class ChannelInfo : CommonBase {
 	 * Source node of the second direction of a channel
 	 */
 	public void set_node_two(org.ldk.structs.NodeId val) {
-		bindings.ChannelInfo_set_node_two(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.ChannelInfoSetNodeTwo(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -114,7 +114,7 @@ public class ChannelInfo : CommonBase {
 	 * Note that the return value (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public ChannelUpdateInfo get_two_to_one() {
-		long ret = bindings.ChannelInfo_get_two_to_one(this.ptr);
+		long ret = Bindings.ChannelInfoGetTwoToOne(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChannelUpdateInfo ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChannelUpdateInfo(null, ret); }
@@ -128,7 +128,7 @@ public class ChannelInfo : CommonBase {
 	 * Note that val (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public void set_two_to_one(org.ldk.structs.ChannelUpdateInfo val) {
-		bindings.ChannelInfo_set_two_to_one(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.ChannelInfoSetTwoToOne(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -138,7 +138,7 @@ public class ChannelInfo : CommonBase {
 	 * The channel capacity as seen on-chain, if chain lookup is available.
 	 */
 	public Option_u64Z get_capacity_sats() {
-		long ret = bindings.ChannelInfo_get_capacity_sats(this.ptr);
+		long ret = Bindings.ChannelInfoGetCapacitySats(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_u64Z ret_hu_conv = org.ldk.structs.Option_u64Z.constr_from_ptr(ret);
@@ -150,7 +150,7 @@ public class ChannelInfo : CommonBase {
 	 * The channel capacity as seen on-chain, if chain lookup is available.
 	 */
 	public void set_capacity_sats(org.ldk.structs.Option_u64Z val) {
-		bindings.ChannelInfo_set_capacity_sats(this.ptr, val.ptr);
+		Bindings.ChannelInfoSetCapacitySats(this.ptr, val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -165,7 +165,7 @@ public class ChannelInfo : CommonBase {
 	 * Note that the return value (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public ChannelAnnouncement get_announcement_message() {
-		long ret = bindings.ChannelInfo_get_announcement_message(this.ptr);
+		long ret = Bindings.ChannelInfoGetAnnouncementMessage(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChannelAnnouncement ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChannelAnnouncement(null, ret); }
@@ -182,14 +182,14 @@ public class ChannelInfo : CommonBase {
 	 * Note that val (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public void set_announcement_message(org.ldk.structs.ChannelAnnouncement val) {
-		bindings.ChannelInfo_set_announcement_message(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.ChannelInfoSetAnnouncementMessage(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.ChannelInfo_clone_ptr(this.ptr);
+		long ret = Bindings.ChannelInfoClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -198,7 +198,7 @@ public class ChannelInfo : CommonBase {
 	 * Creates a copy of the ChannelInfo
 	 */
 	public ChannelInfo clone() {
-		long ret = bindings.ChannelInfo_clone(this.ptr);
+		long ret = Bindings.ChannelInfoClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.ChannelInfo ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.ChannelInfo(null, ret); }
@@ -212,7 +212,7 @@ public class ChannelInfo : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.ChannelInfo b) {
-		bool ret = bindings.ChannelInfo_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.ChannelInfoEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -229,7 +229,7 @@ public class ChannelInfo : CommonBase {
 	 * Note that the return value (or a relevant inner pointer) may be NULL or all-0s to represent None
 	 */
 	public ChannelUpdateInfo get_directional_info(byte channel_flags) {
-		long ret = bindings.ChannelInfo_get_directional_info(this.ptr, channel_flags);
+		long ret = Bindings.ChannelInfoGetDirectionalInfo(this.ptr, channel_flags);
 		GC.KeepAlive(this);
 		GC.KeepAlive(channel_flags);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -242,7 +242,7 @@ public class ChannelInfo : CommonBase {
 	 * Serialize the ChannelInfo object into a byte array which can be read by ChannelInfo_read
 	 */
 	public byte[] write() {
-		long ret = bindings.ChannelInfo_write(this.ptr);
+		long ret = Bindings.ChannelInfoWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -253,7 +253,7 @@ public class ChannelInfo : CommonBase {
 	 * Read a ChannelInfo from a byte array, created by ChannelInfo_write
 	 */
 	public static Result_ChannelInfoDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.ChannelInfo_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.ChannelInfoRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_ChannelInfoDecodeErrorZ ret_hu_conv = Result_ChannelInfoDecodeErrorZ.constr_from_ptr(ret);

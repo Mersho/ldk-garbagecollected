@@ -43,14 +43,14 @@ namespace org { namespace ldk { namespace structs {
 public class ChannelManagerReadArgs : CommonBase {
 	internal ChannelManagerReadArgs(object _dummy, long ptr) : base(ptr) { }
 	~ChannelManagerReadArgs() {
-		if (ptr != 0) { bindings.ChannelManagerReadArgs_free(ptr); }
+		if (ptr != 0) { Bindings.ChannelManagerReadArgsFree(ptr); }
 	}
 
 	/**
 	 * A cryptographically secure source of entropy.
 	 */
 	public EntropySource get_entropy_source() {
-		long ret = bindings.ChannelManagerReadArgs_get_entropy_source(this.ptr);
+		long ret = Bindings.ChannelManagerReadArgsGetEntropySource(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		EntropySource ret_hu_conv = new EntropySource(null, ret);
@@ -62,7 +62,7 @@ public class ChannelManagerReadArgs : CommonBase {
 	 * A cryptographically secure source of entropy.
 	 */
 	public void set_entropy_source(org.ldk.structs.EntropySource val) {
-		bindings.ChannelManagerReadArgs_set_entropy_source(this.ptr, val.ptr);
+		Bindings.ChannelManagerReadArgsSetEntropySource(this.ptr, val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -72,7 +72,7 @@ public class ChannelManagerReadArgs : CommonBase {
 	 * A signer that is able to perform node-scoped cryptographic operations.
 	 */
 	public NodeSigner get_node_signer() {
-		long ret = bindings.ChannelManagerReadArgs_get_node_signer(this.ptr);
+		long ret = Bindings.ChannelManagerReadArgsGetNodeSigner(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		NodeSigner ret_hu_conv = new NodeSigner(null, ret);
@@ -84,7 +84,7 @@ public class ChannelManagerReadArgs : CommonBase {
 	 * A signer that is able to perform node-scoped cryptographic operations.
 	 */
 	public void set_node_signer(org.ldk.structs.NodeSigner val) {
-		bindings.ChannelManagerReadArgs_set_node_signer(this.ptr, val.ptr);
+		Bindings.ChannelManagerReadArgsSetNodeSigner(this.ptr, val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -96,7 +96,7 @@ public class ChannelManagerReadArgs : CommonBase {
 	 * signing data.
 	 */
 	public SignerProvider get_signer_provider() {
-		long ret = bindings.ChannelManagerReadArgs_get_signer_provider(this.ptr);
+		long ret = Bindings.ChannelManagerReadArgsGetSignerProvider(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		SignerProvider ret_hu_conv = new SignerProvider(null, ret);
@@ -110,7 +110,7 @@ public class ChannelManagerReadArgs : CommonBase {
 	 * signing data.
 	 */
 	public void set_signer_provider(org.ldk.structs.SignerProvider val) {
-		bindings.ChannelManagerReadArgs_set_signer_provider(this.ptr, val.ptr);
+		Bindings.ChannelManagerReadArgsSetSignerProvider(this.ptr, val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -122,7 +122,7 @@ public class ChannelManagerReadArgs : CommonBase {
 	 * No calls to the FeeEstimator will be made during deserialization.
 	 */
 	public FeeEstimator get_fee_estimator() {
-		long ret = bindings.ChannelManagerReadArgs_get_fee_estimator(this.ptr);
+		long ret = Bindings.ChannelManagerReadArgsGetFeeEstimator(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		FeeEstimator ret_hu_conv = new FeeEstimator(null, ret);
@@ -136,7 +136,7 @@ public class ChannelManagerReadArgs : CommonBase {
 	 * No calls to the FeeEstimator will be made during deserialization.
 	 */
 	public void set_fee_estimator(org.ldk.structs.FeeEstimator val) {
-		bindings.ChannelManagerReadArgs_set_fee_estimator(this.ptr, val.ptr);
+		Bindings.ChannelManagerReadArgsSetFeeEstimator(this.ptr, val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -150,7 +150,7 @@ public class ChannelManagerReadArgs : CommonBase {
 	 * chain::Watch after deserializing this ChannelManager.
 	 */
 	public Watch get_chain_monitor() {
-		long ret = bindings.ChannelManagerReadArgs_get_chain_monitor(this.ptr);
+		long ret = Bindings.ChannelManagerReadArgsGetChainMonitor(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Watch ret_hu_conv = new Watch(null, ret);
@@ -166,7 +166,7 @@ public class ChannelManagerReadArgs : CommonBase {
 	 * chain::Watch after deserializing this ChannelManager.
 	 */
 	public void set_chain_monitor(org.ldk.structs.Watch val) {
-		bindings.ChannelManagerReadArgs_set_chain_monitor(this.ptr, val.ptr);
+		Bindings.ChannelManagerReadArgsSetChainMonitor(this.ptr, val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -178,7 +178,7 @@ public class ChannelManagerReadArgs : CommonBase {
 	 * force-closed during deserialization.
 	 */
 	public BroadcasterInterface get_tx_broadcaster() {
-		long ret = bindings.ChannelManagerReadArgs_get_tx_broadcaster(this.ptr);
+		long ret = Bindings.ChannelManagerReadArgsGetTxBroadcaster(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		BroadcasterInterface ret_hu_conv = new BroadcasterInterface(null, ret);
@@ -192,7 +192,7 @@ public class ChannelManagerReadArgs : CommonBase {
 	 * force-closed during deserialization.
 	 */
 	public void set_tx_broadcaster(org.ldk.structs.BroadcasterInterface val) {
-		bindings.ChannelManagerReadArgs_set_tx_broadcaster(this.ptr, val.ptr);
+		Bindings.ChannelManagerReadArgsSetTxBroadcaster(this.ptr, val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -205,7 +205,7 @@ public class ChannelManagerReadArgs : CommonBase {
 	 * No calls to the router will be made during deserialization.
 	 */
 	public Router get_router() {
-		long ret = bindings.ChannelManagerReadArgs_get_router(this.ptr);
+		long ret = Bindings.ChannelManagerReadArgsGetRouter(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Router ret_hu_conv = new Router(null, ret);
@@ -220,7 +220,7 @@ public class ChannelManagerReadArgs : CommonBase {
 	 * No calls to the router will be made during deserialization.
 	 */
 	public void set_router(org.ldk.structs.Router val) {
-		bindings.ChannelManagerReadArgs_set_router(this.ptr, val.ptr);
+		Bindings.ChannelManagerReadArgsSetRouter(this.ptr, val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -231,7 +231,7 @@ public class ChannelManagerReadArgs : CommonBase {
 	 * deserialization.
 	 */
 	public Logger get_logger() {
-		long ret = bindings.ChannelManagerReadArgs_get_logger(this.ptr);
+		long ret = Bindings.ChannelManagerReadArgsGetLogger(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Logger ret_hu_conv = new Logger(null, ret);
@@ -244,7 +244,7 @@ public class ChannelManagerReadArgs : CommonBase {
 	 * deserialization.
 	 */
 	public void set_logger(org.ldk.structs.Logger val) {
-		bindings.ChannelManagerReadArgs_set_logger(this.ptr, val.ptr);
+		Bindings.ChannelManagerReadArgsSetLogger(this.ptr, val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -255,7 +255,7 @@ public class ChannelManagerReadArgs : CommonBase {
 	 * runtime settings which were stored when the ChannelManager was serialized.
 	 */
 	public UserConfig get_default_config() {
-		long ret = bindings.ChannelManagerReadArgs_get_default_config(this.ptr);
+		long ret = Bindings.ChannelManagerReadArgsGetDefaultConfig(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.UserConfig ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.UserConfig(null, ret); }
@@ -268,7 +268,7 @@ public class ChannelManagerReadArgs : CommonBase {
 	 * runtime settings which were stored when the ChannelManager was serialized.
 	 */
 	public void set_default_config(org.ldk.structs.UserConfig val) {
-		bindings.ChannelManagerReadArgs_set_default_config(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.ChannelManagerReadArgsSetDefaultConfig(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -280,7 +280,7 @@ public class ChannelManagerReadArgs : CommonBase {
 	 * populate a HashMap directly from C.
 	 */
 	public static ChannelManagerReadArgs of(org.ldk.structs.EntropySource entropy_source, org.ldk.structs.NodeSigner node_signer, org.ldk.structs.SignerProvider signer_provider, org.ldk.structs.FeeEstimator fee_estimator, org.ldk.structs.Watch chain_monitor, org.ldk.structs.BroadcasterInterface tx_broadcaster, org.ldk.structs.Router router, org.ldk.structs.Logger logger, org.ldk.structs.UserConfig default_config, ChannelMonitor[] channel_monitors) {
-		long ret = bindings.ChannelManagerReadArgs_new(entropy_source.ptr, node_signer.ptr, signer_provider.ptr, fee_estimator.ptr, chain_monitor.ptr, tx_broadcaster.ptr, router.ptr, logger.ptr, default_config == null ? 0 : default_config.ptr, InternalUtils.encodeUint64Array(InternalUtils.mapArray(channel_monitors, channel_monitors_conv_16 => channel_monitors_conv_16 == null ? 0 : channel_monitors_conv_16.ptr)));
+		long ret = Bindings.ChannelManagerReadArgsNew(entropy_source.ptr, node_signer.ptr, signer_provider.ptr, fee_estimator.ptr, chain_monitor.ptr, tx_broadcaster.ptr, router.ptr, logger.ptr, default_config == null ? 0 : default_config.ptr, InternalUtils.encodeUint64Array(InternalUtils.mapArray(channel_monitors, channel_monitors_conv_16 => channel_monitors_conv_16 == null ? 0 : channel_monitors_conv_16.ptr)));
 		GC.KeepAlive(entropy_source);
 		GC.KeepAlive(node_signer);
 		GC.KeepAlive(signer_provider);

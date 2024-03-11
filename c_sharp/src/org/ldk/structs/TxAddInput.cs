@@ -12,14 +12,14 @@ namespace org { namespace ldk { namespace structs {
 public class TxAddInput : CommonBase {
 	internal TxAddInput(object _dummy, long ptr) : base(ptr) { }
 	~TxAddInput() {
-		if (ptr != 0) { bindings.TxAddInput_free(ptr); }
+		if (ptr != 0) { Bindings.TxAddInputFree(ptr); }
 	}
 
 	/**
 	 * The channel ID
 	 */
 	public byte[] get_channel_id() {
-		long ret = bindings.TxAddInput_get_channel_id(this.ptr);
+		long ret = Bindings.TxAddInputGetChannelId(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -30,7 +30,7 @@ public class TxAddInput : CommonBase {
 	 * The channel ID
 	 */
 	public void set_channel_id(byte[] val) {
-		bindings.TxAddInput_set_channel_id(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
+		Bindings.TxAddInputSetChannelId(this.ptr, InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(val, 32)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -40,7 +40,7 @@ public class TxAddInput : CommonBase {
 	 * non-initiators.
 	 */
 	public long get_serial_id() {
-		long ret = bindings.TxAddInput_get_serial_id(this.ptr);
+		long ret = Bindings.TxAddInputGetSerialId(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -50,7 +50,7 @@ public class TxAddInput : CommonBase {
 	 * non-initiators.
 	 */
 	public void set_serial_id(long val) {
-		bindings.TxAddInput_set_serial_id(this.ptr, val);
+		Bindings.TxAddInputSetSerialId(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -60,7 +60,7 @@ public class TxAddInput : CommonBase {
 	 * malleable.
 	 */
 	public TransactionU16LenLimited get_prevtx() {
-		long ret = bindings.TxAddInput_get_prevtx(this.ptr);
+		long ret = Bindings.TxAddInputGetPrevtx(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.TransactionU16LenLimited ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.TransactionU16LenLimited(null, ret); }
@@ -73,7 +73,7 @@ public class TxAddInput : CommonBase {
 	 * malleable.
 	 */
 	public void set_prevtx(org.ldk.structs.TransactionU16LenLimited val) {
-		bindings.TxAddInput_set_prevtx(this.ptr, val == null ? 0 : val.ptr);
+		Bindings.TxAddInputSetPrevtx(this.ptr, val == null ? 0 : val.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 		if (this != null) { this.ptrs_to.AddLast(val); };
@@ -83,7 +83,7 @@ public class TxAddInput : CommonBase {
 	 * The index of the output being spent
 	 */
 	public int get_prevtx_out() {
-		int ret = bindings.TxAddInput_get_prevtx_out(this.ptr);
+		int ret = Bindings.TxAddInputGetPrevtxOut(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -92,7 +92,7 @@ public class TxAddInput : CommonBase {
 	 * The index of the output being spent
 	 */
 	public void set_prevtx_out(int val) {
-		bindings.TxAddInput_set_prevtx_out(this.ptr, val);
+		Bindings.TxAddInputSetPrevtxOut(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -101,7 +101,7 @@ public class TxAddInput : CommonBase {
 	 * The sequence number of this input
 	 */
 	public int get_sequence() {
-		int ret = bindings.TxAddInput_get_sequence(this.ptr);
+		int ret = Bindings.TxAddInputGetSequence(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -110,7 +110,7 @@ public class TxAddInput : CommonBase {
 	 * The sequence number of this input
 	 */
 	public void set_sequence(int val) {
-		bindings.TxAddInput_set_sequence(this.ptr, val);
+		Bindings.TxAddInputSetSequence(this.ptr, val);
 		GC.KeepAlive(this);
 		GC.KeepAlive(val);
 	}
@@ -119,7 +119,7 @@ public class TxAddInput : CommonBase {
 	 * Constructs a new TxAddInput given each field
 	 */
 	public static TxAddInput of(byte[] channel_id_arg, long serial_id_arg, org.ldk.structs.TransactionU16LenLimited prevtx_arg, int prevtx_out_arg, int sequence_arg) {
-		long ret = bindings.TxAddInput_new(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(channel_id_arg, 32)), serial_id_arg, prevtx_arg == null ? 0 : prevtx_arg.ptr, prevtx_out_arg, sequence_arg);
+		long ret = Bindings.TxAddInputNew(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(channel_id_arg, 32)), serial_id_arg, prevtx_arg == null ? 0 : prevtx_arg.ptr, prevtx_out_arg, sequence_arg);
 		GC.KeepAlive(channel_id_arg);
 		GC.KeepAlive(serial_id_arg);
 		GC.KeepAlive(prevtx_arg);
@@ -133,7 +133,7 @@ public class TxAddInput : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.TxAddInput_clone_ptr(this.ptr);
+		long ret = Bindings.TxAddInputClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -142,7 +142,7 @@ public class TxAddInput : CommonBase {
 	 * Creates a copy of the TxAddInput
 	 */
 	public TxAddInput clone() {
-		long ret = bindings.TxAddInput_clone(this.ptr);
+		long ret = Bindings.TxAddInputClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.TxAddInput ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.TxAddInput(null, ret); }
@@ -154,7 +154,7 @@ public class TxAddInput : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the TxAddInput.
 	 */
 	public long hash() {
-		long ret = bindings.TxAddInput_hash(this.ptr);
+		long ret = Bindings.TxAddInputHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -168,7 +168,7 @@ public class TxAddInput : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.TxAddInput b) {
-		bool ret = bindings.TxAddInput_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.TxAddInputEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };
@@ -183,7 +183,7 @@ public class TxAddInput : CommonBase {
 	 * Serialize the TxAddInput object into a byte array which can be read by TxAddInput_read
 	 */
 	public byte[] write() {
-		long ret = bindings.TxAddInput_write(this.ptr);
+		long ret = Bindings.TxAddInputWrite(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		byte[] ret_conv = InternalUtils.decodeUint8Array(ret);
@@ -194,7 +194,7 @@ public class TxAddInput : CommonBase {
 	 * Read a TxAddInput from a byte array, created by TxAddInput_write
 	 */
 	public static Result_TxAddInputDecodeErrorZ read(byte[] ser) {
-		long ret = bindings.TxAddInput_read(InternalUtils.encodeUint8Array(ser));
+		long ret = Bindings.TxAddInputRead(InternalUtils.encodeUint8Array(ser));
 		GC.KeepAlive(ser);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_TxAddInputDecodeErrorZ ret_hu_conv = Result_TxAddInputDecodeErrorZ.constr_from_ptr(ret);

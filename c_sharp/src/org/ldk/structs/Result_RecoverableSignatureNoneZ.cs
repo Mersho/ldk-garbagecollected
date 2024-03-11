@@ -8,11 +8,11 @@ namespace org { namespace ldk { namespace structs {
 public class Result_RecoverableSignatureNoneZ : CommonBase {
 	Result_RecoverableSignatureNoneZ(object _dummy, long ptr) : base(ptr) { }
 	~Result_RecoverableSignatureNoneZ() {
-		if (ptr != 0) { bindings.CResult_RecoverableSignatureNoneZ_free(ptr); }
+		if (ptr != 0) { Bindings.CResultRecoverableSignatureNoneZFree(ptr); }
 	}
 
 	internal static Result_RecoverableSignatureNoneZ constr_from_ptr(long ptr) {
-		if (bindings.CResult_RecoverableSignatureNoneZ_is_ok(ptr)) {
+		if (Bindings.CResultRecoverableSignatureNoneZIsOk(ptr)) {
 			return new Result_RecoverableSignatureNoneZ_OK(null, ptr);
 		} else {
 			return new Result_RecoverableSignatureNoneZ_Err(null, ptr);
@@ -21,7 +21,7 @@ public class Result_RecoverableSignatureNoneZ : CommonBase {
 	public class Result_RecoverableSignatureNoneZ_OK : Result_RecoverableSignatureNoneZ {
 		public readonly byte[] res;
 		internal Result_RecoverableSignatureNoneZ_OK(object _dummy, long ptr) : base(_dummy, ptr) {
-			long res = bindings.CResult_RecoverableSignatureNoneZ_get_ok(ptr);
+			long res = Bindings.CResultRecoverableSignatureNoneZGetOk(ptr);
 			byte[] res_conv = InternalUtils.decodeUint8Array(res);
 			this.res = res_conv;
 		}
@@ -36,7 +36,7 @@ public class Result_RecoverableSignatureNoneZ : CommonBase {
 	 * Creates a new CResult_RecoverableSignatureNoneZ in the success state.
 	 */
 	public static Result_RecoverableSignatureNoneZ ok(byte[] o) {
-		long ret = bindings.CResult_RecoverableSignatureNoneZ_ok(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(o, 68)));
+		long ret = Bindings.CResultRecoverableSignatureNoneZOk(InternalUtils.encodeUint8Array(InternalUtils.check_arr_len(o, 68)));
 		GC.KeepAlive(o);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_RecoverableSignatureNoneZ ret_hu_conv = Result_RecoverableSignatureNoneZ.constr_from_ptr(ret);
@@ -47,7 +47,7 @@ public class Result_RecoverableSignatureNoneZ : CommonBase {
 	 * Creates a new CResult_RecoverableSignatureNoneZ in the error state.
 	 */
 	public static Result_RecoverableSignatureNoneZ err() {
-		long ret = bindings.CResult_RecoverableSignatureNoneZ_err();
+		long ret = Bindings.CResultRecoverableSignatureNoneZErr();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_RecoverableSignatureNoneZ ret_hu_conv = Result_RecoverableSignatureNoneZ.constr_from_ptr(ret);
 		return ret_hu_conv;
@@ -57,13 +57,13 @@ public class Result_RecoverableSignatureNoneZ : CommonBase {
 	 * Checks if the given object is currently in the success state
 	 */
 	public bool is_ok() {
-		bool ret = bindings.CResult_RecoverableSignatureNoneZ_is_ok(this.ptr);
+		bool ret = Bindings.CResultRecoverableSignatureNoneZIsOk(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.CResult_RecoverableSignatureNoneZ_clone_ptr(this.ptr);
+		long ret = Bindings.CResultRecoverableSignatureNoneZClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -73,7 +73,7 @@ public class Result_RecoverableSignatureNoneZ : CommonBase {
 	 * but with all dynamically-allocated buffers duplicated in new buffers.
 	 */
 	public Result_RecoverableSignatureNoneZ clone() {
-		long ret = bindings.CResult_RecoverableSignatureNoneZ_clone(this.ptr);
+		long ret = Bindings.CResultRecoverableSignatureNoneZClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Result_RecoverableSignatureNoneZ ret_hu_conv = Result_RecoverableSignatureNoneZ.constr_from_ptr(ret);

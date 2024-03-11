@@ -27,7 +27,7 @@ namespace org { namespace ldk { namespace structs {
 public class ChainMonitor : CommonBase {
 	internal ChainMonitor(object _dummy, long ptr) : base(ptr) { }
 	~ChainMonitor() {
-		if (ptr != 0) { bindings.ChainMonitor_free(ptr); }
+		if (ptr != 0) { Bindings.ChainMonitorFree(ptr); }
 	}
 
 	/**
@@ -40,7 +40,7 @@ public class ChainMonitor : CommonBase {
 	 * transactions relevant to the watched channels.
 	 */
 	public static ChainMonitor of(org.ldk.structs.Option_FilterZ chain_source, org.ldk.structs.BroadcasterInterface broadcaster, org.ldk.structs.Logger logger, org.ldk.structs.FeeEstimator feeest, org.ldk.structs.Persist persister) {
-		long ret = bindings.ChainMonitor_new(chain_source.ptr, broadcaster.ptr, logger.ptr, feeest.ptr, persister.ptr);
+		long ret = Bindings.ChainMonitorNew(chain_source.ptr, broadcaster.ptr, logger.ptr, feeest.ptr, persister.ptr);
 		GC.KeepAlive(chain_source);
 		GC.KeepAlive(broadcaster);
 		GC.KeepAlive(logger);
@@ -69,7 +69,7 @@ public class ChainMonitor : CommonBase {
 	 * inclusion in the return value.
 	 */
 	public Balance[] get_claimable_balances(ChannelDetails[] ignored_channels) {
-		long ret = bindings.ChainMonitor_get_claimable_balances(this.ptr, InternalUtils.encodeUint64Array(InternalUtils.mapArray(ignored_channels, ignored_channels_conv_16 => ignored_channels_conv_16 == null ? 0 : ignored_channels_conv_16.ptr)));
+		long ret = Bindings.ChainMonitorGetClaimableBalances(this.ptr, InternalUtils.encodeUint64Array(InternalUtils.mapArray(ignored_channels, ignored_channels_conv_16 => ignored_channels_conv_16 == null ? 0 : ignored_channels_conv_16.ptr)));
 		GC.KeepAlive(this);
 		GC.KeepAlive(ignored_channels);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -81,7 +81,7 @@ public class ChainMonitor : CommonBase {
 			if (ret_conv_9_hu_conv != null) { ret_conv_9_hu_conv.ptrs_to.AddLast(this); };
 			ret_conv_9_arr[j] = ret_conv_9_hu_conv;
 		}
-		bindings.free_buffer(ret);
+		Bindings.FreeBuffer(ret);
 		foreach (ChannelDetails ignored_channels_conv_16 in ignored_channels) { if (this != null) { this.ptrs_to.AddLast(ignored_channels_conv_16); }; };
 		return ret_conv_9_arr;
 	}
@@ -94,7 +94,7 @@ public class ChainMonitor : CommonBase {
 	 * indefinitely.
 	 */
 	public Result_LockedChannelMonitorNoneZ get_monitor(org.ldk.structs.OutPoint funding_txo) {
-		long ret = bindings.ChainMonitor_get_monitor(this.ptr, funding_txo == null ? 0 : funding_txo.ptr);
+		long ret = Bindings.ChainMonitorGetMonitor(this.ptr, funding_txo == null ? 0 : funding_txo.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(funding_txo);
 		if (ret >= 0 && ret <= 4096) { return null; }
@@ -110,7 +110,7 @@ public class ChainMonitor : CommonBase {
 	 * monitoring for on-chain state resolutions.
 	 */
 	public OutPoint[] list_monitors() {
-		long ret = bindings.ChainMonitor_list_monitors(this.ptr);
+		long ret = Bindings.ChainMonitorListMonitors(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		int ret_conv_10_len = InternalUtils.getArrayLength(ret);
@@ -121,7 +121,7 @@ public class ChainMonitor : CommonBase {
 			if (ret_conv_10_hu_conv != null) { ret_conv_10_hu_conv.ptrs_to.AddLast(this); };
 			ret_conv_10_arr[k] = ret_conv_10_hu_conv;
 		}
-		bindings.free_buffer(ret);
+		Bindings.FreeBuffer(ret);
 		return ret_conv_10_arr;
 	}
 
@@ -129,7 +129,7 @@ public class ChainMonitor : CommonBase {
 	 * Lists the pending updates for each [`ChannelMonitor`] (by `OutPoint` being monitored).
 	 */
 	public TwoTuple_OutPointCVec_MonitorUpdateIdZZ[] list_pending_monitor_updates() {
-		long ret = bindings.ChainMonitor_list_pending_monitor_updates(this.ptr);
+		long ret = Bindings.ChainMonitorListPendingMonitorUpdates(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		int ret_conv_41_len = InternalUtils.getArrayLength(ret);
@@ -140,7 +140,7 @@ public class ChainMonitor : CommonBase {
 			if (ret_conv_41_hu_conv != null) { ret_conv_41_hu_conv.ptrs_to.AddLast(this); };
 			ret_conv_41_arr[p] = ret_conv_41_hu_conv;
 		}
-		bindings.free_buffer(ret);
+		Bindings.FreeBuffer(ret);
 		return ret_conv_41_arr;
 	}
 
@@ -160,7 +160,7 @@ public class ChainMonitor : CommonBase {
 	 * registered [`ChannelMonitor`]s.
 	 */
 	public Result_NoneAPIErrorZ channel_monitor_updated(org.ldk.structs.OutPoint funding_txo, org.ldk.structs.MonitorUpdateId completed_update_id) {
-		long ret = bindings.ChainMonitor_channel_monitor_updated(this.ptr, funding_txo == null ? 0 : funding_txo.ptr, completed_update_id == null ? 0 : completed_update_id.ptr);
+		long ret = Bindings.ChainMonitorChannelMonitorUpdated(this.ptr, funding_txo == null ? 0 : funding_txo.ptr, completed_update_id == null ? 0 : completed_update_id.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(funding_txo);
 		GC.KeepAlive(completed_update_id);
@@ -182,7 +182,7 @@ public class ChainMonitor : CommonBase {
 	 * [`EventsProvider::process_pending_events`]: crate::events::EventsProvider::process_pending_events
 	 */
 	public Future get_update_future() {
-		long ret = bindings.ChainMonitor_get_update_future(this.ptr);
+		long ret = Bindings.ChainMonitorGetUpdateFuture(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Future ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.Future(null, ret); }
@@ -198,7 +198,7 @@ public class ChainMonitor : CommonBase {
 	 * connections, like on mobile.
 	 */
 	public void rebroadcast_pending_claims() {
-		bindings.ChainMonitor_rebroadcast_pending_claims(this.ptr);
+		Bindings.ChainMonitorRebroadcastPendingClaims(this.ptr);
 		GC.KeepAlive(this);
 	}
 
@@ -207,7 +207,7 @@ public class ChainMonitor : CommonBase {
 	 * This copies the `inner` pointer in this_arg and thus the returned Listen must be freed before this_arg is
 	 */
 	public Listen as_Listen() {
-		long ret = bindings.ChainMonitor_as_Listen(this.ptr);
+		long ret = Bindings.ChainMonitorAsListen(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Listen ret_hu_conv = new Listen(null, ret);
@@ -220,7 +220,7 @@ public class ChainMonitor : CommonBase {
 	 * This copies the `inner` pointer in this_arg and thus the returned Confirm must be freed before this_arg is
 	 */
 	public Confirm as_Confirm() {
-		long ret = bindings.ChainMonitor_as_Confirm(this.ptr);
+		long ret = Bindings.ChainMonitorAsConfirm(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Confirm ret_hu_conv = new Confirm(null, ret);
@@ -233,7 +233,7 @@ public class ChainMonitor : CommonBase {
 	 * This copies the `inner` pointer in this_arg and thus the returned Watch must be freed before this_arg is
 	 */
 	public Watch as_Watch() {
-		long ret = bindings.ChainMonitor_as_Watch(this.ptr);
+		long ret = Bindings.ChainMonitorAsWatch(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		Watch ret_hu_conv = new Watch(null, ret);
@@ -246,7 +246,7 @@ public class ChainMonitor : CommonBase {
 	 * This copies the `inner` pointer in this_arg and thus the returned EventsProvider must be freed before this_arg is
 	 */
 	public EventsProvider as_EventsProvider() {
-		long ret = bindings.ChainMonitor_as_EventsProvider(this.ptr);
+		long ret = Bindings.ChainMonitorAsEventsProvider(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		EventsProvider ret_hu_conv = new EventsProvider(null, ret);

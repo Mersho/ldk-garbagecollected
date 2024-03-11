@@ -12,11 +12,11 @@ namespace org { namespace ldk { namespace structs {
 public class MonitorUpdateId : CommonBase {
 	internal MonitorUpdateId(object _dummy, long ptr) : base(ptr) { }
 	~MonitorUpdateId() {
-		if (ptr != 0) { bindings.MonitorUpdateId_free(ptr); }
+		if (ptr != 0) { Bindings.MonitorUpdateIdFree(ptr); }
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.MonitorUpdateId_clone_ptr(this.ptr);
+		long ret = Bindings.MonitorUpdateIdClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -25,7 +25,7 @@ public class MonitorUpdateId : CommonBase {
 	 * Creates a copy of the MonitorUpdateId
 	 */
 	public MonitorUpdateId clone() {
-		long ret = bindings.MonitorUpdateId_clone(this.ptr);
+		long ret = Bindings.MonitorUpdateIdClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.MonitorUpdateId ret_hu_conv = null; if (ret < 0 || ret > 4096) { ret_hu_conv = new org.ldk.structs.MonitorUpdateId(null, ret); }
@@ -37,7 +37,7 @@ public class MonitorUpdateId : CommonBase {
 	 * Generates a non-cryptographic 64-bit hash of the MonitorUpdateId.
 	 */
 	public long hash() {
-		long ret = bindings.MonitorUpdateId_hash(this.ptr);
+		long ret = Bindings.MonitorUpdateIdHash(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -51,7 +51,7 @@ public class MonitorUpdateId : CommonBase {
 	 * Two objects with NULL inner values will be considered "equal" here.
 	 */
 	public bool eq(org.ldk.structs.MonitorUpdateId b) {
-		bool ret = bindings.MonitorUpdateId_eq(this.ptr, b == null ? 0 : b.ptr);
+		bool ret = Bindings.MonitorUpdateIdEq(this.ptr, b == null ? 0 : b.ptr);
 		GC.KeepAlive(this);
 		GC.KeepAlive(b);
 		if (this != null) { this.ptrs_to.AddLast(b); };

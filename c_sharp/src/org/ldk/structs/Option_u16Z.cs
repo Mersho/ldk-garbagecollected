@@ -11,11 +11,11 @@ namespace org { namespace ldk { namespace structs {
 public class Option_u16Z : CommonBase {
 	protected Option_u16Z(object _dummy, long ptr) : base(ptr) { }
 	~Option_u16Z() {
-		if (ptr != 0) { bindings.COption_u16Z_free(ptr); }
+		if (ptr != 0) { Bindings.COptionU16ZFree(ptr); }
 	}
 
 	internal static Option_u16Z constr_from_ptr(long ptr) {
-		long raw_ty = bindings.LDKCOption_u16Z_ty_from_ptr(ptr);
+		long raw_ty = Bindings.LDKCOptionU16ZTyFromPtr(ptr);
 		switch (raw_ty) {
 			case 0: return new Option_u16Z_Some(ptr);
 			case 1: return new Option_u16Z_None(ptr);
@@ -28,7 +28,7 @@ public class Option_u16Z : CommonBase {
 	public class Option_u16Z_Some : Option_u16Z {
 		public short some;
 		internal Option_u16Z_Some(long ptr) : base(null, ptr) {
-			this.some = bindings.LDKCOption_u16Z_Some_get_some(ptr);
+			this.some = Bindings.LDKCOptionU16ZSomeGetSome(ptr);
 		}
 	}
 	/** A Option_u16Z of type None */
@@ -40,7 +40,7 @@ public class Option_u16Z : CommonBase {
 	 * Constructs a new COption_u16Z containing a u16
 	 */
 	public static Option_u16Z some(short o) {
-		long ret = bindings.COption_u16Z_some(o);
+		long ret = Bindings.COptionU16ZSome(o);
 		GC.KeepAlive(o);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_u16Z ret_hu_conv = org.ldk.structs.Option_u16Z.constr_from_ptr(ret);
@@ -52,7 +52,7 @@ public class Option_u16Z : CommonBase {
 	 * Constructs a new COption_u16Z containing nothing
 	 */
 	public static Option_u16Z none() {
-		long ret = bindings.COption_u16Z_none();
+		long ret = Bindings.COptionU16ZNone();
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_u16Z ret_hu_conv = org.ldk.structs.Option_u16Z.constr_from_ptr(ret);
 		if (ret_hu_conv != null) { ret_hu_conv.ptrs_to.AddLast(ret_hu_conv); };
@@ -60,7 +60,7 @@ public class Option_u16Z : CommonBase {
 	}
 
 	internal long clone_ptr() {
-		long ret = bindings.COption_u16Z_clone_ptr(this.ptr);
+		long ret = Bindings.COptionU16ZClonePtr(this.ptr);
 		GC.KeepAlive(this);
 		return ret;
 	}
@@ -70,7 +70,7 @@ public class Option_u16Z : CommonBase {
 	 * but with all dynamically-allocated buffers duplicated in new buffers.
 	 */
 	public Option_u16Z clone() {
-		long ret = bindings.COption_u16Z_clone(this.ptr);
+		long ret = Bindings.COptionU16ZClone(this.ptr);
 		GC.KeepAlive(this);
 		if (ret >= 0 && ret <= 4096) { return null; }
 		org.ldk.structs.Option_u16Z ret_hu_conv = org.ldk.structs.Option_u16Z.constr_from_ptr(ret);
