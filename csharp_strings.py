@@ -979,12 +979,11 @@ public class {struct_name_pascal.replace("LDK","")} : CommonBase {{
                     out_c += "\tuint64_t ret = js_invoke_function_" + fn_suffix + "(j_calls->instance_ptr, " + str(self.function_ptr_counter)
 
                 if fn_suffix not in self.function_ptrs:
-                    fn_suffix_pascal = snake_to_pascal(fn_suffix)
                     caller_ret_c_ty = fn_line.ret_ty_info.c_ty
                     if fn_line.ret_ty_info.c_ty.endswith("Array") or fn_line.ret_ty_info.c_ty == "jstring":
                         caller_ret_c_ty = "int64_t"
-                    self.function_ptrs[fn_suffix_pascal] = {"args": [fn_java_callback_args, fn_c_callback_args], "ret": [fn_line.ret_ty_info.java_ty, caller_ret_c_ty]}
-                self.function_ptrs[fn_suffix_pascal][self.function_ptr_counter] = (struct_name, fn_line.fn_name, fn_callback_call_args)
+                    self.function_ptrs[fn_suffix] = {"args": [fn_java_callback_args, fn_c_callback_args], "ret": [fn_line.ret_ty_info.java_ty, caller_ret_c_ty]}
+                self.function_ptrs[fn_suffix][self.function_ptr_counter] = (struct_name, fn_line.fn_name, fn_callback_call_args)
                 self.function_ptr_counter += 1
 
                 for idx, arg_info in enumerate(fn_line.args_ty):
@@ -1478,9 +1477,9 @@ public class {struct_name_pascal.replace("LDK","")} : CommonBase {{
 	public delegate {jret} {fn_suffix}Callback(int obj_ptr, int fn_id{jargs});
 	static {fn_suffix}Callback {fn_suffix}CallbackInst = CCallback{fn_suffix};
 """)
-                bindings.write(self.native_meth_decl(f"Register{fn_suffix}Invoker", "int") + f"({fn_suffix}Callback callee);\n")
+                bindings.write(self.native_meth_decl(f"Register{snake_to_pascal(fn_suffix)}Invoker", "int") + f"({fn_suffix}Callback callee);\n")
                 # Easiest way to get a static run is just define a variable, even if we dont care
-                bindings.write(f"\tstatic int _run_{fn_suffix}_registration = Register{fn_suffix}Invoker({fn_suffix}CallbackInst);")
+                bindings.write(f"\tstatic int _run_{fn_suffix}_registration = Register{snake_to_pascal(fn_suffix)}Invoker({fn_suffix}CallbackInst);")
 
             bindings.write("""
 }
