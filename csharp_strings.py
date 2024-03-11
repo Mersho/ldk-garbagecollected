@@ -1437,16 +1437,18 @@ public class {struct_name_pascal.replace("LDK","")} : CommonBase {{
                 jret = self.function_ptrs[fn_suffix]["ret"][0]
                 jargs = self.function_ptrs[fn_suffix]["args"][0]
 
+                fn_suffix_pascal = snake_to_pascal(fn_suffix)
+
                 bindings.write(f"""
-	static {jret} CCallback{fn_suffix}(int obj_ptr, int fn_id{jargs}) {{
+	static {jret} CCallback{fn_suffix_pascal}(int obj_ptr, int fn_id{jargs}) {{
 		if (obj_ptr >= js_objs.Count) {{
-			Console.Error.WriteLine("Got function call on unknown/free'd JS object in {fn_suffix}");
+			Console.Error.WriteLine("Got function call on unknown/free'd JS object in {fn_suffix_pascal}");
 			Console.Error.Flush();
 			Environment.Exit(42);
 		}}
 		object obj = js_objs[obj_ptr].Target;
 		if (obj == null) {{
-			Console.Error.WriteLine("Got function call on GC'd JS object in {fn_suffix}");
+			Console.Error.WriteLine("Got function call on GC'd JS object in {fn_suffix_pascal}");
 			Console.Error.Flush();
 			Environment.Exit(43);
 		}}
@@ -1468,18 +1470,18 @@ public class {struct_name_pascal.replace("LDK","")} : CommonBase {{
                         bindings.write("\n")
 
                 bindings.write(f"""\t\t\tdefault:
-				Console.Error.WriteLine("Got unknown function call with id " + fn_id + " from C in {fn_suffix}");
+				Console.Error.WriteLine("Got unknown function call with id " + fn_id + " from C in {fn_suffix_pascal}");
 				Console.Error.Flush();
 				Environment.Exit(45);
 				return{" false" if jret == "bool" else " 0" if jret != "void" else ""};
 		}}
 	}}
-	public delegate {jret} {fn_suffix}Callback(int obj_ptr, int fn_id{jargs});
-	static {fn_suffix}Callback {fn_suffix}CallbackInst = CCallback{fn_suffix};
+	public delegate {jret} {fn_suffix_pascal}Callback(int obj_ptr, int fn_id{jargs});
+	static {fn_suffix_pascal}Callback {fn_suffix_pascal}CallbackInst = CCallback{fn_suffix_pascal};
 """)
-                bindings.write(self.native_meth_decl(f"Register{snake_to_pascal(fn_suffix)}Invoker", "int") + f"({fn_suffix}Callback callee);\n")
+                bindings.write(self.native_meth_decl(f"Register{fn_suffix_pascal}Invoker", "int") + f"({fn_suffix_pascal}Callback callee);\n")
                 # Easiest way to get a static run is just define a variable, even if we dont care
-                bindings.write(f"\tstatic int _run_{fn_suffix}_registration = Register{snake_to_pascal(fn_suffix)}Invoker({fn_suffix}CallbackInst);")
+                bindings.write(f"\tstatic int _run_{fn_suffix}_registration = Register{fn_suffix_pascal}Invoker({fn_suffix_pascal}CallbackInst);")
 
             bindings.write("""
 }
